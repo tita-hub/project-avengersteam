@@ -1,48 +1,283 @@
-@extends('layouts.app')
-@section('content')
-<div class="page-header">
-    <h1>Dashboard</h1>
-</div>
+<!DOCTYPE html>
+<html lang="id">
 
-<section class="welcome-card">
-    <div class="office-image"><div class="building-placeholder">RIFAN<br><small>FINANCINDO</small></div></div>
-    <div class="welcome-copy">
-        <h2>Selamat Datang di Rifan<br>Financindo Berjangka Semarang</h2>
-        <p>PT Rifan Financindo Berjangka Semarang merupakan salah satu kantor operasional PT Rifan Financindo Berjangka yang bergerak di bidang Perdagangan Berjangka Komoditi. Perusahaan berfokus pada pelayanan dan edukasi kepada masyarakat mengenai perdagangan komoditas dan pasar derivatif di Indonesia.</p>
-        <p>Dalam menjalankan kegiatan operasionalnya, PT Rifan Financindo Berjangka Semarang didukung oleh teknologi informasi dan sumber daya manusia yang profesional serta berada dalam pengawasan Badan Pengawas Perdagangan Berjangka Komoditi (BAPPEBTI), dengan kegiatan perdagangan yang terhubung dengan PT Bursa Berjangka Jakarta (BBJ) dan PT Kliring Berjangka Indonesia (KBI).</p>
-    </div>
-</section>
+<head>
 
-<section class="news-section">
-    <div class="section-heading">
-        <h2>Berita Terbaru</h2>
-        <div class="heading-actions">
-            <form method="POST" action="{{ route('news.sync') }}">
-                @csrf
-                <button class="sync-btn" type="submit">↻ Perbarui</button>
-            </form>
-            <a href="{{ route('news.index') }}" class="see-all">Lihat Semua Berita →</a>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | PT Rifan Financindo</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/style.css') }}"
+    >
+
+</head>
+
+<body class="dashboard-body">
+
+    <header class="dashboard-navbar">
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-brand-text">
+                PT RIFAN
+                <span>FINANCINDO</span>
+            </div>
+
         </div>
-    </div>
 
-    <div class="news-grid dashboard-news-grid">
-        @forelse($news->take(3) as $item)
-            <article class="news-card">
-                @if($item->image_url)
-                    <img src="{{ $item->image_url }}" alt="{{ $item->title }}">
-                @else
-                    <div class="news-image-placeholder">{{ $item->category }}</div>
-                @endif
-                <div class="news-card-body">
-                    <div class="news-meta">{{ optional($item->published_at)->translatedFormat('d F Y • H:i') ?? '-' }}</div>
-                    <h3>{{ $item->title }}</h3>
-                    <p>{{ $item->excerpt }}</p>
-                    <a class="read-btn" href="{{ route('news.show', $item) }}">⌕ Baca Selengkapnya</a>
+
+        <div class="dashboard-user">
+
+            <div class="user-info">
+
+                <strong>
+                    {{ $user->nama }}
+                </strong>
+
+                <span>
+                    @{{ $user->username }}
+                </span>
+
+            </div>
+
+
+            <div class="user-avatar">
+
+                {{ \Illuminate\Support\Str::upper(\Illuminate\Support\Str::substr($user->nama, 0, 1)) }}
+
+            </div>
+
+
+            <form
+                action="{{ route('logout') }}"
+                method="POST"
+            >
+
+                @csrf
+
+                <button
+                    type="submit"
+                    class="logout-button"
+                    title="Logout"
+                >
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard-main">
+
+        <section class="welcome-section">
+
+            <div>
+
+                <p class="dashboard-label">
+                    DASHBOARD
+                </p>
+
+                <h1>
+                    Selamat datang, {{ $user->nama }}.
+                </h1>
+
+                <p>
+                    Anda berhasil masuk ke sistem PT Rifan Financindo.
+                </p>
+
+            </div>
+
+            <div class="role-badge">
+
+                <i class="bi bi-shield-check"></i>
+
+                {{ ucfirst($user->role) }}
+
+            </div>
+
+        </section>
+
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-people"></i>
                 </div>
-            </article>
-        @empty
-            <div class="empty-state">Belum ada berita. Jalankan <code>php artisan news:sync</code>.</div>
-        @endforelse
-    </div>
-</section>
-@endsection
+
+                <div>
+
+                    <span>
+                        Total User
+                    </span>
+
+                    <strong>
+                        128
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        Aktivitas
+                    </span>
+
+                    <strong>
+                        86%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Overview
+                    </h2>
+
+                    <p>
+                        Ringkasan sistem dashboard.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-bar-chart-line"></i>
+
+            </div>
+
+
+            <div class="overview-content">
+
+                <div class="overview-line">
+
+                    <span>
+                        User ID
+                    </span>
+
+                    <strong>
+                        #{{ $user->id }}
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-line">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <strong>
+                        {{ $user->username }}
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-line">
+
+                    <span>
+                        Role
+                    </span>
+
+                    <strong>
+                        {{ ucfirst($user->role) }}
+                    </strong>
+
+                </div>
+
+
+                <div class="overview-line">
+
+                    <span>
+                        Session
+                    </span>
+
+                    <strong class="status-active">
+                        <span></span>
+                        Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

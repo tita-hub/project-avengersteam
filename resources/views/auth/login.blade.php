@@ -1,37 +1,220 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - AvengersTeam</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | PT Rifan Financindo</title>
+
+    <meta
+        name="description"
+        content="Halaman login PT Rifan Financindo"
+    >
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/style.css') }}"
+    >
+
 </head>
-<body class="login-body">
-    <div class="login-page-title">Login</div>
-    <div class="login-card">
-        <div class="login-brand">AVENGERSTEAM<sup>®</sup></div>
 
-        @if($errors->any())
-            <div class="login-error">{{ $errors->first() }}</div>
-        @endif
+<body>
 
-        <form method="POST" action="{{ route('login.submit') }}">
-            @csrf
-            <input class="login-input" type="email" name="email" value="{{ old('email') }}" placeholder="Username" autocomplete="username" required>
-            <div class="password-wrap">
-                <input id="password" class="login-input" type="password" name="password" placeholder="Password" autocomplete="current-password" required>
-                <button type="button" class="eye-btn" onclick="togglePassword()" aria-label="Tampilkan password">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.7"/></svg>
-                </button>
-            </div>
-            <button class="signin-btn" type="submit">Sign In</button>
-        </form>
+    <!-- Background Decoration -->
+
+    <div class="background-decoration">
+
+        <div class="gradient-orb orb-one"></div>
+        <div class="gradient-orb orb-two"></div>
+        <div class="gradient-orb orb-three"></div>
+
+        <div class="grid-overlay"></div>
+
+        <div class="particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="finance-line line-one"></div>
+        <div class="finance-line line-two"></div>
+
     </div>
-<script>
-function togglePassword() {
-    const input = document.getElementById('password');
-    input.type = input.type === 'password' ? 'text' : 'password';
-}
-</script>
+
+
+    <!-- Login Page -->
+
+    <main class="login-page">
+
+        <div class="login-container">
+
+            <!-- Login Box -->
+
+            <section class="login-card">
+
+                <div class="login-content">
+
+                    <!-- Logo -->
+
+                    <div class="brand">
+
+                        <img
+                            src="{{ asset('images/logo.png') }}"
+                            alt="PT Rifan Financindo"
+                            class="brand-logo"
+                            onerror="this.style.display='none'; document.querySelector('.brand-fallback').style.display='block';"
+                        >
+
+                        <div class="brand-fallback">
+                            <span>PT RIFAN</span>
+                            <small>FINANCINDO</small>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Error Message -->
+
+                    <div
+                        id="loginAlert"
+                        class="login-alert"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- Login Form -->
+
+                    <form
+                        id="loginForm"
+                        action="{{ route('login.attempt') }}"
+                        method="POST"
+                        autocomplete="off"
+                    >
+
+                        @csrf
+
+                        <!-- Username -->
+
+                        <div class="input-group">
+
+                            <i class="bi bi-person input-icon"></i>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Username"
+                                maxlength="50"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Password -->
+
+                        <div class="input-group password-group">
+
+                            <i class="bi bi-lock input-icon"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Password"
+                                maxlength="100"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="password-toggle"
+                                aria-label="Tampilkan password"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </button>
+
+                        </div>
+
+
+                        <!-- Submit -->
+
+                        <button
+                            type="submit"
+                            id="loginButton"
+                            class="login-button"
+                        >
+
+                            <span class="button-text">
+                                Sign In
+                            </span>
+
+                            <span class="button-loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script
+        src="{{ asset('js/script.js') }}"
+    ></script>
+
 </body>
 </html>

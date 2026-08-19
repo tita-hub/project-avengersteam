@@ -187,13 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData =
                     new FormData(loginForm);
 
+                // formData sudah otomatis membawa field "_token" dari @csrf di blade,
+                // jadi tidak perlu header CSRF terpisah.
 
                 const response =
-                    await fetch('login.php', {
+                    await fetch(loginForm.action, {
                         method: 'POST',
                         body: formData,
                         headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json'
                         }
                     });
 
@@ -219,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
 
                         window.location.href =
-                            result.redirect || 'dashboard.php';
+                            result.redirect || '/dashboard';
 
                     }, 500);
 
