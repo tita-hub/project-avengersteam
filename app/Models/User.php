@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
-    /**
-     * Kolom yang boleh diisi lewat mass assignment.
-     */
+    // Ganti field login default dari 'email' menjadi 'username'
+    public function getAuthIdentifierName()
+    {
+        return 'username';
+    }
+
     protected $fillable = [
         'username',
         'password',
@@ -19,23 +23,8 @@ class User extends Authenticatable
         'role',
     ];
 
-    /**
-     * Kolom yang disembunyikan saat model di-serialize (mis. ke JSON).
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
-    /**
-     * Casting otomatis.
-     * 'hashed' membuat Laravel otomatis meng-hash value password
-     * setiap kali di-set lewat create()/update() atau $user->password = '...'.
-     */
-    protected function casts(): array
-    {
-        return [
-            'password' => 'hashed',
-        ];
-    }
 }

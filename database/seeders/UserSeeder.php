@@ -2,26 +2,29 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * PENTING: hash password di database.sql lama tidak bisa dipakai lagi
-     * di sini karena plaintext aslinya tidak diketahui (hash bcrypt tidak
-     * bisa "dibalik"). Ganti 'ganti_password_ini' dengan password admin
-     * yang baru sebelum dipakai di server sungguhan.
-     */
     public function run(): void
     {
-        User::updateOrCreate(
-            ['username' => 'admin'],
+        DB::table('users')->insert([
             [
-                'password' => 'admin123', // otomatis di-hash oleh cast 'hashed' di Model User
-                'nama'     => 'Administrator',
-                'role'     => 'admin',
-            ]
-        );
+                'username'   => 'admin',
+                'password'   => Hash::make('password'),
+                'nama'       => 'Administrator',
+                'role'       => 'admin',
+                'created_at' => now(),
+            ],
+            [
+                'username'   => 'user',
+                'password'   => Hash::make('password'),
+                'nama'       => 'Staff User',
+                'role'       => 'user',
+                'created_at' => now(),
+            ],
+        ]);
     }
 }

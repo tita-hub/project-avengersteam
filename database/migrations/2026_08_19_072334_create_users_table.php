@@ -10,12 +10,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username', 50)->unique();
+            $table->string('username')->unique();
             $table->string('password');
-            $table->string('nama', 100);
-            $table->string('role', 30)->default('user');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('nama');
+            $table->enum('role', ['admin', 'user'])->default('user');
+            $table->timestamps(); // otomatis created_at & updated_at
         });
     }
 

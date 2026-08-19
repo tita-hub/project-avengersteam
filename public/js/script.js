@@ -1,282 +1,115 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
 
-    const loginForm = document.getElementById('loginForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
+    const form = document.getElementById('loginForm');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const toggleBtn = document.getElementById('togglePassword');
+    const loginBtn = document.getElementById('loginButton');
+    const alertBox = document.getElementById('loginAlert');
 
-    const togglePassword = document.getElementById('togglePassword');
+    // --- Toggle Password ---
+    toggleBtn.addEventListener('click', function() {
+        const type = password.type === 'password' ? 'text' : 'password';
+        password.type = type;
+        const icon = this.querySelector('i');
+        icon.className = type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash';
+        this.setAttribute('aria-label', type === 'password' ? 'Tampilkan password' : 'Sembunyikan password');
+    });
 
-    const loginButton = document.getElementById('loginButton');
+    // --- Hide error on input ---
+    username.addEventListener('input', hideError);
+    password.addEventListener('input', hideError);
 
-    const loginAlert = document.getElementById('loginAlert');
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Show / Hide Password
-    |--------------------------------------------------------------------------
-    */
-
-    if (togglePassword) {
-
-        togglePassword.addEventListener('click', () => {
-
-            const isPassword =
-                passwordInput.type === 'password';
-
-            passwordInput.type =
-                isPassword ? 'text' : 'password';
-
-
-            const icon =
-                togglePassword.querySelector('i');
-
-            if (isPassword) {
-
-                icon.classList.remove('bi-eye');
-
-                icon.classList.add('bi-eye-slash');
-
-                togglePassword.setAttribute(
-                    'aria-label',
-                    'Sembunyikan password'
-                );
-
-            } else {
-
-                icon.classList.remove('bi-eye-slash');
-
-                icon.classList.add('bi-eye');
-
-                togglePassword.setAttribute(
-                    'aria-label',
-                    'Tampilkan password'
-                );
-            }
-
-        });
+    function hideError() {
+        alertBox.classList.remove('show');
+        username.classList.remove('error');
+        password.classList.remove('error');
+        alertBox.innerHTML = '';
     }
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | Clear Alert
-    |--------------------------------------------------------------------------
-    */
-
-    function clearAlert() {
-
-        loginAlert.classList.remove(
-            'show',
-            'success',
-            'error'
-        );
-
-        loginAlert.textContent = '';
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Show Alert
-    |--------------------------------------------------------------------------
-    */
-
-    function showAlert(message, type = 'error') {
-
-        loginAlert.textContent = message;
-
-        loginAlert.classList.remove(
-            'success',
-            'error'
-        );
-
-        loginAlert.classList.add(
-            'show',
-            type
-        );
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Set Loading State
-    |--------------------------------------------------------------------------
-    */
-
-    function setLoading(loading) {
-
-        if (loading) {
-
-            loginButton.classList.add('loading');
-
-            loginButton.disabled = true;
-
-        } else {
-
-            loginButton.classList.remove('loading');
-
-            loginButton.disabled = false;
-        }
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Login Submit
-    |--------------------------------------------------------------------------
-    */
-
-    if (loginForm) {
-
-        loginForm.addEventListener('submit', async (event) => {
-
-            event.preventDefault();
-
-            clearAlert();
-
-
-            const username =
-                usernameInput.value.trim();
-
-            const password =
-                passwordInput.value;
-
-
-            /*
-            |--------------------------------------------------------------------------
-            | Client Validation
-            |--------------------------------------------------------------------------
-            */
-
-            if (!username) {
-
-                showAlert(
-                    'Username wajib diisi.'
-                );
-
-                usernameInput.focus();
-
-                return;
-            }
-
-
-            if (!password) {
-
-                showAlert(
-                    'Password wajib diisi.'
-                );
-
-                passwordInput.focus();
-
-                return;
-            }
-
-
-            /*
-            |--------------------------------------------------------------------------
-            | Loading
-            |--------------------------------------------------------------------------
-            */
-
-            setLoading(true);
-
-
-            try {
-
-                const formData =
-                    new FormData(loginForm);
-
-                // formData sudah otomatis membawa field "_token" dari @csrf di blade,
-                // jadi tidak perlu header CSRF terpisah.
-
-                const response =
-                    await fetch(loginForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'Accept': 'application/json'
-                        }
-                    });
-
-
-                const result =
-                    await response.json();
-
-
-                if (result.success) {
-
-                    showAlert(
-                        result.message || 'Login berhasil.',
-                        'success'
-                    );
-
-
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Redirect
-                    |--------------------------------------------------------------------------
-                    */
-
-                    setTimeout(() => {
-
-                        window.location.href =
-                            result.redirect || '/dashboard';
-
-                    }, 500);
-
-
-                } else {
-
-                    showAlert(
-                        result.message ||
-                        'Username atau password salah.'
-                    );
-
-                    setLoading(false);
-
-                    passwordInput.value = '';
-
-                    passwordInput.focus();
-                }
-
-
-            } catch (error) {
-
-                console.error(error);
-
-                showAlert(
-                    'Tidak dapat terhubung ke server. Silakan coba lagi.'
-                );
-
-                setLoading(false);
-            }
-
-        });
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Remove Error When User Starts Typing
-    |--------------------------------------------------------------------------
-    */
-
-    [usernameInput, passwordInput].forEach(input => {
-
-        if (!input) {
+    // --- Submit form via AJAX ---
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        hideError();
+
+        const user = username.value.trim();
+        const pass = password.value.trim();
+
+        if (user === '') {
+            showError('Username tidak boleh kosong.');
+            username.classList.add('error');
+            username.focus();
             return;
         }
 
-        input.addEventListener('input', () => {
+        if (pass === '') {
+            showError('Password tidak boleh kosong.');
+            password.classList.add('error');
+            password.focus();
+            return;
+        }
 
-            if (loginAlert.classList.contains('show')) {
-                clearAlert();
+        // --- Loading state ---
+        loginBtn.classList.add('loading');
+        loginBtn.disabled = true;
+
+        // Ambil CSRF token
+        const csrf = document.querySelector('input[name="csrf_token"]').value;
+
+        // Kirim data
+        const formData = new FormData();
+        formData.append('username', user);
+        formData.append('password', pass);
+        formData.append('csrf_token', csrf);
+        formData.append('action', 'login');
+
+        fetch(window.location.href, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            loginBtn.classList.remove('loading');
+            loginBtn.disabled = false;
+
+            if (data.success) {
+                window.location.href = 'dashboard.php';
+            } else {
+                showError(data.message || 'Username atau password salah.');
+                username.classList.add('error');
+                password.classList.add('error');
             }
-
+        })
+        .catch(error => {
+            loginBtn.classList.remove('loading');
+            loginBtn.disabled = false;
+            console.error('Error:', error);
+            showError('Terjadi kesalahan sistem. Silakan coba lagi.');
         });
+    });
 
+    // --- Helper show error ---
+    function showError(msg) {
+        alertBox.innerHTML = `<i class="bi bi-exclamation-circle"></i> ${msg}`;
+        alertBox.classList.add('show');
+        // Re-trigger animation
+        alertBox.style.animation = 'none';
+        void alertBox.offsetHeight;
+        alertBox.style.animation = 'shakeError 0.45s ease';
+    }
+
+    // --- Auto focus ---
+    if (username.value === '') {
+        username.focus();
+    }
+
+    // --- Enter key pada password langsung submit ---
+    password.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            form.dispatchEvent(new Event('submit'));
+        }
     });
 
 });
