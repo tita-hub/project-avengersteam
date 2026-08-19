@@ -1,25 +1,20 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PembukaanRekeningController;
-use App\Http\Controllers\DashboardDemoController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes — RFB Semarang Avengers
-|--------------------------------------------------------------------------
-| Tahap ini baru mencakup: halaman awal, form pembukaan rekening,
-| dan demo dashboard (Konsultan / Nasabah). Section lain (Tentang Kami,
-| Produk, Prosedur, Edukasi) menyusul di tahap berikutnya.
-*/
+Route::get('/', fn () => redirect()->route('login'));
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::middleware('guest')->group(function () {
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+});
 
-Route::get('/pembukaan-rekening', [PembukaanRekeningController::class, 'create'])
-    ->name('pembukaan-rekening.create');
-Route::post('/pembukaan-rekening', [PembukaanRekeningController::class, 'store'])
-    ->name('pembukaan-rekening.store');
-
-Route::get('/dashboard/demo', [DashboardDemoController::class, 'index'])
-    ->name('dashboard.demo');
+Route::middleware('auth')->group(function () {
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/berita', [DashboardController::class, 'newsIndex'])->name('news.index');
+Route::get('/berita/{news}', [DashboardController::class, 'newsShow'])->name('news.show');
+Route::post('/berita/sync', [DashboardController::class, 'sync'])->name('news.sync');
+});
