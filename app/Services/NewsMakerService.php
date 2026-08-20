@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\News;
+use GuzzleHttp\Psr7\Response as Psr7Response;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
@@ -42,19 +43,60 @@ class NewsmakerService
     }
 
     private function get(string $url): Response
-    {
-        return Http::timeout(20)
-            ->connectTimeout(10)
-            ->withHeaders([
-                'User-Agent' => 'Avengersteam News Dashboard/1.0',
-                'Accept-Language' => 'id-ID,id;q=0.9,en;q=0.8',
-            ])
-            ->get($url)
-            ->throw();
+{
+    $context = stream_context_create([
+        'http' => [
+            'method' => 'GET',
+            'timeout' => 60,
+            'ignore_errors' => true,
+            'header' => implode("\r\n", [
+                'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/151.0.0.0 Safari/537.36',
+                'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+                'Connection: close',
+            ]),
+        ],
+        'ssl' => [
+            'verify_peer' => true,
+            'verify_peer_name' => true,
+            'cafile' => 'C:\laragon\etc\ssl\cacert.pem',
+        ],
+    ]);
+
+    $body = @file_get_contents($url, false, $context);
+
+    if ($body === false) {
+        throw new \RuntimeException(
+            "Gagal mengambil halaman Newsmaker: {$url}"
+        );
     }
+
+    $statusCode = 200;
+
+    if (!empty($http_response_header[0])) {
+        if (preg_match('/\s(\d{3})\s/', $http_response_header[0], $matches)) {
+            $statusCode = (int) $matches[1];
+        }
+    }
+
+    $psrResponse = new Psr7Response(
+        $statusCode,
+        [
+            'Content-Type' => 'text/html; charset=UTF-8',
+        ],
+        $body
+    );
+
+    return new Response($psrResponse);
+}
 
     private function parseLatest(string $html, int $limit): array
     {
+        file_put_contents(
+        storage_path('app/newsmaker-debug.html'),
+        $html
+        );
+
         preg_match_all('/<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)<\/a>/is', $html, $matches, PREG_SET_ORDER);
         $items = [];
         $seen = [];
