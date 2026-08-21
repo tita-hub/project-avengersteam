@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TentangKamiController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])
     ->name('login.form');
@@ -25,4 +26,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/berita/{news}', [NewsController::class, 'show'])
         ->name('news.show');
 
+});
+
+Route::controller(TentangKamiController::class)->group(function () {
+    Route::get('/tentang-kami/profile-perusahaan', 'profilePerusahaan')
+        ->name('profile.perusahaan');
+
+    Route::get('/tentang-kami/team-profile', 'teamProfile')
+        ->name('team.profile');
+
+    Route::get('/tentang-kami/wakil-pialang', 'wakilPialang')
+        ->name('wakil.pialang');
 });
