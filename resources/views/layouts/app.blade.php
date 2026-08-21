@@ -51,7 +51,7 @@
                 class="brand"
             >
                 <img
-                    src="{{ asset('images/logo-pt-rifan.png') }}"
+                    src="{{ asset('images/11.png') }}"
                     alt="Avengersteam"
                 >
             </a>
