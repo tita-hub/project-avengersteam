@@ -222,9 +222,12 @@
                 </script>
 <!-- ===== END TENTANG KAMI ===== -->
 
-                <a href="#" class="nav-item">
-                    Produk
-                </a>
+            <a
+                href="{{ route('produk.index') }}"
+                class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}"
+                >
+                Produk
+            </a>
 
                 <a href="#" class="nav-item">
                     Prosedur

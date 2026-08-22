@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TentangKamiController;
+use App\Http\Controllers\ProdukController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])
     ->name('login.form');
@@ -37,4 +38,8 @@ Route::controller(TentangKamiController::class)->group(function () {
 
     Route::get('/tentang-kami/wakil-pialang', 'wakilPialang')
         ->name('wakil.pialang');
+});
+
+Route::controller(ProdukController::class)->group(function () {
+    Route::get('/produk', 'index')->name('produk.index');
 });
