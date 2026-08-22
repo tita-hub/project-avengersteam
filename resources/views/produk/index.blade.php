@@ -4,694 +4,617 @@
 
 <style>
 
-    /* =========================================
-       HALAMAN PRODUK
-    ========================================= */
+/* =====================================================
+   HALAMAN PRODUK
+===================================================== */
+
+.produk-page {
+    padding: 35px 45px 60px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #f7f8fc;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.produk-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.produk-header h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.produk-header p {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   GRID PRODUK
+===================================================== */
+
+.produk-grid {
+    max-width: 1220px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+/* =====================================================
+   CARD PRODUK
+===================================================== */
+
+.produk-card {
+    background: #ffffff;
+
+    border: 1px solid #e9e9e9;
+    border-radius: 14px;
+
+    padding: 28px 25px 24px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.produk-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =====================================================
+   GAMBAR PRODUK
+===================================================== */
+
+.produk-image {
+    width: 125px;
+    height: 125px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f5f6f8;
+}
+
+.produk-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+}
+
+
+/* =====================================================
+   KATEGORI
+===================================================== */
+
+.produk-category {
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    margin-bottom: 7px;
+}
+
+.gold-category {
+    color: #c99618;
+}
+
+.nikkei-category {
+    color: #37864d;
+}
+
+.forex-category {
+    color: #2466c7;
+}
+
+
+/* =====================================================
+   JUDUL PRODUK
+===================================================== */
+
+.produk-title {
+    margin: 0;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    color: #111111;
+}
+
+.produk-star {
+    font-size: 22px;
+}
+
+.gold-star {
+    color: #c99618;
+}
+
+.nikkei-star {
+    color: #37864d;
+}
+
+.forex-star {
+    color: #2466c7;
+}
+
+
+/* =====================================================
+   GARIS BAWAH JUDUL
+===================================================== */
+
+.produk-line {
+    width: 45px;
+    height: 3px;
+
+    margin: 12px auto 14px;
+
+    border-radius: 5px;
+}
+
+.gold-line {
+    background: #c99618;
+}
+
+.nikkei-line {
+    background: #37864d;
+}
+
+.forex-line {
+    background: #2466c7;
+}
+
+
+/* =====================================================
+   DESKRIPSI
+===================================================== */
+
+.produk-description {
+    min-height: 55px;
+
+    margin: 0 auto 25px;
+
+    max-width: 300px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #666666;
+}
+
+
+/* =====================================================
+   TOMBOL LIHAT DETAIL
+===================================================== */
+
+.btn-detail {
+    width: 155px;
+
+    padding: 12px 18px;
+
+    background: #ffffff;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all 0.2s ease;
+}
+
+.btn-detail span {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.btn-gold {
+    color: #c99618;
+    border: 1px solid #c99618;
+}
+
+.btn-gold:hover {
+    background: #c99618;
+    color: white;
+}
+
+.btn-nikkei {
+    color: #37864d;
+    border: 1px solid #37864d;
+}
+
+.btn-nikkei:hover {
+    background: #37864d;
+    color: white;
+}
+
+.btn-forex {
+    color: #2466c7;
+    border: 1px solid #2466c7;
+}
+
+.btn-forex:hover {
+    background: #2466c7;
+    color: white;
+}
+
+
+/* =====================================================
+   POPUP
+===================================================== */
+
+.produk-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.produk-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+
+/* =====================================================
+   BOX POPUP
+===================================================== */
+
+.produk-modal-box {
+    width: min(950px, 95vw);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.20);
+
+    position: relative;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HEADER POPUP
+===================================================== */
+
+.modal-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #111827;
+}
+
+.modal-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #222;
+
+    border-radius: 50%;
+
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: #f1f1f1;
+}
+
+
+/* =====================================================
+   ISI POPUP
+===================================================== */
+
+.modal-content {
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   BAGIAN KIRI POPUP
+===================================================== */
+
+.modal-left {
+    border-right: 1px solid #eeeeee;
+
+    padding-right: 25px;
+}
+
+.modal-product-image {
+    width: 200px;
+    height: 200px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #f5f6f8;
+}
+
+.modal-product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+}
+
+.modal-product-title {
+    margin: 0;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    color: #111;
+}
+
+.modal-product-category {
+    margin-top: 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.modal-product-description {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color: #444;
+}
+
+
+/* =====================================================
+   BAGIAN KANAN POPUP
+===================================================== */
+
+.modal-right h3 {
+    margin: 0 0 14px;
+
+    font-size: 19px;
+
+    color: #111;
+}
+
+.info-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.info-table tr {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.info-table td {
+    padding: 11px 8px;
+
+    font-size: 14px;
+
+    vertical-align: top;
+}
+
+.info-table td:first-child {
+    width: 42%;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+.info-table td:last-child {
+    color: #555;
+}
+
+
+/* =====================================================
+   CATATAN RISIKO
+===================================================== */
+
+.risk-box {
+    margin-top: 20px;
+
+    padding: 15px 17px;
+
+    border-radius: 10px;
+
+    background: #fff8e8;
+
+    border: 1px solid #f1dfb5;
+}
+
+.risk-title {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #9b6c0a;
+}
+
+.risk-text {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   FOOTER POPUP
+===================================================== */
+
+.modal-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 25px;
+}
+
+.btn-tutup {
+    min-width: 110px;
+
+    padding: 11px 22px;
+
+    background: white;
+
+    border: 1px solid #999;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-tutup:hover {
+    background: #eeeeee;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .produk-grid {
+        grid-template-columns: 1fr;
+    }
 
     .produk-page {
-        min-height: 100%;
-        padding: 25px 35px 45px;
-        background: #f8f9fc;
-        box-sizing: border-box;
+        padding: 30px 20px;
     }
 
-
-    /* =========================================
-       HEADER
-    ========================================= */
-
-    .produk-header {
-        text-align: center;
-        margin-bottom: 30px;
+    .modal-content {
+        grid-template-columns: 1fr;
     }
 
-    .produk-header h1 {
-        margin: 0;
-
-        font-size: 34px;
-        font-weight: 800;
-
-        color: #111827;
-    }
-
-    .produk-header p {
-        margin: 7px 0 0;
-
-        font-size: 13px;
-        line-height: 1.6;
-
-        color: #6b7280;
-    }
-
-
-    /* =========================================
-       CONTAINER CARD
-    ========================================= */
-
-    .produk-container {
-        width: 100%;
-        max-width: 1100px;
-
-        margin: 0 auto;
-
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 18px;
-    }
-
-
-    /* =========================================
-       CARD PRODUK
-    ========================================= */
-
-    .produk-card {
-        background: white;
-
-        border: 1px solid #eeeeee;
-
-        border-radius: 10px;
-
-        padding: 22px 25px 20px;
-
-        text-align: center;
-
-        box-shadow:
-            0 5px 18px rgba(0, 0, 0, 0.06);
-
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .produk-card:hover {
-        transform: translateY(-5px);
-
-        box-shadow:
-            0 12px 28px rgba(0, 0, 0, 0.10);
-    }
-
-
-    /* =========================================
-       GAMBAR PRODUK
-    ========================================= */
-
-    .produk-image {
-        width: 115px;
-        height: 115px;
-
-        margin: 0 auto 12px;
-
-        border-radius: 50%;
-
-        background: #fafafa;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .produk-image img {
-        width: 90px;
-        height: 90px;
-
-        object-fit: contain;
-    }
-
-
-    /* =========================================
-       KATEGORI
-    ========================================= */
-
-    .produk-category {
-        margin-bottom: 5px;
-
-        font-size: 10px;
-        font-weight: 700;
-    }
-
-    .gold {
-        color: #c79a20;
-    }
-
-    .green {
-        color: #36834d;
-    }
-
-    .blue {
-        color: #2764b8;
-    }
-
-
-    /* =========================================
-       NAMA PRODUK
-    ========================================= */
-
-    .produk-card h2 {
-        margin: 0;
-
-        font-size: 21px;
-        font-weight: 800;
-
-        color: #111;
-    }
-
-    .produk-star {
-        font-size: 18px;
-        margin-left: 3px;
-    }
-
-
-    /* =========================================
-       GARIS
-    ========================================= */
-
-    .produk-line {
-        width: 35px;
-        height: 2px;
-
-        margin: 7px auto 10px;
-
-        border-radius: 10px;
-    }
-
-    .gold-line {
-        background: #c79a20;
-    }
-
-    .green-line {
-        background: #36834d;
-    }
-
-    .blue-line {
-        background: #2764b8;
-    }
-
-
-    /* =========================================
-       DESKRIPSI
-    ========================================= */
-
-    .produk-description {
-        min-height: 42px;
-
-        max-width: 230px;
-
-        margin: 0 auto 17px;
-
-        font-size: 11px;
-        line-height: 1.5;
-
-        color: #6b7280;
-    }
-
-
-    /* =========================================
-       BUTTON DETAIL
-    ========================================= */
-
-    .produk-button {
-        display: inline-flex;
-
-        align-items: center;
-        justify-content: center;
-
-        gap: 25px;
-
-        min-width: 120px;
-
-        padding: 8px 13px;
-
-        border-radius: 5px;
-
-        background: white;
-
-        font-family: inherit;
-
-        font-size: 11px;
-        font-weight: 700;
-
-        cursor: pointer;
-
-        transition:
-            background 0.2s ease,
-            color 0.2s ease;
-    }
-
-    .produk-button span {
-        font-size: 18px;
-        line-height: 1;
-    }
-
-
-    /* GOLD */
-
-    .gold-button {
-        color: #c79a20;
-
-        border: 1px solid #c79a20;
-    }
-
-    .gold-button:hover {
-        background: #c79a20;
-        color: white;
-    }
-
-
-    /* GREEN */
-
-    .green-button {
-        color: #36834d;
-
-        border: 1px solid #36834d;
-    }
-
-    .green-button:hover {
-        background: #36834d;
-        color: white;
-    }
-
-
-    /* BLUE */
-
-    .blue-button {
-        color: #2764b8;
-
-        border: 1px solid #2764b8;
-    }
-
-    .blue-button:hover {
-        background: #2764b8;
-        color: white;
-    }
-
-
-
-    /* =========================================
-       MODAL / POPUP
-    ========================================= */
-
-    .product-modal {
-        display: none;
-
-        position: fixed;
-
-        inset: 0;
-
-        z-index: 99999;
-
-        background: rgba(0, 0, 0, 0.35);
-
-        align-items: center;
-        justify-content: center;
-
-        padding: 20px;
-
-        box-sizing: border-box;
-    }
-
-
-    .product-modal.show {
-        display: flex;
-    }
-
-
-    /* =========================================
-       KOTAK MODAL
-    ========================================= */
-
-    .product-modal-box {
-        position: relative;
-
-        width: 100%;
-        max-width: 1050px;
-
-        max-height: 90vh;
-
-        overflow-y: auto;
-
-        background: white;
-
-        border-radius: 12px;
-
-        box-shadow:
-            0 20px 60px rgba(0, 0, 0, 0.20);
-
-        padding: 25px;
-
-        box-sizing: border-box;
-
-        animation: modalMasuk 0.25s ease;
-    }
-
-
-    @keyframes modalMasuk {
-
-        from {
-            opacity: 0;
-            transform: translateY(15px) scale(0.98);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-    }
-
-
-    /* =========================================
-       TOMBOL X
-    ========================================= */
-
-    .product-modal-close {
-        position: absolute;
-
-        top: 10px;
-        right: 17px;
-
-        border: none;
-
-        background: transparent;
-
-        color: #111;
-
-        font-size: 30px;
-
-        font-weight: 300;
-
-        line-height: 1;
-
-        cursor: pointer;
-
-        transition: transform 0.2s ease;
-    }
-
-    .product-modal-close:hover {
-        transform: scale(1.15);
-    }
-
-
-    /* =========================================
-       ISI MODAL
-    ========================================= */
-
-    .product-modal-content {
-        display: grid;
-
-        grid-template-columns: 260px 1px 1fr;
-
-        gap: 25px;
-
-        align-items: stretch;
-    }
-
-
-    /* =========================================
-       BAGIAN KIRI
-    ========================================= */
-
-    .product-detail-left {
-        padding-top: 5px;
-    }
-
-
-    .product-detail-image {
-        width: 240px;
-        height: 240px;
-
-        margin-bottom: 18px;
-
-        border-radius: 12px;
-
-        background: #f8f8f8;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        overflow: hidden;
-    }
-
-
-    .product-detail-image img {
-        width: 90%;
-        height: 90%;
-
-        object-fit: contain;
-    }
-
-
-    .product-detail-badge {
-        display: inline-block;
-
-        padding: 6px 10px;
-
-        margin-bottom: 8px;
-
-        border-radius: 8px;
-
-        background: #fff5dc;
-
-        color: #b98200;
-
-        font-size: 11px;
-        font-weight: 700;
-    }
-
-
-    .product-detail-left h2 {
-        margin: 0;
-
-        font-size: 30px;
-
-        font-weight: 800;
-
-        color: #111;
-    }
-
-
-    .product-detail-category {
-        margin-top: 8px;
-        margin-bottom: 15px;
-
-        font-size: 14px;
-
-        font-weight: 700;
-    }
-
-
-    .product-detail-description {
-        margin: 0;
-
-        font-size: 13px;
-
-        line-height: 1.8;
-
-        color: #333;
-    }
-
-
-    /* =========================================
-       GARIS PEMISAH
-    ========================================= */
-
-    .product-detail-divider {
-        width: 1px;
-
-        background: #eeeeee;
-    }
-
-
-    /* =========================================
-       BAGIAN KANAN
-    ========================================= */
-
-    .product-detail-right h3 {
-        margin: 0 0 12px;
-
-        font-size: 20px;
-
-        font-weight: 800;
-
-        color: #111;
-    }
-
-
-    /* =========================================
-       TABEL INFORMASI
-    ========================================= */
-
-    .product-info-table {
-        width: 100%;
-    }
-
-
-    .product-info-row {
-        display: grid;
-
-        grid-template-columns: 175px 1fr;
-
-        gap: 15px;
-
-        padding: 9px 0;
+    .modal-left {
+        border-right: none;
 
         border-bottom: 1px solid #eeeeee;
 
-        font-size: 13px;
+        padding-right: 0;
 
-        line-height: 1.5;
+        padding-bottom: 25px;
     }
 
-
-    .product-info-row span {
-        color: #333;
+    .modal-product-image {
+        width: 180px;
+        height: 180px;
     }
 
-
-    .product-info-row strong {
-        color: #333;
-
-        font-weight: 600;
-    }
-
-
-    /* =========================================
-       CATATAN RISIKO
-    ========================================= */
-
-    .product-risk {
-        margin-top: 15px;
-
-        padding: 13px;
-
-        border-radius: 9px;
-
-        background: #fff8eb;
-
-        border: 1px solid #f2dfb7;
-
-        color: #76551c;
-    }
-
-
-    .product-risk strong {
-        font-size: 12px;
-    }
-
-
-    .product-risk p {
-        margin: 7px 0 0;
-
-        font-size: 11px;
-
-        line-height: 1.6;
-
-        color: #333;
-    }
-
-
-    /* =========================================
-       FOOTER MODAL
-    ========================================= */
-
-    .product-modal-footer {
-        display: flex;
-
-        justify-content: flex-end;
-
-        margin-top: 18px;
-    }
-
-
-    .modal-tutup-btn {
-        min-width: 105px;
-
-        padding: 9px 20px;
-
-        border: 1px solid #999;
-
-        border-radius: 6px;
-
-        background: white;
-
-        color: #222;
-
-        font-family: inherit;
-
-        font-size: 13px;
-
-        font-weight: 700;
-
-        cursor: pointer;
-
-        transition: all 0.2s ease;
-    }
-
-
-    .modal-tutup-btn:hover {
-        background: #f3f3f3;
-    }
-
-
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
-
-    @media (max-width: 850px) {
-
-        .produk-container {
-            grid-template-columns: 1fr;
-            max-width: 500px;
-        }
-
-        .product-modal-content {
-            grid-template-columns: 1fr;
-        }
-
-        .product-detail-divider {
-            display: none;
-        }
-
-        .product-detail-image {
-            width: 100%;
-            max-width: 240px;
-
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-    }
-
-
-    @media (max-width: 500px) {
-
-        .produk-page {
-            padding: 20px 15px;
-        }
-
-        .product-modal {
-            padding: 10px;
-        }
-
-        .product-modal-box {
-            padding: 18px;
-        }
-
-        .product-info-row {
-            grid-template-columns: 120px 1fr;
-            font-size: 11px;
-        }
-
-    }
+}
 
 </style>
 
 
-<!-- =========================================
+<!-- =====================================================
      HALAMAN PRODUK
-========================================= -->
+===================================================== -->
 
 <div class="produk-page">
 
@@ -711,16 +634,17 @@
     </div>
 
 
-    <!-- =====================================
-         CARD PRODUK
-    ====================================== -->
 
-    <div class="produk-container">
+    <!-- =================================================
+         GRID PRODUK
+    ================================================== -->
+
+    <div class="produk-grid">
 
 
-        <!-- ==========================
-             EMAS
-        =========================== -->
+        <!-- =================================================
+             PRODUK EMAS
+        ================================================== -->
 
         <div class="produk-card">
 
@@ -734,17 +658,19 @@
             </div>
 
 
-            <div class="produk-category gold">
+            <div class="produk-category gold-category">
                 KOMODITAS
             </div>
 
 
-            <h2>
+            <h2 class="produk-title">
+
                 Emas (Gold)
 
-                <span class="produk-star gold">
+                <span class="produk-star gold-star">
                     ★
                 </span>
+
             </h2>
 
 
@@ -752,27 +678,36 @@
 
 
             <p class="produk-description">
+
                 Investasi pada logam mulia yang menjadi
                 pilihan utama untuk lindung nilai.
+
             </p>
 
 
             <button
                 type="button"
-                class="produk-button gold-button"
-                onclick="openProductModal('emas')"
+                class="btn-detail btn-gold"
+                onclick="bukaProduk('emas')"
             >
-                Lihat Detail
-                <span>›</span>
+
+                <span style="font-size:14px;">
+                    Lihat Detail
+                </span>
+
+                <span>
+                    ›
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <!-- ==========================
-             NIKKEI
-        =========================== -->
+        <!-- =================================================
+             PRODUK NIKKEI
+        ================================================== -->
 
         <div class="produk-card">
 
@@ -786,45 +721,56 @@
             </div>
 
 
-            <div class="produk-category green">
+            <div class="produk-category nikkei-category">
                 INDEKS SAHAM
             </div>
 
 
-            <h2>
+            <h2 class="produk-title">
+
                 Nikkei 225
 
-                <span class="produk-star green">
+                <span class="produk-star nikkei-star">
                     ★
                 </span>
+
             </h2>
 
 
-            <div class="produk-line green-line"></div>
+            <div class="produk-line nikkei-line"></div>
 
 
             <p class="produk-description">
+
                 Indeks saham utama Jepang yang mencerminkan
                 pergerakan pasar saham Jepang.
+
             </p>
 
 
             <button
                 type="button"
-                class="produk-button green-button"
-                onclick="openProductModal('nikkei')"
+                class="btn-detail btn-nikkei"
+                onclick="bukaProduk('nikkei')"
             >
-                Lihat Detail
-                <span>›</span>
+
+                <span style="font-size:14px;">
+                    Lihat Detail
+                </span>
+
+                <span>
+                    ›
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <!-- ==========================
-             FOREX
-        =========================== -->
+        <!-- =================================================
+             PRODUK FOREX
+        ================================================== -->
 
         <div class="produk-card">
 
@@ -838,40 +784,50 @@
             </div>
 
 
-            <div class="produk-category blue">
+            <div class="produk-category forex-category">
                 FOREX
             </div>
 
 
-            <h2>
+            <h2 class="produk-title">
+
                 AUD/USD
 
-                <span class="produk-star blue">
+                <span class="produk-star forex-star">
                     ★
                 </span>
+
             </h2>
 
 
-            <div class="produk-line blue-line"></div>
+            <div class="produk-line forex-line"></div>
 
 
             <p class="produk-description">
+
                 Pasangan mata uang populer dengan
                 likuiditas tinggi.
+
             </p>
 
 
             <button
                 type="button"
-                class="produk-button blue-button"
-                onclick="openProductModal('forex')"
+                class="btn-detail btn-forex"
+                onclick="bukaProduk('forex')"
             >
-                Lihat Detail
-                <span>›</span>
+
+                <span style="font-size:14px;">
+                    Lihat Detail
+                </span>
+
+                <span>
+                    ›
+                </span>
+
             </button>
 
         </div>
-
 
     </div>
 
@@ -879,44 +835,55 @@
 
 
 
-<!-- =========================================
+<!-- =====================================================
      POPUP DETAIL PRODUK
-========================================= -->
+===================================================== -->
 
 <div
-    id="productModal"
-    class="product-modal"
+    id="produkModal"
+    class="produk-modal"
+    onclick="klikBackground(event)"
 >
 
 
-    <div class="product-modal-box">
+    <div class="produk-modal-box">
 
 
-        <!-- TOMBOL X -->
+        <!-- HEADER POPUP -->
 
-        <button
-            type="button"
-            class="product-modal-close"
-            onclick="closeProductModal()"
-        >
-            ×
-        </button>
+        <div class="modal-header">
+
+            <h2>
+                Detail Produk
+            </h2>
 
 
-        <div class="product-modal-content">
+            <button
+                type="button"
+                class="modal-close"
+                onclick="tutupProduk()"
+            >
+                ×
+            </button>
+
+        </div>
 
 
-            <!-- =================================
-                 KIRI
-            ================================== -->
 
-            <div class="product-detail-left">
+        <!-- ISI POPUP -->
+
+        <div class="modal-content">
 
 
-                <div class="product-detail-image">
+            <!-- BAGIAN KIRI -->
+
+            <div class="modal-left">
+
+
+                <div class="modal-product-image">
 
                     <img
-                        id="modalProductImage"
+                        id="modalImage"
                         src=""
                         alt="Produk"
                     >
@@ -924,165 +891,81 @@
                 </div>
 
 
-                <div class="product-detail-badge">
-
-                    ★ PRODUK UNGGULAN
-
-                </div>
-
-
-                <h2 id="modalProductName">
-                    Emas (Gold)
+                <h2
+                    id="modalTitle"
+                    class="modal-product-title"
+                >
                 </h2>
 
 
                 <div
-                    id="modalProductCategory"
-                    class="product-detail-category"
+                    id="modalCategory"
+                    class="modal-product-category"
                 >
-                    Komoditas
                 </div>
 
 
                 <p
-                    id="modalProductDescription"
-                    class="product-detail-description"
+                    id="modalDescription"
+                    class="modal-product-description"
                 >
-                    -
                 </p>
 
             </div>
 
 
-            <!-- GARIS -->
 
-            <div class="product-detail-divider"></div>
+            <!-- BAGIAN KANAN -->
 
-
-            <!-- =================================
-                 KANAN
-            ================================== -->
-
-            <div class="product-detail-right">
-
+            <div class="modal-right">
 
                 <h3>
                     Informasi Produk
                 </h3>
 
 
-                <div class="product-info-table">
+                <table class="info-table">
+
+                    <tbody id="modalInfo">
+                    </tbody>
+
+                </table>
 
 
-                    <div class="product-info-row">
-                        <span>Kode Produk</span>
-                        <strong id="modalKode">-</strong>
+                <div class="risk-box">
+
+                    <div class="risk-title">
+                        ⚠ CATATAN RISIKO
                     </div>
 
+                    <p class="risk-text">
 
-                    <div class="product-info-row">
-                        <span>Kategori</span>
-                        <strong id="modalJenis">-</strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Aset Dasar</span>
-                        <strong id="modalAset">-</strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Ukuran Kontrak</span>
-                        <strong id="modalKontrak">-</strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Satuan Harga</span>
-                        <strong id="modalHarga">-</strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Nilai Tick</span>
-                        <strong id="modalTick">-</strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Jam Perdagangan</span>
-                        <strong id="modalJam">-</strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Bursa</span>
-
-                        <strong>
-                            Bursa Berjangka Jakarta (BBJ)
-                        </strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Clearing House</span>
-
-                        <strong>
-                            Kliring Berjangka Indonesia (KBI)
-                        </strong>
-                    </div>
-
-
-                    <div class="product-info-row">
-                        <span>Pengawas</span>
-
-                        <strong>
-                            BAPPEBTI
-                        </strong>
-                    </div>
-
-
-                </div>
-
-
-                <!-- CATATAN RISIKO -->
-
-                <div class="product-risk">
-
-                    <strong>
-                        ⚠ &nbsp; CATATAN RISIKO
-                    </strong>
-
-
-                    <p>
                         Perdagangan berjangka memiliki risiko
                         dan dapat menyebabkan kerugian.
                         Pastikan memahami karakteristik dan
                         risiko produk sebelum melakukan transaksi.
+
                     </p>
 
                 </div>
 
-
-                <!-- =================================
-                     HANYA TOMBOL TUTUP
-                ================================== -->
-
-                <div class="product-modal-footer">
-
-                    <button
-                        type="button"
-                        class="modal-tutup-btn"
-                        onclick="closeProductModal()"
-                    >
-                        Tutup
-                    </button>
-
-                </div>
-
-
             </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn-tutup"
+                onclick="tutupProduk()"
+            >
+                Tutup
+            </button>
 
         </div>
 
@@ -1092,276 +975,307 @@
 
 
 
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
 <script>
 
-    /*
-    |--------------------------------------------------------------------------
-    | DATA PRODUK
-    |--------------------------------------------------------------------------
-    */
+/* =====================================================
+   DATA PRODUK
+===================================================== */
 
-    const productData = {
+const dataProduk = {
 
+    emas: {
 
-        // ==========================
-        // EMAS
-        // ==========================
+        title: 'Emas (Gold)',
 
-        emas: {
+        category: 'Komoditas',
 
-            image: "{{ asset('images/produk/emas.png') }}",
+        categoryColor: '#c99618',
 
-            name: "Emas (Gold)",
+        image: "{{ asset('images/produk/emas.png') }}",
 
-            category: "Komoditas",
+        description:
+            'Produk perdagangan berjangka dengan emas sebagai aset dasar yang dapat diperdagangkan melalui Bursa Berjangka Jakarta (BBJ).',
 
-            categoryClass: "gold",
+        info: [
 
-            description:
-                "Produk perdagangan berjangka dengan emas sebagai aset dasar yang dapat diperdagangkan melalui Bursa Berjangka Jakarta (BBJ).",
+            ['Kode Produk', 'GOL'],
 
-            kode: "GOL",
+            ['Jenis', 'Komoditas'],
 
-            jenis: "Komoditas",
+            ['Aset Dasar', 'Emas'],
 
-            aset: "Emas",
+            ['Ukuran Kontrak', '1 Kilogram'],
 
-            kontrak: "1 Kilogram",
+            ['Satuan Harga', 'USD per Troy Ounce'],
 
-            harga: "USD per Troy Ounce",
+            ['Nilai Tick', '0,01 USD'],
 
-            tick: "0,01 USD",
+            [
+                'Jam Perdagangan',
+                'Senin - Jumat<br>08:30 - 16:30 WIB'
+            ],
 
-            jam:
-                "Senin - Jumat<br>08:30 - 16:30 WIB"
+            [
+                'Bursa',
+                'Bursa Berjangka Jakarta (BBJ)'
+            ],
 
-        },
+            [
+                'Clearing House',
+                'Kliring Berjangka Indonesia (KBI)'
+            ],
 
+            [
+                'Pengawas',
+                'BAPPEBTI'
+            ]
 
-        // ==========================
-        // NIKKEI
-        // ==========================
+        ]
 
-        nikkei: {
+    },
 
-            image: "{{ asset('images/produk/nikkei.png') }}",
 
-            name: "Nikkei 225",
+    nikkei: {
 
-            category: "Indeks Saham",
+        title: 'Nikkei 225',
 
-            categoryClass: "green",
+        category: 'Indeks Saham',
 
-            description:
-                "Indeks saham utama Jepang yang mencerminkan pergerakan pasar saham di Bursa Efek Tokyo, terdiri dari 225 perusahaan terpilih dari berbagai sektor industri.",
+        categoryColor: '#37864d',
 
-            kode: "N225",
+        image: "{{ asset('images/produk/nikkei.png') }}",
 
-            jenis: "Indeks Saham",
+        description:
+            'Indeks saham utama Jepang yang mencerminkan pergerakan pasar saham di Bursa Efek Tokyo, terdiri dari 225 perusahaan terpilih dari berbagai sektor industri.',
 
-            aset: "Nikkei 225 Index",
+        info: [
 
-            kontrak: "JPY 500 x Indeks",
+            ['Kode Produk', 'N225'],
 
-            harga: "JPY",
+            ['Kategori', 'Indeks Saham'],
 
-            tick: "5 JPY",
+            ['Aset Dasar', 'Nikkei 225 Index'],
 
-            jam:
-                "Senin - Jumat<br>08:00 - 15:15 WIB"
+            ['Ukuran Kontrak', 'JPY 500 × Indeks'],
 
-        },
+            ['Satuan Harga', 'JPY'],
 
+            ['Nilai Tick', '5 JPY'],
 
-        // ==========================
-        // FOREX
-        // ==========================
+            [
+                'Jam Perdagangan',
+                'Senin - Jumat<br>08:00 - 15:15 WIB'
+            ],
 
-        forex: {
+            [
+                'Bursa',
+                'Bursa Berjangka Jakarta (BBJ)'
+            ],
 
-            image: "{{ asset('images/produk/forex.png') }}",
+            [
+                'Clearing House',
+                'Kliring Berjangka Indonesia (KBI)'
+            ],
 
-            name: "AUD/USD",
+            [
+                'Pengawas',
+                'BAPPEBTI'
+            ]
 
-            category: "Forex",
+        ]
 
-            categoryClass: "blue",
+    },
 
-            description:
-                "AUD/USD adalah pasangan mata uang yang terdiri dari Australian Dollar (AUD) sebagai mata uang dasar dan US Dollar (USD) sebagai mata uang kuotasi. Produk ini memiliki likuiditas tinggi dan banyak diperdagangkan di pasar global.",
 
-            kode: "AUDUSD",
+    forex: {
 
-            jenis: "Forex",
+        title: 'AUD/USD',
 
-            aset: "Australian Dollar / US Dollar",
+        category: 'Forex',
 
-            kontrak: "100.000 AUD",
+        categoryColor: '#2466c7',
 
-            harga: "USD",
+        image: "{{ asset('images/produk/forex.png') }}",
 
-            tick: "0,0001",
+        description:
+            'AUD/USD adalah pasangan mata uang yang terdiri dari Australian Dollar (AUD) sebagai mata uang dasar dan US Dollar (USD) sebagai mata uang kuotasi. Produk ini memiliki likuiditas tinggi dan banyak diperdagangkan di pasar global.',
 
-            jam:
-                "Senin - Jumat<br>00:00 - 23:55 WIB"
+        info: [
 
-        }
+            ['Kode Produk', 'AUDUSD'],
 
-    };
+            ['Kategori', 'Forex'],
 
+            [
+                'Aset Dasar',
+                'Australian Dollar / US Dollar'
+            ],
 
+            ['Ukuran Kontrak', '100.000 AUD'],
 
-    /*
-    |--------------------------------------------------------------------------
-    | BUKA MODAL
-    |--------------------------------------------------------------------------
-    */
+            ['Satuan Harga', 'USD'],
 
-    function openProductModal(product) {
+            ['Nilai Tick', '0,0001'],
 
-        const data = productData[product];
+            [
+                'Nilai Tick Value',
+                '10 USD per 1 Tick<br>(untuk 1 Lot)'
+            ],
 
+            [
+                'Jam Perdagangan',
+                'Senin - Jumat<br>00:00 - 23:55 WIB'
+            ],
 
-        if (!data) {
-            return;
-        }
+            [
+                'Bursa',
+                'Bursa Berjangka Jakarta (BBJ)'
+            ],
 
+            [
+                'Clearing House',
+                'Kliring Berjangka Indonesia (KBI)'
+            ],
 
-        document.getElementById('modalProductImage').src =
-            data.image;
+            [
+                'Pengawas',
+                'BAPPEBTI'
+            ]
 
-
-        document.getElementById('modalProductName').textContent =
-            data.name;
-
-
-        const category =
-            document.getElementById('modalProductCategory');
-
-        category.textContent =
-            data.category;
-
-
-        category.className =
-            'product-detail-category ' +
-            data.categoryClass;
-
-
-        document.getElementById('modalProductDescription').textContent =
-            data.description;
-
-
-        document.getElementById('modalKode').textContent =
-            data.kode;
-
-
-        document.getElementById('modalJenis').textContent =
-            data.jenis;
-
-
-        document.getElementById('modalAset').textContent =
-            data.aset;
-
-
-        document.getElementById('modalKontrak').textContent =
-            data.kontrak;
-
-
-        document.getElementById('modalHarga').textContent =
-            data.harga;
-
-
-        document.getElementById('modalTick').textContent =
-            data.tick;
-
-
-        document.getElementById('modalJam').innerHTML =
-            data.jam;
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | TAMPILKAN MODAL
-        |--------------------------------------------------------------------------
-        */
-
-        document
-            .getElementById('productModal')
-            .classList
-            .add('show');
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | KUNCI SCROLL HALAMAN BELAKANG
-        |--------------------------------------------------------------------------
-        */
-
-        document.body.style.overflow = 'hidden';
+        ]
 
     }
 
+};
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | TUTUP MODAL
-    |--------------------------------------------------------------------------
-    */
+/* =====================================================
+   BUKA POPUP
+===================================================== */
 
-    function closeProductModal() {
+function bukaProduk(namaProduk) {
 
-        document
-            .getElementById('productModal')
-            .classList
-            .remove('show');
+    const produk = dataProduk[namaProduk];
 
-
-        document.body.style.overflow = '';
-
+    if (!produk) {
+        return;
     }
 
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | KLIK AREA LUAR MODAL
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById('productModal')
-        .addEventListener('click', function (event) {
-
-            if (event.target === this) {
-
-                closeProductModal();
-
-            }
-
-        });
+    document.getElementById('modalImage').src =
+        produk.image;
 
 
+    document.getElementById('modalTitle').innerHTML =
+        produk.title;
 
-    /*
-    |--------------------------------------------------------------------------
-    | TOMBOL ESC
-    |--------------------------------------------------------------------------
-    */
 
-    document.addEventListener('keydown', function (event) {
+    document.getElementById('modalCategory').innerHTML =
+        produk.category;
 
-        if (event.key === 'Escape') {
 
-            closeProductModal();
+    document.getElementById('modalCategory').style.color =
+        produk.categoryColor;
 
-        }
+
+    document.getElementById('modalDescription').innerHTML =
+        produk.description;
+
+
+    let isiInfo = '';
+
+
+    produk.info.forEach(function(item) {
+
+        isiInfo += `
+            <tr>
+                <td>${item[0]}</td>
+                <td>${item[1]}</td>
+            </tr>
+        `;
 
     });
+
+
+    document.getElementById('modalInfo').innerHTML =
+        isiInfo;
+
+
+    const modal =
+        document.getElementById('produkModal');
+
+
+    modal.style.display = 'flex';
+
+
+    setTimeout(function() {
+
+        modal.classList.add('show');
+
+    }, 10);
+
+
+    document.body.style.overflow = 'hidden';
+
+}
+
+
+/* =====================================================
+   TUTUP POPUP
+===================================================== */
+
+function tutupProduk() {
+
+    const modal =
+        document.getElementById('produkModal');
+
+
+    modal.classList.remove('show');
+
+
+    setTimeout(function() {
+
+        modal.style.display = 'none';
+
+    }, 250);
+
+
+    document.body.style.overflow = '';
+
+}
+
+
+/* =====================================================
+   KLIK DI LUAR POPUP
+===================================================== */
+
+function klikBackground(event) {
+
+    if (
+        event.target ===
+        document.getElementById('produkModal')
+    ) {
+
+        tutupProduk();
+
+    }
+
+}
+
+
+/* =====================================================
+   TOMBOL ESC
+===================================================== */
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+
+        tutupProduk();
+
+    }
+
+});
 
 </script>
 

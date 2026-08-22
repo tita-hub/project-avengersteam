@@ -40,6 +40,7 @@ Route::controller(TentangKamiController::class)->group(function () {
         ->name('wakil.pialang');
 });
 
-Route::controller(ProdukController::class)->group(function () {
+    Route::controller(ProdukController::class)->group(function () {
+        
     Route::get('/produk', 'index')->name('produk.index');
 });
