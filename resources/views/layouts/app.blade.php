@@ -229,10 +229,186 @@
                 Produk
             </a>
 
-                <a href="#" class="nav-item">
-                    Prosedur
-                    <span>›</span>
-                </a>
+                <!-- ============================= -->
+<!-- PROSEDUR -->
+<!-- ============================= -->
+
+<div id="prosedurContainer" style="width: 100%;">
+
+    <!-- Tombol Prosedur -->
+    <button
+        type="button"
+        id="prosedurBtn"
+        style="
+            width: 100%;
+            border: none;
+            background: transparent;
+            color: black;
+            padding: 15px 16px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: inherit;
+            font-size: 12px;
+            cursor: pointer;
+            box-sizing: border-box;
+        "
+    >
+
+        <span>Prosedur</span>
+
+        <span
+            id="prosedurArrow"
+            style="
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: white;
+                color: #3b73d1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                line-height: 1;
+            "
+        >
+            ›
+        </span>
+
+    </button>
+
+
+    <!-- Dropdown -->
+    <div
+        id="submenuProsedur"
+        style="
+            display: none;
+            background: white;
+            border-radius: 16px;
+            margin-top: 2px;
+            padding: 12px 0;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        "
+    >
+
+        <!-- Pembukaan Rekening -->
+        <a
+            href="{{ route('prosedur.pembukaan') }}"
+            style="
+                display: block;
+                padding: 14px 20px;
+                color: #111;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 600;
+            "
+            onmouseover="
+                this.style.background='#eef4ff';
+                this.style.color='#3b73d1';
+            "
+            onmouseout="
+                this.style.background='white';
+                this.style.color='#111';
+            "
+        >
+            Pembukaan Rekening
+        </a>
+
+
+        <!-- Penarikan -->
+        <a
+            href="{{ route('prosedur.penarikan') }}"
+            style="
+                display: block;
+                padding: 14px 20px;
+                color: #111;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 600;
+            "
+            onmouseover="
+                this.style.background='#eef4ff';
+                this.style.color='#3b73d1';
+            "
+            onmouseout="
+                this.style.background='white';
+                this.style.color='#111';
+            "
+        >
+            Penarikan
+        </a>
+
+
+        <!-- Petunjuk Transaksi -->
+        <a
+            href="{{ route('prosedur.petunjuk') }}"
+            style="
+                display: block;
+                padding: 14px 20px;
+                color: #111;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 600;
+            "
+            onmouseover="
+                this.style.background='#eef4ff';
+                this.style.color='#3b73d1';
+            "
+            onmouseout="
+                this.style.background='white';
+                this.style.color='#111';
+            "
+        >
+            Petunjuk Transaksi
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document.getElementById('prosedurBtn').addEventListener('click', function () {
+
+    const submenu = document.getElementById('submenuProsedur');
+    const arrow = document.getElementById('prosedurArrow');
+
+    if (submenu.style.display === 'none') {
+
+        // Tampilkan dropdown
+        submenu.style.display = 'block';
+
+        // Tombol menjadi biru
+        this.style.background = '#3b73d1';
+        this.style.color = 'white';
+
+        // Panah
+        arrow.innerHTML = '⌄';
+        arrow.style.background = '#eef4ff';
+        arrow.style.color = '#3b73d1';
+
+    } else {
+
+        // Sembunyikan dropdown
+        submenu.style.display = 'none';
+
+        // Tombol kembali normal
+        this.style.background = 'transparent';
+        this.style.color = 'black';
+
+        // Panah kembali
+        arrow.innerHTML = '›';
+        arrow.style.background = 'white';
+        arrow.style.color = '#3b73d1';
+
+    }
+
+});
+
+</script>
 
                 <a href="#" class="nav-item">
                     Edukasi
@@ -313,5 +489,3 @@
     </div>
 
 </body>
-
-</html>

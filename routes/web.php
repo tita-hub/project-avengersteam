@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProsedurController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])
     ->name('login.form');
@@ -43,4 +44,17 @@ Route::controller(TentangKamiController::class)->group(function () {
     Route::controller(ProdukController::class)->group(function () {
         
     Route::get('/produk', 'index')->name('produk.index');
+});
+
+Route::controller(ProsedurController::class)->group(function () {
+
+    Route::get('/prosedur/pembukaan-rekening', 'pembukaanRekening')
+        ->name('prosedur.pembukaan');
+
+    Route::get('/prosedur/penarikan', 'penarikan')
+        ->name('prosedur.penarikan');
+
+    Route::get('/prosedur/petunjuk-transaksi', 'petunjukTransaksi')
+        ->name('prosedur.petunjuk');
+
 });
