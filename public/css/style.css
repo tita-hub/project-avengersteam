@@ -660,3 +660,28 @@
     }
 
 }
+
+
+/* ACTIVE SIDEBAR DROPDOWN */
+#tentangKamiBtn.active,
+#prosedurBtn.active,
+#edukasiBtn.active {
+    background: #3b73d1 !important;
+    color: white !important;
+}
+
+/* Saat hover */
+#tentangKamiBtn:hover,
+#prosedurBtn:hover,
+#edukasiBtn:hover {
+    background: #3b73d1;
+    color: white;
+}
+
+/* Panah ketika tombol aktif */
+#tentangKamiBtn.active #tentangKamiArrow,
+#prosedurBtn.active #prosedurArrow,
+#edukasiBtn.active #edukasiArrow {
+    background: rgba(255, 255, 255, 0.85);
+    color: #3b73d1;
+}
