@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProsedurController;
+use App\Http\Controllers\EdukasiController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])
     ->name('login.form');
@@ -69,5 +70,21 @@ Route::controller(ProsedurController::class)->group(function () {
     Route::get('/prosedur/petunjuk-transaksi', function () {
         return view('prosedur.petunjuk-transaksi');
     })->name('prosedur.petunjuk');
+
+});
+
+Route::controller(EdukasiController::class)->group(function () {
+
+    // Edukasi Nasabah
+    Route::get('/edukasi/nasabah', 'edukasiNasabah')
+        ->name('edukasi.nasabah');
+
+    // Edukasi Konsultan
+    Route::get('/edukasi/konsultan', 'edukasiKonsultan')
+        ->name('edukasi.konsultan');
+
+    // Edukasi Umum
+    Route::get('/edukasi/umum', 'edukasiUmum')
+        ->name('edukasi.umum');
 
 });

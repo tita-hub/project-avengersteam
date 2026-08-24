@@ -4,40 +4,21 @@
 <head>
     <meta charset="utf-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
         {{ $title ?? 'Avengersteam Dashboard' }}
     </title>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link
-        rel="stylesheet"
-        href="{{ asset('css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body class="app-body">
@@ -46,34 +27,23 @@
 
         <aside class="sidebar">
 
-            <a
-                href="{{ route('dashboard') }}"
-                class="brand"
-            >
-                <img
-                    src="{{ asset('images/11.png') }}"
-                    alt="Avengersteam"
-                >
+            <a href="{{ route('dashboard') }}" class="brand">
+                <img src="{{ asset('images/11.png') }}" alt="Avengersteam">
             </a>
 
             <nav class="sidebar-nav">
 
-                <a
-                    href="{{ route('dashboard') }}"
-                    id="dashboardBtn"
-                    class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}"
-                >
+                <a href="{{ route('dashboard') }}" id="dashboardBtn"
+                    class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     Dashboard
                 </a>
 
-                
+
                 <!-- ===== TENTANG KAMI ===== -->
 
                 <div id="tentangKamiContainer" style="width: 100%; position:relative">
 
-                    <button
-                        type="button"
-                        id="tentangKamiBtn"
+                    <button type="button" id="tentangKamiBtn"
                         style="
                             width: 100%;
                             border: none;
@@ -93,9 +63,7 @@
 
                         <span>Tentang Kami</span>
 
-                        <span
-                            id="tentangKamiArrow"
-                            class= "bi bi-chevron-right"
+                        <span id="tentangKamiArrow" class= "bi bi-chevron-right"
                             style="
                                 width: 20px;
                                 height: 20px;
@@ -111,14 +79,13 @@
                                 transition: transform 0.25s ease;
                                 flex-shrink: 0;
                             ">
-                            
+
                         </span>
                     </button>
 
 
                     <!-- Dropdown -->
-                    <div
-                        id="submenuTentang"
+                    <div id="submenuTentang"
                         style="
                             display: none;
                             position:absolute;
@@ -135,8 +102,7 @@
                             0 4px 10px rgba(0, 0, 0, 0.06);
                             
                             border: 1px solid rgba(0, 0, 0, 0.04);
-                        "
-                    >
+                        ">
 
                         <style>
                             .tentang-submenu-item {
@@ -160,26 +126,17 @@
                             }
                         </style>
 
-                                <a
-                                    href="{{ route('profile.perusahaan') }}"
-                                    class="tentang-submenu-item"
-                                >
-                                    Profile Perusahaan
-                                </a>
+                        <a href="{{ route('profile.perusahaan') }}" class="tentang-submenu-item">
+                            Profile Perusahaan
+                        </a>
 
-                                <a
-                                    href="{{ route('team.profile') }}"
-                                    class="tentang-submenu-item"
-                                >
-                                    Avengers Team Profile
-                                </a>
+                        <a href="{{ route('team.profile') }}" class="tentang-submenu-item">
+                            Avengers Team Profile
+                        </a>
 
-                                <a
-                                    href="{{ route('wakil.pialang') }}"
-                                    class="tentang-submenu-item"
-                                >
-                                    Wakil Pialang Avengers
-                                </a>
+                        <a href="{{ route('wakil.pialang') }}" class="tentang-submenu-item">
+                            Wakil Pialang Avengers
+                        </a>
 
                     </div>
 
@@ -187,7 +144,7 @@
 
 
                 <script>
-                    document.getElementById('tentangKamiBtn').addEventListener('click', function () {
+                    document.getElementById('tentangKamiBtn').addEventListener('click', function() {
 
                         const submenu = document.getElementById('submenuTentang');
                         const arrow = document.getElementById('tentangKamiArrow');
@@ -200,7 +157,7 @@
                             this.style.background = '#3b73d1';
                             this.style.color = 'white';
 
-                             dashboard.classList.remove('active');
+                            dashboard.classList.remove('active');
 
                             arrow.style.transform = 'rotate(90deg)';
 
@@ -215,205 +172,372 @@
                             dashboard.classList.add('active');
                             arrow.style.transform = 'rotate(0deg)';
 
-                            
+
                         }
 
                     });
                 </script>
-<!-- ===== END TENTANG KAMI ===== -->
 
-            <a
-                href="{{ route('produk.index') }}"
-                class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}"
-                >
-                Produk
-            </a>
-
-                <!-- ============================= -->
-<!-- PROSEDUR -->
-<!-- ============================= -->
-
-<div id="prosedurContainer" style="width: 100%;">
-
-    <!-- Tombol Prosedur -->
-    <button
-        type="button"
-        id="prosedurBtn"
-        style="
-            width: 100%;
-            border: none;
-            background: transparent;
-            color: black;
-            padding: 15px 16px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-family: inherit;
-            font-size: 12px;
-            cursor: pointer;
-            box-sizing: border-box;
-        "
-    >
-
-        <span>Prosedur</span>
-
-        <span
-            id="prosedurArrow"
-            style="
-                width: 24px;
-                height: 24px;
-                border-radius: 50%;
-                background: white;
-                color: #3b73d1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 20px;
-                line-height: 1;
-            "
-        >
-            ›
-        </span>
-
-    </button>
+                <!-- ===== END TENTANG KAMI ===== -->
 
 
-    <!-- Dropdown -->
-    <div
-        id="submenuProsedur"
-        style="
-            display: none;
-            background: white;
-            border-radius: 16px;
-            margin-top: 2px;
-            padding: 12px 0;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        "
-    >
-
-        <!-- Pembukaan Rekening -->
-        <a
-            href="{{ route('prosedur.pembukaan') }}"
-            style="
-                display: block;
-                padding: 14px 20px;
-                color: #111;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 600;
-            "
-            onmouseover="
-                this.style.background='#eef4ff';
-                this.style.color='#3b73d1';
-            "
-            onmouseout="
-                this.style.background='white';
-                this.style.color='#111';
-            "
-        >
-            Pembukaan Rekening
-        </a>
-
-
-        <!-- Penarikan -->
-        <a
-            href="{{ route('prosedur.penarikan') }}"
-            style="
-                display: block;
-                padding: 14px 20px;
-                color: #111;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 600;
-            "
-            onmouseover="
-                this.style.background='#eef4ff';
-                this.style.color='#3b73d1';
-            "
-            onmouseout="
-                this.style.background='white';
-                this.style.color='#111';
-            "
-        >
-            Penarikan
-        </a>
-
-
-        <!-- Petunjuk Transaksi -->
-        <a
-            href="{{ route('prosedur.petunjuk') }}"
-            style="
-                display: block;
-                padding: 14px 20px;
-                color: #111;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 600;
-            "
-            onmouseover="
-                this.style.background='#eef4ff';
-                this.style.color='#3b73d1';
-            "
-            onmouseout="
-                this.style.background='white';
-                this.style.color='#111';
-            "
-        >
-            Petunjuk Transaksi
-        </a>
-
-    </div>
-
-</div>
-
-
-<script>
-
-document.getElementById('prosedurBtn').addEventListener('click', function () {
-
-    const submenu = document.getElementById('submenuProsedur');
-    const arrow = document.getElementById('prosedurArrow');
-
-    if (submenu.style.display === 'none') {
-
-        // Tampilkan dropdown
-        submenu.style.display = 'block';
-
-        // Tombol menjadi biru
-        this.style.background = '#3b73d1';
-        this.style.color = 'white';
-
-        // Panah
-        arrow.innerHTML = '⌄';
-        arrow.style.background = '#eef4ff';
-        arrow.style.color = '#3b73d1';
-
-    } else {
-
-        // Sembunyikan dropdown
-        submenu.style.display = 'none';
-
-        // Tombol kembali normal
-        this.style.background = 'transparent';
-        this.style.color = 'black';
-
-        // Panah kembali
-        arrow.innerHTML = '›';
-        arrow.style.background = 'white';
-        arrow.style.color = '#3b73d1';
-
-    }
-
-});
-
-</script>
-
-                <a href="#" class="nav-item">
-                    Edukasi
-                    <span>›</span>
+                <a href="{{ route('produk.index') }}"
+                    class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
+                    Produk
                 </a>
+
+
+                <!-- PROSEDUR -->
+
+
+                <div id="prosedurContainer" style="width: 100%;">
+
+                    <!-- Tombol Prosedur -->
+                    <button type="button" id="prosedurBtn"
+                        style="
+                                width: 100%;
+                                border: none;
+                                background: transparent;
+                                color: black;
+                                padding: 15px 16px;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                font-family: inherit;
+                                font-size: 12px;
+                                cursor: pointer;
+                                box-sizing: border-box;
+                            ">
+
+                        <span>Prosedur</span>
+
+                        <span id="prosedurArrow"
+                            style="
+                                    width: 24px;
+                                    height: 24px;
+                                    border-radius: 50%;
+                                    background: white;
+                                    color: #3b73d1;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 20px;
+                                    line-height: 1;
+                                ">
+                            ›
+                        </span>
+
+                    </button>
+
+
+                    <!-- Dropdown -->
+                    <div id="submenuProsedur"
+                        style="
+                                display: none;
+                                background: white;
+                                border-radius: 16px;
+                                margin-top: 2px;
+                                padding: 12px 0;
+                                overflow: hidden;
+                                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+                            ">
+
+                        <!-- Pembukaan Rekening -->
+                        <a href="{{ route('prosedur.pembukaan') }}"
+                            style="
+                                    display: block;
+                                    padding: 14px 20px;
+                                    color: #111;
+                                    text-decoration: none;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                "
+                            onmouseover="
+                                            this.style.background='#eef4ff';
+                                            this.style.color='#3b73d1';
+                                        "
+                            onmouseout="
+                                            this.style.background='white';
+                                            this.style.color='#111';
+                                        ">
+                            Pembukaan Rekening
+                        </a>
+
+
+                        <!-- Penarikan -->
+                        <a href="{{ route('prosedur.penarikan') }}"
+                            style="
+                                    display: block;
+                                    padding: 14px 20px;
+                                    color: #111;
+                                    text-decoration: none;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                "
+                            onmouseover="
+                                            this.style.background='#eef4ff';
+                                            this.style.color='#3b73d1';
+                                        "
+                            onmouseout="
+                                            this.style.background='white';
+                                            this.style.color='#111';
+                                        ">
+                            Penarikan
+                        </a>
+
+
+                        <!-- Petunjuk Transaksi -->
+                        <a href="{{ route('prosedur.petunjuk') }}"
+                            style="
+                                    display: block;
+                                    padding: 14px 20px;
+                                    color: #111;
+                                    text-decoration: none;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                "
+                            onmouseover="
+                                            this.style.background='#eef4ff';
+                                            this.style.color='#3b73d1';
+                                        "
+                            onmouseout="
+                                            this.style.background='white';
+                                            this.style.color='#111';
+                                        ">
+                            Petunjuk Transaksi
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <script>
+                    document.getElementById('prosedurBtn').addEventListener('click', function() {
+
+                        const submenu = document.getElementById('submenuProsedur');
+                        const arrow = document.getElementById('prosedurArrow');
+
+                        if (submenu.style.display === 'none') {
+
+                            // Tampilkan dropdown
+                            submenu.style.display = 'block';
+
+                            // Tombol menjadi biru
+                            this.style.background = '#3b73d1';
+                            this.style.color = 'white';
+
+                            // Panah
+                            arrow.innerHTML = '⌄';
+                            arrow.style.background = '#eef4ff';
+                            arrow.style.color = '#3b73d1';
+
+                        } else {
+
+                            // Sembunyikan dropdown
+                            submenu.style.display = 'none';
+
+                            // Tombol kembali normal
+                            this.style.background = 'transparent';
+                            this.style.color = 'black';
+
+                            // Panah kembali
+                            arrow.innerHTML = '›';
+                            arrow.style.background = 'white';
+                            arrow.style.color = '#3b73d1';
+
+                        }
+
+                    });
+                </script>
+                
+                            <!-- ===== END PROSEDUR ===== -->
+
+
+                <!-- EDUKASI -->
+
+
+                <div id="edukasiContainer" style="width: 100%;">
+
+                    <button type="button" id="edukasiBtn"
+                        style="
+                                width: 100%;
+                                border: none;
+                                background: transparent;
+                                color: black;
+                                padding: 15px 16px;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                font-family: inherit;
+                                font-size: 12px;
+                                cursor: pointer;
+                                box-sizing: border-box;
+                                transition: all 0.25s ease;
+                            ">
+
+                        <span>Edukasi</span>
+
+                        <span id="edukasiArrow"
+                            style="
+                                    width: 24px;
+                                    height: 24px;
+                                    border-radius: 50%;
+                                    background: white;
+                                    color: #3b73d1;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 20px;
+                                    line-height: 1;
+                                    transition: all 0.25s ease;
+                                ">
+
+                                ›
+                        </span>
+
+                    </button>
+
+
+                    <!-- SUBMENU EDUKASI -->
+
+                    <div id="submenuEdukasi"
+                        style="
+                                display: none;
+                                background: white;
+                                border-radius: 16px;
+                                margin-top: 2px;
+                                padding: 12px 0;
+                                overflow: hidden;
+                                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+                            ">
+
+                        <!-- Edukasi Nasabah -->
+                        <a href="{{ route('edukasi.nasabah') }}"
+                            style="
+                                    display: block;
+                                    padding: 14px 20px;
+                                    color: #111;
+                                    text-decoration: none;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    transition: all 0.2s ease;
+                                "
+                            onmouseover="
+                                            this.style.background='#eef4ff';
+                                            this.style.color='#3b73d1';
+                                        "
+                            onmouseout="
+                                            this.style.background='white';
+                                            this.style.color='#111';
+                                        ">
+                            Edukasi Nasabah
+                        </a>
+
+
+                        <!-- Edukasi Konsultan -->
+                        <a href="{{ route('edukasi.konsultan') }}"
+                            style="
+                                    display: block;
+                                    padding: 14px 20px;
+                                    color: #111;
+                                    text-decoration: none;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    transition: all 0.2s ease;
+                                "
+                            onmouseover="
+                                            this.style.background='#eef4ff';
+                                            this.style.color='#3b73d1';
+                                        "
+                            onmouseout="
+                                            this.style.background='white';
+                                            this.style.color='#111';
+                                        ">
+                            Edukasi Konsultan
+                        </a>
+
+
+                        <!-- Edukasi Umum -->
+                        <a href="{{ route('edukasi.umum') }}"
+                            style="
+                                    display: block;
+                                    padding: 14px 20px;
+                                    color: #111;
+                                    text-decoration: none;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    transition: all 0.2s ease;
+                                "                   
+                            onmouseover="
+                                            this.style.background='#eef4ff';
+                                            this.style.color='#3b73d1';
+                                        "
+                            onmouseout="
+                                            this.style.background='white';
+                                            this.style.color='#111';
+                                        ">
+                            Edukasi Umum
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+
+                        const edukasiBtn = document.getElementById('edukasiBtn');
+                        const submenuEdukasi = document.getElementById('submenuEdukasi');
+                        const edukasiArrow = document.getElementById('edukasiArrow');
+
+                        if (!edukasiBtn || !submenuEdukasi) {
+                            return;
+                        }
+
+                        edukasiBtn.addEventListener('click', function() {
+
+                            const isOpen = submenuEdukasi.style.display === 'block';
+
+                            if (!isOpen) {
+
+                                // Buka submenu
+                                submenuEdukasi.style.display = 'block';
+
+                                // Tombol biru
+                                edukasiBtn.style.background = '#3b73d1';
+                                edukasiBtn.style.color = 'white';
+
+                                // Panah
+                                edukasiArrow.innerHTML = '⌄';
+                                edukasiArrow.style.background = '#eef4ff';
+                                edukasiArrow.style.color = '#3b73d1';
+
+                            } else {
+
+                                // Tutup submenu
+                                submenuEdukasi.style.display = 'none';
+
+                                // Tombol kembali normal
+                                edukasiBtn.style.background = 'transparent';
+                                edukasiBtn.style.color = 'black';
+
+                                // Panah kembali
+                                edukasiArrow.innerHTML = '›';
+                                edukasiArrow.style.background = 'white';
+                                edukasiArrow.style.color = '#3b73d1';
+
+                            }
+
+                        });
+
+                    });
+                </script>
+
+                <!-- ===== END EDUKASI ===== -->
 
                 <a href="#" class="nav-item">
                     WhatsApp
@@ -457,17 +581,10 @@ document.getElementById('prosedurBtn').addEventListener('click', function () {
 
             </nav>
 
-            <form
-                method="POST"
-                action="{{ route('logout') }}"
-                class="logout-form"
-            >
+            <form method="POST" action="{{ route('logout') }}" class="logout-form">
                 @csrf
 
-                <button
-                    type="submit"
-                    class="logout-btn"
-                >
+                <button type="submit" class="logout-btn">
                     Keluar
                 </button>
             </form>
@@ -476,7 +593,7 @@ document.getElementById('prosedurBtn').addEventListener('click', function () {
 
         <main class="main-content">
 
-            @if(session('success'))
+            @if (session('success'))
                 <div class="alert-success">
                     {{ session('success') }}
                 </div>
@@ -488,4 +605,5 @@ document.getElementById('prosedurBtn').addEventListener('click', function () {
 
     </div>
 
-</body>
+    </script>
+    

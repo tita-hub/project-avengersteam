@@ -91,3 +91,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+<!-- ========================= -->
+<!-- EDUKASI -->
+<!-- ========================= -->
+
+<button id="edukasiBtn" type="button">
+    Edukasi
+    <span id="edukasiArrow">›</span>
+</button>
+
+<ul id="submenuEdukasi" style="display: none;">
+
+    <!-- Edukasi Nasabah -->
+    <li>
+        <a href="{{ route('edukasi.nasabah') }}">
+            Edukasi Nasabah
+        </a>
+    </li>
+
+    <!-- Edukasi Konsultan -->
+    <li>
+        <a href="{{ route('edukasi.konsultan') }}">
+            Edukasi Konsultan
+        </a>
+    </li>
+
+    <!-- Edukasi Umum -->
+    <li>
+        <a href="{{ route('edukasi.umum') }}">
+            Edukasi Umum
+        </a>
+    </li>
+
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const edukasiBtn = document.getElementById('edukasiBtn');
+    const submenuEdukasi = document.getElementById('submenuEdukasi');
+    const edukasiArrow = document.getElementById('edukasiArrow');
+
+    if (edukasiBtn && submenuEdukasi) {
+
+        edukasiBtn.addEventListener('click', function () {
+
+            if (submenuEdukasi.style.display === 'none') {
+
+                submenuEdukasi.style.display = 'block';
+
+                if (edukasiArrow) {
+                    edukasiArrow.textContent = '⌄';
+                }
+
+            } else {
+
+                submenuEdukasi.style.display = 'none';
+
+                if (edukasiArrow) {
+                    edukasiArrow.textContent = '›';
+                }
+
+            }
+
+        });
+
+    }
+
+});
+</script>
