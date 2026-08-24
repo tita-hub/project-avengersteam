@@ -9,13 +9,13 @@ class ProsedurController extends Controller
         return view('prosedur.pembukaan-rekening');
     }
 
-    public function penarikan()
+    public function regular()
     {
-        return view('prosedur.penarikan');
+        return view('prosedur.regular');
     }
 
-    public function petunjukTransaksi()
+    public function online()
     {
-        return view('prosedur.petunjuk-transaksi');
+        return view('prosedur.online');
     }
 }

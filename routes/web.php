@@ -48,13 +48,26 @@ Route::controller(TentangKamiController::class)->group(function () {
 
 Route::controller(ProsedurController::class)->group(function () {
 
+    // Pembukaan Rekening
     Route::get('/prosedur/pembukaan-rekening', 'pembukaanRekening')
         ->name('prosedur.pembukaan');
 
-    Route::get('/prosedur/penarikan', 'penarikan')
-        ->name('prosedur.penarikan');
+    // Regular
+    Route::get('/prosedur/pembukaan-rekening/regular', 'regular')
+        ->name('prosedur.regular');
 
-    Route::get('/prosedur/petunjuk-transaksi', 'petunjukTransaksi')
-        ->name('prosedur.petunjuk');
+    // Online
+    Route::get('/prosedur/pembukaan-rekening/online', 'online')
+        ->name('prosedur.online');
+
+    // Penarikan
+    Route::get('/prosedur/penarikan', function () {
+        return view('prosedur.penarikan');
+    })->name('prosedur.penarikan');
+
+    // Petunjuk Transaksi
+    Route::get('/prosedur/petunjuk-transaksi', function () {
+        return view('prosedur.petunjuk-transaksi');
+    })->name('prosedur.petunjuk');
 
 });
