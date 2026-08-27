@@ -27,10 +27,39 @@
 
         <aside class="sidebar">
 
-            <a href="{{ route('dashboard') }}" class="brand">
-                <img src="{{ asset('images/11.png') }}" alt="Avengersteam">
-            </a>
+            <div class="brand">
+                <!-- Logo -->
+                <img src="{{ asset('images/11.png') }}"
+                    alt="Avengersteam"
+                    class="logo-open-image">
 
+
+                <!-- Tombol X saat sidebar terbuka -->
+                <button type="button"
+                    id="sidebarClose"
+                    class="sidebar-close-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                </button>
+
+
+                <!-- Tombol ☰ saat sidebar tertutup -->
+                <button type="button"
+                    id="sidebarOpen"
+                    class="sidebar-toggle-content">
+
+                    <i class="bi bi-list sidebar-menu-icon"></i>
+
+                    <span class="sidebar-menu-text">
+                        Menu
+                    </span>
+
+                </button>
+
+            </div>
+
+          
             <nav class="sidebar-nav">
 
                 <a href="{{ route('dashboard') }}" id="dashboardBtn"
@@ -562,4 +591,51 @@
 
     </div>
 
-    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const sidebar = document.querySelector('.sidebar');
+        const appShell = document.querySelector('.app-shell');
+
+        const sidebarClose = document.getElementById('sidebarClose');
+        const sidebarOpen = document.getElementById('sidebarOpen');
+
+        if (!sidebar || !appShell || !sidebarClose || !sidebarOpen) {
+            return;
+        }
+
+
+        /* =====================================================
+           SIDEBAR DEFAULT TERTUTUP
+           Setiap halaman baru dibuka → sidebar tertutup
+        ===================================================== */
+
+        sidebar.classList.add('closed');
+        appShell.classList.add('sidebar-closed');
+
+
+        /* =====================================================
+           TOMBOL X
+        ===================================================== */
+
+        sidebarClose.addEventListener('click', function() {
+
+            sidebar.classList.add('closed');
+            appShell.classList.add('sidebar-closed');
+
+        });
+
+
+        /* =====================================================
+           TOMBOL ☰ MENU
+        ===================================================== */
+
+        sidebarOpen.addEventListener('click', function() {
+
+            sidebar.classList.remove('closed');
+            appShell.classList.remove('sidebar-closed');
+
+        });
+
+    });
+</script>
