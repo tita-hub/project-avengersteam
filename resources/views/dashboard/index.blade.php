@@ -5,6 +5,53 @@
 <div class="dashboard-page">
 
     {{-- ==========================================
+         TOP NEWS TICKER + JAM WIB
+    =========================================== --}}
+    @if($tickerNews->isNotEmpty())
+        <div class="dashboard-topbar">
+
+            <div class="ticker-wrap">
+
+                <span class="ticker-label">
+                    <i class="bi bi-broadcast"></i>
+                    Top News
+                </span>
+
+                <div class="ticker-track">
+                    <div class="ticker-content">
+
+                        @foreach($tickerNews as $t)
+                            <a href="{{ route('news.show', $t) }}" class="ticker-item">
+                                {{ $t->title }}
+                            </a>
+                            <span class="ticker-dot">&bull;</span>
+                        @endforeach
+
+                        {{-- diulang supaya animasinya nyambung mulus (seamless loop) --}}
+                        @foreach($tickerNews as $t)
+                            <a href="{{ route('news.show', $t) }}" class="ticker-item" aria-hidden="true" tabindex="-1">
+                                {{ $t->title }}
+                            </a>
+                            <span class="ticker-dot" aria-hidden="true">&bull;</span>
+                        @endforeach
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="dashboard-clock" id="dashboardClock">
+                <i class="bi bi-clock-history"></i>
+                <span id="clockDate">--</span>
+                <span class="clock-sep">|</span>
+                <span id="clockTime">--:--:--</span>
+                <span class="clock-tz">WIB</span>
+            </div>
+
+        </div>
+    @endif
+
+    {{-- ==========================================
          WELCOME SECTION
     =========================================== --}}
     <section class="welcome-card">
@@ -141,5 +188,38 @@
     </section>
 
 </div>
+
+@if($tickerNews->isNotEmpty())
+<script>
+    (function () {
+        const dateEl = document.getElementById('clockDate');
+        const timeEl = document.getElementById('clockTime');
+
+        if (!dateEl || !timeEl) return;
+
+        function updateClock() {
+            const now = new Date();
+
+            dateEl.textContent = now.toLocaleDateString('id-ID', {
+                timeZone: 'Asia/Jakarta',
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+            });
+
+            timeEl.textContent = now.toLocaleTimeString('id-ID', {
+                timeZone: 'Asia/Jakarta',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+            });
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    })();
+</script>
+@endif
 
 @endsection

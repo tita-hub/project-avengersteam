@@ -929,3 +929,220 @@
 
     margin-left: 95px;
 }
+
+
+/* ============================================================
+   TOP NEWS TICKER + JAM WIB (dashboard)
+   ============================================================ */
+
+.dashboard-topbar {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+
+    margin-bottom: 22px;
+
+    background: linear-gradient(100deg, #0f2a5c, #1c4fa3 55%, #2f6fe0);
+    border-radius: 10px;
+
+    padding: 0;
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(28, 79, 163, 0.18);
+}
+
+.ticker-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    flex: 1;
+    min-width: 0;
+
+    padding: 0 0 0 16px;
+}
+
+.ticker-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    background: #00a84f;
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    animation: tickerLabelPulse 2.4s ease-in-out infinite;
+}
+
+.ticker-track {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.ticker-content {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    animation: tickerScroll 32s linear infinite;
+    padding: 13px 0;
+}
+
+.ticker-track:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    opacity: 0.92;
+    transition: opacity 0.2s ease;
+}
+
+.ticker-item:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.ticker-dot {
+    color: #7fb1ff;
+    margin: 0 18px;
+}
+
+.dashboard-clock {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    padding: 0 16px;
+}
+
+.dashboard-clock i {
+    color: #7fb1ff;
+}
+
+.clock-sep {
+    opacity: 0.5;
+}
+
+.clock-tz {
+    color: #7fb1ff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+@keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes tickerLabelPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 168, 79, 0.55); }
+    50% { box-shadow: 0 0 0 6px rgba(0, 168, 79, 0); }
+}
+
+@media (max-width: 900px) {
+    .dashboard-topbar {
+        flex-direction: column;
+    }
+
+    .dashboard-clock {
+        padding: 8px 16px;
+    }
+}
+
+
+/* ============================================================
+   ANIMASI TAMBAHAN — BERITA & TOMBOL (dashboard)
+   ============================================================ */
+
+@keyframes newsCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.news-grid .news-card {
+    animation: newsCardFadeIn 0.5s ease both;
+}
+
+.news-grid .news-card:nth-child(1) { animation-delay: 0.05s; }
+.news-grid .news-card:nth-child(2) { animation-delay: 0.15s; }
+.news-grid .news-card:nth-child(3) { animation-delay: 0.25s; }
+
+.section-header h2 {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-header h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    height: 3px;
+    width: 42px;
+    border-radius: 3px;
+
+    background: #00a84f;
+
+    animation: underlineGrow 0.6s ease both;
+}
+
+@keyframes underlineGrow {
+    from { width: 0; }
+    to { width: 42px; }
+}
+
+.see-all-news i {
+    transition: transform 0.25s ease;
+}
+
+.see-all-news:hover i {
+    transform: translateX(4px);
+}
+
+.read-btn {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.read-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 168, 79, 0.35);
+}

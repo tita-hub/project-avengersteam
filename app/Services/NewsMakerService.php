@@ -7,16 +7,92 @@ use GuzzleHttp\Psr7\Response as Psr7Response;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class NewsmakerService
 {
-    private const LATEST_URL = 'https://www.newsmaker.id/index.php/id/latest-news';
+    private const LATEST_URL = 'https://www.newsmaker.id/id/news/index';
+
+    /**
+     * Alat bantu debug. Tidak menyimpan apa-apa ke database — cuma
+     * mengambil halaman latest-news dan melaporkan di tahap mana proses
+     * parsing-nya berhenti, supaya lebih mudah dilacak kalau `news:sync`
+     * terus-terusan menghasilkan 0 artikel.
+     */
+    public function diagnose(): array
+    {
+        $report = [];
+
+        try {
+            $response = $this->get(self::LATEST_URL);
+            $html = $response->body();
+        } catch (\Throwable $e) {
+            return ['fetch_error' => $e->getMessage()];
+        }
+
+        $report['html_length'] = strlen($html);
+        $report['looks_like_404'] = (bool) preg_match(
+    '/404|halaman tidak ditemukan|halaman yang kamu cari tidak tersedia/i',
+    $html
+);
+        $report['looks_like_bot_challenge'] = (bool) preg_match(
+            '/cloudflare|just a moment|attention required|captcha|checking your browser/i',
+            substr($html, 0, 5000)
+        );
+        $report['next_f_marker_count'] = substr_count($html, '__next_f');
+
+        $pushArgs = $this->extractNextFPushArgs($html);
+        $report['push_args_found'] = count($pushArgs);
+
+        $chunks = [];
+        foreach ($pushArgs as $argJson) {
+            $decoded = json_decode($argJson, true);
+            if (is_array($decoded) && isset($decoded[1]) && is_string($decoded[1])) {
+                $chunks[] = $decoded[1];
+            }
+        }
+        $report['chunks_decoded'] = count($chunks);
+
+        $flightText = implode('', $chunks);
+        $report['flight_text_length'] = strlen($flightText);
+        $report['items_needle_found'] = str_contains($flightText, '"items":[{"key"');
+        $report['items_word_occurrences'] = substr_count($flightText, '"items":[');
+
+        $itemsArray = $this->findNewsItemsArray($flightText);
+        $report['items_parsed_count'] = $itemsArray ? count($itemsArray) : 0;
+
+        if ($itemsArray) {
+            $report['first_item_title'] = $itemsArray[0]['title'] ?? null;
+        }
+
+        // Simpan HTML mentah supaya bisa diperiksa manual kalau perlu.
+        $debugPath = storage_path('app/newsmaker-debug.html');
+        @file_put_contents($debugPath, $html);
+        $report['raw_html_saved_to'] = $debugPath;
+
+        return $report;
+    }
 
     public function sync(int $limit = 12): int
     {
         $html = $this->get(self::LATEST_URL)->body();
-        $items = $this->parseLatest($html, $limit);
+
+        $items = $this->parseLatestFromFlightPayload($html, $limit);
+
+        if (empty($items)) {
+            // Newsmaker sekarang merender daftar berita lewat Next.js
+            // (React Server Components), jadi kalau parser utama di atas
+            // tidak menemukan apa-apa (misal karena mereka ganti struktur
+            // lagi), kita coba cara lama (cari tag <a> biasa) sebagai
+            // cadangan supaya sync tidak langsung mati total.
+            $items = $this->parseLatestLegacyAnchors($html, $limit);
+        }
+
+        if (empty($items)) {
+            Log::warning('Newsmaker sync: tidak ada item berita yang berhasil di-parse dari halaman latest-news.');
+        }
+
         $saved = 0;
 
         foreach ($items as $item) {
@@ -40,6 +116,236 @@ class NewsmakerService
         }
 
         return $saved;
+    }
+
+    /**
+     * Parser utama.
+     *
+     * Sejak Newsmaker.id pindah ke Next.js, halaman latest-news tidak lagi
+     * mengirim daftar berita sebagai tag <a> biasa di HTML. Daftarnya
+     * "disembunyikan" di dalam script `self.__next_f.push([...])` yang
+     * dipakai Next.js untuk hydration (format React Flight). Jadi alurnya:
+     *
+     *  1. Ambil semua panggilan self.__next_f.push([id, "teks..."])
+     *  2. json_decode tiap panggilan itu -> dapat teks asli (sudah ke-unescape)
+     *  3. Gabungkan semua teks itu jadi satu blob
+     *  4. Cari pola "items":[{"key": ... di dalam blob itu
+     *  5. Ambil array JSON-nya secara presisi (hitung kurung, bukan regex tebak-tebakan)
+     *  6. Decode array itu -> itulah daftar beritanya
+     */
+    private function parseLatestFromFlightPayload(string $html, int $limit): array
+    {
+        $chunks = [];
+
+        foreach ($this->extractNextFPushArgs($html) as $argJson) {
+            $decoded = json_decode($argJson, true);
+
+            if (is_array($decoded) && isset($decoded[1]) && is_string($decoded[1])) {
+                $chunks[] = $decoded[1];
+            }
+        }
+
+        if (empty($chunks)) {
+            return [];
+        }
+
+        $flightText = implode('', $chunks);
+
+        $itemsArray = $this->findNewsItemsArray($flightText);
+
+        if ($itemsArray === null) {
+            return [];
+        }
+
+        $items = [];
+
+        foreach ($itemsArray as $raw) {
+            if (!is_array($raw) || empty($raw['href'])) {
+                continue;
+            }
+
+            $title = $this->clean($raw['title'] ?? '');
+            if (!$this->isLikelyTitle($title)) {
+                continue;
+            }
+
+            $timestampMs = $raw['timestamp'] ?? null;
+            $publishedAt = is_numeric($timestampMs)
+                ? Carbon::createFromTimestamp((int) ($timestampMs / 1000))
+                : null;
+
+            $items[] = [
+                'title' => $title,
+                'url' => $this->absoluteUrl($raw['href']),
+                'category' => $this->clean($raw['tag'] ?? '') ?: 'NEWS',
+                'excerpt' => $this->clean($raw['summary'] ?? ''),
+                'image_url' => $this->absoluteUrl($raw['image'] ?? ''),
+                'published_at' => $publishedAt,
+            ];
+
+            if (count($items) >= $limit) {
+                break;
+            }
+        }
+
+        return $items;
+    }
+
+    /**
+     * Cari semua `self.__next_f.push([...])` di HTML dan kembalikan isi
+     * argumennya (teks `[id,"..."]`) satu per satu. Dihitung manual
+     * (bukan regex non-greedy) supaya tidak salah potong walau isinya
+     * mengandung tanda kurung/kutip yang di-escape.
+     *
+     * @return string[]
+     */
+    private function extractNextFPushArgs(string $html): array
+    {
+        $args = [];
+        $marker = 'self.__next_f.push(';
+        $offset = 0;
+        $len = strlen($html);
+
+        while (($pos = strpos($html, $marker, $offset)) !== false) {
+            $argStart = $pos + strlen($marker);
+            $arg = $this->extractBalancedJson($html, $argStart);
+
+            if ($arg !== null) {
+                $args[] = $arg;
+                $offset = $argStart + strlen($arg);
+            } else {
+                $offset = $argStart;
+            }
+
+            if ($offset >= $len) {
+                break;
+            }
+        }
+
+        return $args;
+    }
+
+    /**
+     * Ambil substring JSON yang valid mulai dari posisi karakter '[' atau '{'
+     * dengan menghitung kedalaman kurung secara manual, sambil mengabaikan
+     * kurung yang berada di dalam string (dan menghormati escape \").
+     */
+    private function extractBalancedJson(string $text, int $start): ?string
+    {
+        $len = strlen($text);
+
+        while ($start < $len && ctype_space($text[$start])) {
+            $start++;
+        }
+
+        if ($start >= $len || !in_array($text[$start], ['[', '{'], true)) {
+            return null;
+        }
+
+        $depth = 0;
+        $inString = false;
+        $escaped = false;
+
+        for ($i = $start; $i < $len; $i++) {
+            $char = $text[$i];
+
+            if ($inString) {
+                if ($escaped) {
+                    $escaped = false;
+                } elseif ($char === '\\') {
+                    $escaped = true;
+                } elseif ($char === '"') {
+                    $inString = false;
+                }
+                continue;
+            }
+
+            if ($char === '"') {
+                $inString = true;
+            } elseif ($char === '[' || $char === '{') {
+                $depth++;
+            } elseif ($char === ']' || $char === '}') {
+                $depth--;
+                if ($depth === 0) {
+                    return substr($text, $start, $i - $start + 1);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Cari blok `"items":[{"key": ...}]` di dalam teks flight yang sudah
+     * digabung, lalu decode jadi array PHP. Kalau ada beberapa kandidat
+     * (misalnya ada widget lain yang juga punya properti "items"), ambil
+     * yang jumlah itemnya paling banyak / valid.
+     */
+    private function findNewsItemsArray(string $flightText): ?array
+    {
+        $needle = '"items":[{"key"';
+        $offset = 0;
+        $best = null;
+        $bestCount = 0;
+
+        while (($pos = strpos($flightText, $needle, $offset)) !== false) {
+            $arrayStart = $pos + strlen('"items":');
+            $json = $this->extractBalancedJson($flightText, $arrayStart);
+            $offset = $pos + 1;
+
+            if ($json === null) {
+                continue;
+            }
+
+            $decoded = json_decode($json, true);
+
+            if (is_array($decoded) && count($decoded) > $bestCount) {
+                $best = $decoded;
+                $bestCount = count($decoded);
+            }
+        }
+
+        return $best;
+    }
+
+    /**
+     * Cara lama: cari tag <a> yang mengarah ke artikel dan disertai tanggal
+     * di sekitarnya. Dipakai sebagai cadangan kalau Newsmaker suatu saat
+     * kembali merender HTML biasa (server-rendered), atau kalau struktur
+     * Next.js-nya berubah lagi dan parser utama tidak menemukan apa-apa.
+     */
+    private function parseLatestLegacyAnchors(string $html, int $limit): array
+    {
+        preg_match_all('/<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)<\/a>/is', $html, $matches, PREG_SET_ORDER);
+        $items = [];
+        $seen = [];
+
+        foreach ($matches as $match) {
+            $url = $this->absoluteUrl(html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+            $title = $this->clean(strip_tags($match[2]));
+            if (!$this->isArticleUrl($url) || !$this->isLikelyTitle($title) || isset($seen[$url])) continue;
+
+            $position = strpos($html, $match[0]);
+            $context = $position === false ? '' : substr($html, max(0, $position - 1800), 3600);
+            $contextText = $this->clean(strip_tags($context));
+            $date = $this->extractDate($contextText);
+            $hasReadMore = Str::contains(Str::lower($contextText), 'read more');
+            if (!$date && !$hasReadMore) continue;
+
+            $seen[$url] = true;
+            $items[] = [
+                'title' => $title,
+                'url' => $url,
+                'category' => $this->extractCategory($contextText),
+                'excerpt' => $this->makeExcerpt($contextText, $title),
+                'image_url' => $this->extractImage($context),
+                'published_at' => $date,
+            ];
+
+            if (count($items) >= $limit) break;
+        }
+
+        return $items;
     }
 
     private function get(string $url): Response
@@ -89,45 +395,6 @@ class NewsmakerService
 
     return new Response($psrResponse);
 }
-
-    private function parseLatest(string $html, int $limit): array
-    {
-        file_put_contents(
-        storage_path('app/newsmaker-debug.html'),
-        $html
-        );
-
-        preg_match_all('/<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)<\/a>/is', $html, $matches, PREG_SET_ORDER);
-        $items = [];
-        $seen = [];
-
-        foreach ($matches as $match) {
-            $url = $this->absoluteUrl(html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
-            $title = $this->clean(strip_tags($match[2]));
-            if (!$this->isArticleUrl($url) || !$this->isLikelyTitle($title) || isset($seen[$url])) continue;
-
-            $position = strpos($html, $match[0]);
-            $context = $position === false ? '' : substr($html, max(0, $position - 1800), 3600);
-            $contextText = $this->clean(strip_tags($context));
-            $date = $this->extractDate($contextText);
-            $hasReadMore = Str::contains(Str::lower($contextText), 'read more');
-            if (!$date && !$hasReadMore) continue;
-
-            $seen[$url] = true;
-            $items[] = [
-                'title' => $title,
-                'url' => $url,
-                'category' => $this->extractCategory($contextText),
-                'excerpt' => $this->makeExcerpt($contextText, $title),
-                'image_url' => $this->extractImage($context),
-                'published_at' => $date,
-            ];
-
-            if (count($items) >= $limit) break;
-        }
-
-        return $items;
-    }
 
     private function fetchDetail(string $url): array
     {
@@ -205,7 +472,7 @@ class NewsmakerService
 
     private function isArticleUrl(string $url): bool
     {
-        if (!Str::startsWith($url, 'https://www.newsmaker.id/index.php/id/')) return false;
+        if (!Str::startsWith($url, ['https://www.newsmaker.id/index.php/id/', 'https://www.newsmaker.id/id/'])) return false;
         $path = parse_url($url, PHP_URL_PATH) ?: '';
         if (Str::endsWith($path, ['/latest-news', '/'])) return false;
         if (Str::contains($url, ['?start=', '&start=', '#'])) return false;
