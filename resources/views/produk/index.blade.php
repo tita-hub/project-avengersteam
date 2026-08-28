@@ -642,7 +642,7 @@
 
 .modal-close {
 
-    position: absolute;
+    position: fixed;
 
     right: 20px;
     top: 18px;
