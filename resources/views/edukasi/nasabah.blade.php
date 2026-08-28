@@ -4,9 +4,9 @@
 
 <style>
 
-/* =========================
+/* ============================================================
    WRAPPER
-========================= */
+   ============================================================ */
 
 .edukasi-wrapper {
     padding: 35px 45px 60px;
@@ -15,21 +15,24 @@
 }
 
 
-/* =========================
+/* ============================================================
    HEADER
-========================= */
+   ============================================================ */
 
 .edukasi-header {
     background: linear-gradient(135deg, #eaf2ff, #ffffff);
+
     border-radius: 22px;
+
     padding: 40px 45px;
+
     margin-bottom: 35px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .header-text {
@@ -38,32 +41,47 @@
 
 .header-label {
     color: #3b73d1;
+
     font-size: 13px;
     font-weight: bold;
+
     letter-spacing: 1px;
     text-transform: uppercase;
+
     margin-bottom: 8px;
 }
 
 .header-text h1 {
     margin: 0 0 15px;
+
     color: #172b4d;
+
     font-size: 42px;
+
     font-family: Georgia, serif;
 }
 
 .header-text p {
     margin: 0;
+
     color: #697586;
+
     font-size: 16px;
+
     line-height: 1.7;
 }
+
+
+/* ============================================================
+   ICON HEADER
+   ============================================================ */
 
 .header-icon {
     width: 140px;
     height: 140px;
 
     background: white;
+
     border-radius: 50%;
 
     display: flex;
@@ -72,49 +90,76 @@
 
     font-size: 65px;
 
-    box-shadow: 0 10px 30px rgba(59,115,209,0.12);
+    flex-shrink: 0;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
 }
 
 
-/* =========================
-   TITLE
-========================= */
+/* ============================================================
+   JUDUL SECTION
+   ============================================================ */
 
 .section-title {
     font-family: Georgia, serif;
-    font-size: 28px;
+
     color: #172b4d;
-    margin-bottom: 22px;
+
+    font-size: 28px;
+
+    margin: 0 0 22px;
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* ============================================================
+   CONTAINER CARD
+   ============================================================ */
 
 .materi-container {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
+
+    align-items: stretch;
 }
+
+
+/* ============================================================
+   CARD MATERI
+   ============================================================ */
 
 .materi-card {
     background: white;
+
     border-radius: 18px;
+
     padding: 28px;
 
-    border: 1px solid #edf0f5;
-
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 
     transition: 0.25s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 350px;
+
+    box-sizing: border-box;
 }
 
 .materi-card:hover {
     transform: translateY(-5px);
 
-    box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
 }
+
+
+/* ============================================================
+   ICON MATERI
+   ============================================================ */
 
 .materi-icon {
     width: 58px;
@@ -130,29 +175,51 @@
 
     font-size: 28px;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+
+    flex-shrink: 0;
 }
+
+
+/* ============================================================
+   JUDUL CARD
+   ============================================================ */
 
 .materi-card h3 {
     font-family: Georgia, serif;
+
     color: #172b4d;
-    font-size: 20px;
+
+    font-size: 21px;
+
+    line-height: 1.35;
 
     margin: 0 0 12px;
+
+    min-height: 58px;
 }
+
+
+/* ============================================================
+   DESKRIPSI CARD
+   ============================================================ */
 
 .materi-card p {
     color: #6b7280;
+
     font-size: 14px;
+
     line-height: 1.7;
+
+    margin: 0;
 
     min-height: 70px;
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* ============================================================
+   TOMBOL PELAJARI
+   ============================================================ */
 
 .btn-pelajari {
     width: 100%;
@@ -162,26 +229,34 @@
     padding: 13px 20px;
 
     background: #3b73d1;
+
     color: white;
 
     border-radius: 9px;
 
-    font-size: 13px;
+    font-size: 14px;
+
     font-weight: bold;
 
     cursor: pointer;
 
     transition: 0.25s;
+
+    margin-top: auto;
+
+    box-sizing: border-box;
 }
 
 .btn-pelajari:hover {
     background: #285eaf;
+
+    transform: translateY(-1px);
 }
 
 
-/* =========================
-   MATERI DETAIL
-========================= */
+/* ============================================================
+   DETAIL MATERI
+   ============================================================ */
 
 .materi-detail {
     display: none;
@@ -194,15 +269,15 @@
 
     padding: 35px 40px;
 
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-
     border-left: 5px solid #3b73d1;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
 .materi-detail h2 {
-    font-family: Georgia, serif;
-
     color: #172b4d;
+
+    font-family: Georgia, serif;
 
     margin-top: 0;
 }
@@ -217,10 +292,15 @@
 .materi-detail li {
     color: #596579;
 
-    font-size: 15px;
-
     line-height: 1.8;
+
+    font-size: 15px;
 }
+
+
+/* ============================================================
+   TOMBOL TUTUP
+   ============================================================ */
 
 .tutup-materi {
     margin-top: 20px;
@@ -238,25 +318,55 @@
     cursor: pointer;
 }
 
+.tutup-materi:hover {
+    background: #e2e8f0;
+}
 
-/* =========================
+
+/* ============================================================
    RESPONSIVE
-========================= */
+   ============================================================ */
 
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
 
     .materi-container {
         grid-template-columns: 1fr;
     }
 
+    .materi-card {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .edukasi-wrapper {
+        padding: 25px 20px 40px;
+    }
+
     .edukasi-header {
-        padding: 30px;
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .header-text h1 {
+        font-size: 34px;
     }
 
     .header-icon {
         width: 100px;
         height: 100px;
+
         font-size: 45px;
+    }
+
+    .materi-detail {
+        padding: 25px;
     }
 
 }
@@ -267,9 +377,9 @@
 <div class="edukasi-wrapper">
 
 
-    <!-- =========================
+    <!-- ========================================================
          HEADER
-    ========================= -->
+         ======================================================== -->
 
     <div class="edukasi-header">
 
@@ -298,23 +408,23 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ========================================================
          JUDUL
-    ========================= -->
+         ======================================================== -->
 
     <h2 class="section-title">
         Materi Edukasi Nasabah
     </h2>
 
 
-    <!-- =========================
+    <!-- ========================================================
          CARD
-    ========================= -->
+         ======================================================== -->
 
     <div class="materi-container">
 
 
-        <!-- MATERI 1 -->
+        <!-- CARD 1 -->
 
         <div class="materi-card">
 
@@ -323,7 +433,8 @@
             </div>
 
             <h3>
-                Dasar Perdagangan Berjangka
+                Dasar Perdagangan
+                Berjangka
             </h3>
 
             <p>
@@ -343,7 +454,7 @@
         </div>
 
 
-        <!-- MATERI 2 -->
+        <!-- CARD 2 -->
 
         <div class="materi-card">
 
@@ -371,7 +482,7 @@
         </div>
 
 
-        <!-- MATERI 3 -->
+        <!-- CARD 3 -->
 
         <div class="materi-card">
 
@@ -401,9 +512,9 @@
     </div>
 
 
-    <!-- =========================
-         MATERI 1
-    ========================= -->
+    <!-- ========================================================
+         DETAIL MATERI 1
+         ======================================================== -->
 
     <div id="materi1" class="materi-detail">
 
@@ -422,36 +533,14 @@
         </h3>
 
         <ul>
-
-            <li>
-                Pengertian perdagangan berjangka.
-            </li>
-
-            <li>
-                Mengenal produk yang diperdagangkan.
-            </li>
-
-            <li>
-                Memahami mekanisme transaksi.
-            </li>
-
-            <li>
-                Memahami potensi keuntungan dan risiko.
-            </li>
-
+            <li>Pengertian perdagangan berjangka.</li>
+            <li>Mengenal produk yang diperdagangkan.</li>
+            <li>Memahami mekanisme transaksi.</li>
+            <li>Memahami potensi keuntungan dan risiko.</li>
         </ul>
 
-        <h3>
-            Mengapa Edukasi Penting?
-        </h3>
-
-        <p>
-            Sebelum melakukan transaksi, nasabah perlu memahami
-            informasi mengenai produk, mekanisme perdagangan,
-            biaya dan risiko yang mungkin terjadi.
-        </p>
-
         <button
+            type="button"
             class="tutup-materi"
             onclick="tutupMateri()"
         >
@@ -461,9 +550,9 @@
     </div>
 
 
-    <!-- =========================
-         MATERI 2
-    ========================= -->
+    <!-- ========================================================
+         DETAIL MATERI 2
+         ======================================================== -->
 
     <div id="materi2" class="materi-detail">
 
@@ -482,36 +571,14 @@
         </h3>
 
         <ul>
-
-            <li>
-                Memahami prosedur transaksi.
-            </li>
-
-            <li>
-                Memastikan informasi transaksi.
-            </li>
-
-            <li>
-                Menjaga keamanan akun.
-            </li>
-
-            <li>
-                Memahami biaya transaksi.
-            </li>
-
+            <li>Memahami prosedur transaksi.</li>
+            <li>Memastikan informasi transaksi.</li>
+            <li>Menjaga keamanan akun.</li>
+            <li>Memahami biaya transaksi.</li>
         </ul>
 
-        <h3>
-            Keamanan Transaksi
-        </h3>
-
-        <p>
-            Selalu pastikan informasi yang diterima berasal
-            dari sumber resmi dan pahami transaksi sebelum
-            memberikan persetujuan.
-        </p>
-
         <button
+            type="button"
             class="tutup-materi"
             onclick="tutupMateri()"
         >
@@ -521,9 +588,9 @@
     </div>
 
 
-    <!-- =========================
-         MATERI 3
-    ========================= -->
+    <!-- ========================================================
+         DETAIL MATERI 3
+         ======================================================== -->
 
     <div id="materi3" class="materi-detail">
 
@@ -542,36 +609,14 @@
         </h3>
 
         <ul>
-
-            <li>
-                Memahami potensi perubahan harga.
-            </li>
-
-            <li>
-                Memahami risiko kerugian.
-            </li>
-
-            <li>
-                Menggunakan modal secara bijaksana.
-            </li>
-
-            <li>
-                Tidak mengambil keputusan secara terburu-buru.
-            </li>
-
+            <li>Memahami potensi perubahan harga.</li>
+            <li>Memahami risiko kerugian.</li>
+            <li>Menggunakan modal secara bijaksana.</li>
+            <li>Tidak mengambil keputusan secara terburu-buru.</li>
         </ul>
 
-        <h3>
-            Kesimpulan
-        </h3>
-
-        <p>
-            Pemahaman terhadap risiko membantu nasabah
-            membuat keputusan berdasarkan informasi yang
-            telah dipahami.
-        </p>
-
         <button
+            type="button"
             class="tutup-materi"
             onclick="tutupMateri()"
         >
@@ -580,6 +625,7 @@
 
     </div>
 
+
 </div>
 
 
@@ -587,36 +633,39 @@
 
 function bukaMateri(id) {
 
-    // Sembunyikan semua materi
-    document.querySelectorAll('.materi-detail').forEach(function(materi) {
+    document
+        .querySelectorAll('.materi-detail')
+        .forEach(function(materi) {
 
-        materi.style.display = 'none';
+            materi.style.display = 'none';
 
-    });
+        });
 
-
-    // Tampilkan materi yang dipilih
     const materi = document.getElementById(id);
 
-    materi.style.display = 'block';
+    if (materi) {
 
+        materi.style.display = 'block';
 
-    // Scroll otomatis ke materi
-    materi.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
+        materi.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+    }
 
 }
 
 
 function tutupMateri() {
 
-    document.querySelectorAll('.materi-detail').forEach(function(materi) {
+    document
+        .querySelectorAll('.materi-detail')
+        .forEach(function(materi) {
 
-        materi.style.display = 'none';
+            materi.style.display = 'none';
 
-    });
+        });
 
 }
 
