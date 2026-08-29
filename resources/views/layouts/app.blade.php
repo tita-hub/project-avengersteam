@@ -16,626 +16,719 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
+
 <body class="app-body">
+
+
+    <!-- =====================================================
+         APP SHELL
+    ====================================================== -->
 
     <div class="app-shell">
 
-        <aside class="sidebar">
 
-            <div class="brand">
-                <!-- Logo -->
-                <img src="{{ asset('images/11.png') }}"
+        <!-- =================================================
+             TOP HEADER
+        ================================================== -->
+
+        <header class="top-header">
+
+
+            <!-- =============================================
+                 TOMBOL MENU
+                 Hanya muncul ketika sidebar tertutup
+            ============================================== -->
+
+            <button type="button"
+                id="sidebarOpen"
+                class="top-menu-btn"
+                aria-label="Buka menu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <!-- =============================================
+                 LOGO AVENGERSTEAM
+                 Tidak memiliki fungsi / tidak bisa diklik
+                 Diposisikan di tengah header
+            ============================================== -->
+
+            <div class="top-logo"
+                style="
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    margin-left: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                ">
+
+                <img src="{{ asset('images/avengersteam-header.png') }}"
                     alt="Avengersteam"
-                    class="logo-open-image">
-
-
-                <!-- Tombol X saat sidebar terbuka -->
-                <button type="button"
-                    id="sidebarClose"
-                    class="sidebar-close-btn">
-
-                    <i class="bi bi-x-lg"></i>
-
-                </button>
-
-
-                <!-- Tombol ☰ saat sidebar tertutup -->
-                <button type="button"
-                    id="sidebarOpen"
-                    class="sidebar-toggle-content">
-
-                    <i class="bi bi-list sidebar-menu-icon"></i>
-
-                    <span class="sidebar-menu-text">
-                        Menu
-                    </span>
-
-                </button>
+                    style="
+                        width: 150px;
+                        height: 80px;
+                        object-fit: contain;
+                        display: block;
+                    ">
 
             </div>
 
-          
+
+            <!-- =============================================
+                 CONTACT PERSON
+                 Tetap di sebelah kanan
+            ============================================== -->
+
+            <button type="button"
+                class="contact-person-btn">
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>
+                    Contact Person
+                </span>
+
+            </button>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- =============================================
+                 TOMBOL CLOSE
+                 Tetap ada ketika sidebar terbuka
+            ============================================== -->
+
+            <button type="button"
+                id="sidebarClose"
+                class="sidebar-close-btn"
+                aria-label="Tutup menu">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+
+
+            <!-- =============================================
+                 MENU SIDEBAR
+            ============================================== -->
+
             <nav class="sidebar-nav">
 
-                <a href="{{ route('dashboard') }}" id="dashboardBtn"
+
+                <!-- =========================================
+                     DASHBOARD
+                ========================================== -->
+
+                <a href="{{ route('dashboard') }}"
+                    id="dashboardBtn"
                     class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+
                     Dashboard
+
                 </a>
 
 
-                <!-- ===== TENTANG KAMI ===== -->
 
-                <div id="tentangKamiContainer" style="width: 100%; position:relative">
+                <!-- =========================================
+                     TENTANG KAMI
+                ========================================== -->
 
-                    <button type="button" id="tentangKamiBtn"
-                        class="{{ request()->routeIs('profile.perusahaan', 'team.profile', 'wakil.pialang') ? 'active' : '' }}"
-                        style="
-                            width: 100%;
-                            border: none;
-                            background: transparent;
-                            color: #000;
-                            padding: 15px 16px;
-                            border-radius: 10px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            font-family: inherit;
-                            font-size: 12px;
-                            cursor: pointer;
-                            box-sizing: border-box;
-                            transition: all 0.25s ease;
-                        ">
+                <div id="tentangKamiContainer"
+                    class="sidebar-dropdown-container">
 
-                        <span>Tentang Kami</span>
 
-                        <span id="tentangKamiArrow" class= "bi bi-chevron-right"
-                            style="
-                                width: 20px;
-                                height: 20px;
-                                border-radius: 50%;
-                                background: rgba(255,255,255,0.85);
-                                color: #3b73d1;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 10px;
-                                line-height: 1;
-                                box-sizing: border-box;
-                                transition: transform 0.25s ease;
-                                flex-shrink: 0;
-                            ">
+                    <button type="button"
+                        id="tentangKamiBtn"
+                        class="{{ request()->routeIs('profile.perusahaan', 'team.profile', 'wakil.pialang') ? 'active' : '' }}">
 
+                        <span>
+                            Tentang Kami
                         </span>
+
+                        <span id="tentangKamiArrow"
+                            class="bi bi-chevron-right dropdown-arrow">
+                        </span>
+
                     </button>
 
 
-                    <!-- Dropdown -->
+
+                    <!-- DROPDOWN TENTANG KAMI -->
+
                     <div id="submenuTentang"
-                        style="
-                            display: none;
-                            position:absolute;
-                            top: 60px;
-                            left: 0;
-                            width: 100%;
-                            background: white;
-                            border-radius: 14px;
-                            padding: 12px 0;
-                            overflow: hidden;
-                            z-index: 1000;
-                            box-shadow: 
-                            0 10px 25px rgba(0, 0, 0, 0.12),
-                            0 4px 10px rgba(0, 0, 0, 0.06);
-                            
-                            border: 1px solid rgba(0, 0, 0, 0.04);
-                        ">
+                        class="sidebar-submenu">
 
-                        <style>
-                            .tentang-submenu-item {
-                                display: block;
-                                padding: 14px 20px;
-                                color: #111;
-                                text-decoration: none;
-                                font-size: 10px;
-                                font-weight: 600;
 
-                                transition:
-                                    background-color 0.2s ease,
-                                    color 0.2s ease,
-                                    padding-left 0.2s ease;
-                            }
+                        <a href="{{ route('profile.perusahaan') }}"
+                            class="tentang-submenu-item">
 
-                            .tentang-submenu-item:hover {
-                                background-color: #3b73d1;
-                                color: white;
-                                padding-left: 25px;
-                            }
-                        </style>
-
-                        <a href="{{ route('profile.perusahaan') }}" class="tentang-submenu-item">
                             Profile Perusahaan
+
                         </a>
 
-                        <a href="{{ route('team.profile') }}" class="tentang-submenu-item">
+
+                        <a href="{{ route('team.profile') }}"
+                            class="tentang-submenu-item">
+
                             Avengers Team Profile
+
                         </a>
 
-                        <a href="{{ route('wakil.pialang') }}" class="tentang-submenu-item">
+
+                        <a href="{{ route('wakil.pialang') }}"
+                            class="tentang-submenu-item">
+
                             Wakil Pialang Avengers
+
                         </a>
+
 
                     </div>
 
                 </div>
 
 
-                <script>
-                    document.getElementById('tentangKamiBtn').addEventListener('click', function() {
 
-                        const submenu = document.getElementById('submenuTentang');
-                        const arrow = document.getElementById('tentangKamiArrow');
-                        const isOpen = submenu.style.display === 'block';
-
-                        if (!isOpen) {
-                            setActiveDropdown(this);
-                            submenu.style.display = 'block';
-                            arrow.style.transform = 'rotate(90deg)';
-                     
-
-
-                        } else {
-
-                            submenu.style.display = 'none';
-                            arrow.style.transform = 'rotate(0deg)';
-                            this.classList.remove('active');
-
-
-                        }
-
-                    });
-                </script>
-
-                <!-- ===== END TENTANG KAMI ===== -->
-
+                <!-- =========================================
+                     PRODUK
+                ========================================== -->
 
                 <a href="{{ route('produk.index') }}"
                     class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
+
                     Produk
+
                 </a>
 
 
-                <!-- PROSEDUR -->
-                <div id="prosedurContainer" style="width: 100%; position: relative;">
 
-                    <!-- Tombol Prosedur -->
-                    <button type="button" id="prosedurBtn"
-                        class="{{ request()->routeIs('prosedur.*') ? 'active' : '' }}"
-                        style="
-                                width: 100%;
-                                border: none;
-                                background: transparent;
-                                color: #000;
-                                padding: 15px 16px;
-                                border-radius: 10px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                font-family: inherit;
-                                font-size: 12px;
-                                cursor: pointer;
-                                box-sizing: border-box;
-                                transition: all 0.25s ease;
-                            ">
+                <!-- =========================================
+                     PROSEDUR
+                ========================================== -->
 
-                        <span>Prosedur</span>
+                <div id="prosedurContainer"
+                    class="sidebar-dropdown-container">
 
-                        <!-- Panah -->
-                        <span id="prosedurArrow" class="bi bi-chevron-right"
-                            style="
-                                    width: 20px;
-                                    height: 20px;
-                                    border-radius: 50%;
-                                    background: rgba(255,255,255,0.85);
-                                    color: #3b73d1;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-size: 10px;
-                                    line-height: 1;
-                                    box-sizing: border-box;
-                                    transition: transform 0.25s ease;
-                                    flex-shrink: 0;
-                                ">
+
+                    <button type="button"
+                        id="prosedurBtn"
+                        class="{{ request()->routeIs('prosedur.*') ? 'active' : '' }}">
+
+                        <span>
+                            Prosedur
+                        </span>
+
+                        <span id="prosedurArrow"
+                            class="bi bi-chevron-right dropdown-arrow">
                         </span>
 
                     </button>
 
 
-                    <!-- Dropdown Prosedur -->
+
+                    <!-- DROPDOWN PROSEDUR -->
+
                     <div id="submenuProsedur"
-                        style="
-                                display: none;
-                                position: absolute;
-                                top: 60px;
-                                left: 0;
-                                width: 100%;
-                                background: white;
-                                border-radius: 14px;
-                                padding: 12px 0;
-                                overflow: hidden;
-                                z-index: 1000;
-                                box-shadow:
-                                    0 10px 25px rgba(0, 0, 0, 0.12),
-                                    0 4px 10px rgba(0, 0, 0, 0.06);
-                                border: 1px solid rgba(0, 0, 0, 0.04);
-                            ">
-
-                        <style>
-                            .prosedur-submenu-item {
-                                display: block;
-                                padding: 14px 20px;
-                                color: #111;
-                                text-decoration: none;
-                                font-size: 10px;
-                                font-weight: 600;
-
-                                transition:
-                                    background-color 0.2s ease,
-                                    color 0.2s ease,
-                                    padding-left 0.2s ease;
-                            }
-
-                            .prosedur-submenu-item:hover {
-                                background-color: #3b73d1;
-                                color: white;
-                                padding-left: 25px;
-                            }
-                        </style>
+                        class="sidebar-submenu">
 
 
-                        <!-- Pembukaan Rekening -->
-                        <a href="{{ route('prosedur.pembukaan') }}" class="prosedur-submenu-item">
+                        <a href="{{ route('prosedur.pembukaan') }}"
+                            class="prosedur-submenu-item">
+
                             Pembukaan Rekening
+
                         </a>
 
 
-                        <!-- Penarikan -->
-                        <a href="{{ route('prosedur.penarikan') }}" class="prosedur-submenu-item">
+                        <a href="{{ route('prosedur.penarikan') }}"
+                            class="prosedur-submenu-item">
+
                             Penarikan
+
                         </a>
 
 
-                        <!-- Petunjuk Transaksi -->
-                        <a href="{{ route('prosedur.petunjuk') }}" class="prosedur-submenu-item">
+                        <a href="{{ route('prosedur.petunjuk') }}"
+                            class="prosedur-submenu-item">
+
                             Petunjuk Transaksi
+
                         </a>
+
 
                     </div>
 
                 </div>
 
 
-                <script>
-                    document.getElementById('prosedurBtn').addEventListener('click', function() {
 
-                        const submenu = document.getElementById('submenuProsedur');
-                        const arrow = document.getElementById('prosedurArrow');
-                        const isOpen = submenu.style.display === 'block';
+                <!-- =========================================
+                     EDUKASI
+                ========================================== -->
 
-                        if (!isOpen) {
-                            setActiveDropdown(this);
-                            submenu.style.display = 'block';
-                            arrow.style.transform = 'rotate(90deg)';
-                        
+                <div id="edukasiContainer"
+                    class="sidebar-dropdown-container">
 
 
-                        } else {
+                    <button type="button"
+                        id="edukasiBtn"
+                        class="{{ request()->routeIs('edukasi.*') ? 'active' : '' }}">
 
-                            submenu.style.display = 'none';
-                            arrow.style.transform = 'rotate(0deg)';
-                            this.classList.remove('active');
+                        <span>
+                            Edukasi
+                        </span>
 
-                        }
-
-                    });
-                </script>
-
-
-                <!-- ===== END PROSEDUR ===== -->
-
-
-                <!-- EDUKASI -->
-
-
-                <div id="edukasiContainer" style="width: 100%; position: relative;">
-
-                    <!-- Tombol Edukasi -->
-                    <button type="button" id="edukasiBtn"
-                        class="{{ request()->routeIs('edukasi.*') ? 'active' : '' }}"
-                        style="
-                                width: 100%;
-                                border: none;
-                                background: transparent;
-                                color: #000;
-                                padding: 15px 16px;
-                                border-radius: 10px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                font-family: inherit;
-                                font-size: 12px;
-                                cursor: pointer;
-                                box-sizing: border-box;
-                                transition: all 0.25s ease;
-                            ">
-
-                        <span>Edukasi</span>
-
-                        <!-- Panah -->
-                        <span id="edukasiArrow" class="bi bi-chevron-right"
-                            style="
-                                    width: 20px;
-                                    height: 20px;
-                                    border-radius: 50%;
-                                    background: rgba(255,255,255,0.85);
-                                    color: #3b73d1;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-size: 10px;
-                                    line-height: 1;
-                                    box-sizing: border-box;
-                                    transition: transform 0.25s ease;
-                                    flex-shrink: 0;
-                                ">
+                        <span id="edukasiArrow"
+                            class="bi bi-chevron-right dropdown-arrow">
                         </span>
 
                     </button>
 
 
-                    <!-- Dropdown Edukasi -->
+
+                    <!-- DROPDOWN EDUKASI -->
+
                     <div id="submenuEdukasi"
-                        style="
-                                display: none;
-                                position: absolute;
-                                top: 60px;
-                                left: 0;
-                                width: 100%;
-                                background: white;
-                                border-radius: 14px;
-                                padding: 12px 0;
-                                overflow: hidden;
-                                z-index: 1000;
-                                box-shadow:
-                                    0 10px 25px rgba(0, 0, 0, 0.12),
-                                    0 4px 10px rgba(0, 0, 0, 0.06);
-                                border: 1px solid rgba(0, 0, 0, 0.04);
-                            ">
-
-                        <style>
-                            .edukasi-submenu-item {
-                                display: block;
-                                padding: 14px 20px;
-                                color: #111;
-                                text-decoration: none;
-                                font-size: 10px;
-                                font-weight: 600;
-
-                                transition:
-                                    background-color 0.2s ease,
-                                    color 0.2s ease,
-                                    padding-left 0.2s ease;
-                            }
-
-                            .edukasi-submenu-item:hover {
-                                background-color: #3b73d1;
-                                color: white;
-                                padding-left: 25px;
-                            }
-                        </style>
+                        class="sidebar-submenu">
 
 
-                        <!-- Edukasi Nasabah -->
-                        <a href="{{ route('edukasi.nasabah') }}" class="edukasi-submenu-item">
+                        <a href="{{ route('edukasi.nasabah') }}"
+                            class="edukasi-submenu-item">
+
                             Edukasi Nasabah
+
                         </a>
 
 
-                        <!-- Edukasi Konsultan -->
-                        <a href="{{ route('edukasi.konsultan') }}" class="edukasi-submenu-item">
+                        <a href="{{ route('edukasi.konsultan') }}"
+                            class="edukasi-submenu-item">
+
                             Edukasi Konsultan
+
                         </a>
 
 
-                        <!-- Edukasi Umum -->
-                        <a href="{{ route('edukasi.umum') }}" class="edukasi-submenu-item">
+                        <a href="{{ route('edukasi.umum') }}"
+                            class="edukasi-submenu-item">
+
                             Edukasi Umum
+
                         </a>
+
 
                     </div>
 
                 </div>
 
 
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
 
-                        const edukasiBtn = document.getElementById('edukasiBtn');
-                        const submenuEdukasi = document.getElementById('submenuEdukasi');
-                        const edukasiArrow = document.getElementById('edukasiArrow');
-
-                        if (!edukasiBtn || !submenuEdukasi || !edukasiArrow) {
-                            return;
-                        }
-
-                        
-
-                        edukasiBtn.addEventListener('click', function() {
-
-                            const isOpen = submenuEdukasi.style.display === 'block';
-
-                            if (!isOpen) {
-
-                                setActiveDropdown(this);
-
-                                submenuEdukasi.style.display = 'block';
-                                edukasiArrow.style.transform = 'rotate(90deg)';
-
-                            } else {
-
-                               
-                                submenuEdukasi.style.display = 'none';                            
-                                edukasiArrow.style.transform = 'rotate(0deg)';
-                                edukasiBtn.classList.remove('active');
-
-                            }
-
-                        });
-
-                    });
-                </script>
-
-                <!-- ===== END EDUKASI ===== -->
-
-
-                <!-- ===== Anu Tombol ===== -->
-
-                <script>
-                        function setActiveDropdown(clickedButton) {
-                            
-                            // Hapus active dari semua tombol dropdown
-                            document.getElementById('tentangKamiBtn').classList.remove('active');
-                            document.getElementById('prosedurBtn').classList.remove('active');
-                            document.getElementById('edukasiBtn').classList.remove('active');
-                            
-                            // Hapus active dari nav-item biasa
-                            document.querySelectorAll('.sidebar-nav .nav-item').forEach(function(item) {
-                                item.classList.remove('active');
-                            });
-                        
-                            // Tambahkan active ke tombol yang diklik
-                            clickedButton.classList.add('active');
-                        }
-                    </script>
-                <!-- ===== END Anu Tombol ===== -->
-
-
+                <!-- =========================================
+                     MENU LAINNYA
+                ========================================== -->
 
                 <a href="#" class="nav-item">
                     WhatsApp
                 </a>
 
+
                 <a href="#" class="nav-item">
                     List
                 </a>
+
 
                 <a href="#" class="nav-item">
                     Broadcast
                 </a>
 
+
                 <a href="#" class="nav-item">
                     Templates
                 </a>
+
 
                 <a href="#" class="nav-item">
                     Input appointment
                 </a>
 
+
                 <a href="#" class="nav-item">
                     Daily Leads
                 </a>
+
 
                 <a href="#" class="nav-item">
                     Business Profile
                 </a>
 
+
                 <a href="#" class="nav-item">
                     Auto Follow Up
                 </a>
+
 
                 <a href="#" class="nav-item">
                     Smart Bot Action
                 </a>
 
+
                 <a href="#" class="nav-item">
                     Text Replies
                 </a>
 
+
             </nav>
 
-            <form method="POST" action="{{ route('logout') }}" class="logout-form">
+
+
+            <!-- =============================================
+                 LOGOUT
+            ============================================== -->
+
+            <form method="POST"
+                action="{{ route('logout') }}"
+                class="logout-form">
+
                 @csrf
 
-                <button type="submit" class="logout-btn">
+                <button type="submit"
+                    class="logout-btn">
+
                     Keluar
+
                 </button>
+
             </form>
+
 
         </aside>
 
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
         <main class="main-content">
 
+
             @if (session('success'))
+
                 <div class="alert-success">
+
                     {{ session('success') }}
+
                 </div>
+
             @endif
+
 
             @yield('content')
 
+
         </main>
+
 
     </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const sidebar = document.querySelector('.sidebar');
-        const appShell = document.querySelector('.app-shell');
-
-        const sidebarClose = document.getElementById('sidebarClose');
-        const sidebarOpen = document.getElementById('sidebarOpen');
-
-        if (!sidebar || !appShell || !sidebarClose || !sidebarOpen) {
-            return;
-        }
 
 
-        /* =====================================================
-           SIDEBAR DEFAULT TERTUTUP
-           Setiap halaman baru dibuka → sidebar tertutup
-        ===================================================== */
+    <!-- =====================================================
+         JAVASCRIPT SIDEBAR
+    ====================================================== -->
 
-        sidebar.classList.add('closed');
-        appShell.classList.add('sidebar-closed');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const sidebar = document.querySelector('.sidebar');
+
+            const appShell = document.querySelector('.app-shell');
+
+            const sidebarOpen = document.getElementById('sidebarOpen');
+
+            const sidebarClose = document.getElementById('sidebarClose');
 
 
-        /* =====================================================
-           TOMBOL X
-        ===================================================== */
+            if (!sidebar || !appShell || !sidebarOpen || !sidebarClose) {
+                return;
+            }
 
-        sidebarClose.addEventListener('click', function() {
+
+
+            /* =================================================
+               DEFAULT
+               Sidebar tertutup saat halaman dibuka
+            ================================================== */
 
             sidebar.classList.add('closed');
+
             appShell.classList.add('sidebar-closed');
 
+
+
+            /* =================================================
+               BUKA SIDEBAR
+               Tombol garis tiga
+            ================================================== */
+
+            sidebarOpen.addEventListener('click', function() {
+
+                sidebar.classList.remove('closed');
+
+                appShell.classList.remove('sidebar-closed');
+
+            });
+
+
+
+            /* =================================================
+               TUTUP SIDEBAR
+               Tombol X
+            ================================================== */
+
+            sidebarClose.addEventListener('click', function() {
+
+                sidebar.classList.add('closed');
+
+                appShell.classList.add('sidebar-closed');
+
+            });
+
+
+
+            /* =================================================
+               FUNGSI ACTIVE DROPDOWN
+            ================================================== */
+
+            function setActiveDropdown(clickedButton) {
+
+                document
+                    .querySelectorAll('.sidebar-nav button')
+                    .forEach(function(button) {
+
+                        button.classList.remove('active');
+
+                    });
+
+
+                document
+                    .querySelectorAll('.sidebar-nav .nav-item')
+                    .forEach(function(item) {
+
+                        item.classList.remove('active');
+
+                    });
+
+
+                clickedButton.classList.add('active');
+
+            }
+
+
+
+            /* =================================================
+               TENTANG KAMI
+            ================================================== */
+
+            const tentangBtn =
+                document.getElementById('tentangKamiBtn');
+
+            const tentangSubmenu =
+                document.getElementById('submenuTentang');
+
+            const tentangArrow =
+                document.getElementById('tentangKamiArrow');
+
+
+            if (tentangBtn && tentangSubmenu && tentangArrow) {
+
+                tentangBtn.addEventListener('click', function() {
+
+                    const isOpen =
+                        tentangSubmenu.style.display === 'block';
+
+
+                    closeAllDropdowns();
+
+
+                    if (!isOpen) {
+
+                        setActiveDropdown(this);
+
+                        tentangSubmenu.style.display = 'block';
+
+                        tentangArrow.style.transform =
+                            'rotate(90deg)';
+
+                    }
+
+                });
+
+            }
+
+
+
+            /* =================================================
+               PROSEDUR
+            ================================================== */
+
+            const prosedurBtn =
+                document.getElementById('prosedurBtn');
+
+            const prosedurSubmenu =
+                document.getElementById('submenuProsedur');
+
+            const prosedurArrow =
+                document.getElementById('prosedurArrow');
+
+
+            if (prosedurBtn && prosedurSubmenu && prosedurArrow) {
+
+                prosedurBtn.addEventListener('click', function() {
+
+                    const isOpen =
+                        prosedurSubmenu.style.display === 'block';
+
+
+                    closeAllDropdowns();
+
+
+                    if (!isOpen) {
+
+                        setActiveDropdown(this);
+
+                        prosedurSubmenu.style.display = 'block';
+
+                        prosedurArrow.style.transform =
+                            'rotate(90deg)';
+
+                    }
+
+                });
+
+            }
+
+
+
+            /* =================================================
+               EDUKASI
+            ================================================== */
+
+            const edukasiBtn =
+                document.getElementById('edukasiBtn');
+
+            const edukasiSubmenu =
+                document.getElementById('submenuEdukasi');
+
+            const edukasiArrow =
+                document.getElementById('edukasiArrow');
+
+
+            if (edukasiBtn && edukasiSubmenu && edukasiArrow) {
+
+                edukasiBtn.addEventListener('click', function() {
+
+                    const isOpen =
+                        edukasiSubmenu.style.display === 'block';
+
+
+                    closeAllDropdowns();
+
+
+                    if (!isOpen) {
+
+                        setActiveDropdown(this);
+
+                        edukasiSubmenu.style.display = 'block';
+
+                        edukasiArrow.style.transform =
+                            'rotate(90deg)';
+
+                    }
+
+                });
+
+            }
+
+
+
+            /* =================================================
+               TUTUP SEMUA DROPDOWN
+            ================================================== */
+
+            function closeAllDropdowns() {
+
+                if (tentangSubmenu) {
+
+                    tentangSubmenu.style.display = 'none';
+
+                }
+
+
+                if (prosedurSubmenu) {
+
+                    prosedurSubmenu.style.display = 'none';
+
+                }
+
+
+                if (edukasiSubmenu) {
+
+                    edukasiSubmenu.style.display = 'none';
+
+                }
+
+
+                if (tentangArrow) {
+
+                    tentangArrow.style.transform =
+                        'rotate(0deg)';
+
+                }
+
+
+                if (prosedurArrow) {
+
+                    prosedurArrow.style.transform =
+                        'rotate(0deg)';
+
+                }
+
+
+                if (edukasiArrow) {
+
+                    edukasiArrow.style.transform =
+                        'rotate(0deg)';
+
+                }
+
+            }
+
+
         });
+    </script>
 
 
-        /* =====================================================
-           TOMBOL ☰ MENU
-        ===================================================== */
+</body>
 
-        sidebarOpen.addEventListener('click', function() {
-
-            sidebar.classList.remove('closed');
-            appShell.classList.remove('sidebar-closed');
-
-        });
-
-    });
-</script>
+</html>

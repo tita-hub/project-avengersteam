@@ -85,9 +85,6 @@
     display: flex;
     flex-direction: column;
 
-    /*
-       SEMUA CARD DIBUAT SAMA TINGGINYA
-    */
     min-height: 610px;
 
     box-sizing: border-box;
@@ -271,9 +268,6 @@
 
     margin: 0 0 10px;
 
-    /*
-       TINGGI JUDUL DIBUAT SAMA
-    */
     min-height: 40px;
 
     display: flex;
@@ -315,13 +309,6 @@
    DESCRIPTION
    ============================================================ */
 
-/*
-   BAGIAN INI YANG PALING PENTING.
-
-   Semua deskripsi diberi tinggi yang sama,
-   jadi kotak informasi akan sejajar.
-*/
-
 .produk-description {
 
     color: #65746b;
@@ -334,11 +321,6 @@
 
     margin: 0;
 
-    /*
-       Tinggi dibuat tetap.
-       Walaupun teks berbeda jumlah baris,
-       posisi bagian bawah tetap sama.
-    */
     height: 125px;
 
     display: flex;
@@ -373,9 +355,6 @@
 
     line-height: 1.7;
 
-    /*
-       SEMUA KOTAK INFORMASI SAMA TINGGI
-    */
     height: 105px;
 
     box-sizing: border-box;
@@ -640,12 +619,25 @@
    CLOSE BUTTON
    ============================================================ */
 
+/*
+   HANYA BAGIAN INI YANG DIUBAH
+
+   Tombol X tetap berada di pojok kanan atas
+   dan tidak ikut bergerak ketika isi modal
+   di-scroll.
+*/
+
 .modal-close {
 
-    position: fixed;
+    position: sticky;
 
-    right: 20px;
     top: 18px;
+
+    margin-left: auto;
+
+    margin-right: 20px;
+
+    margin-bottom: -38px;
 
     width: 38px;
     height: 38px;
@@ -663,7 +655,16 @@
     cursor: pointer;
 
     transition:
-        0.25s;
+        background 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 
@@ -904,10 +905,6 @@
     }
 
 
-    /*
-       Pada HP deskripsi tetap diberi
-       ruang yang cukup.
-    */
     .produk-description {
 
         height: auto;
@@ -969,10 +966,6 @@ body.modal-open {
     ========================================================= --}}
 
     <div class="produk-header">
-
-        <div class="label">
-            PT Rifan Financindo Berjangka
-        </div>
 
         <h1>
             Produk Perdagangan
