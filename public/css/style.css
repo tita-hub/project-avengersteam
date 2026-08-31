@@ -353,7 +353,7 @@
    DROPDOWN BUTTON
    ============================================================ */
 
-.sidebar-dropdown-container > button {
+.sidebar-dropdown-container>button {
     width: 100%;
 
     min-height: 36px;
@@ -391,7 +391,7 @@
    DROPDOWN HOVER
    ============================================================ */
 
-.sidebar-dropdown-container > button:hover {
+.sidebar-dropdown-container>button:hover {
     background: #3b73d1;
 
     color: #ffffff;
@@ -402,7 +402,7 @@
    DROPDOWN ACTIVE
    ============================================================ */
 
-.sidebar-dropdown-container > button.active {
+.sidebar-dropdown-container>button.active {
     background: #3b73d1 !important;
 
     color: #ffffff !important;
@@ -548,6 +548,604 @@
     color: #3b73d1;
 }
 
+/* ============================================================
+   INTINYA BAGIAN TENTANG KAMI
+   ============================================================ */
+
+
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+.profile-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    margin: 7px 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+.section-title p {
+    color: #6b7280;
+}
+
+
+/* ============================================================
+   PROFIL
+   ============================================================ */
+
+.profile-content {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.profile-content p {
+    color: #4b5563;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 18px;
+}
+
+
+/* ============================================================
+   LEGALITAS
+   ============================================================ */
+
+.legalitas-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.legalitas-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.legalitas-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.legalitas-item span {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f0fdf4;
+    color: #16a34a;
+
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.legalitas-item p {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+/* ============================================================
+   SERTIFIKAT - HORIZONTAL SCROLL
+   ============================================================ */
+
+.certificate-scroll {
+    display: flex;
+    gap: 20px;
+
+    overflow-x: auto;
+
+    padding: 10px 5px 20px;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+}
+
+.certificate-card {
+    flex: 0 0 250px;
+
+    height: 320px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 10px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.certificate-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    transition: transform 0.4s ease;
+}
+
+.certificate-card:hover img {
+    transform: scale(1.04);
+}
+
+.certificate-title {
+    color: #16a34a;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+
+
+    .legalitas-list {
+        grid-template-columns: 1fr;
+    }
+
+
+}
+
+@media (max-width: 600px) {
+
+
+
+    .certificate-card {
+        flex-basis: 220px;
+        height: 280px;
+    }
+}
+
+
+/* ============================================================
+   WAKIL PIALANG
+   ============================================================ */
+
+.wakil-pialang-container {
+    width: 100%;
+    margin: 30px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.wakil-pialang-card {
+    flex: 1 1 300px;
+    max-width: 360px;
+    min-width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    animation: wakilPialangMasuk 0.8s ease forwards;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* ANIMASI BERURUTAN */
+
+.wakil-pialang-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.wakil-pialang-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.wakil-pialang-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+/* HOVER CARD */
+
+.wakil-pialang-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+    border-color: #d1d5db;
+}
+
+
+/* ============================================================
+   FOTO
+   ============================================================ */
+
+.wakil-pialang-photo {
+    width: 170px;
+    height: 200px;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    margin-bottom: 18px;
+
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wakil-pialang-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* FOTO ZOOM SAAT CARD DIHOVER */
+
+.wakil-pialang-card:hover .wakil-pialang-photo img {
+    transform: scale(1.08);
+}
+
+
+/* ============================================================
+   INFORMASI
+   ============================================================ */
+
+.wakil-pialang-info {
+    width: 100%;
+    text-align: center;
+}
+
+
+.wakil-pialang-info h3 {
+    margin: 5px 0 10px;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+
+.wakil-pialang-info p {
+    margin: 0;
+
+    color: #555;
+
+    line-height: 1.7;
+
+    text-align: justify;
+}
+
+
+/* ============================================================
+   ANIMASI MASUK
+   ============================================================ */
+
+@keyframes wakilPialangMasuk {
+
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .wakil-pialang-card {
+        flex: 1 1 300%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .wakil-pialang-container {
+        gap: 20px;
+    }
+
+    .wakil-pialang-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+}
+
+/* ============================================================
+   AKSEN TAMBAHAN WAKIL PIALANG
+   ============================================================ */
+
+.wakil-pialang-card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* GARIS AKSEN ATAS */
+
+.wakil-pialang-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(90deg,
+            #198754 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            #dc3545 66%);
+}
+
+
+/* EFEK SHINE */
+
+.wakil-pialang-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -75%;
+
+    width: 50%;
+    height: 300%;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    transform: rotate(25deg);
+
+    transition: left 0.7s ease;
+
+    pointer-events: none;
+}
+
+
+.wakil-pialang-card:hover::after {
+    left: 125%;
+}
+
+
+/* FOTO LEBIH PENUH */
+
+.wakil-pialang-photo {
+    position: relative;
+
+    width: 170px;
+    height: 200px;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    margin-bottom: 18px;
+
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wakil-pialang-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+/* ZOOM FOTO */
+
+.wakil-pialang-card:hover .wakil-pialang-photo img {
+    transform: scale(1.08);
+}
+
+
+/* NAMA */
+
+.wakil-pialang-info h3 {
+    position: relative;
+
+    margin: 5px 0 10px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    transition: transform 0.3s ease;
+}
+
+
+.wakil-pialang-card:hover .wakil-pialang-info h3 {
+    transform: translateY(-2px);
+}
+
+.wakil-pialang-jabatan {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    background: #f1f5f9;
+    color: #374151;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.wakil-pialang-detail {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.wakil-pialang-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    text-align: left;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.wakil-pialang-item:hover {
+    transform: translateX(5px);
+    background: #f1f5f9;
+}
+
+
+.wakil-pialang-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    font-size: 17px;
+}
+
+
+.wakil-pialang-item small {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #6b7280;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+.wakil-pialang-item strong {
+    display: block;
+
+    color: #1f2937;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+/* ============================================================
+   INTINYA END BAGIAN TENTANG KAMI
+   ============================================================ */
 
 /* ============================================================
    LOGOUT
@@ -700,11 +1298,9 @@
     font-size: 90px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #ffffff,
-            #eef2f9
-        );
+            #eef2f9);
 }
 
 .welcome-content h1 {
@@ -1150,12 +1746,10 @@
     margin-bottom: 22px;
 
     background:
-        linear-gradient(
-            100deg,
+        linear-gradient(100deg,
             #0f2a5c,
             #1c4fa3 55%,
-            #2f6fe0
-        );
+            #2f6fe0);
 
     border-radius: 10px;
 
@@ -1218,22 +1812,18 @@
     overflow: hidden;
 
     -webkit-mask-image:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             #000 4%,
             #000 96%,
-            transparent
-        );
+            transparent);
 
     mask-image:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             #000 4%,
             #000 96%,
-            transparent
-        );
+            transparent);
 }
 
 .ticker-content {
@@ -1336,6 +1926,7 @@
 }
 
 @keyframes tickerLabelPulse {
+
     0%,
     100% {
         box-shadow:

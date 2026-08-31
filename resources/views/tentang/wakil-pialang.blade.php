@@ -1,63 +1,146 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Data Wakil Pialang</h1>
+    <div class="container">
+        <h1 style="text-align: center;">Data Wakil Pialang Team Avangers</h1>
 
-    <p>
-        Intinya Anu
-    </p>
+        <div class="wakil-pialang-container">
 
-
-    <div style="width: 100%; margin: 0 auto;">
-
-    <!-- FOTO 1 -->
-        <div style="display: flex; align-items: center; gap: 20px; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 10px;">
+            <!-- FOTO 1 -->
+            <div class="wakil-pialang-card">
 
 
-            <img src="{{ asset('images/5.jpg') }}"
-                alt="Foto 1"
-                style="width: 170px; height: 200px; object-fit: contain;">
+                <div class="wakil-pialang-photo">
+                    <img src="{{ asset('images/CI CHIRST 1.jpeg') }}" alt="Christin Octavia">
+                </div>
 
-            <div style="text-align: justify;">
-                <h3>Christin Octavia</h3>
-                <p>
-                    Tambahkan Info mengenai Beliau.
-                </p>
+                <div class="wakil-pialang-info">
+                    <h3>Christin Octavia</h3>
+                    <div class="wakil-pialang-detail">
+
+                        <!-- SK WPB -->
+                        <div class="wakil-pialang-item">
+
+                            <span class="wakil-pialang-icon">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </span>
+
+                            <div>
+                                <small>SK WPB</small>
+                                <strong>0074/UPTP/SI/03/2020</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+                        <div class="wakil-pialang-item">
+
+                            <span class="wakil-pialang-icon">
+                                <i class="bi bi-envelope"></i>
+                            </span>
+
+                            <div>
+                                <small>Email</small>
+                                <strong>email@example.com</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-        </div>
+
+            <!-- FOTO 2 -->
+            <div class="wakil-pialang-card">
+
+                <div class="wakil-pialang-photo">
+                    <img src="{{ asset('images/KA DHIANA.jpeg') }}" alt="Dhiana Rizky Wulandari">
+                </div>
+
+                <div class="wakil-pialang-info">
+                    <h3>Dhiana Rizky Wulandari</h3>
+                    <div class="wakil-pialang-detail">
+
+                        <!-- SK WPB -->
+                        <div class="wakil-pialang-item">
+
+                            <span class="wakil-pialang-icon">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </span>
+
+                            <div>
+                                <small>SK WPB</small>
+                                <strong>0361/UPTP/SI/5/2023</strong>
+                            </div>
+
+                        </div>
 
 
-        <!-- FOTO 2 -->
-        <div style="display: flex; align-items: center; gap: 20px; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 10px;">
+                        <!-- EMAIL -->
+                        <div class="wakil-pialang-item">
 
-            <img src="{{ asset('images/5.jpg') }}"
-                alt="Foto 2"
-                style="width: 170px; height: 200px; object-fit: contain;">
+                            <span class="wakil-pialang-icon">
+                                <i class="bi bi-envelope"></i>
+                            </span>
 
-            <div style="text-align: justify;">
-                <h3>Dhiana Rizky Wulandari</h3>
-                <p>
-                    Tambahkan Info mengenai Beliau.
-                </p>
+                            <div>
+                                <small>Email</small>
+                                <strong>email@example.com</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-        </div>
+
+            <!-- FOTO 3 -->
+            <div class="wakil-pialang-card">
+
+                <div class="wakil-pialang-photo">
+                    <img src="{{ asset('images/KA GEMPI 1.jpeg') }}" alt="Dian Sri Rahmawati">
+                </div>
+                <div class="wakil-pialang-info">
+                    <h3>Dian Sri Rahmawati</h3>
+                    <div class="wakil-pialang-detail">
+
+                        <!-- SK WPB -->
+                        <div class="wakil-pialang-item">
+
+                            <span class="wakil-pialang-icon">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </span>
+
+                            <div>
+                                <small>SK WPB</small>
+                                <strong>216/UPTP/SI/10/2024</strong>
+                            </div>
+
+                        </div>
 
 
-        <!-- FOTO 3 -->
-        <div style="display: flex; align-items: center; gap: 20px; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 10px;">
+                        <!-- EMAIL -->
+                        <div class="wakil-pialang-item">
 
-            <img src="{{ asset('images/6.jpg') }}"
-                alt="Foto 3"
-                style="width: 170px; height: 200px; object-fit: contain;">
+                            <span class="wakil-pialang-icon">
+                                <i class="bi bi-envelope"></i>
+                            </span>
 
-            <div style="text-align: justify;">
-                <h3>Dian Sri Rahmawati</h3>
-                <p>
-                    Tambahkan Info mengenai Beliau.
-                </p>
+                            <div>
+                                <small>Email</small>
+                                <strong>email@example.com</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -65,10 +148,5 @@
     </div>
 
 
-    <h2>Anggota Team Avangers</h2>
-
-</div>
-
-
-</div>
+    </div>
 @endsection
