@@ -84,22 +84,19 @@
 
             </div>
 
+            <!-- =====================================================
+            FLOATING WHATSAPP
+            ====================================================== -->
 
-            <!-- =============================================
-                 CONTACT PERSON
-                 Tetap di sebelah kanan
-            ============================================== -->
+            <a href="https://wa.me/085128040216"
+                class="floating-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hubungi melalui WhatsApp">
 
-            <button type="button"
-                class="contact-person-btn">
+                <i class="bi bi-whatsapp"></i>
 
-                <i class="bi bi-person-circle"></i>
-
-                <span>
-                    Contact Person
-                </span>
-
-            </button>
+            </a>
 
 
         </header>
@@ -451,6 +448,231 @@
 
     </div>
 
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <!-- =================================================
+                 PERHATIAN
+            ================================================== -->
+
+            <div class="footer-warning">
+
+                <div class="footer-warning-line"></div>
+
+                <h3>
+                    PERHATIAN!
+                </h3>
+
+                <p>
+                    Manajemen PT Rifan Financindo Berjangka (PT RFB)
+                    menghimbau seluruh masyarakat untuk selalu waspada
+                    terhadap upaya penipuan berkedok investasi yang
+                    mengatasnamakan PT RFB melalui media elektronik
+                    maupun media sosial. Pastikan setiap proses transfer
+                    dana untuk transaksi Perdagangan Berjangka dilakukan
+                    hanya ke rekening Segregated Account atas nama
+                    PT Rifan Financindo Berjangka, bukan ke rekening
+                    pribadi siapa pun.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TAUTAN CEPAT
+            ================================================== -->
+
+            <div class="footer-links">
+
+                <h3>
+                    TAUTAN CEPAT
+                </h3>
+
+
+                <a href="#"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Beranda</span>
+
+                </a>
+
+
+                <a href="https://www.rf-berjangka.com/produk/jfx"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Produk JFX</span>
+
+                </a>
+
+
+                <a href="https://www.rf-berjangka.com/produk/spa"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Produk SPA</span>
+
+                </a>
+
+
+                <a href="#"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Kontak</span>
+
+                </a>
+
+
+                <!-- TAMBAHAN BARU -->
+
+                <a href="https://www.rf-berjangkasemarang.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Appointment</span>
+
+                </a>
+
+
+                <a href="https://performance-rfbsmg.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Performance</span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INFORMASI PERUSAHAAN
+            ================================================== -->
+
+            <div class="footer-company">
+
+                <h3>
+                    PT RIFAN FINANCINDO BERJANGKA SEMARANG
+                </h3>
+
+
+                <p>
+                    Corner, Ruko Jl. Letnan Jenderal S. Parman 
+                    No.47A Unit 5-6, Gajahmungkur, 
+                    Kec. Gajahmungkur, Kota Semarang, 
+                    Jawa Tengah 50231
+                </p>
+
+
+                <p>
+                    <strong>Email:</strong>
+                    compliance.smg@rifan-financindo-berjangka.co.id
+                </p>
+
+
+                <p>
+                    <strong>Telepon:</strong>
+                    (024) 8508868
+                </p>
+
+
+                <p>
+                    <strong>Fax (Ruko S.Parman):</strong>
+                    (024) 850 8869
+                </p>
+
+
+                <p>
+                    <strong>Layanan pengaduan:</strong>
+                    compliance.smg@rifan-financindo-berjangka.co.id
+                </p>
+
+
+                <!-- =================================================
+                     LOGO KOMDIGI
+                     LOGO INI BISA DIKLIK
+                ================================================== -->
+
+                <div class="footer-logos">
+
+
+                    <!-- LOGO KOMDIGI -->
+
+                    <a href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-logo-komdigi"
+                        aria-label="Website Komdigi">
+
+                        <img src="{{ asset('images/logo-komdigi.png') }}"
+                            alt="Komdigi">
+
+                    </a>
+
+
+                    <!-- LOGO TSI / KAN -->
+
+                    <a href="https://tsicertification.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-logo-kan"
+                        aria-label="Website TSI KAN">
+
+                        <img src="{{ asset('images/logo-tsi-kan.png') }}"
+                            alt="TSI KAN">
+
+                    </a>
+
+                </div>
+
+
+                <p class="footer-supervision">
+                    Terdaftar dan diawasi oleh Kementerian Komunikasi
+                    dan Digital Republik Indonesia
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER BOTTOM
+        ================================================== -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © {{ date('Y') }} PT Rifan Financindo Berjangka.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
 
 
     <!-- =====================================================

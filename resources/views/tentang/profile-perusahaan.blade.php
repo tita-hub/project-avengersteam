@@ -13,7 +13,7 @@
             <div class="profile-content">
 
                 <p>
-                    PT Rifan Financindo Berjangka (“RFB”) berpengalaman
+                    PT Rifan Financindo Berjangka (RFB) berpengalaman
                     lebih dari 20 tahun di industri Perdagangan Berjangka
                     Komoditi dan merupakan perusahaan pialang terbesar
                     dengan menduduki posisi teratas dari 10 perusahaan

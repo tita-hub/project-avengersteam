@@ -4,709 +4,1662 @@
 
 <style>
 
-    /* ============================================================
-       HALAMAN PETUNJUK TRANSAKSI
-       ============================================================ */
+/* ============================================================
+   HALAMAN PETUNJUK TRANSAKSI
+   TEMA : NAVY + ORANGE
+   ============================================================ */
 
-    .transaksi-page {
-        padding: 40px 45px 70px;
-        background: #f5f7fb;
-        min-height: 100vh;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        color: #555;
+.transaction-page {
+
+    --navy: #0b1f3a;
+    --navy-dark: #07162b;
+    --navy-soft: #132d50;
+
+    --orange: #f28c28;
+    --orange-dark: #d96f0b;
+    --orange-soft: #fff4e8;
+
+    padding: 35px 45px 70px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(242,140,40,.08),
+            transparent 30%
+        ),
+        #f4f6fa;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   KEMBALI
+   ============================================================ */
+
+.transaction-back {
+
+    max-width: 1050px;
+
+    margin: 0 auto 18px;
+}
+
+.transaction-back a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--navy);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: .3s ease;
+}
+
+.transaction-back a:hover {
+
+    color: var(--orange);
+
+    transform: translateX(-5px);
+}
+
+.transaction-back-arrow {
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: white;
+
+    border: 1px solid #e5e9ef;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 5px 15px rgba(11,31,58,.07);
+
+    transition: .3s ease;
+}
+
+.transaction-back a:hover .transaction-back-arrow {
+
+    background: var(--orange);
+
+    color: white;
+
+    border-color: var(--orange);
+
+    transform: translateX(-2px);
+}
+
+
+/* ============================================================
+   HERO HEADER
+   ============================================================ */
+
+.transaction-header {
+
+    max-width: 1050px;
+
+    margin: 0 auto 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 42px 45px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-dark) 0%,
+            var(--navy) 65%,
+            #163861 100%
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px rgba(11,31,58,.18);
+
+    animation:
+        transactionHero .7s ease;
+}
+
+
+/* dekorasi */
+
+.transaction-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    right: -80px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(242,140,40,.16);
+}
+
+.transaction-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: 100px;
+    bottom: -105px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.04);
+}
+
+
+/* garis orange */
+
+.transaction-header-line {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            #ffb45e
+        );
+}
+
+
+/* isi */
+
+.transaction-header-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+
+/* label */
+
+.transaction-header-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    margin-bottom: 17px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(242,140,40,.14);
+
+    border:
+        1px solid rgba(242,140,40,.35);
+
+    color: #ffb45e;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+.transaction-header-label::before {
+
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--orange);
+
+    box-shadow:
+        0 0 0 5px rgba(242,140,40,.12);
+}
+
+
+/* judul */
+
+.transaction-header h1 {
+
+    margin: 0 0 12px;
+
+    color: white;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+}
+
+.transaction-header h1 span {
+
+    color:
+        var(--orange);
+}
+
+
+/* deskripsi */
+
+.transaction-header p {
+
+    margin: 0;
+
+    max-width: 820px;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.transaction-header strong {
+
+    color:
+        #ffb45e;
+}
+
+
+/* status */
+
+.transaction-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 23px;
+
+    padding: 10px 15px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    border-radius: 12px;
+
+    color:
+        rgba(255,255,255,.82);
+
+    font-size: 12px;
+}
+
+.transaction-status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        #42d77d;
+
+    box-shadow:
+        0 0 0 5px rgba(66,215,125,.10);
+}
+
+
+/* ============================================================
+   DEMO TRADING INFO
+   ============================================================ */
+
+.demo-info {
+
+    max-width: 1050px;
+
+    margin: 0 auto 38px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 21px 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8ef,
+            #fffdf9
+        );
+
+    border:
+        1px solid #f0d6b7;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 7px 22px rgba(11,31,58,.045);
+
+    animation:
+        transactionFadeUp .7s ease;
+}
+
+.demo-info::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background:
+        var(--orange);
+
+    border-radius:
+        5px 0 0 5px;
+}
+
+
+/* icon */
+
+.demo-icon {
+
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        var(--orange);
+
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 7px 18px rgba(242,140,40,.18);
+}
+
+.demo-info h3 {
+
+    margin: 0 0 5px;
+
+    color:
+        #9a5a0b;
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+.demo-info p {
+
+    margin: 0;
+
+    color:
+        #6d604d;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+
+.transaction-section-title {
+
+    max-width: 1050px;
+
+    margin: 0 auto 22px;
+}
+
+.transaction-title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.transaction-title-icon {
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background:
+        var(--navy);
+
+    color:
+        var(--orange);
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 8px 20px rgba(11,31,58,.15);
+}
+
+.transaction-section-title h2 {
+
+    margin: 0;
+
+    color:
+        var(--navy);
+
+    font-size: 25px;
+
+    font-weight: 800;
+}
+
+.transaction-section-title p {
+
+    margin: 5px 0 0 56px;
+
+    color:
+        #7b8491;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+
+.transaction-timeline {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+
+/* garis timeline */
+
+.transaction-timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 31px;
+
+    top: 32px;
+
+    bottom: 32px;
+
+    width: 3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--orange),
+            #dbe1e8
+        );
+
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   STEP
+   ============================================================ */
+
+.transaction-step {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 22px;
+
+    margin-bottom: 22px;
+
+    position: relative;
+
+    animation:
+        transactionStep .65s ease both;
+}
+
+.transaction-step:nth-child(1) {
+
+    animation-delay:
+        .05s;
+}
+
+.transaction-step:nth-child(2) {
+
+    animation-delay:
+        .13s;
+}
+
+.transaction-step:nth-child(3) {
+
+    animation-delay:
+        .21s;
+}
+
+
+/* ============================================================
+   NOMOR STEP
+   ============================================================ */
+
+.transaction-step-number {
+
+    width: 63px;
+    height: 63px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 3;
+
+    border-radius: 18px;
+
+    background:
+        white;
+
+    border:
+        3px solid var(--orange);
+
+    color:
+        var(--navy);
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 8px 22px rgba(242,140,40,.18);
+
+    transition:
+        .3s ease;
+}
+
+.transaction-step:hover
+.transaction-step-number {
+
+    background:
+        var(--orange);
+
+    color:
+        white;
+
+    transform:
+        rotate(-5deg)
+        scale(1.06);
+}
+
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.transaction-card {
+
+    flex: 1;
+
+    position: relative;
+
+    padding: 27px 30px;
+
+    background:
+        white;
+
+    border:
+        1px solid #e4e8ee;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 22px rgba(11,31,58,.055);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+
+/* garis kiri */
+
+.transaction-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 20px;
+    bottom: 20px;
+
+    width: 4px;
+
+    background:
+        var(--orange);
+
+    border-radius:
+        0 5px 5px 0;
+
+    opacity: 0;
+
+    transition:
+        .3s ease;
+}
+
+.transaction-card:hover {
+
+    transform:
+        translateX(6px);
+
+    border-color:
+        rgba(242,140,40,.45);
+
+    box-shadow:
+        0 15px 35px rgba(11,31,58,.09);
+}
+
+.transaction-card:hover::before {
+
+    opacity: 1;
+}
+
+
+/* judul */
+
+.transaction-card h3 {
+
+    margin: 0 0 10px;
+
+    color:
+        var(--navy);
+
+    font-size: 19px;
+
+    font-weight: 800;
+}
+
+.transaction-card p {
+
+    margin: 0;
+
+    color:
+        #667180;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.transaction-card strong {
+
+    color:
+        var(--navy);
+}
+
+
+/* ============================================================
+   CHECKLIST
+   ============================================================ */
+
+.check-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.check-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    background:
+        #f8fafc;
+
+    border:
+        1px solid #e7ebf0;
+
+    border-radius: 10px;
+
+    color:
+        #53606d;
+
+    font-size: 12px;
+
+    transition:
+        .25s ease;
+}
+
+.check-item::before {
+
+    content:
+        "✓";
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background:
+        var(--orange-soft);
+
+    color:
+        var(--orange-dark);
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+.check-item:hover {
+
+    background:
+        var(--orange-soft);
+
+    border-color:
+        rgba(242,140,40,.25);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ============================================================
+   PLATFORM TRADING
+   ============================================================ */
+
+.trading-platform {
+
+    margin-top: 18px;
+
+    padding: 18px;
+
+    background:
+        #f8fafc;
+
+    border:
+        1px solid #e7ebf0;
+
+    border-radius: 12px;
+
+    position: relative;
+}
+
+.trading-platform::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        var(--orange);
+
+    border-radius:
+        4px 0 0 4px;
+}
+
+.trading-platform small {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        #7b8491;
+
+    font-size: 12px;
+}
+
+.trading-platform a {
+
+    color:
+        var(--orange-dark);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        .3s ease;
+}
+
+.trading-platform a:hover {
+
+    color:
+        var(--orange);
+
+    text-decoration:
+        underline;
+}
+
+
+/* ============================================================
+   KEAMANAN AKUN
+   ============================================================ */
+
+.transaction-security {
+
+    max-width: 1050px;
+
+    margin: 38px auto 0;
+
+    position: relative;
+
+    padding: 24px 27px 24px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9f1,
+            #fffdf9
+        );
+
+    border:
+        1px solid #f3d5b2;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 22px rgba(11,31,58,.04);
+}
+
+.transaction-security::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background:
+        var(--orange);
+}
+
+.transaction-security-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+    color:
+        #9a5a0b;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.transaction-security-icon {
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        var(--orange);
+
+    color:
+        white;
+
+    font-size: 15px;
+
+    font-weight: 900;
+}
+
+.transaction-security p {
+
+    margin: 0;
+
+    color:
+        #6d604d;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.transaction-security strong {
+
+    color:
+        #57462f;
+}
+
+
+/* ============================================================
+   LEGALITAS
+   ============================================================ */
+
+.transaction-legal-section {
+
+    max-width: 1050px;
+
+    margin: 52px auto 0;
+}
+
+.transaction-legal-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+/* card */
+
+.transaction-legal-card {
+
+    position: relative;
+
+    padding: 23px;
+
+    background:
+        white;
+
+    border:
+        1px solid #e4e8ee;
+
+    border-radius: 17px;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 22px rgba(11,31,58,.045);
+
+    transition:
+        .3s ease;
+}
+
+
+/* garis atas */
+
+.transaction-legal-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        var(--orange);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        center;
+
+    transition:
+        transform .3s ease;
+}
+
+.transaction-legal-card:hover::before {
+
+    transform:
+        scaleX(1);
+}
+
+.transaction-legal-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(242,140,40,.4);
+
+    box-shadow:
+        0 15px 32px rgba(11,31,58,.09);
+}
+
+
+/* icon */
+
+.transaction-legal-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    border-radius: 12px;
+
+    background:
+        var(--navy);
+
+    color:
+        var(--orange);
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    transition:
+        .3s ease;
+}
+
+.transaction-legal-card:hover
+.transaction-legal-icon {
+
+    background:
+        var(--orange);
+
+    color:
+        white;
+
+    transform:
+        scale(1.05);
+}
+
+
+/* arrow */
+
+.transaction-legal-card::after {
+
+    content:
+        "↗";
+
+    position: absolute;
+
+    top: 19px;
+    right: 19px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        var(--orange-soft);
+
+    color:
+        var(--orange-dark);
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    transition:
+        .3s ease;
+}
+
+.transaction-legal-card:hover::after {
+
+    background:
+        var(--orange);
+
+    color:
+        white;
+
+    transform:
+        translate(2px,-2px);
+}
+
+.transaction-legal-card h3 {
+
+    margin: 0 0 6px;
+
+    color:
+        var(--navy);
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    font-weight: 800;
+}
+
+.transaction-legal-card span {
+
+    color:
+        var(--orange-dark);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   HELP
+   ============================================================ */
+
+.transaction-help-section {
+
+    max-width: 1050px;
+
+    margin: 25px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+.transaction-help-card {
+
+    position: relative;
+
+    padding: 21px 23px;
+
+    background:
+        white;
+
+    border:
+        1px solid #e4e8ee;
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 22px rgba(11,31,58,.04);
+
+    transition:
+        .3s ease;
+}
+
+.transaction-help-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        var(--orange);
+
+    transform:
+        scaleY(0);
+
+    transform-origin:
+        bottom;
+
+    transition:
+        .3s ease;
+}
+
+.transaction-help-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(242,140,40,.35);
+
+    box-shadow:
+        0 13px 28px rgba(11,31,58,.08);
+}
+
+.transaction-help-card:hover::before {
+
+    transform:
+        scaleY(1);
+}
+
+.transaction-help-card h3 {
+
+    margin: 0 0 7px;
+
+    color:
+        var(--navy);
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+.transaction-help-card span {
+
+    color:
+        var(--orange-dark);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   ANIMASI
+   ============================================================ */
+
+@keyframes transactionHero {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
     }
 
+    to {
 
-    /* ============================================================
-       TOMBOL KEMBALI
-       ============================================================ */
+        opacity: 1;
 
-    .transaksi-back {
-        max-width: 1000px;
-        margin: 0 auto 20px;
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes transactionStep {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
     }
 
-    .transaksi-back a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
+    to {
 
-        color: #159447;
-        text-decoration: none;
+        opacity: 1;
 
-        font-size: 14px;
-        font-weight: 600;
+        transform:
+            translateY(0);
+    }
+}
 
-        transition: 0.3s ease;
+
+@keyframes transactionFadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
     }
 
-    .transaksi-back a:hover {
-        color: #0d7536;
-        transform: translateX(-4px);
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .transaction-legal-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .transaction-page {
+
+        padding:
+            30px 20px 55px;
     }
 
-    .back-arrow {
-        font-size: 20px;
+    .transaction-header {
+
+        padding:
+            35px 30px;
     }
 
+    .transaction-header h1 {
 
-    /* ============================================================
-       HEADER
-       ============================================================ */
-
-    .transaksi-header {
-        max-width: 1000px;
-        margin: 0 auto 30px;
-
-        padding: 38px 40px;
-
-        background: white;
-
-        border-radius: 18px;
-
-        border: 1px solid #e7ebee;
-
-        box-shadow:
-            0 8px 25px rgba(0, 0, 0, 0.05);
-
-        position: relative;
-        overflow: hidden;
-
-        animation: fadeDown 0.7s ease;
+        font-size:
+            32px;
     }
 
-    .transaksi-header::before {
-        content: "";
+    .transaction-help-section {
 
-        position: absolute;
+        grid-template-columns:
+            1fr;
+    }
+}
 
-        top: 0;
-        left: 0;
 
-        width: 100%;
-        height: 4px;
+@media (max-width: 600px) {
 
-        background: #25a84a;
+    .transaction-page {
+
+        padding:
+            22px 15px 45px;
     }
 
-    .header-label {
-        display: inline-block;
+    .transaction-header {
 
-        margin-bottom: 10px;
+        padding:
+            30px 22px;
 
-        color: #159447;
-
-        font-size: 12px;
-
-        font-weight: 700;
-
-        letter-spacing: 1px;
-
-        text-transform: uppercase;
+        border-radius:
+            19px;
     }
 
-    .transaksi-header h1 {
-        margin: 0 0 12px;
+    .transaction-header h1 {
 
-        color: #172033;
-
-        font-size: 36px;
-
-        line-height: 1.3;
+        font-size:
+            27px;
     }
 
-    .transaksi-header p {
-        margin: 0;
+    .transaction-header p {
 
-        max-width: 850px;
-
-        color: #707782;
-
-        font-size: 15px;
-
-        line-height: 1.8;
+        font-size:
+            13px;
     }
 
+    .transaction-status {
 
-    /* ============================================================
-       DEMO TRADING INFO
-       ============================================================ */
+        align-items:
+            flex-start;
+
+        line-height:
+            1.5;
+    }
 
     .demo-info {
-        max-width: 1000px;
 
-        margin: 0 auto 35px;
-
-        padding: 22px 25px;
-
-        background: #eefaf1;
-
-        border: 1px solid #ccebd5;
-
-        border-radius: 14px;
-
-        display: flex;
-
-        align-items: flex-start;
-
-        gap: 15px;
-
-        animation: fadeUp 0.7s ease;
+        padding:
+            18px;
     }
 
-    .demo-icon {
-        width: 42px;
-        height: 42px;
+    .transaction-section-title h2 {
 
-        flex-shrink: 0;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        background: #25a84a;
-
-        color: white;
-
-        border-radius: 10px;
-
-        font-size: 20px;
+        font-size:
+            21px;
     }
 
-    .demo-info h3 {
-        margin: 0 0 6px;
+    .transaction-section-title p {
 
-        color: #176c35;
-
-        font-size: 16px;
+        margin-left:
+            0;
     }
 
-    .demo-info p {
-        margin: 0;
+    .transaction-title-icon {
 
-        color: #587060;
+        width:
+            39px;
 
-        font-size: 14px;
-
-        line-height: 1.7;
-    }
-
-
-    /* ============================================================
-       JUDUL TAHAPAN
-       ============================================================ */
-
-    .section-title {
-        max-width: 1000px;
-
-        margin: 0 auto 20px;
-    }
-
-    .section-title h2 {
-        margin: 0;
-
-        color: #172033;
-
-        font-size: 25px;
-    }
-
-    .section-title p {
-        margin: 6px 0 0;
-
-        color: #7a818b;
-
-        font-size: 14px;
-    }
-
-
-    /* ============================================================
-       TIMELINE
-       ============================================================ */
-
-    .transaction-timeline {
-        max-width: 1000px;
-
-        margin: 0 auto;
-
-        position: relative;
+        height:
+            39px;
     }
 
     .transaction-timeline::before {
-        content: "";
 
-        position: absolute;
-
-        left: 30px;
-
-        top: 30px;
-
-        bottom: 30px;
-
-        width: 2px;
-
-        background: #d8ebdd;
+        left:
+            24px;
     }
-
-
-    /* ============================================================
-       STEP
-       ============================================================ */
 
     .transaction-step {
-        display: flex;
 
-        align-items: flex-start;
-
-        gap: 20px;
-
-        margin-bottom: 20px;
-
-        position: relative;
-
-        animation: fadeUp 0.6s ease both;
+        gap:
+            14px;
     }
 
-    .transaction-step:nth-child(2) {
-        animation-delay: 0.15s;
+    .transaction-step-number {
+
+        width:
+            49px;
+
+        height:
+            49px;
+
+        border-radius:
+            14px;
+
+        font-size:
+            12px;
     }
-
-    .transaction-step:nth-child(3) {
-        animation-delay: 0.30s;
-    }
-
-
-    /* ============================================================
-       NOMOR STEP
-       ============================================================ */
-
-    .step-number {
-        width: 60px;
-        height: 60px;
-
-        flex-shrink: 0;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        background: white;
-
-        border: 2px solid #25a84a;
-
-        border-radius: 50%;
-
-        color: #159447;
-
-        font-size: 16px;
-
-        font-weight: 700;
-
-        z-index: 2;
-
-        box-shadow:
-            0 5px 15px rgba(37, 168, 74, 0.10);
-    }
-
-
-    /* ============================================================
-       CARD
-       ============================================================ */
 
     .transaction-card {
-        flex: 1;
 
-        background: white;
+        padding:
+            20px;
 
-        border: 1px solid #e7ebee;
-
-        border-radius: 15px;
-
-        padding: 27px 30px;
-
-        box-shadow:
-            0 6px 20px rgba(0, 0, 0, 0.035);
-
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease,
-            border-color 0.3s ease;
-    }
-
-    .transaction-card:hover {
-        transform: translateX(5px);
-
-        border-color: #bfe4c9;
-
-        box-shadow:
-            0 12px 28px rgba(37, 168, 74, 0.08);
+        border-radius:
+            15px;
     }
 
     .transaction-card h3 {
-        margin: 0 0 10px;
 
-        color: #172033;
-
-        font-size: 20px;
+        font-size:
+            16px;
     }
 
     .transaction-card p {
-        margin: 0;
 
-        color: #69717c;
-
-        font-size: 14px;
-
-        line-height: 1.8;
+        font-size:
+            13px;
     }
 
+    .transaction-legal-grid {
 
-    /* ============================================================
-       CHECKLIST
-       ============================================================ */
+        grid-template-columns:
+            1fr;
+    }
 
     .check-list {
-        margin-top: 17px;
 
-        display: flex;
-
-        flex-wrap: wrap;
-
-        gap: 10px;
+        gap:
+            7px;
     }
 
     .check-item {
-        padding: 9px 13px;
 
-        background: #f7faf8;
+        font-size:
+            11px;
 
-        border: 1px solid #e2eee6;
-
-        border-radius: 8px;
-
-        color: #53605a;
-
-        font-size: 13px;
+        padding:
+            8px 10px;
     }
 
-    .check-item::before {
-        content: "✓";
+    .transaction-security {
 
-        margin-right: 7px;
-
-        color: #25a84a;
-
-        font-weight: bold;
+        padding:
+            20px;
     }
 
+}
 
-    /* ============================================================
-       PLATFORM TRADING
-       ============================================================ */
 
-    .trading-platform {
-        margin-top: 18px;
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
 
-        padding: 18px;
+@media (prefers-reduced-motion: reduce) {
 
-        background: #f7faf8;
+    .transaction-header,
+    .transaction-step,
+    .demo-info {
 
-        border: 1px solid #dcece1;
-
-        border-radius: 12px;
+        animation:
+            none;
     }
 
-    .trading-platform small {
-        display: block;
+    .transaction-card,
+    .transaction-step-number,
+    .transaction-legal-card,
+    .transaction-help-card,
+    .transaction-legal-icon {
 
-        margin-bottom: 6px;
-
-        color: #7a818b;
-
-        font-size: 12px;
+        transition:
+            none;
     }
-
-    .trading-platform a {
-        color: #159447;
-
-        font-size: 14px;
-
-        font-weight: 700;
-
-        text-decoration: none;
-
-        word-break: break-all;
-    }
-
-    .trading-platform a:hover {
-        text-decoration: underline;
-    }
-
-
-    /* ============================================================
-       KEAMANAN AKUN
-       ============================================================ */
-
-    .security-box {
-        max-width: 1000px;
-
-        margin: 35px auto 0;
-
-        padding: 23px 27px;
-
-        background: #fffaf0;
-
-        border: 1px solid #f1dfad;
-
-        border-left: 5px solid #e3a008;
-
-        border-radius: 14px;
-
-        box-sizing: border-box;
-    }
-
-    .security-box h3 {
-        margin: 0 0 9px;
-
-        color: #966900;
-
-        font-size: 17px;
-    }
-
-    .security-box p {
-        margin: 0;
-
-        color: #675c42;
-
-        font-size: 14px;
-
-        line-height: 1.8;
-    }
-
-
-    /* ============================================================
-       LEGALITAS
-       ============================================================ */
-
-    .legal-section {
-        max-width: 1000px;
-
-        margin: 45px auto 0;
-    }
-
-    .legal-grid {
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 15px;
-    }
-
-    .legal-card {
-        display: block;
-
-        padding: 20px;
-
-        background: white;
-
-        border: 1px solid #e7ebee;
-
-        border-radius: 14px;
-
-        text-decoration: none;
-
-        transition: 0.3s ease;
-    }
-
-    .legal-card:hover {
-        transform: translateY(-4px);
-
-        border-color: #25a84a;
-
-        box-shadow:
-            0 10px 25px rgba(37, 168, 74, 0.08);
-    }
-
-    .legal-card h3 {
-        margin: 0 0 7px;
-
-        color: #172033;
-
-        font-size: 16px;
-    }
-
-    .legal-card span {
-        color: #159447;
-
-        font-size: 13px;
-
-        font-weight: 600;
-    }
-
-
-    /* ============================================================
-       HELP
-       ============================================================ */
-
-    .help-section {
-        max-width: 1000px;
-
-        margin: 20px auto 0;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 15px;
-    }
-
-    .help-card {
-        display: block;
-
-        padding: 20px;
-
-        background: white;
-
-        border: 1px solid #e7ebee;
-
-        border-radius: 14px;
-
-        text-decoration: none;
-
-        transition: 0.3s ease;
-    }
-
-    .help-card:hover {
-        transform: translateY(-4px);
-
-        border-color: #25a84a;
-    }
-
-    .help-card h3 {
-        margin: 0 0 7px;
-
-        color: #172033;
-
-        font-size: 16px;
-    }
-
-    .help-card span {
-        color: #159447;
-
-        font-size: 13px;
-    }
-
-
-    /* ============================================================
-       ANIMASI
-       ============================================================ */
-
-    @keyframes fadeDown {
-
-        from {
-            opacity: 0;
-            transform: translateY(-15px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    }
-
-    @keyframes fadeUp {
-
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    }
-
-
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
-
-    @media (max-width: 750px) {
-
-        .transaksi-page {
-            padding: 30px 20px 50px;
-        }
-
-        .transaksi-header {
-            padding: 30px 25px;
-        }
-
-        .transaksi-header h1 {
-            font-size: 30px;
-        }
-
-        .legal-grid {
-            grid-template-columns: 1fr;
-        }
-
-    }
-
-
-    @media (max-width: 550px) {
-
-        .transaction-timeline::before {
-            left: 25px;
-        }
-
-        .transaction-step {
-            gap: 14px;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-
-            font-size: 13px;
-        }
-
-        .transaction-card {
-            padding: 20px;
-        }
-
-        .transaction-card h3 {
-            font-size: 17px;
-        }
-
-        .help-section {
-            grid-template-columns: 1fr;
-        }
-
-        .demo-info {
-            padding: 18px;
-        }
-
-    }
+}
 
 </style>
 
 
-<div class="transaksi-page">
+<div class="transaction-page">
 
 
     {{-- =========================================================
          KEMBALI
     ========================================================== --}}
 
-    <div class="transaksi-back">
+    <div class="transaction-back">
 
         <a href="{{ url()->previous() }}">
 
-            <span class="back-arrow">
+            <span class="transaction-back-arrow">
                 ←
             </span>
 
@@ -719,26 +1672,41 @@
 
 
     {{-- =========================================================
-         HEADER
+         HERO
     ========================================================== --}}
 
-    <div class="transaksi-header">
+    <div class="transaction-header">
 
-        <div class="header-label">
-            PANDUAN TRANSAKSI
+        <div class="transaction-header-line"></div>
+
+        <div class="transaction-header-content">
+
+            <div class="transaction-header-label">
+                Panduan Transaksi
+            </div>
+
+            <h1>
+                Petunjuk
+                <span>Transaksi</span>
+            </h1>
+
+            <p>
+                Nasabah dapat menyampaikan amanat transaksi secara online
+                melalui platform trading yang disediakan. Untuk kenyamanan
+                dan meminimalkan risiko kesalahan, disarankan Nasabah
+                melakukan simulasi <strong>demo trading</strong> terlebih
+                dahulu sebelum menggunakan akun riil.
+            </p>
+
+            <div class="transaction-status">
+
+                <span class="transaction-status-dot"></span>
+
+                Pastikan memahami prosedur sebelum melakukan transaksi.
+
+            </div>
+
         </div>
-
-        <h1>
-            Petunjuk Transaksi
-        </h1>
-
-        <p>
-            Nasabah dapat menyampaikan amanat transaksi secara online
-            melalui platform trading yang disediakan. Untuk kenyamanan
-            dan meminimalkan risiko kesalahan, disarankan Nasabah
-            melakukan simulasi <strong>demo trading</strong> terlebih
-            dahulu sebelum menggunakan akun riil.
-        </p>
 
     </div>
 
@@ -776,11 +1744,19 @@
          JUDUL TAHAPAN
     ========================================================== --}}
 
-    <div class="section-title">
+    <div class="transaction-section-title">
 
-        <h2>
-            Tahapan Transaksi Online
-        </h2>
+        <div class="transaction-title-row">
+
+            <div class="transaction-title-icon">
+                ✓
+            </div>
+
+            <h2>
+                Tahapan Transaksi Online
+            </h2>
+
+        </div>
 
         <p>
             Ikuti langkah berikut untuk mengakses platform trading.
@@ -803,7 +1779,7 @@
 
         <div class="transaction-step">
 
-            <div class="step-number">
+            <div class="transaction-step-number">
                 01
             </div>
 
@@ -853,7 +1829,7 @@
 
         <div class="transaction-step">
 
-            <div class="step-number">
+            <div class="transaction-step-number">
                 02
             </div>
 
@@ -913,7 +1889,7 @@
 
         <div class="transaction-step">
 
-            <div class="step-number">
+            <div class="transaction-step-number">
                 03
             </div>
 
@@ -963,17 +1939,24 @@
          KEAMANAN AKUN
     ========================================================== --}}
 
-    <div class="security-box">
+    <div class="transaction-security">
 
-        <h3>
-            ⚠ Jaga Kerahasiaan Akun
-        </h3>
+        <div class="transaction-security-title">
+
+            <span class="transaction-security-icon">
+                !
+            </span>
+
+            Jaga Kerahasiaan Akun
+
+        </div>
 
         <p>
             User ID dan Password merupakan informasi pribadi.
             Jangan membagikan kredensial akun kepada pihak lain
             dan pastikan Anda selalu menggunakan platform trading
-            resmi yang diberikan oleh PT. Rifan Financindo Berjangka.
+            resmi yang diberikan oleh
+            <strong>PT. Rifan Financindo Berjangka</strong>.
         </p>
 
     </div>
@@ -984,13 +1967,21 @@
          LEGALITAS
     ========================================================== --}}
 
-    <div class="legal-section">
+    <div class="transaction-legal-section">
 
-        <div class="section-title">
+        <div class="transaction-section-title">
 
-            <h2>
-                Link Legalitas
-            </h2>
+            <div class="transaction-title-row">
+
+                <div class="transaction-title-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    Link Legalitas
+                </h2>
+
+            </div>
 
             <p>
                 Informasi resmi mengenai perusahaan dan lembaga terkait.
@@ -999,58 +1990,103 @@
         </div>
 
 
-        <div class="legal-grid">
+        <div class="transaction-legal-grid">
 
+
+            {{-- BAPPEBTI --}}
 
             <a
                 href="https://bappebti.go.id/pialang_berjangka/detail/012"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="legal-card"
+                class="transaction-legal-card"
             >
+
+                <div class="transaction-legal-icon">
+                    B
+                </div>
 
                 <h3>
                     BAPPEBTI
                 </h3>
 
                 <span>
-                    Lihat informasi →
+                    Lihat informasi
                 </span>
 
             </a>
 
 
+
+            {{-- JFX --}}
+
             <a
-                href="https://www.jfx.co.id/media?hal=daftar-pelaku&data=Pialang"
+                href="https://jfx.co.id/MarketMaker/market_maker"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="legal-card"
+                class="transaction-legal-card"
             >
 
+                <div class="transaction-legal-icon">
+                    J
+                </div>
+
                 <h3>
-                    Jakarta Futures Exchange
+                    JFX
                 </h3>
 
                 <span>
-                    Lihat informasi →
+                    Lihat informasi
                 </span>
 
             </a>
 
 
+
+            {{-- KBI --}}
+
             <a
-                href="https://www.ptkbi.com/index.php/c_kbi_wppue_01_anggota_mitra#PL"
+                href="https://www.ptkbi.com/our-partner/perdagangan-berjangka-komoditi"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="legal-card"
+                class="transaction-legal-card"
             >
+
+                <div class="transaction-legal-icon">
+                    K
+                </div>
 
                 <h3>
                     KBI
                 </h3>
 
                 <span>
-                    Lihat informasi →
+                    Lihat informasi
+                </span>
+
+            </a>
+
+
+
+            {{-- ASPEBTINDO --}}
+
+            <a
+                href="https://www.rf-berjangkasemarang.com/service-details.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transaction-legal-card"
+            >
+
+                <div class="transaction-legal-icon">
+                    A
+                </div>
+
+                <h3>
+                    Aspebtindo
+                </h3>
+
+                <span>
+                    Lihat informasi
                 </span>
 
             </a>
@@ -1059,53 +2095,5 @@
         </div>
 
     </div>
-
-
-
-    {{-- =========================================================
-         HELP
-    ========================================================== --}}
-
-    <div class="help-section">
-
-        <a
-            href="https://www.rf-berjangkasemarang.com/contact.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="help-card"
-        >
-
-            <h3>
-                Contact Us
-            </h3>
-
-            <span>
-                Hubungi kami jika membutuhkan bantuan →
-            </span>
-
-        </a>
-
-
-        <a
-            href="https://www.rf-berjangkasemarang.com/faq.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="help-card"
-        >
-
-            <h3>
-                FAQs
-            </h3>
-
-            <span>
-                Lihat pertanyaan yang sering ditanyakan →
-            </span>
-
-        </a>
-
-    </div>
-
-
-</div>
 
 @endsection
