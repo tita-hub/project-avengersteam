@@ -3,7 +3,7 @@
 return [
     'base_url' => env('NEWSMAKER_BASE_URL', ''),
     'more_news_url' => env('NEWSMAKER_MORE_URL', env('NEWSMAKER_BASE_URL', '')),
-    'sync_interval_minutes' => env('NEWSMAKER_SYNC_MINUTES', 15),
+    'sync_interval_minutes' => env('NEWSMAKER_SYNC_MINUTES', 60),
     'max_articles' => env('NEWSMAKER_MAX_ARTICLES', 60),
     'dashboard_preview_count' => 3,
     'per_page' => 9,

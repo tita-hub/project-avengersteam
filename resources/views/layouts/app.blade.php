@@ -621,7 +621,7 @@
 
                     <!-- LOGO KOMDIGI -->
 
-                    <a href="#"
+                    <a href="https://www.komdigi.go.id/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="footer-logo-komdigi"
