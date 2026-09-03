@@ -746,6 +746,900 @@
 
 
 /* ============================================================
+   AVENGERS TEAM
+   SEJARAH BERDIRINYA TEAM
+   ============================================================ */
+
+
+/* ============================================================
+   AVENGERS TEAM
+   SEJARAH BERDIRINYA TEAM
+   ============================================================ */
+
+.avengers-team-page {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.avengers-team-page .team-history {
+    width: 100%;
+    margin: 0 auto 60px;
+}
+
+.avengers-team-page .team-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto 22px;
+}
+
+.avengers-team-page .section-number {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #c62828;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.avengers-team-page .team-section-title h2 {
+    margin: 0 0 3px;
+    color: #1b1b1b;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.avengers-team-page .team-section-title p {
+    margin: 0;
+    color: #777777;
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   BOX SEJARAH
+   ============================================================ */
+
+.avengers-team-page .history-box {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    max-width: 900px;
+    min-height: 330px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+/* FOTO */
+
+.avengers-team-page .history-photo {
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #eeeeee;
+}
+
+.avengers-team-page .history-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* NARASI */
+
+.avengers-team-page .history-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 35px 40px;
+    background: #ffffff;
+}
+
+.avengers-team-page .history-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 13px;
+    border-radius: 13px;
+    background: #c62828;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.avengers-team-page .history-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #c62828;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.avengers-team-page .history-content h3 {
+    margin: 0;
+    color: #202020;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.avengers-team-page .history-divider {
+    width: 48px;
+    height: 3px;
+    margin: 16px 0;
+    border-radius: 10px;
+    background: #c62828;
+}
+
+.avengers-team-page .history-content p {
+    margin: 0;
+    color: #555555;
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+
+/* ============================================================
+   SECTION 02 — VIDEO
+   ============================================================ */
+
+.avengers-team-page .team-video {
+    width: 100%;
+    margin: 0 auto 60px;
+}
+
+.avengers-team-page .video-box {
+    width: 100%;
+    max-width: 850px;
+    height: 350px;
+    margin: 0 auto;
+
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000000;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+}
+
+.avengers-team-page .video-box iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================================================
+   SECTION 03 — ANGGOTA AVENGERS TEAM
+   ============================================================ */
+
+.avengers-team-page .team-members {
+    width: 100%;
+    margin: 0 auto 60px;
+}
+
+
+/* ============================================================
+   MEMBER LIST
+   ============================================================ */
+
+.avengers-team-page .member-list {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* ============================================================
+   MEMBER ITEM
+   ============================================================ */
+
+.avengers-team-page .member-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 145px;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+.avengers-team-page .member-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================================================
+   FOTO
+   ============================================================ */
+
+.avengers-team-page .member-photo {
+    flex-shrink: 0;
+
+    width: 115px;
+    height: 115px;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #eeeeee;
+}
+
+.avengers-team-page .member-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ============================================================
+   INFO
+   ============================================================ */
+
+.avengers-team-page .member-info {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 0 20px;
+}
+
+.avengers-team-page .member-number {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #c62828;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.avengers-team-page .member-info h3 {
+    margin: 0 0 4px;
+
+    color: #202020;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+.avengers-team-page .member-position {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c62828;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.avengers-team-page .member-info p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   BACA SELENGKAPNYA
+   ============================================================ */
+
+.avengers-team-page .member-detail-btn {
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #c62828;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.avengers-team-page .member-detail-btn:hover {
+    color: #8e1b1b;
+
+    transform: translateX(-3px);
+}
+
+.avengers-team-page .member-detail-btn i {
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.avengers-team-page~.member-modal {
+    display: none;
+}
+
+
+/* Modal overlay */
+
+.member-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* Modal aktif */
+
+.member-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ============================================================
+   ISI POPUP
+   ============================================================ */
+
+.member-modal-content {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    width: 100%;
+    max-width: 780px;
+
+    max-height: 85vh;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(15px) scale(0.97);
+
+    transition: 0.3s ease;
+}
+
+.member-modal.active .member-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+
+/* ============================================================
+   TOMBOL CLOSE
+   ============================================================ */
+
+.member-modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 5;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    color: #333333;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+
+    transition: 0.25s ease;
+}
+
+.member-modal-close:hover {
+    background: #c62828;
+
+    color: #ffffff;
+
+    transform: rotate(90deg);
+}
+
+
+/* ============================================================
+   FOTO MODAL
+   ============================================================ */
+
+.member-modal .modal-photo {
+    width: 100%;
+    height: 100%;
+
+    min-height: 380px;
+
+    background: #eeeeee;
+}
+
+.member-modal .modal-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ============================================================
+   INFO MODAL
+   ============================================================ */
+
+.member-modal .modal-info {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 45px;
+}
+
+.member-modal .modal-number {
+    margin-bottom: 8px;
+
+    color: #c62828;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.member-modal .modal-info h2 {
+    margin: 0 0 6px;
+
+    color: #202020;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    line-height: 1.25;
+}
+
+.member-modal .modal-position {
+    color: #c62828;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.member-modal .modal-divider {
+    width: 50px;
+    height: 3px;
+
+    margin: 18px 0;
+
+    border-radius: 10px;
+
+    background: #c62828;
+}
+
+.member-modal .modal-info p {
+    margin: 0;
+
+    color: #555555;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    text-align: justify;
+}
+
+
+/* ============================================================
+   BODY SAAT MODAL TERBUKA
+   ============================================================ */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .avengers-team-page .member-list {
+        width: calc(100% - 30px);
+    }
+
+    .member-modal-content {
+        max-width: 700px;
+
+        grid-template-columns: 230px 1fr;
+    }
+
+    .member-modal .modal-info {
+        padding: 35px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .avengers-team-page .member-list {
+        width: calc(100% - 20px);
+    }
+
+
+    /* Member menjadi lebih fleksibel */
+
+    .avengers-team-page .member-item {
+        min-height: 125px;
+
+        padding: 12px;
+    }
+
+    .avengers-team-page .member-photo {
+        width: 90px;
+        height: 90px;
+
+        border-radius: 12px;
+    }
+
+    .avengers-team-page .member-info {
+        padding: 0 12px;
+    }
+
+    .avengers-team-page .member-info h3 {
+        font-size: 17px;
+    }
+
+    .avengers-team-page .member-position {
+        font-size: 10px;
+    }
+
+    .avengers-team-page .member-info p {
+        font-size: 11px;
+
+        line-height: 1.5;
+
+        padding-bottom: 20px;
+    }
+
+    .avengers-team-page .member-detail-btn {
+        right: 13px;
+        bottom: 11px;
+
+        font-size: 9px;
+    }
+
+
+    /* ========================================================
+       MODAL MOBILE
+       ======================================================== */
+
+    .member-modal {
+        padding: 15px;
+    }
+
+    .member-modal-content {
+        display: flex;
+
+        flex-direction: column;
+
+        max-height: 90vh;
+
+        border-radius: 18px;
+
+        overflow-y: auto;
+    }
+
+    .member-modal .modal-photo {
+        width: 100%;
+        height: 230px;
+        min-height: 230px;
+
+        flex-shrink: 0;
+    }
+
+    .member-modal .modal-info {
+        padding: 25px 22px 30px;
+    }
+
+    .member-modal .modal-info h2 {
+        font-size: 22px;
+    }
+
+    .member-modal .modal-info p {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .avengers-team-page .member-photo {
+        width: 75px;
+        height: 75px;
+    }
+
+    .avengers-team-page .member-info {
+        padding: 0 9px;
+    }
+
+    .avengers-team-page .member-info h3 {
+        font-size: 15px;
+    }
+
+    .avengers-team-page .member-info p {
+        font-size: 10px;
+    }
+
+    .avengers-team-page .member-detail-btn {
+        font-size: 8px;
+    }
+
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .avengers-team-page .team-section-title {
+        width: calc(100% - 30px);
+    }
+
+    .avengers-team-page .history-box {
+        width: calc(100% - 30px);
+        grid-template-columns: 2fr 3fr;
+        min-height: 300px;
+    }
+
+    .avengers-team-page .history-photo {
+        min-height: 300px;
+    }
+
+    .avengers-team-page .history-content {
+        padding: 30px;
+    }
+
+    .avengers-team-page .history-content h3 {
+        font-size: 22px;
+    }
+
+    .avengers-team-page .history-content p {
+        font-size: 12.5px;
+        line-height: 1.7;
+    }
+
+    .avengers-team-page .video-box {
+        width: calc(100% - 30px);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .avengers-team-page .team-section-title {
+        width: calc(100% - 20px);
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .avengers-team-page .section-number {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        font-size: 10px;
+    }
+
+    .avengers-team-page .team-section-title h2 {
+        font-size: 20px;
+    }
+
+    .avengers-team-page .team-section-title p {
+        font-size: 11px;
+    }
+
+
+    /* BOX SEJARAH MOBILE */
+
+    .avengers-team-page .history-box {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 20px);
+        min-height: 0;
+        border-radius: 18px;
+    }
+
+    .avengers-team-page .history-photo {
+        width: 100%;
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .avengers-team-page .history-content {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px 22px;
+    }
+
+    .avengers-team-page .history-icon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 11px;
+        border-radius: 11px;
+        font-size: 18px;
+    }
+
+    .avengers-team-page .history-label {
+        font-size: 9px;
+    }
+
+    .avengers-team-page .history-content h3 {
+        font-size: 20px;
+    }
+
+    .avengers-team-page .history-divider {
+        width: 42px;
+        height: 2px;
+        margin: 13px 0;
+    }
+
+    .avengers-team-page .history-content p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+
+    /* VIDEO MOBILE */
+
+    .avengers-team-page .video-box {
+        width: calc(100% - 20px);
+        border-radius: 18px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .avengers-team-page .history-photo {
+        height: 200px;
+        min-height: 200px;
+    }
+
+    .avengers-team-page .history-content {
+        padding: 22px 18px;
+    }
+
+    .avengers-team-page .history-content h3 {
+        font-size: 18px;
+    }
+
+    .avengers-team-page .history-content p {
+        font-size: 11.5px;
+        line-height: 1.65;
+    }
+}
+
+
+/* ============================================================
    WAKIL PIALANG
    ============================================================ */
 
@@ -2241,9 +3135,7 @@
     display: grid;
 
     grid-template-columns:
-        1.15fr
-        0.95fr
-        1.2fr;
+        1.15fr 0.95fr 1.2fr;
 
     gap: 70px;
 
