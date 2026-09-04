@@ -955,6 +955,214 @@ body.modal-open {
     overflow: hidden;
 }
 
+
+/* ============================================================
+   DETAIL PRODUK - GOLD / NIKKEI / AUD
+   ============================================================ */
+
+.produk-detail-modern {
+    padding: 0 30px 35px;
+}
+
+.produk-detail-hero {
+    text-align: center;
+    padding: 10px 0 25px;
+}
+
+.produk-detail-hero img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 22px;
+    border: 8px solid #fff;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.produk-detail-hero .detail-label {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 999px;
+    background: #f7f8fa;
+    color: var(--produk-color);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.produk-detail-hero h2 {
+    margin: 0;
+    color: #173b29;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    line-height: 1.3;
+}
+
+.produk-detail-description {
+    margin: 0 0 30px;
+    padding: 22px 24px;
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border: 1px solid #e8edf1;
+    border-left: 4px solid var(--produk-color);
+    border-radius: 15px;
+    color: #596579;
+    font-size: 15px;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.produk-spec-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 15px;
+}
+
+.produk-spec-heading::before {
+    content: "";
+    width: 5px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--produk-color);
+    flex-shrink: 0;
+}
+
+.produk-spec-heading h3 {
+    margin: 0 !important;
+    font-size: 24px;
+}
+
+.produk-table-title {
+    margin: 0 0 12px;
+    color: #354152;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.6;
+}
+
+.produk-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e4e9ee;
+    border-radius: 15px;
+    box-shadow: 0 8px 22px rgba(15,23,42,0.05);
+    margin-bottom: 18px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.produk-detail-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 13px;
+}
+
+.produk-detail-table th,
+.produk-detail-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf0f3;
+    vertical-align: middle;
+    line-height: 1.55;
+}
+
+.produk-detail-table thead th {
+    background: #173b29;
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.produk-detail-table thead th:first-child {
+    text-align: left;
+    width: 34%;
+}
+
+.produk-detail-table tbody td:first-child {
+    color: #344054;
+    font-weight: 700;
+    background: #fafbfc;
+}
+
+.produk-detail-table tbody td:not(:first-child) {
+    color: #596579;
+}
+
+.produk-detail-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.produk-detail-table tbody tr:hover td {
+    background: #fffdf6;
+}
+
+.produk-detail-table .group-row td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: #f5f7f9;
+    color: #98a2b3;
+    font-weight: 700;
+    text-align: center;
+}
+
+.produk-detail-note {
+    margin-top: 18px;
+    padding: 15px 18px;
+    border-radius: 12px;
+    background: #fffaf0;
+    border: 1px solid #f1dfb7;
+    color: #765b25;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.produk-detail-note strong {
+    color: #5f481d;
+}
+
+.produk-risk-modern {
+    margin-top: 18px;
+}
+
+@media(max-width: 650px) {
+    .produk-detail-modern {
+        padding: 0 20px 28px;
+    }
+
+    .produk-detail-hero img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .produk-detail-hero h2 {
+        font-size: 25px;
+    }
+
+    .produk-detail-description {
+        padding: 18px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .produk-spec-heading h3 {
+        font-size: 21px;
+    }
+
+    .produk-detail-table {
+        min-width: 680px;
+        font-size: 12px;
+    }
+
+    .produk-detail-table th,
+    .produk-detail-table td {
+        padding: 10px 11px;
+    }
+}
+
 </style>
 
 
@@ -1225,12 +1433,10 @@ body.modal-open {
     class="produk-modal"
     onclick="tutupJikaBackground(event)"
 >
-
     <div
         class="produk-modal-box"
         style="--produk-color: #d49b00;"
     >
-
         <button
             class="modal-close"
             onclick="tutupProduk()"
@@ -1238,153 +1444,78 @@ body.modal-open {
             ×
         </button>
 
+        <div class="produk-detail-modern">
+            <div class="produk-detail-hero">
+                <img
+                    src="{{ asset('images/produk/emas.png') }}"
+                    alt="Emas Gold"
+                >
 
-        <div class="modal-header">
-
-            <img
-                class="modal-image"
-                src="{{ asset('images/produk/emas.png') }}"
-                alt="Emas Gold"
-            >
-
-            <div class="modal-title">
-
-                <small>
-                    Komoditas
-                </small>
-
-                <h2>
-                    Emas (Gold)
-                </h2>
-
+                <span class="detail-label">Komoditas</span>
+                <h2>Produk Derivatif Emas Loco London</h2>
             </div>
 
+            <p class="produk-detail-description">
+                Produk Derivatif Emas Loco London merupakan instrumen perdagangan berbasis harga emas internasional yang mengacu pada pasar London, pusat perdagangan emas fisik terbesar di dunia. Sebagai acuan global, harga emas Loco London mencerminkan dinamika pasar internasional sehingga menawarkan transparansi harga dan likuiditas yang sangat tinggi. Instrumen ini memberikan kesempatan bagi investor untuk memanfaatkan pergerakan harga emas global tanpa harus melakukan kepemilikan fisik. Dengan volatilitas yang menarik dan pergerakan harga yang dipengaruhi oleh berbagai faktor makroekonomi dunia, Produk Derivatif Emas Loco London menjadi pilihan populer bagi pelaku pasar yang memburu peluang capital gain maupun yang membutuhkan sarana lindung nilai (hedging) terhadap risiko fluktuasi harga emas. Didukung oleh standar internasional dan kemudahan akses melalui platform trading, produk ini memungkinkan investor berpartisipasi langsung dalam pasar emas global secara efisien, fleksibel, dan terstruktur. Produk Derivatif Emas Loco London menjadi salah satu instrumen unggulan bagi mereka yang ingin memanfaatkan potensi pasar emas dunia dengan tingkat likuiditas yang kuat dan peluang yang luas.
+            </p>
+
+            <div class="produk-spec-heading">
+                <h3>Spesifikasi Produk</h3>
+            </div>
+
+            <div class="produk-table-title">
+                Tabel Spesifikasi Kontrak Gulir Harian Emas Loco London (XUL10 &amp; XULF)
+            </div>
+
+            <div class="produk-table-wrapper">
+                <table class="produk-detail-table">
+                    <thead>
+                        <tr>
+                            <th>Items</th>
+                            <th>XUL10</th>
+                            <th>XULF</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Kode Kontrak</td><td>XUL10</td><td>XULF</td></tr>
+                        <tr><td>Kurs</td><td>Tetap (USD 1 = IDR 10,000)</td><td>Mengambang (USD)</td></tr>
+                        <tr><td>Satuan Kontrak</td><td>100 Troy Ons</td><td>100 Troy Ons</td></tr>
+                        <tr><td>Jam Perdagangan</td><td>Senin - Jum'at<br>Summer : 06:00 – 03:30 WIB<br>Winter : 06:00 – 04:30 WIB</td><td>Senin - Jum'at<br>Summer : 06:00 – 03:30 WIB<br>Winter : 06:00 – 04:30 WIB</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Margin untuk Transaksi Harian</td><td>IDR 10,000,000 / lot</td><td>USD 1,000 / lot</td></tr>
+                        <tr><td>Margin untuk Transaksi Menginap</td><td>IDR 30,000,000 / lot</td><td>USD 3,000 / lot</td></tr>
+                        <tr><td>Komisi</td><td>IDR 150,000 / lot / sisi</td><td>USD 15 / lot / sisi</td></tr>
+                        <tr><td>Biaya Menginap untuk Jual / Beli</td><td>IDR 50,000 / lot / malam</td><td>USD 5 / lot / malam</td></tr>
+                        <tr><td>PPN*</td><td>11 % dari Komisi dan Biaya Menginap untuk Jual/Beli</td><td>11 % dari Komisi dan Biaya Menginap untuk Jual/Beli</td></tr>
+                        <tr><td>Maintenance Margin</td><td>70% dari Kebutuhan Margin</td><td>70% dari Kebutuhan Margin</td></tr>
+                        <tr><td>Auto Liquidasi</td><td>30% dari Kebutuhan Margin</td><td>30% dari Kebutuhan Margin</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Sumber Harga</td><td>Telequote</td><td>Telequote</td></tr>
+                        <tr><td>Harga Acuan</td><td>Last Trade</td><td>Last Trade</td></tr>
+                        <tr><td>Spread Kuotasi Harga Minimum</td><td>USD 0.40 / troy ons / sisi</td><td>USD 0.40 / troy ons / sisi</td></tr>
+                        <tr><td>Spread Kuotasi Harga Maximum</td><td>USD 1.00 / troy ons / sisi</td><td>USD 1.00 / troy ons / sisi</td></tr>
+                        <tr><td>Spread Kuotasi Harga Hectic</td><td>Based on market</td><td>Based on market</td></tr>
+                        <tr><td>Pergerakan Harga Minimum</td><td>USD 0.01 / troy ons</td><td>USD 0.01 / troy ons</td></tr>
+                        <tr><td>Rentang Harga untuk Limit dan Stop Order</td><td>USD 6 - USD 20</td><td>USD 6 - USD 20</td></tr>
+                        <tr><td>Rentang Harga Hectic untuk Limit dan Stop Order</td><td>Berdasarkan harga pasar</td><td>Berdasarkan harga pasar</td></tr>
+                        <tr><td>Penyelesaian</td><td>Cash Settlement</td><td>Cash Settlement</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="produk-detail-note">
+                <strong>* Catatan:</strong><br>
+                Perubahan biaya PPN menjadi 11% (Efektif Pertanggal 01 April 2022)
+            </div>
+
+            <div class="risk-box produk-risk-modern">
+                <strong>⚠️ Catatan Risiko</strong>
+                Perdagangan berjangka memiliki risiko dan dapat menyebabkan kerugian. Pastikan memahami karakteristik dan risiko produk sebelum melakukan transaksi.
+            </div>
         </div>
-
-
-        <div class="modal-content">
-
-            <h3>
-                Informasi Produk
-            </h3>
-
-
-            <div class="informasi-produk">
-
-                <div class="info-label">
-                    Kode Produk
-                </div>
-
-                <div class="info-value">
-                    GOL
-                </div>
-
-
-                <div class="info-label">
-                    Jenis
-                </div>
-
-                <div class="info-value">
-                    Komoditas
-                </div>
-
-
-                <div class="info-label">
-                    Aset Dasar
-                </div>
-
-                <div class="info-value">
-                    Emas
-                </div>
-
-
-                <div class="info-label">
-                    Ukuran Kontrak
-                </div>
-
-                <div class="info-value">
-                    1 Kilogram
-                </div>
-
-
-                <div class="info-label">
-                    Satuan Harga
-                </div>
-
-                <div class="info-value">
-                    USD per Troy Ounce
-                </div>
-
-
-                <div class="info-label">
-                    Nilai Tick
-                </div>
-
-                <div class="info-value">
-                    0,01 USD
-                </div>
-
-
-                <div class="info-label">
-                    Jam Perdagangan
-                </div>
-
-                <div class="info-value">
-                    Senin - Jumat
-                    <br>
-                    08:30 - 16:30 WIB
-                </div>
-
-
-                <div class="info-label">
-                    Bursa
-                </div>
-
-                <div class="info-value">
-                    Bursa Berjangka Jakarta (BBJ)
-                </div>
-
-
-                <div class="info-label">
-                    Clearing House
-                </div>
-
-                <div class="info-value">
-                    Kliring Berjangka Indonesia (KBI)
-                </div>
-
-
-                <div class="info-label">
-                    Pengawas
-                </div>
-
-                <div class="info-value">
-                    BAPPEBTI
-                </div>
-
-            </div>
-
-
-            <div class="risk-box">
-
-                <strong>
-                    ⚠️ Catatan Risiko
-                </strong>
-
-                Perdagangan berjangka memiliki risiko
-                dan dapat menyebabkan kerugian.
-                Pastikan memahami karakteristik dan
-                risiko produk sebelum melakukan transaksi.
-
-            </div>
-
-        </div>
-
     </div>
-
 </div>
-
-
 
 {{-- ============================================================
      MODAL NIKKEI
@@ -1395,12 +1526,10 @@ body.modal-open {
     class="produk-modal"
     onclick="tutupJikaBackground(event)"
 >
-
     <div
         class="produk-modal-box"
         style="--produk-color: #2d8a57;"
     >
-
         <button
             class="modal-close"
             onclick="tutupProduk()"
@@ -1408,124 +1537,79 @@ body.modal-open {
             ×
         </button>
 
+        <div class="produk-detail-modern">
+            <div class="produk-detail-hero">
+                <img
+                    src="{{ asset('images/produk/nikkei.png') }}"
+                    alt="Nikkei 225"
+                >
 
-        <div class="modal-header">
-
-            <img
-                class="modal-image"
-                src="{{ asset('images/produk/nikkei.png') }}"
-                alt="Nikkei 225"
-            >
-
-            <div class="modal-title">
-
-                <small>
-                    Indeks Saham
-                </small>
-
-                <h2>
-                    Nikkei 225
-                </h2>
-
+                <span class="detail-label">Indeks Saham</span>
+                <h2>Produk Derivatif Indeks Nikkei 225 (SGX)</h2>
             </div>
 
+            <p class="produk-detail-description">
+                Produk Derivatif Indeks Nikkei 225 (SGX) merupakan instrumen perdagangan berbasis pergerakan Indeks Nikkei 225, salah satu indeks saham paling berpengaruh di dunia yang merefleksikan kinerja 225 perusahaan besar Jepang. Diperdagangkan melalui Singapore Exchange (SGX), kontrak derivatif ini menawarkan akses yang stabil, likuid, dan terstandarisasi bagi investor yang ingin berpartisipasi dalam dinamika pasar saham Jepang. Sebagai barometer utama ekonomi Jepang, pergerakan Nikkei 225 dipengaruhi oleh sentimen global, kebijakan moneter Jepang, perkembangan teknologi, hingga kondisi industri manufaktur. Fluktuasi harga yang dinamis tersebut memberikan peluang strategis bagi pelaku pasar untuk memperoleh capital gain, sekaligus menjadi instrumen lindung nilai (hedging) terhadap risiko portofolio. Melalui Produk Derivatif Indeks Nikkei 225 yang diperdagangkan di SGX, investor dapat memanfaatkan keunggulan transparansi harga, efisiensi eksekusi, dan likuiditas yang kuat. Instrumen ini menjadi pilihan menarik bagi mereka yang ingin memanfaatkan potensi pertumbuhan ekonomi Jepang dan pergerakan pasar Asia secara terstruktur dan fleksibel.
+            </p>
+
+            <div class="produk-spec-heading">
+                <h3>Spesifikasi Produk</h3>
+            </div>
+
+            <div class="produk-table-title">
+                Tabel Periodik Spesifikasi Kontrak Gulir Indeks Saham Jepang (JPK50_BBJ &amp; JPK5U_BBJ)
+            </div>
+
+            <div class="produk-table-wrapper">
+                <table class="produk-detail-table">
+                    <thead>
+                        <tr>
+                            <th>Items</th>
+                            <th>JPK50_BBJ</th>
+                            <th>JPK5U_BBJ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Kode Kontrak</td><td>JPK50_BBJ</td><td>JPK5U_BBJ</td></tr>
+                        <tr><td>Kurs</td><td>Tetap (USD 1 = IDR 10,000)</td><td>Mengambang (USD)</td></tr>
+                        <tr><td>Kode Kontrak</td><td>IDR 50,000 / poin</td><td>USD 5 / poin</td></tr>
+                        <tr><td>Jam Perdagangan</td><td>Senin - Jum'at<br>Sesi I : 06:30 – 13:55 WIB<br>Sesi II : 14:10 – 03:45 WIB</td><td>Senin - Jum'at<br>Sesi I : 06:30 – 13:55 WIB<br>Sesi II : 14:10 – 03:45 WIB</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Margin untuk Transaksi Harian</td><td>IDR 10,000,000 / lot</td><td>USD 1,000 / lot</td></tr>
+                        <tr><td>Margin untuk Transaksi Menginap</td><td>IDR 20,000,000 / lot</td><td>USD 2,000 / lot</td></tr>
+                        <tr><td>Komisi</td><td>IDR 150,000 / lot / sisi</td><td>USD 15 / lot / sisi</td></tr>
+                        <tr><td>Biaya Menginap untuk Jual / Beli</td><td>IDR 20,000 / lot / malam</td><td>USD 2 / lot / malam</td></tr>
+                        <tr><td>PPN*</td><td>11 % dari Komisi dan Biaya Menginap untuk Jual/Beli</td><td>11 % dari Komisi dan Biaya Menginap untuk Jual/Beli</td></tr>
+                        <tr><td>Maintenance Margin</td><td>70% dari Kebutuhan Margin</td><td>70% dari Kebutuhan Margin</td></tr>
+                        <tr><td>Auto Liquidasi</td><td>30% dari Kebutuhan Margin</td><td>30% dari Kebutuhan Margin</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Sumber Harga</td><td>Winquote / Telequote</td><td>Winquote / Telequote</td></tr>
+                        <tr><td>Harga Acuan</td><td>Last Trade</td><td>Last Trade</td></tr>
+                        <tr><td>Spread Kuotasi Harga Minimum</td><td>10 Poin/sisi</td><td>10 Poin/sisi</td></tr>
+                        <tr><td>Spread Kuotasi Harga Hectic</td><td>Based on market</td><td>Based on market</td></tr>
+                        <tr><td>Pergerakan Harga Minimum</td><td>5 Poin</td><td>5 Poin</td></tr>
+                        <tr><td>Rentang Harga untuk Limit dan Stop Order</td><td>20 – 500 Poin</td><td>20 – 500 Poin</td></tr>
+                        <tr><td>Rentang Harga Hectic untuk Limit dan Stop Order</td><td>Berdasarkan harga pasar</td><td>Berdasarkan harga pasar</td></tr>
+                        <tr><td>Penyelesaian</td><td>Cash Settlement</td><td>Cash Settlement</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="produk-detail-note">
+                <strong>Catatan:</strong><br>
+                * Transaksi JPK50_BBJ &amp; JPK5U_BBJ telah diperpanjang sampai 03:45 (pagi)<br>
+                ** Efektif Pertanggal 26 Juli 2016<br>
+                *** Perubahan biaya PPN menjadi 11% (Efektif Pertanggal 01 April 2022)
+            </div>
+
+            <div class="risk-box produk-risk-modern">
+                <strong>⚠️ Catatan Risiko</strong>
+                Perdagangan indeks memiliki risiko. Pergerakan pasar dapat menyebabkan keuntungan maupun kerugian.
+            </div>
         </div>
-
-
-        <div class="modal-content">
-
-            <h3>
-                Informasi Produk
-            </h3>
-
-
-            <div class="informasi-produk">
-
-                <div class="info-label">
-                    Kode Produk
-                </div>
-
-                <div class="info-value">
-                    NK225
-                </div>
-
-
-                <div class="info-label">
-                    Jenis
-                </div>
-
-                <div class="info-value">
-                    Indeks Saham
-                </div>
-
-
-                <div class="info-label">
-                    Aset Dasar
-                </div>
-
-                <div class="info-value">
-                    Nikkei 225
-                </div>
-
-
-                <div class="info-label">
-                    Pasar
-                </div>
-
-                <div class="info-value">
-                    Jepang
-                </div>
-
-
-                <div class="info-label">
-                    Karakteristik
-                </div>
-
-                <div class="info-value">
-                    Indeks yang mencerminkan pergerakan
-                    sejumlah saham utama Jepang.
-                </div>
-
-
-                <div class="info-label">
-                    Bursa
-                </div>
-
-                <div class="info-value">
-                    Bursa Berjangka Jakarta (BBJ)
-                </div>
-
-
-                <div class="info-label">
-                    Pengawas
-                </div>
-
-                <div class="info-value">
-                    BAPPEBTI
-                </div>
-
-            </div>
-
-
-            <div class="risk-box">
-
-                <strong>
-                    ⚠️ Catatan Risiko
-                </strong>
-
-                Perdagangan indeks memiliki risiko.
-                Pergerakan pasar dapat menyebabkan
-                keuntungan maupun kerugian.
-
-            </div>
-
-        </div>
-
     </div>
-
 </div>
-
-
 
 {{-- ============================================================
      MODAL AUD/USD
@@ -1536,12 +1620,10 @@ body.modal-open {
     class="produk-modal"
     onclick="tutupJikaBackground(event)"
 >
-
     <div
         class="produk-modal-box"
         style="--produk-color: #2868c7;"
     >
-
         <button
             class="modal-close"
             onclick="tutupProduk()"
@@ -1549,125 +1631,83 @@ body.modal-open {
             ×
         </button>
 
+        <div class="produk-detail-modern">
+            <div class="produk-detail-hero">
+                <img
+                    src="{{ asset('images/produk/forex.png') }}"
+                    alt="AUD USD"
+                >
 
-        <div class="modal-header">
-
-            <img
-                class="modal-image"
-                src="{{ asset('images/produk/forex.png') }}"
-                alt="AUD USD"
-            >
-
-            <div class="modal-title">
-
-                <small>
-                    Forex
-                </small>
-
-                <h2>
-                    AUD/USD
-                </h2>
-
+                <span class="detail-label">Forex</span>
+                <h2>Produk Derivatif AUD/USD</h2>
             </div>
 
+            <p class="produk-detail-description">
+                Produk Derivatif AUD/USD memberikan akses bagi pelaku pasar untuk memperdagangkan pasangan mata uang antara Dolar Australia dan Dolar Amerika Serikat—salah satu pasangan paling aktif dan likuid di pasar global. AUD/USD dikenal sensitif terhadap pergerakan harga komoditas, kebijakan suku bunga, serta dinamika ekonomi regional Asia–Pasifik, sehingga menciptakan peluang trading yang kaya dan berkelanjutan. Fluktuasi pasangan ini membuka ruang strategis bagi investor untuk memanfaatkan peluang capital gain baik saat AUD menguat maupun melemah terhadap USD. Instrumen derivatif AUD/USD juga dapat menjadi sarana lindung nilai bagi pelaku usaha dan investor yang memiliki eksposur terhadap perubahan nilai tukar antara dua mata uang tersebut. Didukung transparansi harga, eksekusi cepat, dan pasar yang beroperasi hampir 24 jam, Produk Derivatif AUD/USD menghadirkan fleksibilitas bagi trader yang ingin merespons pergerakan global secara real-time. Dengan ekosistem yang likuid dan terstandarisasi, AUD/USD menjadi pilihan yang solid untuk diversifikasi dan penangkapan peluang di pasar valuta asing.
+            </p>
+
+            <div class="produk-spec-heading">
+                <h3>Spesifikasi Produk</h3>
+            </div>
+
+            <div class="produk-table-title">
+                FOREX TRADE TABLE<br>
+                AU10F_BBJ &amp; AU1010_BBJ
+            </div>
+
+            <div class="produk-table-wrapper">
+                <table class="produk-detail-table">
+                    <thead>
+                        <tr>
+                            <th>SPECIFICATIONS</th>
+                            <th>AU10F_BBJ</th>
+                            <th>AU1010_BBJ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="group-row"><td colspan="3">AUSTRALIAN DOLLAR</td></tr>
+                        <tr class="group-row"><td colspan="3">AUD/USD</td></tr>
+                        <tr><td>Trade Code</td><td>AU10F_BBJ</td><td>AU1010_BBJ</td></tr>
+                        <tr><td>Rate</td><td>Floating (USD)</td><td>(USD 1 = IDR 10.000)</td></tr>
+                        <tr><td>Contract Size</td><td>AUD 100,000</td><td>AUD 100,000</td></tr>
+                        <tr><td>Trading Days</td><td>Senin - Jumat</td><td>Senin - Jumat</td></tr>
+                        <tr><td>Trading Hours</td><td>Summer (Daylight Saving Time): 07:00-03:00 WIB<br>Winter: 07:00-04:00 WIB</td><td>Summer (Daylight Saving Time): 07:00-03:00 WIB<br>Winter: 07:00-04:00 WIB</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Initial Margin for Daytrade</td><td>USD 1,000 / Lot</td><td>IDR 10.000.000 / Lot</td></tr>
+                        <tr><td>Initial Margin for Overnight</td><td>USD 2,000 / Lot</td><td>IDR 20.000.000 / Lot</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Facility Fee</td><td>USD15/Lot/Side</td><td>IDR 150.000/Lot/Side</td></tr>
+                        <tr><td>Rollover Fee For Buy/Sell</td><td>USD5/Lot/Night</td><td>IDR 50.000/Lot/Night</td></tr>
+                        <tr><td>Value Added Tax (VAT)*</td><td>11% of Commission Fee</td><td>11% of Commission Fee</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Maintenance Margin</td><td>70% of Initial Margin</td><td>70% of Initial Margin</td></tr>
+                        <tr><td>Auto Liquidation</td><td>30% of Initial Margin</td><td>30% of Initial Margin</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Price Source</td><td>Telequote</td><td>Telequote</td></tr>
+                        <tr><td>Price Guidance</td><td>Last Trade</td><td>Last Trade</td></tr>
+                        <tr class="group-row"><td colspan="3">.</td></tr>
+                        <tr><td>Minimum Price Spread Quote</td><td>4 pips/side</td><td>4 pips/side</td></tr>
+                        <tr><td>Hectic Price Spread Quote</td><td>Based on Market</td><td>Based on Market</td></tr>
+                        <tr><td>Minimum Price Movement</td><td>0.0001 pip (Tick value : USD 10)</td><td>0.0001 pip (Tick value : USD 10)</td></tr>
+                        <tr><td>Range for limit and stop order</td><td>20-2000 Points/pips</td><td>20-2000 Points/pips</td></tr>
+                        <tr><td>Hectic Range Price For Limit &amp; Stop Order</td><td>Base On Market</td><td>Base On Market</td></tr>
+                        <tr><td>Delivery By</td><td>Cash Settlement</td><td>Cash Settlement</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="produk-detail-note">
+                <strong>* Catatan:</strong><br>
+                Changes in VAT fees to 11% (Effective as of April 01st, 2022)
+            </div>
+
+            <div class="risk-box produk-risk-modern">
+                <strong>⚠️ Catatan Risiko</strong>
+                Perdagangan valuta asing memiliki risiko tinggi. Nilai mata uang dapat berubah mengikuti kondisi pasar.
+            </div>
         </div>
-
-
-        <div class="modal-content">
-
-            <h3>
-                Informasi Produk
-            </h3>
-
-
-            <div class="informasi-produk">
-
-                <div class="info-label">
-                    Kode Produk
-                </div>
-
-                <div class="info-value">
-                    AUD/USD
-                </div>
-
-
-                <div class="info-label">
-                    Jenis
-                </div>
-
-                <div class="info-value">
-                    Forex
-                </div>
-
-
-                <div class="info-label">
-                    Mata Uang
-                </div>
-
-                <div class="info-value">
-                    Dolar Australia /
-                    Dolar Amerika Serikat
-                </div>
-
-
-                <div class="info-label">
-                    Pasangan
-                </div>
-
-                <div class="info-value">
-                    AUD/USD
-                </div>
-
-
-                <div class="info-label">
-                    Karakteristik
-                </div>
-
-                <div class="info-value">
-                    Pasangan mata uang dengan
-                    aktivitas perdagangan yang tinggi.
-                </div>
-
-
-                <div class="info-label">
-                    Bursa
-                </div>
-
-                <div class="info-value">
-                    Bursa Berjangka Jakarta (BBJ)
-                </div>
-
-
-                <div class="info-label">
-                    Pengawas
-                </div>
-
-                <div class="info-value">
-                    BAPPEBTI
-                </div>
-
-            </div>
-
-
-            <div class="risk-box">
-
-                <strong>
-                    ⚠️ Catatan Risiko
-                </strong>
-
-                Perdagangan valuta asing memiliki
-                risiko tinggi. Nilai mata uang dapat
-                berubah mengikuti kondisi pasar.
-
-            </div>
-
-        </div>
-
     </div>
-
 </div>
-
-
 
 <script>
 

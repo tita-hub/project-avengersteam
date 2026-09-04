@@ -540,30 +540,6 @@
 
                 </a>
 
-
-                <!-- TAMBAHAN BARU -->
-
-                <a href="https://www.rf-berjangkasemarang.com/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="bi bi-chevron-right"></i>
-
-                    <span>Appointment</span>
-
-                </a>
-
-
-                <a href="https://performance-rfbsmg.com/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="bi bi-chevron-right"></i>
-
-                    <span>Performance</span>
-
-                </a>
-
             </div>
 
 
