@@ -6,28 +6,36 @@
 
 /* ============================================================
    HALAMAN PROSEDUR PENARIKAN
-   TEMA : NAVY + ORANGE
+   TEMA : CORPORATE CLEAN - MAROON + GREEN + WHITE
    ============================================================ */
 
 .withdrawal-page {
 
-    --navy: #0b1f3a;
-    --navy-dark: #07162b;
-    --navy-soft: #132d50;
+    --maroon: #8b2635;
+    --maroon-dark: #6f1d2a;
+    --maroon-soft: #f8edef;
 
-    --orange: #f28c28;
-    --orange-dark: #d96f0b;
-    --orange-soft: #fff4e8;
+    --green: #3f725d;
+    --green-dark: #315b4a;
+    --green-soft: #edf4f0;
+
+    --text: #30343b;
+    --text-soft: #69727d;
+    --muted: #87909a;
+
+    --border: #e5e8eb;
+    --surface: #ffffff;
+    --background: #f7f8f7;
 
     padding: 35px 45px 70px;
 
     background:
         radial-gradient(
             circle at top right,
-            rgba(242,140,40,.08),
+            rgba(63,114,93,.035),
             transparent 30%
         ),
-        #f4f6fa;
+        var(--background);
 
     min-height: 100vh;
 
@@ -54,7 +62,7 @@
 
     gap: 9px;
 
-    color: var(--navy);
+    color: var(--maroon);
 
     text-decoration: none;
 
@@ -67,9 +75,9 @@
 
 .withdrawal-back a:hover {
 
-    color: var(--orange);
+    color: var(--green);
 
-    transform: translateX(-5px);
+    transform: translateX(-4px);
 }
 
 .withdrawal-back-arrow {
@@ -84,25 +92,27 @@
 
     border-radius: 10px;
 
-    background: white;
+    background: var(--surface);
 
-    border: 1px solid #e5e9ef;
+    border: 1px solid var(--border);
+
+    color: var(--maroon);
 
     font-size: 18px;
 
     box-shadow:
-        0 5px 15px rgba(11,31,58,.07);
+        0 5px 15px rgba(35,45,40,.055);
 
     transition: .3s ease;
 }
 
 .withdrawal-back a:hover .withdrawal-back-arrow {
 
-    background: var(--orange);
+    background: var(--maroon);
 
     color: white;
 
-    border-color: var(--orange);
+    border-color: var(--maroon);
 
     transform: translateX(-2px);
 }
@@ -124,65 +134,22 @@
 
     padding: 42px 45px;
 
-    border-radius: 24px;
+    border-radius: 22px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy-dark) 0%,
-            var(--navy) 65%,
-            #163861 100%
-        );
+    background: var(--surface);
 
-    color: white;
+    color: var(--text);
+
+    border: 1px solid var(--border);
 
     box-shadow:
-        0 18px 45px rgba(11,31,58,.18);
+        0 12px 35px rgba(38,48,43,.065);
 
     animation: withdrawalHero .7s ease;
 }
 
 
-/* dekorasi hero */
-
-.withdrawal-header::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 240px;
-    height: 240px;
-
-    right: -80px;
-    top: -100px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(242,140,40,.16);
-}
-
-.withdrawal-header::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 150px;
-    height: 150px;
-
-    right: 100px;
-    bottom: -105px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.04);
-}
-
-
-/* garis orange */
+/* garis identitas */
 
 .withdrawal-header-line {
 
@@ -192,14 +159,58 @@
     top: 0;
 
     width: 100%;
-    height: 5px;
+    height: 4px;
 
     background:
         linear-gradient(
             90deg,
-            var(--orange),
-            #ffb45e
+            var(--maroon) 0%,
+            var(--maroon) 68%,
+            var(--green) 100%
         );
+}
+
+
+/* dekorasi kanan */
+
+.withdrawal-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -105px;
+    top: -125px;
+
+    border-radius: 50%;
+
+    border:
+        35px solid rgba(139,38,53,.035);
+
+    pointer-events: none;
+}
+
+.withdrawal-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: 90px;
+    bottom: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(63,114,93,.035);
+
+    pointer-events: none;
 }
 
 
@@ -232,12 +243,12 @@
     border-radius: 30px;
 
     background:
-        rgba(242,140,40,.14);
+        var(--maroon-soft);
 
     border:
-        1px solid rgba(242,140,40,.35);
+        1px solid rgba(139,38,53,.10);
 
-    color: #ffb45e;
+    color: var(--maroon);
 
     font-size: 11px;
 
@@ -257,10 +268,10 @@
 
     border-radius: 50%;
 
-    background: var(--orange);
+    background: var(--maroon);
 
     box-shadow:
-        0 0 0 5px rgba(242,140,40,.12);
+        0 0 0 4px rgba(139,38,53,.08);
 }
 
 
@@ -270,18 +281,20 @@
 
     margin: 0 0 12px;
 
-    color: white;
+    color: #292d33;
 
     font-size: 38px;
 
     line-height: 1.2;
 
     font-weight: 800;
+
+    letter-spacing: -.4px;
 }
 
 .withdrawal-header h1 span {
 
-    color: var(--orange);
+    color: var(--maroon);
 }
 
 
@@ -293,7 +306,7 @@
 
     max-width: 800px;
 
-    color: rgba(255,255,255,.75);
+    color: var(--text-soft);
 
     font-size: 15px;
 
@@ -302,7 +315,7 @@
 
 .withdrawal-header strong {
 
-    color: #ffb45e;
+    color: var(--maroon);
 }
 
 
@@ -321,14 +334,14 @@
     padding: 10px 15px;
 
     background:
-        rgba(255,255,255,.07);
+        #fafbfa;
 
     border:
-        1px solid rgba(255,255,255,.09);
+        1px solid #e4e9e6;
 
     border-radius: 12px;
 
-    color: rgba(255,255,255,.82);
+    color: #66716b;
 
     font-size: 12px;
 }
@@ -340,10 +353,10 @@
 
     border-radius: 50%;
 
-    background: #42d77d;
+    background: var(--green);
 
     box-shadow:
-        0 0 0 5px rgba(66,215,125,.10);
+        0 0 0 4px rgba(63,114,93,.09);
 }
 
 
@@ -368,22 +381,21 @@
     padding: 21px 24px;
 
     background:
-        linear-gradient(
-            135deg,
-            #fff8ef,
-            #fffdf9
-        );
+        #fbfcfb;
 
     border:
-        1px solid #f0d6b7;
+        1px solid #dfe8e3;
 
     border-radius: 16px;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 6px 20px rgba(38,48,43,.04);
 
     animation: withdrawalFadeUp .7s ease;
 }
+
+
+/* garis kiri hijau */
 
 .margin-info::before {
 
@@ -395,12 +407,12 @@
     top: 0;
     bottom: 0;
 
-    width: 5px;
+    width: 4px;
 
-    background: var(--orange);
+    background: var(--green);
 
     border-radius:
-        5px 0 0 5px;
+        4px 0 0 4px;
 }
 
 
@@ -420,23 +432,23 @@
 
     border-radius: 12px;
 
-    background: var(--orange);
+    background: var(--green-soft);
 
-    color: white;
+    color: var(--green-dark);
 
     font-size: 19px;
 
     font-weight: 900;
 
-    box-shadow:
-        0 7px 18px rgba(242,140,40,.18);
+    border:
+        1px solid rgba(63,114,93,.08);
 }
 
 .margin-info h3 {
 
     margin: 0 0 5px;
 
-    color: #9a5a0b;
+    color: var(--green-dark);
 
     font-size: 16px;
 
@@ -447,7 +459,7 @@
 
     margin: 0;
 
-    color: #6d604d;
+    color: #68736d;
 
     font-size: 13px;
 
@@ -456,7 +468,7 @@
 
 .margin-info strong {
 
-    color: #57462f;
+    color: #3f5148;
 }
 
 
@@ -494,23 +506,26 @@
 
     border-radius: 13px;
 
-    background: var(--navy);
+    background: var(--maroon-soft);
 
-    color: var(--orange);
+    color: var(--maroon);
 
-    font-size: 19px;
+    font-size: 18px;
 
     font-weight: 900;
 
+    border:
+        1px solid rgba(139,38,53,.08);
+
     box-shadow:
-        0 8px 20px rgba(11,31,58,.15);
+        0 6px 15px rgba(139,38,53,.06);
 }
 
 .withdrawal-section-title h2 {
 
     margin: 0;
 
-    color: var(--navy);
+    color: #34383e;
 
     font-size: 25px;
 
@@ -521,7 +536,7 @@
 
     margin: 5px 0 0 56px;
 
-    color: #7b8491;
+    color: var(--muted);
 
     font-size: 13px;
 }
@@ -555,13 +570,13 @@
 
     bottom: 32px;
 
-    width: 3px;
+    width: 2px;
 
     background:
         linear-gradient(
             to bottom,
-            var(--orange),
-            #dbe1e8
+            rgba(139,38,53,.38),
+            #dfe5e2
         );
 
     border-radius: 10px;
@@ -626,16 +641,16 @@
     background: white;
 
     border:
-        3px solid var(--orange);
+        2px solid rgba(139,38,53,.55);
 
-    color: var(--navy);
+    color: var(--maroon);
 
     font-size: 15px;
 
     font-weight: 900;
 
     box-shadow:
-        0 8px 22px rgba(242,140,40,.18);
+        0 7px 18px rgba(38,48,43,.065);
 
     transition: .3s ease;
 }
@@ -643,13 +658,15 @@
 .withdrawal-step:hover
 .withdrawal-step-number {
 
-    background: var(--orange);
+    background: var(--maroon);
 
     color: white;
 
+    border-color: var(--maroon);
+
     transform:
-        rotate(-5deg)
-        scale(1.06);
+        rotate(-3deg)
+        scale(1.04);
 }
 
 
@@ -668,12 +685,12 @@
     background: white;
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 18px;
+    border-radius: 17px;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.055);
+        0 6px 20px rgba(38,48,43,.045);
 
     transition:
         transform .3s ease,
@@ -695,12 +712,12 @@
     top: 20px;
     bottom: 20px;
 
-    width: 4px;
+    width: 3px;
 
-    background: var(--orange);
+    background: var(--maroon);
 
     border-radius:
-        0 5px 5px 0;
+        0 4px 4px 0;
 
     opacity: 0;
 
@@ -710,13 +727,13 @@
 .withdrawal-card:hover {
 
     transform:
-        translateX(6px);
+        translateX(4px);
 
     border-color:
-        rgba(242,140,40,.45);
+        rgba(139,38,53,.20);
 
     box-shadow:
-        0 15px 35px rgba(11,31,58,.09);
+        0 13px 28px rgba(38,48,43,.075);
 }
 
 .withdrawal-card:hover::before {
@@ -731,7 +748,7 @@
 
     margin: 0 0 10px;
 
-    color: var(--navy);
+    color: #34383e;
 
     font-size: 19px;
 
@@ -742,7 +759,7 @@
 
     margin: 0;
 
-    color: #667180;
+    color: var(--text-soft);
 
     font-size: 14px;
 
@@ -751,7 +768,7 @@
 
 .withdrawal-card strong {
 
-    color: var(--navy);
+    color: var(--maroon);
 }
 
 
@@ -780,14 +797,14 @@
 
     padding: 9px 13px;
 
-    background: #f8fafc;
+    background: #fafbfb;
 
     border:
-        1px solid #e7ebf0;
+        1px solid #e5e9e7;
 
     border-radius: 10px;
 
-    color: #53606d;
+    color: #59645f;
 
     font-size: 12px;
 
@@ -808,9 +825,9 @@
 
     border-radius: 6px;
 
-    background: var(--orange-soft);
+    background: var(--green-soft);
 
-    color: var(--orange-dark);
+    color: var(--green-dark);
 
     font-size: 11px;
 
@@ -820,10 +837,10 @@
 .note-item:hover {
 
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     border-color:
-        rgba(242,140,40,.25);
+        rgba(63,114,93,.18);
 
     transform:
         translateY(-2px);
@@ -863,16 +880,16 @@
     background: white;
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 17px;
+    border-radius: 16px;
 
     text-decoration: none;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 6px 20px rgba(38,48,43,.04);
 
     transition: .3s ease;
 }
@@ -890,10 +907,14 @@
     top: 0;
 
     width: 100%;
-    height: 4px;
+    height: 3px;
 
     background:
-        var(--orange);
+        linear-gradient(
+            90deg,
+            var(--maroon),
+            var(--green)
+        );
 
     transform:
         scaleX(0);
@@ -914,13 +935,13 @@
 .withdrawal-legal-card:hover {
 
     transform:
-        translateY(-5px);
+        translateY(-4px);
 
     border-color:
-        rgba(242,140,40,.4);
+        rgba(139,38,53,.18);
 
     box-shadow:
-        0 15px 32px rgba(11,31,58,.09);
+        0 13px 28px rgba(38,48,43,.075);
 }
 
 
@@ -941,10 +962,10 @@
     border-radius: 12px;
 
     background:
-        var(--navy);
+        var(--maroon-soft);
 
     color:
-        var(--orange);
+        var(--maroon);
 
     font-size: 17px;
 
@@ -957,12 +978,12 @@
 .withdrawal-legal-icon {
 
     background:
-        var(--orange);
+        var(--maroon);
 
     color: white;
 
     transform:
-        scale(1.05);
+        scale(1.04);
 }
 
 
@@ -988,10 +1009,10 @@
     border-radius: 9px;
 
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     color:
-        var(--orange-dark);
+        var(--green-dark);
 
     font-size: 15px;
 
@@ -1003,7 +1024,7 @@
 .withdrawal-legal-card:hover::after {
 
     background:
-        var(--orange);
+        var(--green);
 
     color: white;
 
@@ -1016,7 +1037,7 @@
 
     margin: 0 0 6px;
 
-    color: var(--navy);
+    color: #34383e;
 
     font-size: 16px;
 
@@ -1028,7 +1049,7 @@
 .withdrawal-legal-card span {
 
     color:
-        var(--orange-dark);
+        var(--green-dark);
 
     font-size: 12px;
 
@@ -1063,7 +1084,7 @@
     background: white;
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
     border-radius: 16px;
 
@@ -1072,7 +1093,7 @@
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
+        0 6px 20px rgba(38,48,43,.035);
 
     transition: .3s ease;
 }
@@ -1087,10 +1108,10 @@
     top: 0;
     bottom: 0;
 
-    width: 4px;
+    width: 3px;
 
     background:
-        var(--orange);
+        var(--green);
 
     transform:
         scaleY(0);
@@ -1104,13 +1125,13 @@
 .withdrawal-help-card:hover {
 
     transform:
-        translateY(-4px);
+        translateY(-3px);
 
     border-color:
-        rgba(242,140,40,.35);
+        rgba(63,114,93,.18);
 
     box-shadow:
-        0 13px 28px rgba(11,31,58,.08);
+        0 12px 26px rgba(38,48,43,.065);
 }
 
 .withdrawal-help-card:hover::before {
@@ -1123,7 +1144,7 @@
 
     margin: 0 0 7px;
 
-    color: var(--navy);
+    color: #34383e;
 
     font-size: 16px;
 
@@ -1133,7 +1154,7 @@
 .withdrawal-help-card span {
 
     color:
-        var(--orange-dark);
+        var(--green-dark);
 
     font-size: 13px;
 
@@ -1156,21 +1177,17 @@
     padding: 24px 27px 24px 30px;
 
     background:
-        linear-gradient(
-            135deg,
-            #fff9f1,
-            #fffdf9
-        );
+        #fbfaf8;
 
     border:
-        1px solid #f3d5b2;
+        1px solid #e9e3da;
 
     border-radius: 17px;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
+        0 6px 20px rgba(38,48,43,.035);
 }
 
 .withdrawal-warning::before {
@@ -1183,10 +1200,10 @@
     top: 0;
     bottom: 0;
 
-    width: 5px;
+    width: 4px;
 
     background:
-        var(--orange);
+        var(--maroon);
 }
 
 .withdrawal-warning-title {
@@ -1199,7 +1216,7 @@
 
     margin-bottom: 10px;
 
-    color: #9a5a0b;
+    color: var(--maroon);
 
     font-size: 17px;
 
@@ -1219,20 +1236,23 @@
     border-radius: 9px;
 
     background:
-        var(--orange);
+        var(--maroon-soft);
 
-    color: white;
+    color: var(--maroon);
 
     font-size: 15px;
 
     font-weight: 900;
+
+    border:
+        1px solid rgba(139,38,53,.08);
 }
 
 .withdrawal-warning p {
 
     margin: 0 0 10px;
 
-    color: #6d604d;
+    color: #6c6b68;
 
     font-size: 13px;
 
@@ -1246,7 +1266,7 @@
 
 .withdrawal-warning strong {
 
-    color: #57462f;
+    color: #4d4a46;
 }
 
 
@@ -1263,7 +1283,7 @@
     padding-top: 25px;
 
     border-top:
-        1px solid #e2e6eb;
+        1px solid #e2e5e4;
 
     text-align: center;
 }
@@ -1283,7 +1303,7 @@
 .withdrawal-footer-links a:hover {
 
     color:
-        var(--orange);
+        var(--maroon);
 }
 
 
@@ -1929,6 +1949,8 @@
 
     </div>
 
+
+
     {{-- =========================================================
          PERHATIAN
     ========================================================== --}}
@@ -1963,4 +1985,7 @@
         </p>
 
     </div>
+
+</div>
+
 @endsection

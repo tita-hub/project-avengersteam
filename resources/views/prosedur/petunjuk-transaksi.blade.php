@@ -6,28 +6,36 @@
 
 /* ============================================================
    HALAMAN PETUNJUK TRANSAKSI
-   TEMA : NAVY + ORANGE
+   TEMA : CORPORATE MAROON + GREEN
    ============================================================ */
 
 .transaction-page {
 
-    --navy: #0b1f3a;
-    --navy-dark: #07162b;
-    --navy-soft: #132d50;
+    --red: #8b2532;
+    --red-dark: #6f1d29;
+    --red-soft: #f8eef0;
+    --red-border: #ead4d8;
 
-    --orange: #f28c28;
-    --orange-dark: #d96f0b;
-    --orange-soft: #fff4e8;
+    --green: #2f6b57;
+    --green-dark: #255443;
+    --green-soft: #edf5f1;
+
+    --text: #27313b;
+    --text-soft: #68727d;
+    --muted: #8a929c;
+
+    --border: #e4e7eb;
+    --surface: #ffffff;
+    --surface-soft: #f7f8fa;
 
     padding: 35px 45px 70px;
 
     background:
-        radial-gradient(
-            circle at top right,
-            rgba(242,140,40,.08),
-            transparent 30%
-        ),
-        #f4f6fa;
+        linear-gradient(
+            180deg,
+            #fbfbfc 0%,
+            #f6f7f9 100%
+        );
 
     min-height: 100vh;
 
@@ -54,7 +62,7 @@
 
     gap: 9px;
 
-    color: var(--navy);
+    color: var(--text);
 
     text-decoration: none;
 
@@ -62,14 +70,16 @@
 
     font-weight: 700;
 
-    transition: .3s ease;
+    transition:
+        color .25s ease,
+        transform .25s ease;
 }
 
 .transaction-back a:hover {
 
-    color: var(--orange);
+    color: var(--red);
 
-    transform: translateX(-5px);
+    transform: translateX(-4px);
 }
 
 .transaction-back-arrow {
@@ -82,27 +92,31 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    background: white;
+    background: var(--surface);
 
-    border: 1px solid #e5e9ef;
+    border: 1px solid var(--border);
 
-    font-size: 18px;
+    color: var(--red);
+
+    font-size: 17px;
 
     box-shadow:
-        0 5px 15px rgba(11,31,58,.07);
+        0 5px 15px rgba(39,49,59,.05);
 
-    transition: .3s ease;
+    transition:
+        .25s ease;
 }
 
-.transaction-back a:hover .transaction-back-arrow {
+.transaction-back a:hover
+.transaction-back-arrow {
 
-    background: var(--orange);
+    background: var(--red);
 
     color: white;
 
-    border-color: var(--orange);
+    border-color: var(--red);
 
     transform: translateX(-2px);
 }
@@ -124,66 +138,24 @@
 
     padding: 42px 45px;
 
-    border-radius: 24px;
+    border-radius: 22px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy-dark) 0%,
-            var(--navy) 65%,
-            #163861 100%
-        );
+    background: var(--surface);
 
-    color: white;
+    color: var(--text);
+
+    border:
+        1px solid var(--border);
 
     box-shadow:
-        0 18px 45px rgba(11,31,58,.18);
+        0 14px 38px rgba(39,49,59,.07);
 
     animation:
         transactionHero .7s ease;
 }
 
 
-/* dekorasi */
-
-.transaction-header::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 240px;
-    height: 240px;
-
-    right: -80px;
-    top: -100px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(242,140,40,.16);
-}
-
-.transaction-header::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 150px;
-    height: 150px;
-
-    right: 100px;
-    bottom: -105px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.04);
-}
-
-
-/* garis orange */
+/* garis identitas */
 
 .transaction-header-line {
 
@@ -193,14 +165,59 @@
     top: 0;
 
     width: 100%;
-    height: 5px;
+    height: 4px;
 
     background:
         linear-gradient(
             90deg,
-            var(--orange),
-            #ffb45e
+            var(--red) 0%,
+            var(--red) 72%,
+            var(--green) 72%,
+            var(--green) 100%
         );
+}
+
+
+/* dekorasi halus */
+
+.transaction-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -120px;
+    top: -125px;
+
+    border-radius: 50%;
+
+    border:
+        45px solid rgba(139,37,50,.035);
+
+    pointer-events: none;
+}
+
+.transaction-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: 65px;
+    bottom: -80px;
+
+    border-radius: 50%;
+
+    border:
+        22px solid rgba(47,107,87,.045);
+
+    pointer-events: none;
 }
 
 
@@ -230,15 +247,16 @@
 
     margin-bottom: 17px;
 
-    border-radius: 30px;
+    border-radius: 8px;
 
     background:
-        rgba(242,140,40,.14);
+        var(--red-soft);
 
     border:
-        1px solid rgba(242,140,40,.35);
+        1px solid var(--red-border);
 
-    color: #ffb45e;
+    color:
+        var(--red);
 
     font-size: 11px;
 
@@ -259,10 +277,7 @@
     border-radius: 50%;
 
     background:
-        var(--orange);
-
-    box-shadow:
-        0 0 0 5px rgba(242,140,40,.12);
+        var(--red);
 }
 
 
@@ -272,19 +287,22 @@
 
     margin: 0 0 12px;
 
-    color: white;
+    color:
+        var(--text);
 
     font-size: 38px;
 
     line-height: 1.2;
 
     font-weight: 800;
+
+    letter-spacing: -.7px;
 }
 
 .transaction-header h1 span {
 
     color:
-        var(--orange);
+        var(--red);
 }
 
 
@@ -297,7 +315,7 @@
     max-width: 820px;
 
     color:
-        rgba(255,255,255,.75);
+        var(--text-soft);
 
     font-size: 15px;
 
@@ -307,7 +325,7 @@
 .transaction-header strong {
 
     color:
-        #ffb45e;
+        var(--red-dark);
 }
 
 
@@ -326,17 +344,19 @@
     padding: 10px 15px;
 
     background:
-        rgba(255,255,255,.07);
+        var(--green-soft);
 
     border:
-        1px solid rgba(255,255,255,.09);
+        1px solid #d7e7df;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     color:
-        rgba(255,255,255,.82);
+        var(--green-dark);
 
     font-size: 12px;
+
+    font-weight: 600;
 }
 
 .transaction-status-dot {
@@ -344,13 +364,15 @@
     width: 8px;
     height: 8px;
 
+    flex-shrink: 0;
+
     border-radius: 50%;
 
     background:
-        #42d77d;
+        var(--green);
 
     box-shadow:
-        0 0 0 5px rgba(66,215,125,.10);
+        0 0 0 4px rgba(47,107,87,.10);
 }
 
 
@@ -375,19 +397,15 @@
     padding: 21px 24px;
 
     background:
-        linear-gradient(
-            135deg,
-            #fff8ef,
-            #fffdf9
-        );
+        var(--green-soft);
 
     border:
-        1px solid #f0d6b7;
+        1px solid #d8e7df;
 
-    border-radius: 16px;
+    border-radius: 15px;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 7px 22px rgba(39,49,59,.035);
 
     animation:
         transactionFadeUp .7s ease;
@@ -403,13 +421,13 @@
     top: 0;
     bottom: 0;
 
-    width: 5px;
+    width: 4px;
 
     background:
-        var(--orange);
+        var(--green);
 
     border-radius:
-        5px 0 0 5px;
+        4px 0 0 4px;
 }
 
 
@@ -427,19 +445,19 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     background:
-        var(--orange);
+        var(--green);
 
     color: white;
 
-    font-size: 19px;
+    font-size: 18px;
 
     font-weight: 900;
 
     box-shadow:
-        0 7px 18px rgba(242,140,40,.18);
+        0 6px 17px rgba(47,107,87,.15);
 }
 
 .demo-info h3 {
@@ -447,7 +465,7 @@
     margin: 0 0 5px;
 
     color:
-        #9a5a0b;
+        var(--green-dark);
 
     font-size: 16px;
 
@@ -459,7 +477,7 @@
     margin: 0;
 
     color:
-        #6d604d;
+        #617269;
 
     font-size: 13px;
 
@@ -499,20 +517,20 @@
 
     flex-shrink: 0;
 
-    border-radius: 13px;
+    border-radius: 11px;
 
     background:
-        var(--navy);
+        var(--red-soft);
 
     color:
-        var(--orange);
+        var(--red);
 
-    font-size: 19px;
+    border:
+        1px solid var(--red-border);
+
+    font-size: 18px;
 
     font-weight: 900;
-
-    box-shadow:
-        0 8px 20px rgba(11,31,58,.15);
 }
 
 .transaction-section-title h2 {
@@ -520,11 +538,13 @@
     margin: 0;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 25px;
 
     font-weight: 800;
+
+    letter-spacing: -.25px;
 }
 
 .transaction-section-title p {
@@ -532,7 +552,7 @@
     margin: 5px 0 0 56px;
 
     color:
-        #7b8491;
+        var(--text-soft);
 
     font-size: 13px;
 }
@@ -560,20 +580,16 @@
 
     position: absolute;
 
-    left: 31px;
+    left: 30px;
 
-    top: 32px;
+    top: 31px;
 
-    bottom: 32px;
+    bottom: 31px;
 
-    width: 3px;
+    width: 2px;
 
     background:
-        linear-gradient(
-            to bottom,
-            var(--orange),
-            #dbe1e8
-        );
+        #dfe3e7;
 
     border-radius: 10px;
 }
@@ -638,23 +654,23 @@
 
     z-index: 3;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        3px solid var(--orange);
+        2px solid var(--red-border);
 
     color:
-        var(--navy);
+        var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 900;
 
     box-shadow:
-        0 8px 22px rgba(242,140,40,.18);
+        0 7px 18px rgba(39,49,59,.07);
 
     transition:
         .3s ease;
@@ -664,14 +680,16 @@
 .transaction-step-number {
 
     background:
-        var(--orange);
+        var(--red);
+
+    border-color:
+        var(--red);
 
     color:
         white;
 
     transform:
-        rotate(-5deg)
-        scale(1.06);
+        translateY(-2px);
 }
 
 
@@ -688,15 +706,15 @@
     padding: 27px 30px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.055);
+        0 7px 22px rgba(39,49,59,.045);
 
     transition:
         transform .3s ease,
@@ -715,16 +733,16 @@
 
     left: 0;
 
-    top: 20px;
-    bottom: 20px;
+    top: 18px;
+    bottom: 18px;
 
-    width: 4px;
+    width: 3px;
 
     background:
-        var(--orange);
+        var(--red);
 
     border-radius:
-        0 5px 5px 0;
+        0 4px 4px 0;
 
     opacity: 0;
 
@@ -735,13 +753,13 @@
 .transaction-card:hover {
 
     transform:
-        translateX(6px);
+        translateX(4px);
 
     border-color:
-        rgba(242,140,40,.45);
+        var(--red-border);
 
     box-shadow:
-        0 15px 35px rgba(11,31,58,.09);
+        0 13px 30px rgba(39,49,59,.075);
 }
 
 .transaction-card:hover::before {
@@ -757,7 +775,7 @@
     margin: 0 0 10px;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 19px;
 
@@ -769,7 +787,7 @@
     margin: 0;
 
     color:
-        #667180;
+        var(--text-soft);
 
     font-size: 14px;
 
@@ -779,7 +797,7 @@
 .transaction-card strong {
 
     color:
-        var(--navy);
+        var(--red-dark);
 }
 
 
@@ -793,7 +811,7 @@
 
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 9px;
 
     margin-top: 18px;
 }
@@ -806,18 +824,18 @@
 
     gap: 7px;
 
-    padding: 9px 13px;
+    padding: 8px 12px;
 
     background:
-        #f8fafc;
+        #fafbfc;
 
     border:
-        1px solid #e7ebf0;
+        1px solid #e5e8ec;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
     color:
-        #53606d;
+        #59636e;
 
     font-size: 12px;
 
@@ -838,13 +856,15 @@
     align-items: center;
     justify-content: center;
 
+    flex-shrink: 0;
+
     border-radius: 6px;
 
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     color:
-        var(--orange-dark);
+        var(--green);
 
     font-size: 11px;
 
@@ -854,10 +874,10 @@
 .check-item:hover {
 
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     border-color:
-        rgba(242,140,40,.25);
+        #d2e3da;
 
     transform:
         translateY(-2px);
@@ -875,12 +895,12 @@
     padding: 18px;
 
     background:
-        #f8fafc;
+        #fafbfc;
 
     border:
-        1px solid #e7ebf0;
+        1px solid #e5e8ec;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     position: relative;
 }
@@ -895,13 +915,13 @@
     top: 0;
     bottom: 0;
 
-    width: 4px;
+    width: 3px;
 
     background:
-        var(--orange);
+        var(--red);
 
     border-radius:
-        4px 0 0 4px;
+        3px 0 0 3px;
 }
 
 .trading-platform small {
@@ -911,7 +931,7 @@
     margin-bottom: 6px;
 
     color:
-        #7b8491;
+        var(--muted);
 
     font-size: 12px;
 }
@@ -919,7 +939,7 @@
 .trading-platform a {
 
     color:
-        var(--orange-dark);
+        var(--red);
 
     font-size: 14px;
 
@@ -928,13 +948,13 @@
     text-decoration: none;
 
     transition:
-        .3s ease;
+        .25s ease;
 }
 
 .trading-platform a:hover {
 
     color:
-        var(--orange);
+        var(--red-dark);
 
     text-decoration:
         underline;
@@ -956,21 +976,17 @@
     padding: 24px 27px 24px 30px;
 
     background:
-        linear-gradient(
-            135deg,
-            #fff9f1,
-            #fffdf9
-        );
+        #fffafa;
 
     border:
-        1px solid #f3d5b2;
+        1px solid var(--red-border);
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
+        0 7px 22px rgba(39,49,59,.035);
 }
 
 .transaction-security::before {
@@ -983,10 +999,10 @@
     top: 0;
     bottom: 0;
 
-    width: 5px;
+    width: 4px;
 
     background:
-        var(--orange);
+        var(--red);
 }
 
 .transaction-security-title {
@@ -1000,7 +1016,7 @@
     margin-bottom: 10px;
 
     color:
-        #9a5a0b;
+        var(--red-dark);
 
     font-size: 17px;
 
@@ -1017,15 +1033,18 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     background:
-        var(--orange);
+        var(--red-soft);
+
+    border:
+        1px solid var(--red-border);
 
     color:
-        white;
+        var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 900;
 }
@@ -1035,7 +1054,7 @@
     margin: 0;
 
     color:
-        #6d604d;
+        #69727c;
 
     font-size: 13px;
 
@@ -1045,7 +1064,7 @@
 .transaction-security strong {
 
     color:
-        #57462f;
+        var(--red-dark);
 }
 
 
@@ -1080,19 +1099,19 @@
     padding: 23px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     text-decoration: none;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 7px 22px rgba(39,49,59,.04);
 
     transition:
         .3s ease;
@@ -1111,16 +1130,16 @@
     top: 0;
 
     width: 100%;
-    height: 4px;
+    height: 3px;
 
     background:
-        var(--orange);
+        var(--red);
 
     transform:
         scaleX(0);
 
     transform-origin:
-        center;
+        left;
 
     transition:
         transform .3s ease;
@@ -1135,13 +1154,13 @@
 .transaction-legal-card:hover {
 
     transform:
-        translateY(-5px);
+        translateY(-4px);
 
     border-color:
-        rgba(242,140,40,.4);
+        var(--red-border);
 
     box-shadow:
-        0 15px 32px rgba(11,31,58,.09);
+        0 13px 30px rgba(39,49,59,.075);
 }
 
 
@@ -1159,15 +1178,18 @@
 
     margin-bottom: 14px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     background:
-        var(--navy);
+        var(--red-soft);
+
+    border:
+        1px solid var(--red-border);
 
     color:
-        var(--orange);
+        var(--red);
 
-    font-size: 17px;
+    font-size: 16px;
 
     font-weight: 900;
 
@@ -1179,13 +1201,16 @@
 .transaction-legal-icon {
 
     background:
-        var(--orange);
+        var(--red);
+
+    border-color:
+        var(--red);
 
     color:
         white;
 
     transform:
-        scale(1.05);
+        scale(1.04);
 }
 
 
@@ -1201,23 +1226,26 @@
     top: 19px;
     right: 19px;
 
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     background:
-        var(--orange-soft);
+        #f7f8fa;
+
+    border:
+        1px solid var(--border);
 
     color:
-        var(--orange-dark);
+        var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 900;
 
@@ -1228,7 +1256,10 @@
 .transaction-legal-card:hover::after {
 
     background:
-        var(--orange);
+        var(--red);
+
+    border-color:
+        var(--red);
 
     color:
         white;
@@ -1242,7 +1273,7 @@
     margin: 0 0 6px;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 16px;
 
@@ -1254,7 +1285,7 @@
 .transaction-legal-card span {
 
     color:
-        var(--orange-dark);
+        var(--red);
 
     font-size: 12px;
 
@@ -1287,19 +1318,19 @@
     padding: 21px 23px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 16px;
+    border-radius: 15px;
 
     text-decoration: none;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
+        0 7px 22px rgba(39,49,59,.035);
 
     transition:
         .3s ease;
@@ -1315,10 +1346,10 @@
     top: 0;
     bottom: 0;
 
-    width: 4px;
+    width: 3px;
 
     background:
-        var(--orange);
+        var(--red);
 
     transform:
         scaleY(0);
@@ -1336,10 +1367,10 @@
         translateY(-4px);
 
     border-color:
-        rgba(242,140,40,.35);
+        var(--red-border);
 
     box-shadow:
-        0 13px 28px rgba(11,31,58,.08);
+        0 13px 28px rgba(39,49,59,.07);
 }
 
 .transaction-help-card:hover::before {
@@ -1353,7 +1384,7 @@
     margin: 0 0 7px;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 16px;
 
@@ -1363,7 +1394,7 @@
 .transaction-help-card span {
 
     color:
-        var(--orange-dark);
+        var(--red);
 
     font-size: 13px;
 
@@ -1382,7 +1413,7 @@
         opacity: 0;
 
         transform:
-            translateY(-20px);
+            translateY(-14px);
     }
 
     to {
@@ -1402,7 +1433,7 @@
         opacity: 0;
 
         transform:
-            translateY(25px);
+            translateY(18px);
     }
 
     to {
@@ -1422,7 +1453,7 @@
         opacity: 0;
 
         transform:
-            translateY(20px);
+            translateY(16px);
     }
 
     to {
@@ -1491,7 +1522,7 @@
             30px 22px;
 
         border-radius:
-            19px;
+            18px;
     }
 
     .transaction-header h1 {
@@ -1563,7 +1594,7 @@
             49px;
 
         border-radius:
-            14px;
+            13px;
 
         font-size:
             12px;
@@ -1575,7 +1606,7 @@
             20px;
 
         border-radius:
-            15px;
+            14px;
     }
 
     .transaction-card h3 {

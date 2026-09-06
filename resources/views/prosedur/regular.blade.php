@@ -6,27 +6,37 @@
 
 /* ============================================================
    HALAMAN PROSEDUR REGULER
-   TEMA : NAVY + ORANGE
+   TEMA : CORPORATE MAROON + GREEN
    ============================================================ */
 
 .regular-page {
-    --navy: #0b1f3a;
-    --navy-dark: #07162b;
-    --navy-soft: #132d50;
 
-    --orange: #f28c28;
-    --orange-dark: #d96f0b;
-    --orange-soft: #fff4e8;
+    --red: #8b2532;
+    --red-dark: #6f1d29;
+    --red-soft: #f8eef0;
+    --red-border: #ead4d8;
+
+    --green: #2f6b57;
+    --green-dark: #255443;
+    --green-soft: #edf5f1;
+
+    --text: #27313b;
+    --text-soft: #68727d;
+    --muted: #8a929c;
+
+    --border: #e4e7eb;
+
+    --surface: #ffffff;
+    --surface-soft: #f7f8fa;
 
     padding: 35px 45px 70px;
 
     background:
-        radial-gradient(
-            circle at top right,
-            rgba(242,140,40,.08),
-            transparent 30%
-        ),
-        #f4f6fa;
+        linear-gradient(
+            180deg,
+            #fbfbfc 0%,
+            #f6f7f9 100%
+        );
 
     min-height: 100vh;
 
@@ -39,54 +49,84 @@
    ============================================================ */
 
 .regular-back {
+
     max-width: 1050px;
+
     margin: 0 auto 18px;
 }
 
 .regular-back a {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 9px;
 
-    color: var(--navy);
+    color: var(--text);
+
     text-decoration: none;
 
     font-size: 14px;
+
     font-weight: 700;
 
-    transition: .3s ease;
+    transition:
+        color .25s ease,
+        transform .25s ease;
 }
 
 .regular-back a:hover {
-    color: var(--orange);
-    transform: translateX(-5px);
+
+    color: var(--red);
+
+    transform:
+        translateX(-4px);
 }
 
 .regular-back .arrow {
+
     width: 32px;
     height: 32px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    background: white;
-    border: 1px solid #e5e9ef;
+    background:
+        var(--surface);
 
-    font-size: 18px;
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--red);
+
+    font-size: 17px;
 
     box-shadow:
-        0 5px 15px rgba(11,31,58,.07);
+        0 5px 15px rgba(39,49,59,.05);
 
-    transition: .3s ease;
+    transition:
+        .25s ease;
 }
 
 .regular-back a:hover .arrow {
-    background: var(--orange);
-    color: white;
-    border-color: var(--orange);
+
+    background:
+        var(--red);
+
+    color:
+        white;
+
+    border-color:
+        var(--red);
+
+    transform:
+        translateX(-2px);
 }
 
 
@@ -95,87 +135,100 @@
    ============================================================ */
 
 .regular-hero {
+
     max-width: 1050px;
 
     margin: 0 auto 42px;
 
     position: relative;
+
     overflow: hidden;
 
     padding: 42px 45px;
 
-    border-radius: 24px;
+    border-radius: 22px;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--navy-dark) 0%,
-            var(--navy) 65%,
-            #163861 100%
-        );
+        var(--surface);
 
-    color: white;
+    color:
+        var(--text);
+
+    border:
+        1px solid var(--border);
 
     box-shadow:
-        0 18px 45px rgba(11,31,58,.18);
+        0 14px 38px rgba(39,49,59,.07);
 
-    animation: heroMasuk .7s ease;
+    animation:
+        heroMasuk .7s ease;
 }
 
 
-/* dekorasi */
+/* dekorasi lingkaran halus */
 
 .regular-hero::before {
+
     content: "";
 
     position: absolute;
 
-    width: 240px;
-    height: 240px;
+    width: 230px;
+    height: 230px;
 
-    right: -80px;
-    top: -100px;
+    right: -120px;
+    top: -125px;
 
     border-radius: 50%;
 
-    background:
-        rgba(242,140,40,.16);
+    border:
+        45px solid rgba(139,37,50,.035);
+
+    pointer-events:
+        none;
 }
 
 .regular-hero::after {
+
     content: "";
 
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
 
-    right: 90px;
-    bottom: -100px;
+    right: 65px;
+    bottom: -80px;
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,.04);
+    border:
+        22px solid rgba(47,107,87,.045);
+
+    pointer-events:
+        none;
 }
 
 
-/* garis orange */
+/* garis identitas */
 
 .hero-line {
+
     position: absolute;
 
     left: 0;
     top: 0;
 
     width: 100%;
-    height: 5px;
+    height: 4px;
 
     background:
         linear-gradient(
             90deg,
-            var(--orange),
-            #ffb45e
+            var(--red) 0%,
+            var(--red) 72%,
+            var(--green) 72%,
+            var(--green) 100%
         );
 }
 
@@ -183,6 +236,7 @@
 /* isi hero */
 
 .hero-content {
+
     position: relative;
 
     z-index: 2;
@@ -194,6 +248,7 @@
 /* label */
 
 .hero-label {
+
     display: inline-flex;
 
     align-items: center;
@@ -202,15 +257,16 @@
 
     padding: 7px 13px;
 
-    border-radius: 30px;
+    border-radius: 8px;
 
     background:
-        rgba(242,140,40,.14);
+        var(--red-soft);
 
     border:
-        1px solid rgba(242,140,40,.35);
+        1px solid var(--red-border);
 
-    color: #ffb45e;
+    color:
+        var(--red);
 
     font-size: 11px;
 
@@ -224,6 +280,7 @@
 }
 
 .hero-label::before {
+
     content: "";
 
     width: 7px;
@@ -232,40 +289,46 @@
     border-radius: 50%;
 
     background:
-        var(--orange);
-
-    box-shadow:
-        0 0 0 5px rgba(242,140,40,.12);
+        var(--red);
 }
 
 
 /* judul */
 
 .regular-hero h1 {
+
     margin: 0 0 12px;
 
-    color: white;
+    color:
+        var(--text);
 
     font-size: 38px;
 
     line-height: 1.2;
 
     font-weight: 800;
+
+    letter-spacing:
+        -.7px;
 }
 
 .regular-hero h1 span {
-    color: var(--orange);
+
+    color:
+        var(--red);
 }
 
 
 /* deskripsi */
 
 .regular-hero p {
+
     margin: 0;
 
     max-width: 720px;
 
-    color: rgba(255,255,255,.75);
+    color:
+        var(--text-soft);
 
     font-size: 15px;
 
@@ -276,6 +339,7 @@
 /* status */
 
 .hero-status {
+
     display: inline-flex;
 
     align-items: center;
@@ -287,29 +351,35 @@
     padding: 10px 15px;
 
     background:
-        rgba(255,255,255,.07);
+        var(--green-soft);
 
     border:
-        1px solid rgba(255,255,255,.09);
+        1px solid #d7e7df;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
-    color: rgba(255,255,255,.82);
+    color:
+        var(--green-dark);
 
     font-size: 12px;
+
+    font-weight: 600;
 }
 
 .status-icon {
+
     width: 8px;
     height: 8px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
     background:
-        #42d77d;
+        var(--green);
 
     box-shadow:
-        0 0 0 5px rgba(66,215,125,.10);
+        0 0 0 4px rgba(47,107,87,.10);
 }
 
 
@@ -318,12 +388,14 @@
    ============================================================ */
 
 .regular-section-title {
+
     max-width: 1050px;
 
     margin: 0 auto 22px;
 }
 
 .title-row {
+
     display: flex;
 
     align-items: center;
@@ -332,6 +404,7 @@
 }
 
 .title-icon {
+
     width: 43px;
     height: 43px;
 
@@ -342,38 +415,44 @@
 
     flex-shrink: 0;
 
-    border-radius: 13px;
+    border-radius: 11px;
 
     background:
-        var(--navy);
+        var(--red-soft);
 
     color:
-        var(--orange);
+        var(--red);
 
-    font-size: 19px;
+    border:
+        1px solid var(--red-border);
+
+    font-size: 18px;
 
     font-weight: 900;
-
-    box-shadow:
-        0 8px 20px rgba(11,31,58,.15);
 }
 
 .regular-section-title h2 {
+
     margin: 0;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 25px;
 
     font-weight: 800;
+
+    letter-spacing:
+        -.25px;
 }
 
 .regular-section-title p {
-    margin: 5px 0 0 56px;
+
+    margin:
+        5px 0 0 56px;
 
     color:
-        #7b8491;
+        var(--text-soft);
 
     font-size: 13px;
 }
@@ -384,6 +463,7 @@
    ============================================================ */
 
 .regular-timeline {
+
     max-width: 1050px;
 
     margin: 0 auto;
@@ -395,26 +475,24 @@
 /* garis timeline */
 
 .regular-timeline::before {
+
     content: "";
 
     position: absolute;
 
-    left: 31px;
+    left: 30px;
 
-    top: 32px;
+    top: 31px;
 
-    bottom: 32px;
+    bottom: 31px;
 
-    width: 3px;
+    width: 2px;
 
     background:
-        linear-gradient(
-            to bottom,
-            var(--orange),
-            #dbe1e8
-        );
+        #dfe3e7;
 
-    border-radius: 10px;
+    border-radius:
+        10px;
 }
 
 
@@ -423,6 +501,7 @@
    ============================================================ */
 
 .regular-step {
+
     display: flex;
 
     align-items: flex-start;
@@ -438,27 +517,39 @@
 }
 
 .regular-step:nth-child(1) {
-    animation-delay: .05s;
+
+    animation-delay:
+        .05s;
 }
 
 .regular-step:nth-child(2) {
-    animation-delay: .13s;
+
+    animation-delay:
+        .13s;
 }
 
 .regular-step:nth-child(3) {
-    animation-delay: .21s;
+
+    animation-delay:
+        .21s;
 }
 
 .regular-step:nth-child(4) {
-    animation-delay: .29s;
+
+    animation-delay:
+        .29s;
 }
 
 .regular-step:nth-child(5) {
-    animation-delay: .37s;
+
+    animation-delay:
+        .37s;
 }
 
 .regular-step:nth-child(6) {
-    animation-delay: .45s;
+
+    animation-delay:
+        .45s;
 }
 
 
@@ -467,6 +558,7 @@
    ============================================================ */
 
 .regular-step-number {
+
     width: 63px;
     height: 63px;
 
@@ -481,38 +573,42 @@
 
     z-index: 3;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        3px solid var(--orange);
+        2px solid var(--red-border);
 
     color:
-        var(--navy);
+        var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 900;
 
     box-shadow:
-        0 8px 22px rgba(242,140,40,.18);
+        0 7px 18px rgba(39,49,59,.07);
 
-    transition: .3s ease;
+    transition:
+        .3s ease;
 }
 
 .regular-step:hover
 .regular-step-number {
+
     background:
-        var(--orange);
+        var(--red);
+
+    border-color:
+        var(--red);
 
     color:
         white;
 
     transform:
-        rotate(-5deg)
-        scale(1.06);
+        translateY(-2px);
 }
 
 
@@ -521,6 +617,7 @@
    ============================================================ */
 
 .regular-step-card {
+
     flex: 1;
 
     position: relative;
@@ -528,15 +625,15 @@
     padding: 27px 30px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.055);
+        0 7px 22px rgba(39,49,59,.045);
 
     transition:
         transform .3s ease,
@@ -548,40 +645,44 @@
 /* garis kiri */
 
 .regular-step-card::before {
+
     content: "";
 
     position: absolute;
 
     left: 0;
 
-    top: 20px;
-    bottom: 20px;
+    top: 18px;
+    bottom: 18px;
 
-    width: 4px;
+    width: 3px;
 
     background:
-        var(--orange);
+        var(--red);
 
     border-radius:
-        0 5px 5px 0;
+        0 4px 4px 0;
 
     opacity: 0;
 
-    transition: .3s ease;
+    transition:
+        .3s ease;
 }
 
 .regular-step-card:hover {
+
     transform:
-        translateX(6px);
+        translateX(4px);
 
     border-color:
-        rgba(242,140,40,.45);
+        var(--red-border);
 
     box-shadow:
-        0 15px 35px rgba(11,31,58,.09);
+        0 13px 30px rgba(39,49,59,.075);
 }
 
 .regular-step-card:hover::before {
+
     opacity: 1;
 }
 
@@ -589,10 +690,11 @@
 /* judul */
 
 .regular-step-card h3 {
+
     margin: 0 0 10px;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 19px;
 
@@ -600,10 +702,11 @@
 }
 
 .regular-step-card p {
+
     margin: 0;
 
     color:
-        #667180;
+        var(--text-soft);
 
     font-size: 14px;
 
@@ -611,8 +714,9 @@
 }
 
 .regular-step-card strong {
+
     color:
-        var(--navy);
+        var(--red-dark);
 }
 
 
@@ -621,6 +725,7 @@
    ============================================================ */
 
 .regular-document-list {
+
     display: grid;
 
     grid-template-columns:
@@ -632,32 +737,39 @@
 }
 
 .regular-document-item {
+
     display: flex;
 
     align-items: center;
 
     gap: 10px;
 
-    padding: 12px 14px;
+    padding: 11px 13px;
 
     background:
-        #f8fafc;
+        #fafbfc;
 
     border:
-        1px solid #e7ebf0;
+        1px solid #e5e8ec;
 
-    border-radius: 11px;
+    border-radius: 10px;
 
     color:
-        #4d5867;
+        #59636e;
 
     font-size: 13px;
 
-    transition: .25s ease;
+    line-height:
+        1.5;
+
+    transition:
+        .25s ease;
 }
 
 .regular-document-item::before {
-    content: "✓";
+
+    content:
+        "✓";
 
     width: 22px;
     height: 22px;
@@ -672,20 +784,23 @@
     border-radius: 7px;
 
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     color:
-        var(--orange-dark);
+        var(--green);
+
+    font-size: 11px;
 
     font-weight: 900;
 }
 
 .regular-document-item:hover {
+
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     border-color:
-        rgba(242,140,40,.25);
+        #d2e3da;
 
     transform:
         translateY(-2px);
@@ -697,12 +812,14 @@
    ============================================================ */
 
 .regular-bank-section {
+
     max-width: 1050px;
 
     margin: 52px auto 0;
 }
 
 .regular-bank-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -715,27 +832,30 @@
 /* bank card */
 
 .regular-bank-card {
+
     position: relative;
 
     padding: 23px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 7px 22px rgba(39,49,59,.04);
 
-    transition: .3s ease;
+    transition:
+        .3s ease;
 }
 
 .regular-bank-card::before {
+
     content: "";
 
     position: absolute;
@@ -744,27 +864,44 @@
     left: 0;
 
     width: 100%;
-    height: 4px;
+    height: 3px;
 
     background:
-        var(--orange);
+        var(--red);
+
+    transform:
+        scaleX(.18);
+
+    transform-origin:
+        left;
+
+    transition:
+        transform .3s ease;
+}
+
+.regular-bank-card:hover::before {
+
+    transform:
+        scaleX(1);
 }
 
 .regular-bank-card:hover {
+
     transform:
-        translateY(-5px);
+        translateY(-4px);
 
     border-color:
-        rgba(242,140,40,.35);
+        var(--red-border);
 
     box-shadow:
-        0 16px 32px rgba(11,31,58,.09);
+        0 14px 30px rgba(39,49,59,.075);
 }
 
 
 /* icon bank */
 
 .bank-icon {
+
     width: 43px;
     height: 43px;
 
@@ -775,22 +912,45 @@
 
     margin-bottom: 13px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     background:
-        var(--navy);
+        var(--red-soft);
+
+    border:
+        1px solid var(--red-border);
 
     color:
-        var(--orange);
+        var(--red);
 
-    font-size: 18px;
+    font-size: 17px;
 
     font-weight: 900;
+
+    transition:
+        .3s ease;
+}
+
+.regular-bank-card:hover
+.bank-icon {
+
+    background:
+        var(--red);
+
+    color:
+        white;
+
+    border-color:
+        var(--red);
+
+    transform:
+        scale(1.04);
 }
 
 .bank-name {
+
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 17px;
 
@@ -800,8 +960,9 @@
 }
 
 .bank-branch {
+
     color:
-        #8a929d;
+        var(--muted);
 
     font-size: 12px;
 
@@ -812,6 +973,7 @@
 /* rekening */
 
 .account-row {
+
     display: flex;
 
     align-items: center;
@@ -826,23 +988,38 @@
 }
 
 .currency {
+
     color:
-        #858e9a;
+        var(--green);
 
-    font-size: 12px;
+    font-size: 11px;
 
-    font-weight: 700;
+    font-weight: 800;
+
+    padding:
+        4px 7px;
+
+    background:
+        var(--green-soft);
+
+    border-radius:
+        6px;
 }
 
 .account-number {
+
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 13px;
 
     font-weight: 800;
 
-    text-align: right;
+    text-align:
+        right;
+
+    letter-spacing:
+        .2px;
 }
 
 
@@ -851,12 +1028,14 @@
    ============================================================ */
 
 .regular-legal-section {
+
     max-width: 1050px;
 
     margin: 52px auto 0;
 }
 
 .regular-legal-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -866,32 +1045,35 @@
 }
 
 .regular-legal-card {
+
     position: relative;
 
     padding: 23px;
 
     background:
-        white;
+        var(--surface);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     text-decoration: none;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 7px 22px rgba(39,49,59,.04);
 
-    transition: .3s ease;
+    transition:
+        .3s ease;
 }
 
 
 /* garis atas */
 
 .regular-legal-card::before {
+
     content: "";
 
     position: absolute;
@@ -900,22 +1082,23 @@
     top: 0;
 
     width: 100%;
-    height: 4px;
+    height: 3px;
 
     background:
-        var(--orange);
+        var(--red);
 
     transform:
         scaleX(0);
 
     transform-origin:
-        center;
+        left;
 
     transition:
         transform .3s ease;
 }
 
 .regular-legal-card:hover::before {
+
     transform:
         scaleX(1);
 }
@@ -924,50 +1107,61 @@
 /* arrow */
 
 .regular-legal-card::after {
-    content: "↗";
+
+    content:
+        "↗";
 
     position: absolute;
 
     top: 19px;
     right: 19px;
 
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     background:
-        var(--orange-soft);
+        #f7f8fa;
+
+    border:
+        1px solid var(--border);
 
     color:
-        var(--orange-dark);
+        var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 900;
 
-    transition: .3s ease;
+    transition:
+        .3s ease;
 }
 
 .regular-legal-card:hover {
+
     transform:
-        translateY(-5px);
+        translateY(-4px);
 
     border-color:
-        rgba(242,140,40,.4);
+        var(--red-border);
 
     box-shadow:
-        0 15px 32px rgba(11,31,58,.09);
+        0 14px 30px rgba(39,49,59,.075);
 }
 
 .regular-legal-card:hover::after {
+
     background:
-        var(--orange);
+        var(--red);
+
+    border-color:
+        var(--red);
 
     color:
         white;
@@ -980,6 +1174,7 @@
 /* icon legal */
 
 .legal-icon {
+
     width: 42px;
     height: 42px;
 
@@ -990,39 +1185,48 @@
 
     margin-bottom: 14px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     background:
-        var(--navy);
+        var(--red-soft);
+
+    border:
+        1px solid var(--red-border);
 
     color:
-        var(--orange);
+        var(--red);
 
     font-size: 16px;
 
     font-weight: 900;
 
-    transition: .3s ease;
+    transition:
+        .3s ease;
 }
 
 .regular-legal-card:hover
 .legal-icon {
+
     background:
-        var(--orange);
+        var(--red);
 
     color:
         white;
 
+    border-color:
+        var(--red);
+
     transform:
-        scale(1.05);
+        scale(1.04);
 }
 
 
 .regular-legal-card h3 {
+
     margin: 0 0 6px;
 
     color:
-        var(--navy);
+        var(--text);
 
     font-size: 17px;
 
@@ -1030,8 +1234,9 @@
 }
 
 .regular-legal-card span {
+
     color:
-        var(--orange-dark);
+        var(--red);
 
     font-size: 12px;
 
@@ -1044,6 +1249,7 @@
    ============================================================ */
 
 .regular-warning {
+
     max-width: 1050px;
 
     margin: 38px auto 0;
@@ -1053,24 +1259,21 @@
     padding: 24px 27px 24px 30px;
 
     background:
-        linear-gradient(
-            135deg,
-            #fff9f1,
-            #fffdf9
-        );
+        #fffafa;
 
     border:
-        1px solid #f3d5b2;
+        1px solid var(--red-border);
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
+        0 7px 22px rgba(39,49,59,.035);
 }
 
 .regular-warning::before {
+
     content: "";
 
     position: absolute;
@@ -1079,13 +1282,14 @@
     top: 0;
     bottom: 0;
 
-    width: 5px;
+    width: 4px;
 
     background:
-        var(--orange);
+        var(--red);
 }
 
 .warning-title {
+
     display: flex;
 
     align-items: center;
@@ -1095,7 +1299,7 @@
     margin-bottom: 10px;
 
     color:
-        #9a5a0b;
+        var(--red-dark);
 
     font-size: 17px;
 
@@ -1103,6 +1307,7 @@
 }
 
 .warning-icon {
+
     width: 31px;
     height: 31px;
 
@@ -1111,24 +1316,28 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     background:
-        var(--orange);
+        var(--red-soft);
+
+    border:
+        1px solid var(--red-border);
 
     color:
-        white;
+        var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 900;
 }
 
 .regular-warning p {
+
     margin: 0 0 10px;
 
     color:
-        #6d604d;
+        #69727c;
 
     font-size: 13px;
 
@@ -1136,12 +1345,15 @@
 }
 
 .regular-warning p:last-child {
-    margin-bottom: 0;
+
+    margin-bottom:
+        0;
 }
 
 .regular-warning strong {
+
     color:
-        #57462f;
+        var(--red-dark);
 }
 
 
@@ -1152,14 +1364,18 @@
 @keyframes heroMasuk {
 
     from {
-        opacity: 0;
+
+        opacity:
+            0;
 
         transform:
-            translateY(-20px);
+            translateY(-14px);
     }
 
     to {
-        opacity: 1;
+
+        opacity:
+            1;
 
         transform:
             translateY(0);
@@ -1170,14 +1386,18 @@
 @keyframes stepMasuk {
 
     from {
-        opacity: 0;
+
+        opacity:
+            0;
 
         transform:
-            translateY(25px);
+            translateY(18px);
     }
 
     to {
-        opacity: 1;
+
+        opacity:
+            1;
 
         transform:
             translateY(0);
@@ -1193,6 +1413,7 @@
 @media (max-width: 1000px) {
 
     .regular-legal-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -1203,26 +1424,31 @@
 @media (max-width: 900px) {
 
     .regular-page {
+
         padding:
             30px 20px 55px;
     }
 
     .regular-hero {
+
         padding:
             35px 30px;
     }
 
     .regular-hero h1 {
+
         font-size:
             32px;
     }
 
     .regular-document-list {
+
         grid-template-columns:
             1fr;
     }
 
     .regular-bank-grid {
+
         grid-template-columns:
             1fr;
     }
@@ -1233,29 +1459,34 @@
 @media (max-width: 600px) {
 
     .regular-page {
+
         padding:
             22px 15px 45px;
     }
 
     .regular-hero {
+
         padding:
             30px 22px;
 
         border-radius:
-            19px;
+            18px;
     }
 
     .regular-hero h1 {
+
         font-size:
             27px;
     }
 
     .regular-hero p {
+
         font-size:
             13px;
     }
 
     .hero-status {
+
         align-items:
             flex-start;
 
@@ -1264,16 +1495,19 @@
     }
 
     .regular-section-title h2 {
+
         font-size:
             21px;
     }
 
     .regular-section-title p {
+
         margin-left:
             0;
     }
 
     .title-icon {
+
         width:
             39px;
 
@@ -1282,16 +1516,19 @@
     }
 
     .regular-timeline::before {
+
         left:
             24px;
     }
 
     .regular-step {
+
         gap:
             14px;
     }
 
     .regular-step-number {
+
         width:
             49px;
 
@@ -1299,36 +1536,41 @@
             49px;
 
         border-radius:
-            14px;
+            13px;
 
         font-size:
             12px;
     }
 
     .regular-step-card {
+
         padding:
             20px;
 
         border-radius:
-            15px;
+            14px;
     }
 
     .regular-step-card h3 {
+
         font-size:
             16px;
     }
 
     .regular-step-card p {
+
         font-size:
             13px;
     }
 
     .regular-legal-grid {
+
         grid-template-columns:
             1fr;
     }
 
     .account-row {
+
         align-items:
             flex-start;
 
@@ -1336,10 +1578,11 @@
             column;
 
         gap:
-            3px;
+            5px;
     }
 
     .account-number {
+
         text-align:
             left;
     }
@@ -1355,6 +1598,7 @@
 
     .regular-hero,
     .regular-step {
+
         animation:
             none;
     }
@@ -1364,6 +1608,7 @@
     .regular-bank-card,
     .regular-legal-card,
     .legal-icon {
+
         transition:
             none;
     }

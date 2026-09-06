@@ -3,32 +3,45 @@
 @section('content')
 
 <style>
-
 /* ============================================================
-   HALAMAN PROSEDUR ONLINE
-   TEMA : NAVY + ORANGE
+   PROSEDUR PEMBUKAAN AKUN ONLINE
+   THEME : CORPORATE RED + MUTED GREEN + WHITE
    ============================================================ */
 
 .online-page {
-    --navy: #0b1f3a;
-    --navy-dark: #07162b;
-    --navy-soft: #132d50;
-    --orange: #f28c28;
-    --orange-dark: #d96f0b;
-    --orange-soft: #fff4e8;
+    --red: #9f1d27;
+    --red-dark: #831820;
+    --red-soft: #faf0f1;
 
-    padding: 35px 45px 70px;
+    --green: #39785a;
+    --green-soft: #f1f7f3;
+
+    --text: #20272e;
+    --text-soft: #66717b;
+    --text-light: #89929a;
+
+    --border: #e4e8e6;
+    --border-soft: #edf0ee;
+
+    --bg: #f7f8f7;
+    --white: #ffffff;
+
+    min-height: 100vh;
+    padding: 34px 45px 70px;
+    box-sizing: border-box;
 
     background:
         radial-gradient(
-            circle at top right,
-            rgba(242,140,40,.08),
-            transparent 30%
+            circle at 92% 5%,
+            rgba(159, 29, 39, .035),
+            transparent 25%
         ),
-        #f4f6fa;
-
-    min-height: 100vh;
-    box-sizing: border-box;
+        radial-gradient(
+            circle at 5% 75%,
+            rgba(57, 120, 90, .025),
+            transparent 25%
+        ),
+        var(--bg);
 }
 
 
@@ -46,23 +59,23 @@
     align-items: center;
     gap: 9px;
 
-    color: var(--navy);
+    color: var(--text-soft);
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
 
-    transition: .3s ease;
+    transition: .25s ease;
 }
 
 .online-back a:hover {
-    color: var(--orange);
-    transform: translateX(-5px);
+    color: var(--red);
+    transform: translateX(-3px);
 }
 
 .online-back .arrow {
-    width: 32px;
-    height: 32px;
+    width: 33px;
+    height: 33px;
 
     display: flex;
     align-items: center;
@@ -70,13 +83,20 @@
 
     border-radius: 10px;
 
-    background: white;
-    border: 1px solid #e5e9ef;
+    background: var(--white);
+    border: 1px solid var(--border);
 
-    font-size: 18px;
+    color: var(--red);
+    font-size: 17px;
 
-    box-shadow:
-        0 5px 15px rgba(11,31,58,.07);
+    box-shadow: 0 4px 14px rgba(31, 41, 51, .045);
+
+    transition: .25s ease;
+}
+
+.online-back a:hover .arrow {
+    border-color: rgba(159, 29, 39, .25);
+    background: var(--red-soft);
 }
 
 
@@ -86,46 +106,51 @@
 
 .online-hero {
     max-width: 1050px;
-    margin: 0 auto 42px;
+    margin: 0 auto 43px;
 
     position: relative;
     overflow: hidden;
 
     padding: 42px 45px;
 
-    border-radius: 24px;
+    background: var(--white);
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy-dark) 0%,
-            var(--navy) 65%,
-            #163861 100%
-        );
-
-    color: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
 
     box-shadow:
-        0 18px 45px rgba(11,31,58,.18);
+        0 12px 35px rgba(31, 41, 51, .055);
 
-    animation: onlineHeroMasuk .7s ease;
+    animation: onlineHeroMasuk .65s ease;
 }
 
+/* aksen tipis bagian atas */
+.online-hero-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--red);
+}
+
+/* dekorasi sangat subtle */
 .online-hero::before {
     content: "";
 
     position: absolute;
 
-    width: 240px;
-    height: 240px;
+    width: 260px;
+    height: 260px;
 
-    right: -80px;
-    top: -100px;
+    right: -135px;
+    top: -145px;
 
     border-radius: 50%;
 
-    background:
-        rgba(242,140,40,.16);
+    border: 1px solid rgba(159, 29, 39, .08);
 }
 
 .online-hero::after {
@@ -133,33 +158,15 @@
 
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
 
-    right: 90px;
-    bottom: -100px;
+    right: 80px;
+    bottom: -75px;
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,.04);
-}
-
-.online-hero-line {
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 5px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange),
-            #ffb45e
-        );
+    border: 1px solid rgba(57, 120, 90, .08);
 }
 
 .online-hero-content {
@@ -174,22 +181,19 @@
     align-items: center;
     gap: 8px;
 
-    padding: 7px 13px;
+    padding: 7px 12px;
 
-    border-radius: 30px;
+    border-radius: 7px;
 
-    background:
-        rgba(242,140,40,.14);
+    background: var(--red-soft);
+    border: 1px solid rgba(159, 29, 39, .13);
 
-    border:
-        1px solid rgba(242,140,40,.35);
+    color: var(--red);
 
-    color: #ffb45e;
-
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 800;
 
-    letter-spacing: 1.2px;
+    letter-spacing: 1.1px;
     text-transform: uppercase;
 
     margin-bottom: 17px;
@@ -198,30 +202,28 @@
 .online-label::before {
     content: "";
 
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
 
     border-radius: 50%;
 
-    background: var(--orange);
-
-    box-shadow:
-        0 0 0 5px rgba(242,140,40,.12);
+    background: var(--red);
 }
 
 .online-hero h1 {
     margin: 0 0 12px;
 
-    color: white;
+    color: var(--text);
 
     font-size: 38px;
     line-height: 1.2;
 
     font-weight: 800;
+    letter-spacing: -.7px;
 }
 
 .online-hero h1 span {
-    color: var(--orange);
+    color: var(--red);
 }
 
 .online-hero p {
@@ -229,44 +231,41 @@
 
     max-width: 720px;
 
-    color: rgba(255,255,255,.75);
+    color: var(--text-soft);
 
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.85;
 }
 
 .online-status {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
 
     margin-top: 23px;
 
-    padding: 10px 15px;
+    padding: 9px 13px;
 
-    background:
-        rgba(255,255,255,.07);
+    background: var(--green-soft);
 
-    border:
-        1px solid rgba(255,255,255,.09);
+    border: 1px solid rgba(57, 120, 90, .13);
+    border-radius: 8px;
 
-    border-radius: 12px;
+    color: var(--green);
 
-    color: rgba(255,255,255,.82);
-
-    font-size: 12px;
+    font-size: 11.5px;
+    font-weight: 600;
 }
 
 .online-status-icon {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
-    background: #42d77d;
-
-    box-shadow:
-        0 0 0 5px rgba(66,215,125,.10);
+    background: var(--green);
 }
 
 
@@ -276,7 +275,7 @@
 
 .online-section-title {
     max-width: 1050px;
-    margin: 0 auto 22px;
+    margin: 0 auto 21px;
 }
 
 .online-title-row {
@@ -286,8 +285,8 @@
 }
 
 .online-title-icon {
-    width: 43px;
-    height: 43px;
+    width: 42px;
+    height: 42px;
 
     flex-shrink: 0;
 
@@ -295,33 +294,35 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 13px;
+    border-radius: 11px;
 
-    background: var(--navy);
+    background: var(--white);
+    border: 1px solid rgba(159, 29, 39, .20);
 
-    color: var(--orange);
+    color: var(--red);
 
-    font-size: 19px;
+    font-size: 17px;
+    font-weight: 800;
 
-    box-shadow:
-        0 8px 20px rgba(11,31,58,.15);
+    box-shadow: 0 4px 13px rgba(31, 41, 51, .035);
 }
 
 .online-section-title h2 {
     margin: 0;
 
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 800;
+    letter-spacing: -.25px;
 }
 
 .online-section-title p {
-    margin: 5px 0 0 56px;
+    margin: 5px 0 0 55px;
 
-    color: #7b8491;
+    color: var(--text-light);
 
-    font-size: 13px;
+    font-size: 12.5px;
 }
 
 
@@ -341,20 +342,13 @@
 
     position: absolute;
 
-    left: 31px;
-    top: 32px;
-    bottom: 32px;
+    left: 25px;
+    top: 27px;
+    bottom: 27px;
 
-    width: 3px;
+    width: 1px;
 
-    background:
-        linear-gradient(
-            to bottom,
-            var(--orange),
-            #dbe1e8
-        );
-
-    border-radius: 10px;
+    background: #dfe4e1;
 }
 
 
@@ -366,35 +360,35 @@
     display: flex;
     align-items: flex-start;
 
-    gap: 22px;
+    gap: 19px;
 
-    margin-bottom: 22px;
+    margin-bottom: 19px;
 
     position: relative;
 
     animation:
-        onlineStepMasuk .65s ease both;
+        onlineStepMasuk .55s ease both;
 }
 
 .online-step:nth-child(2) {
-    animation-delay: .08s;
+    animation-delay: .06s;
 }
 
 .online-step:nth-child(3) {
-    animation-delay: .16s;
+    animation-delay: .12s;
 }
 
 .online-step:nth-child(4) {
-    animation-delay: .24s;
+    animation-delay: .18s;
 }
 
 .online-step:nth-child(5) {
-    animation-delay: .32s;
+    animation-delay: .24s;
 }
 
 .online-step-number {
-    width: 63px;
-    height: 63px;
+    width: 51px;
+    height: 51px;
 
     flex-shrink: 0;
 
@@ -405,31 +399,27 @@
     position: relative;
     z-index: 3;
 
-    border-radius: 18px;
+    border-radius: 50%;
 
-    background: white;
+    background: var(--white);
+    border: 2px solid #d7ddda;
 
-    border:
-        3px solid var(--orange);
+    color: var(--red);
 
-    color: var(--navy);
+    font-size: 12px;
+    font-weight: 800;
 
-    font-size: 15px;
-    font-weight: 900;
+    box-shadow: 0 3px 12px rgba(31, 41, 51, .035);
 
-    box-shadow:
-        0 8px 22px rgba(242,140,40,.18);
-
-    transition: .3s ease;
+    transition: .25s ease;
 }
 
 .online-step:hover .online-step-number {
-    background: var(--orange);
-    color: white;
+    border-color: var(--red);
+    background: var(--red);
+    color: var(--white);
 
-    transform:
-        rotate(-5deg)
-        scale(1.06);
+    transform: scale(1.04);
 }
 
 .online-step-card {
@@ -437,22 +427,20 @@
 
     position: relative;
 
-    padding: 27px 30px;
+    padding: 25px 28px;
 
-    background: white;
+    background: var(--white);
 
-    border:
-        1px solid #e4e8ee;
-
-    border-radius: 18px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.055);
+        0 5px 18px rgba(31, 41, 51, .035);
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 }
 
 .online-step-card::before {
@@ -461,29 +449,27 @@
     position: absolute;
 
     left: 0;
-    top: 20px;
-    bottom: 20px;
+    top: 18px;
+    bottom: 18px;
 
-    width: 4px;
+    width: 3px;
 
-    background: var(--orange);
+    background: var(--red);
 
-    border-radius:
-        0 5px 5px 0;
+    border-radius: 0 4px 4px 0;
 
     opacity: 0;
 
-    transition: .3s ease;
+    transition: .25s ease;
 }
 
 .online-step-card:hover {
-    transform: translateX(6px);
+    transform: translateX(4px);
 
-    border-color:
-        rgba(242,140,40,.45);
+    border-color: #dfe2e0;
 
     box-shadow:
-        0 15px 35px rgba(11,31,58,.09);
+        0 10px 25px rgba(31, 41, 51, .065);
 }
 
 .online-step-card:hover::before {
@@ -491,26 +477,26 @@
 }
 
 .online-step-card h3 {
-    margin: 0 0 10px;
+    margin: 0 0 9px;
 
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 800;
 }
 
 .online-step-card p {
     margin: 0;
 
-    color: #667180;
+    color: var(--text-soft);
 
-    font-size: 14px;
-
+    font-size: 13.5px;
     line-height: 1.8;
 }
 
 .online-step-card strong {
-    color: var(--navy);
+    color: var(--red);
+    font-weight: 700;
 }
 
 
@@ -521,41 +507,38 @@
 .online-document-list {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-top: 18px;
+    margin-top: 17px;
 }
 
 .online-document-item {
     display: flex;
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    padding: 12px 14px;
+    padding: 11px 13px;
 
-    background: #f8fafc;
+    background: #fafcfb;
 
-    border:
-        1px solid #e7ebf0;
+    border: 1px solid var(--border-soft);
+    border-radius: 9px;
 
-    border-radius: 11px;
+    color: #59646d;
 
-    color: #4d5867;
+    font-size: 12.5px;
 
-    font-size: 13px;
-
-    transition: .25s ease;
+    transition: .22s ease;
 }
 
 .online-document-item::before {
     content: "✓";
 
-    width: 22px;
-    height: 22px;
+    width: 21px;
+    height: 21px;
 
     flex-shrink: 0;
 
@@ -563,63 +546,60 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 7px;
+    border-radius: 50%;
 
-    background: var(--orange-soft);
+    background: var(--green-soft);
 
-    color: var(--orange-dark);
+    color: var(--green);
 
+    font-size: 10px;
     font-weight: 900;
 }
 
 .online-document-item:hover {
-    background: var(--orange-soft);
+    background: var(--green-soft);
+    border-color: rgba(57, 120, 90, .16);
 
-    border-color:
-        rgba(242,140,40,.25);
-
-    transform:
-        translateY(-2px);
+    transform: translateY(-1px);
 }
 
 
 /* ============================================================
-   BANK SECTION
+   REKENING TERPISAH
    ============================================================ */
 
 .online-bank-section {
     max-width: 1050px;
-
-    margin: 52px auto 0;
+    margin: 51px auto 0;
 }
 
 .online-bank-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 17px;
+    gap: 15px;
 }
 
 .online-bank-card {
     position: relative;
 
-    padding: 23px;
+    padding: 22px;
 
-    background: white;
+    background: var(--white);
 
-    border:
-        1px solid #e4e8ee;
-
-    border-radius: 17px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 5px 18px rgba(31, 41, 51, .035);
 
-    transition: .3s ease;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 }
 
 .online-bank-card::before {
@@ -631,58 +611,58 @@
     left: 0;
 
     width: 100%;
-    height: 4px;
+    height: 2px;
 
-    background:
-        var(--orange);
+    background: var(--red);
+
+    opacity: .85;
 }
 
 .online-bank-card:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-3px);
 
-    border-color:
-        rgba(242,140,40,.35);
+    border-color: #dce1de;
 
     box-shadow:
-        0 16px 32px rgba(11,31,58,.09);
+        0 11px 25px rgba(31, 41, 51, .065);
 }
 
 .online-bank-icon {
-    width: 43px;
-    height: 43px;
+    width: 39px;
+    height: 39px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 
-    border-radius: 12px;
+    border-radius: 9px;
 
-    background: var(--navy);
+    background: #f5f6f5;
+    border: 1px solid var(--border);
 
-    color: var(--orange);
+    color: var(--text);
 
-    font-size: 18px;
-    font-weight: 900;
+    font-size: 15px;
+    font-weight: 800;
 }
 
 .online-bank-name {
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
 
     margin-bottom: 4px;
 }
 
 .online-bank-branch {
-    color: #8a929d;
+    color: var(--text-light);
 
-    font-size: 12px;
+    font-size: 11.5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .online-account-row {
@@ -695,24 +675,25 @@
 
     padding: 9px 0;
 
-    border-top:
-        1px solid #edf0f3;
+    border-top: 1px solid var(--border-soft);
 }
 
 .online-currency {
-    color: #858e9a;
+    color: var(--green);
 
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: 800;
 }
 
 .online-account-number {
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 13px;
-    font-weight: 800;
+    font-size: 12.5px;
+    font-weight: 750;
 
     text-align: right;
+
+    letter-spacing: .15px;
 }
 
 
@@ -722,39 +703,38 @@
 
 .online-legal-section {
     max-width: 1050px;
-
-    margin: 52px auto 0;
+    margin: 51px auto 0;
 }
 
 .online-legal-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
-    gap: 16px;
+    gap: 14px;
 }
 
 .online-legal-card {
     position: relative;
 
-    padding: 23px;
+    padding: 21px;
 
-    background: white;
+    background: var(--white);
 
-    border:
-        1px solid #e4e8ee;
-
-    border-radius: 17px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
 
     text-decoration: none;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.045);
+        0 5px 18px rgba(31, 41, 51, .035);
 
-    transition: .3s ease;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 }
 
 .online-legal-card::after {
@@ -762,80 +742,79 @@
 
     position: absolute;
 
-    top: 19px;
-    right: 19px;
+    top: 17px;
+    right: 17px;
 
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 7px;
 
-    background: var(--orange-soft);
+    background: #f6f7f6;
 
-    color: var(--orange-dark);
+    color: #78827c;
 
-    font-size: 15px;
-    font-weight: 900;
+    font-size: 13px;
+    font-weight: 800;
 
-    transition: .3s ease;
+    transition: .25s ease;
 }
 
 .online-legal-card:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-3px);
 
-    border-color:
-        rgba(242,140,40,.4);
+    border-color: rgba(159, 29, 39, .22);
 
     box-shadow:
-        0 15px 32px rgba(11,31,58,.09);
+        0 11px 25px rgba(31, 41, 51, .065);
 }
 
 .online-legal-card:hover::after {
-    background: var(--orange);
-    color: white;
+    background: var(--red-soft);
+    color: var(--red);
 
-    transform:
-        translate(2px,-2px);
+    transform: translate(1px, -1px);
 }
 
 .online-legal-icon {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 
-    border-radius: 12px;
+    border-radius: 9px;
 
-    background: var(--navy);
+    background: #f7f8f7;
+    border: 1px solid var(--border);
 
-    color: var(--orange);
+    color: var(--red);
 
-    font-weight: 900;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .online-legal-card h3 {
     margin: 0 0 6px;
 
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 17px;
+    font-size: 15.5px;
     font-weight: 800;
 }
 
 .online-legal-card span {
-    color: var(--orange-dark);
+    color: var(--text-light);
 
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: 600;
 }
 
 
@@ -846,97 +825,96 @@
 .online-help {
     max-width: 1050px;
 
-    margin: 38px auto 0;
+    margin: 36px auto 0;
 
-    padding: 24px 27px;
+    padding: 22px 25px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #eef5ff,
-            #f8fbff
-        );
+    background: var(--green-soft);
 
-    border:
-        1px solid #d7e3f4;
+    border: 1px solid rgba(57, 120, 90, .12);
+    border-radius: 14px;
 
-    border-radius: 17px;
+    position: relative;
 
-    box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
+    overflow: hidden;
+}
+
+.online-help::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background: var(--green);
 }
 
 .online-help-title {
     display: flex;
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
 }
 
 .online-help-icon {
-    width: 31px;
-    height: 31px;
+    width: 29px;
+    height: 29px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
-    background: var(--navy);
+    background: var(--white);
+    border: 1px solid rgba(57, 120, 90, .15);
 
-    color: var(--orange);
+    color: var(--green);
 
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .online-help p {
     margin: 0;
 
-    color: #667180;
+    color: var(--text-soft);
 
-    font-size: 13px;
-
+    font-size: 12.5px;
     line-height: 1.8;
 }
 
 
 /* ============================================================
-   WARNING
+   PERINGATAN
    ============================================================ */
 
 .online-warning {
     max-width: 1050px;
 
-    margin: 20px auto 0;
+    margin: 17px auto 0;
 
     position: relative;
 
-    padding: 24px 27px 24px 30px;
+    padding: 22px 25px 22px 27px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fff9f1,
-            #fffdf9
-        );
+    background: var(--red-soft);
 
-    border:
-        1px solid #f3d5b2;
-
-    border-radius: 17px;
+    border: 1px solid rgba(159, 29, 39, .12);
+    border-radius: 14px;
 
     overflow: hidden;
-
-    box-shadow:
-        0 7px 22px rgba(11,31,58,.04);
 }
 
 .online-warning::before {
@@ -948,51 +926,50 @@
     top: 0;
     bottom: 0;
 
-    width: 5px;
+    width: 3px;
 
-    background:
-        var(--orange);
+    background: var(--red);
 }
 
 .online-warning-title {
     display: flex;
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
-    color: #9a5a0b;
+    color: var(--red-dark);
 
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
 }
 
 .online-warning-icon {
-    width: 31px;
-    height: 31px;
+    width: 29px;
+    height: 29px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
-    background:
-        var(--orange);
+    background: var(--white);
+    border: 1px solid rgba(159, 29, 39, .13);
 
-    color: white;
+    color: var(--red);
 
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 900;
 }
 
 .online-warning p {
-    margin: 0 0 10px;
+    margin: 0 0 9px;
 
-    color: #6d604d;
+    color: #62666a;
 
-    font-size: 13px;
-
+    font-size: 12.5px;
     line-height: 1.8;
 }
 
@@ -1001,7 +978,7 @@
 }
 
 .online-warning strong {
-    color: #57462f;
+    color: var(--red-dark);
 }
 
 
@@ -1013,32 +990,38 @@
 
     from {
         opacity: 0;
-        transform:
-            translateY(-20px);
+        transform: translateY(-10px);
     }
 
     to {
         opacity: 1;
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
-
 }
 
 @keyframes onlineStepMasuk {
 
     from {
         opacity: 0;
-        transform:
-            translateY(25px);
+        transform: translateY(14px);
     }
 
     to {
         opacity: 1;
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
+}
 
+
+/* ============================================================
+   RESPONSIVE TABLET
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .online-legal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
@@ -1046,26 +1029,14 @@
    RESPONSIVE
    ============================================================ */
 
-@media (max-width: 1000px) {
-
-    .online-legal-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
 @media (max-width: 900px) {
 
     .online-page {
-        padding:
-            30px 20px 55px;
+        padding: 28px 20px 55px;
     }
 
     .online-hero {
-        padding:
-            35px 30px;
+        padding: 34px 30px;
     }
 
     .online-hero h1 {
@@ -1079,83 +1050,134 @@
     .online-bank-grid {
         grid-template-columns: 1fr;
     }
-
 }
 
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
 
 @media (max-width: 600px) {
 
     .online-page {
-        padding:
-            22px 15px 45px;
+        padding: 21px 14px 45px;
+    }
+
+    .online-back {
+        margin-bottom: 15px;
     }
 
     .online-hero {
-        padding:
-            30px 22px;
+        padding: 29px 21px;
 
-        border-radius: 19px;
+        border-radius: 17px;
+
+        margin-bottom: 35px;
+    }
+
+    .online-label {
+        font-size: 9px;
+        padding: 6px 10px;
     }
 
     .online-hero h1 {
         font-size: 27px;
+        letter-spacing: -.4px;
     }
 
     .online-hero p {
-        font-size: 13px;
+        font-size: 12.5px;
+        line-height: 1.75;
     }
 
     .online-status {
         align-items: flex-start;
+
+        font-size: 11px;
         line-height: 1.5;
     }
 
+    .online-section-title {
+        margin-bottom: 18px;
+    }
+
+    .online-title-row {
+        align-items: flex-start;
+    }
+
+    .online-title-icon {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
     .online-section-title h2 {
-        font-size: 21px;
+        font-size: 20px;
+
+        line-height: 1.3;
     }
 
     .online-section-title p {
         margin-left: 0;
-    }
+        margin-top: 7px;
 
-    .online-title-icon {
-        width: 39px;
-        height: 39px;
+        font-size: 11.5px;
     }
 
     .online-timeline::before {
-        left: 24px;
+        left: 22px;
     }
 
     .online-step {
-        gap: 14px;
+        gap: 13px;
+        margin-bottom: 15px;
     }
 
     .online-step-number {
-        width: 49px;
-        height: 49px;
+        width: 45px;
+        height: 45px;
 
-        border-radius: 14px;
-
-        font-size: 12px;
+        font-size: 10.5px;
     }
 
     .online-step-card {
-        padding: 20px;
+        padding: 18px;
 
-        border-radius: 15px;
+        border-radius: 13px;
     }
 
     .online-step-card h3 {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.4;
     }
 
     .online-step-card p {
-        font-size: 13px;
+        font-size: 12.5px;
+        line-height: 1.75;
     }
 
-    .online-legal-grid {
-        grid-template-columns: 1fr;
+    .online-document-item {
+        padding: 10px 11px;
+
+        font-size: 11.5px;
+    }
+
+    .online-bank-section,
+    .online-legal-section {
+        margin-top: 40px;
+    }
+
+    .online-bank-card {
+        padding: 19px;
+    }
+
+    .online-bank-name {
+        font-size: 15px;
+    }
+
+    .online-bank-branch {
+        font-size: 11px;
     }
 
     .online-account-row {
@@ -1168,10 +1190,82 @@
 
     .online-account-number {
         text-align: left;
+
+        font-size: 12px;
     }
 
+    .online-legal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .online-legal-card {
+        padding: 18px;
+    }
+
+    .online-help,
+    .online-warning {
+        padding: 19px 19px 19px 22px;
+    }
+
+    .online-help-title,
+    .online-warning-title {
+        font-size: 15px;
+    }
+
+    .online-help p,
+    .online-warning p {
+        font-size: 11.5px;
+    }
 }
 
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+    .online-page {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .online-hero {
+        padding: 25px 18px;
+    }
+
+    .online-hero h1 {
+        font-size: 24px;
+    }
+
+    .online-step {
+        gap: 10px;
+    }
+
+    .online-step-number {
+        width: 40px;
+        height: 40px;
+
+        font-size: 9.5px;
+    }
+
+    .online-timeline::before {
+        left: 19px;
+    }
+
+    .online-step-card {
+        padding: 16px;
+    }
+
+    .online-document-item {
+        align-items: flex-start;
+    }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1183,10 +1277,11 @@
     .online-step-card,
     .online-step-number,
     .online-bank-card,
-    .online-legal-card {
+    .online-legal-card,
+    .online-document-item,
+    .online-back a {
         transition: none;
     }
-
 }
 
 </style>

@@ -6,27 +6,36 @@
 
 /* ============================================================
    PEMBUKAAN REKENING
-   TEMA : NAVY + ORANGE
+   TEMA : CLEAN CORPORATE — MAROON + DEEP GREEN + WHITE
    ============================================================ */
 
 .rekening-page {
-    --navy: #0b1f3a;
-    --navy-dark: #07162b;
-    --navy-soft: #132d50;
+    --maroon: #8b2433;
+    --maroon-dark: #711b28;
+    --maroon-soft: #f8eef0;
+    --maroon-line: rgba(139, 36, 51, .14);
 
-    --orange: #f28c28;
-    --orange-dark: #d96f0b;
-    --orange-soft: #fff4e8;
+    --green: #3d6b57;
+    --green-dark: #315744;
+    --green-soft: #eef5f1;
+
+    --text: #292d30;
+    --text-soft: #697178;
+    --text-light: #858d92;
+
+    --border: #e5e8e7;
+    --surface: #f8f9f8;
+    --white: #ffffff;
 
     padding: 35px 45px 70px;
 
     background:
         radial-gradient(
-            circle at top right,
-            rgba(242,140,40,.08),
-            transparent 30%
+            circle at 100% 0%,
+            rgba(139, 36, 51, .025),
+            transparent 28%
         ),
-        #f4f6fa;
+        #f8f9f8;
 
     min-height: 100vh;
 
@@ -49,28 +58,27 @@
 
     padding: 42px 45px;
 
-    border-radius: 24px;
+    border-radius: 20px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy-dark) 0%,
-            var(--navy) 65%,
-            #163861 100%
-        );
+    background: #ffffff;
 
-    color: white;
+    color: var(--text);
+
+    border: 1px solid #e5e8e7;
+
+    border-left: 4px solid var(--maroon);
 
     box-shadow:
-        0 18px 45px rgba(11,31,58,.18);
+        0 12px 32px rgba(35, 42, 39, .055);
 
     text-align: left;
 
-    animation: rekeningHeroMasuk .7s ease;
+    animation:
+        rekeningHeroMasuk .7s ease;
 }
 
 
-/* garis orange atas */
+/* garis identitas */
 
 .rekening-header::before {
     content: "";
@@ -81,38 +89,38 @@
     top: 0;
 
     width: 100%;
-    height: 5px;
+    height: 2px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange),
-            #ffb45e
-        );
+    background: var(--maroon);
+
+    opacity: .85;
 }
 
 
-/* dekorasi kanan atas */
+/* dekorasi sangat halus */
 
 .rekening-header::after {
     content: "";
 
     position: absolute;
 
-    width: 250px;
-    height: 250px;
+    width: 210px;
+    height: 210px;
 
-    right: -90px;
+    right: -100px;
     top: -120px;
 
     border-radius: 50%;
 
-    background:
-        rgba(242,140,40,.15);
+    border: 1px solid rgba(139, 36, 51, .055);
+
+    box-shadow:
+        0 0 0 25px rgba(139, 36, 51, .018),
+        0 0 0 50px rgba(139, 36, 51, .012);
 }
 
 
-/* isi header */
+/* isi */
 
 .rekening-header-content {
     position: relative;
@@ -123,7 +131,9 @@
 }
 
 
-/* label */
+/* ============================================================
+   LABEL HEADER
+   ============================================================ */
 
 .rekening-header-label {
     display: inline-flex;
@@ -132,21 +142,20 @@
 
     gap: 8px;
 
-    padding: 7px 13px;
+    padding: 7px 12px;
 
     margin-bottom: 17px;
 
     border-radius: 30px;
 
-    background:
-        rgba(242,140,40,.14);
+    background: var(--maroon-soft);
 
     border:
-        1px solid rgba(242,140,40,.35);
+        1px solid rgba(139, 36, 51, .10);
 
-    color: #ffb45e;
+    color: var(--maroon);
 
-    font-size: 11px;
+    font-size: 10px;
 
     font-weight: 800;
 
@@ -159,96 +168,99 @@
 .rekening-header-label::before {
     content: "";
 
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
 
     border-radius: 50%;
 
-    background: var(--orange);
+    background: var(--maroon);
 
     box-shadow:
-        0 0 0 5px rgba(242,140,40,.12);
+        0 0 0 4px rgba(139, 36, 51, .075);
 }
 
 
-/* judul */
+/* ============================================================
+   JUDUL
+   ============================================================ */
 
 .rekening-header h1 {
-    margin: 0 0 12px;
+    margin: 0 0 13px;
 
-    color: white;
+    color: var(--text);
 
     font-size: 38px;
 
-    line-height: 1.2;
+    line-height: 1.18;
 
     font-weight: 800;
 
-    letter-spacing: 0;
+    letter-spacing: -1px;
 }
 
 
 .rekening-header h1 span {
-    color: var(--orange);
+    color: var(--maroon);
 }
 
 
-/* deskripsi */
+/* ============================================================
+   DESKRIPSI
+   ============================================================ */
 
 .rekening-header p {
     margin: 0;
 
     max-width: 720px;
 
-    color:
-        rgba(255,255,255,.75);
+    color: var(--text-soft);
 
-    font-size: 15px;
+    font-size: 14px;
 
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
 
-/* status */
+/* ============================================================
+   STATUS
+   ============================================================ */
 
 .rekening-header-status {
     display: inline-flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-top: 23px;
+    margin-top: 22px;
 
-    padding: 10px 15px;
+    padding: 8px 12px;
 
-    background:
-        rgba(255,255,255,.07);
+    background: #fafbfa;
 
     border:
-        1px solid rgba(255,255,255,.09);
+        1px solid #e6e9e7;
 
-    border-radius: 12px;
+    border-radius: 9px;
 
-    color:
-        rgba(255,255,255,.82);
+    color: var(--text-soft);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
 .rekening-status-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
 
     flex-shrink: 0;
 
     border-radius: 50%;
 
-    background: #42d77d;
+    background: var(--green);
 
     box-shadow:
-        0 0 0 5px rgba(66,215,125,.10);
+        0 0 0 4px rgba(61, 107, 87, .08);
 }
 
 
@@ -283,38 +295,58 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 13px;
+    border-radius: 12px;
 
-    background: var(--navy);
+    background: var(--maroon-soft);
 
-    color: var(--orange);
+    border:
+        1px solid rgba(139, 36, 51, .09);
 
-    font-size: 19px;
+    color: var(--maroon);
+
+    font-size: 17px;
 
     font-weight: 900;
-
-    box-shadow:
-        0 8px 20px rgba(11,31,58,.15);
 }
 
 
 .rekening-section-title h2 {
     margin: 0;
 
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 25px;
+    font-size: 23px;
 
     font-weight: 800;
+
+    letter-spacing: -.4px;
+}
+
+
+.rekening-section-title h2::after {
+    content: "";
+
+    display: block;
+
+    width: 30px;
+    height: 2px;
+
+    margin-top: 6px;
+
+    background: var(--maroon);
+
+    border-radius: 10px;
+
+    opacity: .75;
 }
 
 
 .rekening-section-title p {
-    margin: 5px 0 0 56px;
+    margin: 6px 0 0 56px;
 
-    color: #7b8491;
+    color: var(--text-light);
 
-    font-size: 13px;
+    font-size: 12.5px;
 }
 
 
@@ -353,19 +385,19 @@
 
     padding: 30px;
 
-    background: white;
+    background: var(--white);
 
     border:
-        1px solid #e4e8ee;
+        1px solid var(--border);
 
-    border-radius: 19px;
+    border-radius: 17px;
 
     box-sizing: border-box;
 
     overflow: hidden;
 
     box-shadow:
-        0 7px 22px rgba(11,31,58,.055);
+        0 7px 24px rgba(35, 42, 39, .045);
 
     opacity: 0;
 
@@ -384,7 +416,7 @@
 }
 
 
-/* garis orange */
+/* garis maroon */
 
 .rekening-card::before {
     content: "";
@@ -395,14 +427,9 @@
     top: 0;
 
     width: 100%;
-    height: 4px;
+    height: 3px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange),
-            #ffb45e
-        );
+    background: var(--maroon);
 
     transform:
         scaleX(0);
@@ -415,27 +442,28 @@
 
 
 .rekening-card:hover::before {
-    transform: scaleX(1);
+    transform:
+        scaleX(1);
 }
 
 
-/* efek cahaya */
+/* dekorasi */
 
 .rekening-card::after {
     content: "";
 
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
 
-    right: -85px;
-    bottom: -85px;
+    right: -80px;
+    bottom: -80px;
 
     border-radius: 50%;
 
-    background:
-        rgba(242,140,40,.045);
+    border:
+        1px solid rgba(61, 107, 87, .065);
 
     transition:
         transform .4s ease;
@@ -444,7 +472,7 @@
 
 .rekening-card:hover::after {
     transform:
-        scale(1.4);
+        scale(1.35);
 }
 
 
@@ -452,13 +480,13 @@
 
 .rekening-card:hover {
     transform:
-        translateY(-7px);
+        translateY(-4px);
 
     border-color:
-        rgba(242,140,40,.4);
+        rgba(139, 36, 51, .17);
 
     box-shadow:
-        0 18px 38px rgba(11,31,58,.10);
+        0 14px 32px rgba(35, 42, 39, .075);
 }
 
 
@@ -484,8 +512,8 @@
    ============================================================ */
 
 .rekening-icon {
-    width: 67px;
-    height: 67px;
+    width: 62px;
+    height: 62px;
 
     flex-shrink: 0;
 
@@ -494,34 +522,41 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     background:
-        var(--navy);
+        #faf7f7;
+
+    border:
+        1px solid #eee5e6;
 
     color:
-        var(--orange);
+        var(--maroon);
 
-    font-size: 29px;
+    font-size: 27px;
 
     box-shadow:
-        0 8px 20px rgba(11,31,58,.12);
+        none;
 
     transition:
         transform .35s ease,
-        background .35s ease;
+        background .35s ease,
+        border-color .35s ease;
 }
 
 
 .rekening-card:hover .rekening-icon {
     transform:
-        rotate(-4deg)
-        scale(1.06);
+        translateY(-2px);
 
     background:
-        var(--orange);
+        var(--maroon-soft);
 
-    color: white;
+    border-color:
+        rgba(139, 36, 51, .10);
+
+    color:
+        var(--maroon);
 }
 
 
@@ -534,17 +569,20 @@
 
     align-items: center;
 
-    padding: 7px 11px;
+    padding: 6px 10px;
 
     border-radius: 30px;
 
     background:
-        var(--orange-soft);
+        #f7f8f7;
+
+    border:
+        1px solid #e7e9e8;
 
     color:
-        var(--orange-dark);
+        #737a7d;
 
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 800;
 
@@ -555,7 +593,7 @@
 
 
 /* ============================================================
-   TITLE
+   TITLE CARD
    ============================================================ */
 
 .rekening-card h2 {
@@ -563,13 +601,15 @@
 
     z-index: 2;
 
-    margin: 0 0 12px;
+    margin: 0 0 11px;
 
-    color: var(--navy);
+    color: var(--text);
 
-    font-size: 27px;
+    font-size: 25px;
 
     font-weight: 800;
+
+    letter-spacing: -.5px;
 }
 
 
@@ -582,9 +622,9 @@
 
     z-index: 2;
 
-    color: #687383;
+    color: var(--text-soft);
 
-    font-size: 14px;
+    font-size: 13.5px;
 
     line-height: 1.8;
 
@@ -622,7 +662,7 @@
 
     margin-bottom: 11px;
 
-    color: #4d5867;
+    color: #535b60;
 
     font-size: 13px;
 
@@ -630,7 +670,9 @@
 }
 
 
-/* check */
+/* ============================================================
+   CHECK
+   ============================================================ */
 
 .check {
     width: 20px;
@@ -645,15 +687,15 @@
 
     margin-top: 1px;
 
-    border-radius: 7px;
+    border-radius: 6px;
 
     background:
-        var(--orange-soft);
+        var(--green-soft);
 
     color:
-        var(--orange-dark);
+        var(--green);
 
-    font-size: 11px;
+    font-size: 10px;
 
     font-weight: 900;
 
@@ -665,9 +707,10 @@
 
 .rekening-card:hover .check {
     background:
-        var(--orange);
+        var(--green);
 
-    color: white;
+    color:
+        white;
 }
 
 
@@ -693,27 +736,29 @@
 
     justify-content: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    min-width: 155px;
+    min-width: 145px;
 
-    padding: 12px 21px;
+    padding: 11px 19px;
 
     background:
-        var(--navy);
+        var(--maroon);
 
     color: white;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 800;
 
+    letter-spacing: .1px;
+
     box-shadow:
-        0 7px 18px rgba(11,31,58,.12);
+        0 6px 16px rgba(139, 36, 51, .12);
 
     transition:
         background .3s ease,
@@ -725,7 +770,7 @@
 
 .rekening-button:hover {
     background:
-        var(--orange);
+        var(--maroon-dark);
 
     color: white;
 
@@ -733,12 +778,12 @@
         translateY(-2px);
 
     box-shadow:
-        0 9px 20px rgba(242,140,40,.22);
+        0 9px 20px rgba(139, 36, 51, .16);
 }
 
 
 .rekening-button .arrow {
-    font-size: 17px;
+    font-size: 16px;
 
     transition:
         transform .3s ease;
@@ -747,7 +792,7 @@
 
 .rekening-button:hover .arrow {
     transform:
-        translateX(5px);
+        translateX(4px);
 }
 
 
@@ -766,17 +811,17 @@
 
     gap: 12px;
 
-    padding: 17px 20px;
+    padding: 16px 19px;
 
     background:
-        #fff9f2;
+        #f5f8f6;
 
     border:
-        1px solid #f3ddc4;
+        1px solid #dfe8e3;
 
-    border-radius: 14px;
+    border-radius: 13px;
 
-    color: #80633f;
+    color: #68756f;
 
     font-size: 12px;
 
@@ -795,12 +840,14 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     background:
-        var(--orange);
+        var(--green);
 
     color: white;
+
+    font-size: 12px;
 
     font-weight: 900;
 }
