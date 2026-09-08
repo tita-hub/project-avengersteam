@@ -3601,3 +3601,961 @@ body.modal-open {
     }
 
 }
+/* ============================================================
+   AVENGERSTEAM — TOP HEADER NAVIGATION REDESIGN
+   Catatan: override khusus navigasi. Style halaman lain dibiarkan.
+   ============================================================ */
+
+.top-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 76px;
+    padding: 0 30px;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #e8e8e8;
+    box-shadow: 0 4px 18px rgba(32, 38, 45, 0.06);
+    z-index: 2000;
+    box-sizing: border-box;
+}
+
+.top-header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #8d2634 0%, #8d2634 72%, #2f6b57 100%);
+}
+
+.top-header-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    box-sizing: border-box;
+}
+
+/* Sidebar lama tidak dipakai lagi */
+.sidebar {
+    display: none !important;
+}
+
+/* Logo kiri */
+.top-logo {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 0 0 auto;
+    width: 158px;
+    height: 100%;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    pointer-events: none;
+}
+
+.top-logo img {
+    width: 148px !important;
+    height: 62px !important;
+    object-fit: contain;
+    display: block;
+}
+
+/* Navigasi desktop */
+.top-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.top-nav .nav-item {
+    position: relative;
+    width: auto;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #111111;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: color .2s ease, background-color .2s ease;
+}
+
+.top-nav .nav-item > i,
+.top-nav .nav-item-label > i {
+    font-size: 14px;
+    color: #8d2634;
+    transition: color .2s ease;
+}
+
+.top-nav .nav-item:hover {
+    background: #f8eef0;
+    color: #8d2634;
+}
+
+.top-nav .nav-item.active {
+    background: #f8eef0;
+    color: #8d2634;
+}
+
+.top-nav .nav-item.active::after {
+    content: "";
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: #8d2634;
+}
+
+.nav-item-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-nav-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.top-nav .nav-dropdown-btn {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.top-nav .dropdown-arrow {
+    width: auto;
+    height: auto;
+    margin-left: 2px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #7a818a;
+    font-size: 10px;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform .22s ease, color .2s ease;
+}
+
+.top-nav .nav-item:hover .dropdown-arrow,
+.top-nav .nav-item.active .dropdown-arrow {
+    color: #8d2634;
+}
+
+.top-nav .dropdown-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+/* Dropdown desktop */
+.top-nav .top-submenu {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 50%;
+    transform: translate(-50%, 8px);
+    width: 238px;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    padding: 8px;
+    background: #ffffff;
+    border: 1px solid #e8e5e6;
+    border-radius: 12px;
+    box-shadow: 0 16px 35px rgba(37, 43, 53, 0.12);
+    z-index: 2100;
+    box-sizing: border-box;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+
+.top-nav .top-submenu.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+}
+
+.top-nav .top-submenu::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 11px;
+    height: 11px;
+    background: #ffffff;
+    border-left: 1px solid #e8e5e6;
+    border-top: 1px solid #e8e5e6;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.top-nav .top-submenu .tentang-submenu-item,
+.top-nav .top-submenu .prosedur-submenu-item,
+.top-nav .top-submenu .edukasi-submenu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    border-radius: 8px;
+    color: #3d444d;
+    background: transparent;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: background-color .18s ease, color .18s ease, transform .18s ease;
+}
+
+.top-nav .top-submenu .tentang-submenu-item i,
+.top-nav .top-submenu .prosedur-submenu-item i,
+.top-nav .top-submenu .edukasi-submenu-item i {
+    width: 20px;
+    text-align: center;
+    color: #8d2634;
+    font-size: 14px;
+}
+
+.top-nav .top-submenu .tentang-submenu-item:hover,
+.top-nav .top-submenu .prosedur-submenu-item:hover,
+.top-nav .top-submenu .edukasi-submenu-item:hover {
+    background: #f8eef0;
+    color: #8d2634;
+    padding-left: 11px;
+    transform: translateX(2px);
+}
+
+/* Action kanan */
+.top-header-actions {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.theme-toggle,
+.header-logout-btn,
+.mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #e1e3e6;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #303740;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.theme-toggle:hover,
+.header-logout-btn:hover,
+.mobile-menu-toggle:hover {
+    background: #f8eef0;
+    color: #8d2634;
+    border-color: #e4c9ce;
+    transform: translateY(-1px);
+}
+
+.theme-toggle i,
+.header-logout-btn i,
+.mobile-menu-toggle i {
+    font-size: 17px;
+}
+
+.header-logout-form {
+    margin: 0;
+    padding: 0;
+}
+
+.header-logout-btn {
+    color: #68717c;
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* Mobile panel */
+.mobile-menu-panel {
+    display: none;
+}
+
+/* Main content tidak lagi mengikuti lebar sidebar */
+.main-content,
+.app-shell.sidebar-closed .main-content,
+.app-shell:not(.sidebar-closed) .main-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-top: 106px;
+    box-sizing: border-box;
+}
+
+/* Dark mode hanya area navigasi agar isi halaman tidak ikut berubah */
+body.nav-dark-mode .top-header {
+    background: #20242a;
+    border-bottom-color: #343941;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .18);
+}
+
+body.nav-dark-mode .top-header::before {
+    background: linear-gradient(90deg, #a83243 0%, #8d2634 72%, #4c8b72 100%);
+}
+
+body.nav-dark-mode .top-nav .nav-item {
+    color: #ffffff;
+}
+
+body.nav-dark-mode .top-nav .nav-item:hover,
+body.nav-dark-mode .top-nav .nav-item.active {
+    background: #35282c;
+    color: #efb9c1;
+}
+
+body.nav-dark-mode .top-nav .nav-item > i,
+body.nav-dark-mode .top-nav .nav-item-label > i,
+body.nav-dark-mode .top-nav .nav-item:hover .dropdown-arrow,
+body.nav-dark-mode .top-nav .nav-item.active .dropdown-arrow {
+    color: #e4a3ad;
+}
+
+body.nav-dark-mode .top-nav .nav-item.active::after {
+    background: #d97c89;
+}
+
+body.nav-dark-mode .top-nav .dropdown-arrow {
+    color: #aeb5bd;
+}
+
+body.nav-dark-mode .theme-toggle,
+body.nav-dark-mode .header-logout-btn,
+body.nav-dark-mode .mobile-menu-toggle {
+    background: #292e35;
+    border-color: #3b424b;
+    color: #edf0f3;
+}
+
+body.nav-dark-mode .theme-toggle:hover,
+body.nav-dark-mode .header-logout-btn:hover,
+body.nav-dark-mode .mobile-menu-toggle:hover {
+    background: #35282c;
+    border-color: #5d3c43;
+    color: #efb9c1;
+}
+
+body.nav-dark-mode .top-nav .top-submenu {
+    background: #292e35;
+    border-color: #3b424b;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, .28);
+}
+
+body.nav-dark-mode .top-nav .top-submenu::before {
+    background: #292e35;
+    border-color: #3b424b;
+}
+
+body.nav-dark-mode .top-nav .top-submenu .tentang-submenu-item,
+body.nav-dark-mode .top-nav .top-submenu .prosedur-submenu-item,
+body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item {
+    color: #e7eaed;
+}
+
+body.nav-dark-mode .top-nav .top-submenu .tentang-submenu-item:hover,
+body.nav-dark-mode .top-nav .top-submenu .prosedur-submenu-item:hover,
+body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item:hover {
+    background: #35282c;
+    color: #efb9c1;
+}
+
+body.nav-dark-mode .top-nav .top-submenu .tentang-submenu-item i,
+body.nav-dark-mode .top-nav .top-submenu .prosedur-submenu-item i,
+body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item i {
+    color: #e4a3ad;
+}
+
+/* ============================================================
+   RESPONSIVE NAVBAR
+   ============================================================ */
+
+@media (max-width: 1000px) {
+    .top-header {
+        padding: 0 20px;
+    }
+
+    .top-header-inner {
+        gap: 16px;
+    }
+
+    .top-logo {
+        width: 138px;
+    }
+
+    .top-logo img {
+        width: 132px !important;
+    }
+
+    .top-nav .nav-item {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 12px;
+    }
+
+    .top-nav .nav-item > i,
+    .top-nav .nav-item-label > i {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .top-header {
+        height: 68px;
+        padding: 0 15px;
+    }
+
+    .top-header-inner {
+        gap: 10px;
+    }
+
+    .top-logo {
+        width: auto;
+        flex: 1 1 auto;
+    }
+
+    .top-logo img {
+        width: 126px !important;
+        height: 55px !important;
+    }
+
+    .top-nav {
+        display: none;
+    }
+
+    .top-header-actions {
+        gap: 6px;
+    }
+
+    .theme-toggle,
+    .header-logout-btn,
+    .mobile-menu-toggle {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+
+    .header-logout-btn {
+        display: none;
+    }
+
+    .mobile-menu-panel {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        display: block;
+        max-height: calc(100vh - 68px);
+        overflow-y: auto;
+        background: #ffffff;
+        border-top: 1px solid #eeeeee;
+        border-bottom: 1px solid #e5e5e5;
+        box-shadow: 0 14px 30px rgba(32, 38, 45, .10);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    }
+
+    .mobile-menu-panel.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .mobile-nav {
+        width: 100%;
+        padding: 9px 12px 13px;
+        box-sizing: border-box;
+    }
+
+    .mobile-nav-item {
+        width: 100%;
+        min-height: 46px;
+        padding: 10px 13px;
+        border: 0;
+        border-radius: 9px;
+        background: transparent;
+        color: #2f3740;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        text-decoration: none;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+        box-sizing: border-box;
+        transition: background-color .18s ease, color .18s ease;
+    }
+
+    .mobile-nav-item > i,
+    .mobile-nav-item > span > i {
+        color: #8d2634;
+        margin-right: 9px;
+        font-size: 15px;
+    }
+
+    .mobile-nav-item > span {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active {
+        background: #f8eef0;
+        color: #8d2634;
+    }
+
+    .mobile-nav-item.active {
+        box-shadow: inset 3px 0 0 #8d2634;
+    }
+
+    .mobile-dropdown-btn > i:last-child {
+        margin: 0;
+        color: #7b838c;
+        font-size: 11px;
+        transition: transform .2s ease;
+    }
+
+    .mobile-dropdown-btn > i.rotated {
+        transform: rotate(180deg);
+    }
+
+    .mobile-nav-dropdown {
+        width: 100%;
+    }
+
+    .mobile-submenu {
+        display: none;
+        margin: 0 0 5px 13px;
+        padding: 3px 0 3px 10px;
+        border-left: 1px solid #e4d5d8;
+    }
+
+    .mobile-submenu.show {
+        display: block;
+        animation: mobileSubmenuIn .18s ease both;
+    }
+
+    @keyframes mobileSubmenuIn {
+        from {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .mobile-submenu .tentang-submenu-item,
+    .mobile-submenu .prosedur-submenu-item,
+    .mobile-submenu .edukasi-submenu-item {
+        min-height: 39px;
+        padding: 8px 11px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #5e6670;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        box-sizing: border-box;
+        transition: background-color .18s ease, color .18s ease;
+    }
+
+    .mobile-submenu .tentang-submenu-item i,
+    .mobile-submenu .prosedur-submenu-item i,
+    .mobile-submenu .edukasi-submenu-item i {
+        width: 18px;
+        text-align: center;
+        color: #8d2634;
+    }
+
+    .mobile-submenu .tentang-submenu-item:hover,
+    .mobile-submenu .prosedur-submenu-item:hover,
+    .mobile-submenu .edukasi-submenu-item:hover {
+        background: #f8eef0;
+        color: #8d2634;
+        padding-left: 11px;
+    }
+
+    .main-content,
+    .app-shell.sidebar-closed .main-content,
+    .app-shell:not(.sidebar-closed) .main-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding-top: 88px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    body.nav-dark-mode .mobile-menu-panel {
+        background: #20242a;
+        border-top-color: #343941;
+        border-bottom-color: #343941;
+        box-shadow: 0 14px 30px rgba(0, 0, 0, .25);
+    }
+
+    body.nav-dark-mode .mobile-nav-item {
+        color: #edf0f3;
+    }
+
+    body.nav-dark-mode .mobile-nav-item:hover,
+    body.nav-dark-mode .mobile-nav-item.active {
+        background: #35282c;
+        color: #efb9c1;
+    }
+
+    body.nav-dark-mode .mobile-nav-item > i,
+    body.nav-dark-mode .mobile-nav-item > span > i {
+        color: #e4a3ad;
+    }
+
+    body.nav-dark-mode .mobile-submenu {
+        border-left-color: #4a3b3f;
+    }
+
+    body.nav-dark-mode .mobile-submenu .tentang-submenu-item,
+    body.nav-dark-mode .mobile-submenu .prosedur-submenu-item,
+    body.nav-dark-mode .mobile-submenu .edukasi-submenu-item {
+        color: #cbd0d5;
+    }
+
+    body.nav-dark-mode .mobile-submenu .tentang-submenu-item:hover,
+    body.nav-dark-mode .mobile-submenu .prosedur-submenu-item:hover,
+    body.nav-dark-mode .mobile-submenu .edukasi-submenu-item:hover {
+        background: #35282c;
+        color: #efb9c1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .top-header *,
+    .mobile-menu-panel,
+    .mobile-submenu {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* ============================================================
+   AVENGERSTEAM — FINAL NAVBAR COLOR & LOGOUT CLEANUP
+   Hanya mengatur navbar/header. Konten halaman lain tidak diubah.
+   ============================================================ */
+
+/* DAY MODE — normal hitam */
+.top-nav .nav-item {
+    color: #000000 !important;
+}
+
+/* DAY MODE — hover & active sama-sama merah transparan */
+.top-nav .nav-item:hover,
+.top-nav .nav-item.active {
+    background: rgba(141, 38, 52, 0.10) !important;
+    color: #8d2634 !important;
+}
+
+/* Icon mengikuti warna state */
+.top-nav .nav-item:hover > i,
+.top-nav .nav-item:hover .nav-item-label > i,
+.top-nav .nav-item.active > i,
+.top-nav .nav-item.active .nav-item-label > i,
+.top-nav .nav-item:hover .dropdown-arrow,
+.top-nav .nav-item.active .dropdown-arrow {
+    color: #8d2634 !important;
+}
+
+/* Tidak memakai garis bawah biru/merah pada active */
+.top-nav .nav-item.active::after {
+    display: none !important;
+}
+
+/* NIGHT MODE — normal putih */
+body.nav-dark-mode .top-nav .nav-item {
+    color: #ffffff !important;
+}
+
+/* NIGHT MODE — hover & active sama-sama merah transparan */
+body.nav-dark-mode .top-nav .nav-item:hover,
+body.nav-dark-mode .top-nav .nav-item.active {
+    background: rgba(141, 38, 52, 0.24) !important;
+    color: #efb9c1 !important;
+}
+
+/* Icon mengikuti warna state */
+body.nav-dark-mode .top-nav .nav-item:hover > i,
+body.nav-dark-mode .top-nav .nav-item:hover .nav-item-label > i,
+body.nav-dark-mode .top-nav .nav-item.active > i,
+body.nav-dark-mode .top-nav .nav-item.active .nav-item-label > i,
+body.nav-dark-mode .top-nav .nav-item:hover .dropdown-arrow,
+body.nav-dark-mode .top-nav .nav-item.active .dropdown-arrow {
+    color: #efb9c1 !important;
+}
+
+/* Tidak memakai garis bawah pada active mode malam */
+body.nav-dark-mode .top-nav .nav-item.active::after {
+    display: none !important;
+}
+
+/* MOBILE — normal hitam/putih, hover & active sama */
+@media (max-width: 760px) {
+    .mobile-nav-item {
+        color: #000000 !important;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active {
+        background: rgba(141, 38, 52, 0.10) !important;
+        color: #8d2634 !important;
+        box-shadow: none !important;
+    }
+
+    .mobile-nav-item:hover > i,
+    .mobile-nav-item:hover > span > i,
+    .mobile-nav-item.active > i,
+    .mobile-nav-item.active > span > i {
+        color: #8d2634 !important;
+    }
+
+    body.nav-dark-mode .mobile-nav-item {
+        color: #ffffff !important;
+    }
+
+    body.nav-dark-mode .mobile-nav-item:hover,
+    body.nav-dark-mode .mobile-nav-item.active {
+        background: rgba(141, 38, 52, 0.24) !important;
+        color: #efb9c1 !important;
+        box-shadow: none !important;
+    }
+
+    body.nav-dark-mode .mobile-nav-item:hover > i,
+    body.nav-dark-mode .mobile-nav-item:hover > span > i,
+    body.nav-dark-mode .mobile-nav-item.active > i,
+    body.nav-dark-mode .mobile-nav-item.active > span > i {
+        color: #efb9c1 !important;
+    }
+}
+
+/* Tombol logout sudah dihapus dari HTML; sisakan theme toggle + hamburger */
+.header-logout-form,
+.header-logout-btn {
+    display: none !important;
+}
+
+/* ============================================================
+   FINAL FIX — WARNA NAVBAR SESUAI REQUEST
+   Normal   : hitam (siang) / putih (malam)
+   Hover    : merah + background merah transparan
+   Active   : merah + background merah transparan
+   Berlaku untuk teks, icon, dan dropdown arrow.
+   ============================================================ */
+
+/* SIANG — semua menu normal hitam */
+.top-nav .nav-item,
+.top-nav .nav-item span,
+.top-nav .nav-item-label,
+.top-nav .nav-item-label > span,
+.top-nav .nav-item > i,
+.top-nav .nav-item-label > i,
+.top-nav .nav-item .dropdown-arrow {
+    color: #000000 !important;
+}
+
+/* SIANG — hover & active sama */
+.top-nav .nav-item:hover,
+.top-nav .nav-item:hover span,
+.top-nav .nav-item:hover .nav-item-label,
+.top-nav .nav-item:hover .nav-item-label > span,
+.top-nav .nav-item:hover > i,
+.top-nav .nav-item:hover .nav-item-label > i,
+.top-nav .nav-item:hover .dropdown-arrow,
+.top-nav .nav-item.active,
+.top-nav .nav-item.active span,
+.top-nav .nav-item.active .nav-item-label,
+.top-nav .nav-item.active .nav-item-label > span,
+.top-nav .nav-item.active > i,
+.top-nav .nav-item.active .nav-item-label > i,
+.top-nav .nav-item.active .dropdown-arrow {
+    color: #8d2634 !important;
+}
+
+.top-nav .nav-item:hover,
+.top-nav .nav-item.active {
+    background: rgba(141, 38, 52, 0.10) !important;
+}
+
+/* Tidak ada garis bawah pada active */
+.top-nav .nav-item.active::after {
+    display: none !important;
+}
+
+/* MALAM — semua menu normal putih */
+body.nav-dark-mode .top-nav .nav-item,
+body.nav-dark-mode .top-nav .nav-item span,
+body.nav-dark-mode .top-nav .nav-item-label,
+body.nav-dark-mode .top-nav .nav-item-label > span,
+body.nav-dark-mode .top-nav .nav-item > i,
+body.nav-dark-mode .top-nav .nav-item-label > i,
+body.nav-dark-mode .top-nav .nav-item .dropdown-arrow {
+    color: #ffffff !important;
+}
+
+/* MALAM — hover & active sama */
+body.nav-dark-mode .top-nav .nav-item:hover,
+body.nav-dark-mode .top-nav .nav-item:hover span,
+body.nav-dark-mode .top-nav .nav-item:hover .nav-item-label,
+body.nav-dark-mode .top-nav .nav-item:hover .nav-item-label > span,
+body.nav-dark-mode .top-nav .nav-item:hover > i,
+body.nav-dark-mode .top-nav .nav-item:hover .nav-item-label > i,
+body.nav-dark-mode .top-nav .nav-item:hover .dropdown-arrow,
+body.nav-dark-mode .top-nav .nav-item.active,
+body.nav-dark-mode .top-nav .nav-item.active span,
+body.nav-dark-mode .top-nav .nav-item.active .nav-item-label,
+body.nav-dark-mode .top-nav .nav-item.active .nav-item-label > span,
+body.nav-dark-mode .top-nav .nav-item.active > i,
+body.nav-dark-mode .top-nav .nav-item.active .nav-item-label > i,
+body.nav-dark-mode .top-nav .nav-item.active .dropdown-arrow {
+    color: #efb9c1 !important;
+}
+
+body.nav-dark-mode .top-nav .nav-item:hover,
+body.nav-dark-mode .top-nav .nav-item.active {
+    background: rgba(141, 38, 52, 0.24) !important;
+}
+
+body.nav-dark-mode .top-nav .nav-item.active::after {
+    display: none !important;
+}
+
+/* MOBILE — warna teks/icon mengikuti aturan yang sama */
+@media (max-width: 760px) {
+    .mobile-nav-item,
+    .mobile-nav-item span,
+    .mobile-nav-item > i,
+    .mobile-nav-item > span > i {
+        color: #000000 !important;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active,
+    .mobile-nav-item:hover span,
+    .mobile-nav-item.active span,
+    .mobile-nav-item:hover > i,
+    .mobile-nav-item.active > i,
+    .mobile-nav-item:hover > span > i,
+    .mobile-nav-item.active > span > i {
+        color: #8d2634 !important;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active {
+        background: rgba(141, 38, 52, 0.10) !important;
+        box-shadow: none !important;
+    }
+
+    body.nav-dark-mode .mobile-nav-item,
+    body.nav-dark-mode .mobile-nav-item span,
+    body.nav-dark-mode .mobile-nav-item > i,
+    body.nav-dark-mode .mobile-nav-item > span > i {
+        color: #ffffff !important;
+    }
+
+    body.nav-dark-mode .mobile-nav-item:hover,
+    body.nav-dark-mode .mobile-nav-item.active,
+    body.nav-dark-mode .mobile-nav-item:hover span,
+    body.nav-dark-mode .mobile-nav-item.active span,
+    body.nav-dark-mode .mobile-nav-item:hover > i,
+    body.nav-dark-mode .mobile-nav-item.active > i,
+    body.nav-dark-mode .mobile-nav-item:hover > span > i,
+    body.nav-dark-mode .mobile-nav-item.active > span > i {
+        color: #efb9c1 !important;
+    }
+
+    body.nav-dark-mode .mobile-nav-item:hover,
+    body.nav-dark-mode .mobile-nav-item.active {
+        background: rgba(141, 38, 52, 0.24) !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ============================================================
+   FINAL NAVBAR SPACING & TYPOGRAPHY
+   Menu dibuat lebih kecil dan digeser ke kanan seperti referensi.
+   Hanya navbar/header yang diubah.
+   ============================================================ */
+
+@media (min-width: 1001px) {
+    .top-nav {
+        justify-content: flex-end !important;
+        gap: 6px !important;
+        margin-left: auto !important;
+        margin-right: 8px !important;
+    }
+
+    .top-nav .nav-item {
+        min-height: 42px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        gap: 6px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+    }
+
+    .top-nav .nav-item > i,
+    .top-nav .nav-item-label > i {
+        font-size: 13px !important;
+    }
+
+    .top-nav .dropdown-arrow {
+        font-size: 9px !important;
+        margin-left: 1px !important;
+    }
+
+    .top-header-inner {
+        gap: 18px !important;
+    }
+}

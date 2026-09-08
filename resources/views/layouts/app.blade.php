@@ -33,394 +33,197 @@
     <div class="app-shell">
 
 
-        <!-- =================================================
-             TOP HEADER
-        ================================================== -->
+        <!-- =====================================================
+             TOP HEADER / NAVBAR
+        ====================================================== -->
 
         <header class="top-header">
 
+            <div class="top-header-inner">
 
-            <!-- =============================================
-                 TOMBOL MENU
-                 Hanya muncul ketika sidebar tertutup
-            ============================================== -->
+                <!-- LOGO AVENGERS -->
+                <div class="top-logo">
+                    <img src="{{ asset('images/avengersteam-header.png') }}"
+                        alt="Avengersteam">
+                </div>
 
-            <button type="button"
-                id="sidebarOpen"
-                class="top-menu-btn"
-                aria-label="Buka menu">
+                <!-- DESKTOP NAVIGATION -->
+                <nav class="top-nav" aria-label="Navigasi utama">
 
-                <i class="bi bi-list"></i>
+                    <a href="{{ route('dashboard') }}"
+                        class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                        <span>Dashboard</span>
+                    </a>
 
-            </button>
+                    <div class="top-nav-dropdown" id="tentangKamiContainer">
+                        <button type="button"
+                            id="tentangKamiBtn"
+                            class="nav-item nav-dropdown-btn {{ request()->routeIs('profile.perusahaan', 'team.profile', 'wakil.pialang') ? 'active' : '' }}"
+                            aria-expanded="false">
+                        <span>Tentang Kami</span>
+                            <i id="tentangKamiArrow" class="bi bi-chevron-down dropdown-arrow"></i>
+                        </button>
 
+                        <div id="submenuTentang" class="top-submenu">
+                            <a href="{{ route('profile.perusahaan') }}" class="tentang-submenu-item">
+                                <span>Profile Perusahaan</span>
+                            </a>
+                            <a href="{{ route('team.profile') }}" class="tentang-submenu-item">
+                                <span>Avengers Team Profile</span>
+                            </a>
+                            <a href="{{ route('wakil.pialang') }}" class="tentang-submenu-item">
+                                <span>Wakil Pialang Avengers</span>
+                            </a>
+                        </div>
+                    </div>
 
-            <!-- =============================================
-                 LOGO AVENGERSTEAM
-                 Tidak memiliki fungsi / tidak bisa diklik
-                 Diposisikan di tengah header
-            ============================================== -->
+                    <a href="{{ route('produk.index') }}"
+                        class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
+                        <span>Produk</span>
+                    </a>
 
-            <div class="top-logo"
-                style="
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    margin-left: 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                ">
+                    <div class="top-nav-dropdown" id="prosedurContainer">
+                        <button type="button"
+                            id="prosedurBtn"
+                            class="nav-item nav-dropdown-btn {{ request()->routeIs('prosedur.*') ? 'active' : '' }}"
+                            aria-expanded="false">
+                        <span>Prosedur</span>
+                            <i id="prosedurArrow" class="bi bi-chevron-down dropdown-arrow"></i>
+                        </button>
 
-                <img src="{{ asset('images/avengersteam-header.png') }}"
-                    alt="Avengersteam"
-                    style="
-                        width: 150px;
-                        height: 80px;
-                        object-fit: contain;
-                        display: block;
-                    ">
+                        <div id="submenuProsedur" class="top-submenu">
+                            <a href="{{ route('prosedur.pembukaan') }}" class="prosedur-submenu-item">
+                                <span>Pembukaan Rekening</span>
+                            </a>
+                            <a href="{{ route('prosedur.penarikan') }}" class="prosedur-submenu-item">
+                                <span>Penarikan</span>
+                            </a>
+                            <a href="{{ route('prosedur.petunjuk') }}" class="prosedur-submenu-item">
+                                <span>Petunjuk Transaksi</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="top-nav-dropdown" id="edukasiContainer">
+                        <button type="button"
+                            id="edukasiBtn"
+                            class="nav-item nav-dropdown-btn {{ request()->routeIs('edukasi.*') ? 'active' : '' }}"
+                            aria-expanded="false">
+                        <span>Edukasi</span>
+                            <i id="edukasiArrow" class="bi bi-chevron-down dropdown-arrow"></i>
+                        </button>
+
+                        <div id="submenuEdukasi" class="top-submenu">
+                            <a href="{{ route('edukasi.nasabah') }}" class="edukasi-submenu-item">
+                                <span>Edukasi Nasabah</span>
+                            </a>
+                            <a href="{{ route('edukasi.konsultan') }}" class="edukasi-submenu-item">
+                                <span>Edukasi Konsultan</span>
+                            </a>
+                            <a href="{{ route('edukasi.umum') }}" class="edukasi-submenu-item">
+                                <span>Edukasi Umum</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </nav>
+
+                <!-- HEADER ACTIONS -->
+                <div class="top-header-actions">
+
+                    <button type="button"
+                        id="themeToggle"
+                        class="theme-toggle"
+                        aria-label="Aktifkan mode malam"
+                        title="Mode siang / malam">
+                        <i class="bi bi-moon-stars-fill"></i>
+                    </button>
+
+                    <!-- HAMBURGER: tetap tiga garis, tidak berubah menjadi X -->
+                    <button type="button"
+                        id="mobileMenuToggle"
+                        class="mobile-menu-toggle"
+                        aria-label="Buka menu"
+                        aria-expanded="false">
+                        <i class="bi bi-list"></i>
+                    </button>
+
+                </div>
 
             </div>
 
-            <!-- =====================================================
-            FLOATING WHATSAPP
-            ====================================================== -->
+            <!-- MOBILE MENU: muncul di bawah header, tanpa logo/X tambahan -->
+            <div id="mobileMenu" class="mobile-menu-panel">
+                <nav class="mobile-nav" aria-label="Navigasi mobile">
 
-            <a href="https://wa.me/085128040216"
-                class="floating-whatsapp"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Hubungi melalui WhatsApp">
+                    <a href="{{ route('dashboard') }}"
+                        class="mobile-nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                        <span>Dashboard</span>
+                    </a>
 
-                <i class="bi bi-whatsapp"></i>
+                    <div class="mobile-nav-dropdown">
+                        <button type="button"
+                            id="mobileTentangBtn"
+                            class="mobile-nav-item mobile-dropdown-btn {{ request()->routeIs('profile.perusahaan', 'team.profile', 'wakil.pialang') ? 'active' : '' }}"
+                            aria-expanded="false">
+                            <span>Tentang Kami</span>
+                            <i id="mobileTentangArrow" class="bi bi-chevron-down"></i>
+                        </button>
+                        <div id="mobileSubmenuTentang" class="mobile-submenu">
+                            <a href="{{ route('profile.perusahaan') }}" class="tentang-submenu-item"><span>Profile Perusahaan</span>
+                            </a>
+                            <a href="{{ route('team.profile') }}" class="tentang-submenu-item"><span>Avengers Team Profile</span>
+                            </a>
+                            <a href="{{ route('wakil.pialang') }}" class="tentang-submenu-item"><span>Wakil Pialang Avengers</span>
+                            </a>
+                        </div>
+                    </div>
 
-            </a>
+                    <a href="{{ route('produk.index') }}"
+                        class="mobile-nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
+                        <span>Produk</span>
+                    </a>
 
+                    <div class="mobile-nav-dropdown">
+                        <button type="button"
+                            id="mobileProsedurBtn"
+                            class="mobile-nav-item mobile-dropdown-btn {{ request()->routeIs('prosedur.*') ? 'active' : '' }}"
+                            aria-expanded="false">
+                            <span>Prosedur</span>
+                            <i id="mobileProsedurArrow" class="bi bi-chevron-down"></i>
+                        </button>
+                        <div id="mobileSubmenuProsedur" class="mobile-submenu">
+                            <a href="{{ route('prosedur.pembukaan') }}" class="prosedur-submenu-item"><span>Pembukaan Rekening</span>
+                            </a>
+                            <a href="{{ route('prosedur.penarikan') }}" class="prosedur-submenu-item"><span>Penarikan</span>
+                            </a>
+                            <a href="{{ route('prosedur.petunjuk') }}" class="prosedur-submenu-item"><span>Petunjuk Transaksi</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-dropdown">
+                        <button type="button"
+                            id="mobileEdukasiBtn"
+                            class="mobile-nav-item mobile-dropdown-btn {{ request()->routeIs('edukasi.*') ? 'active' : '' }}"
+                            aria-expanded="false">
+                            <span>Edukasi</span>
+                            <i id="mobileEdukasiArrow" class="bi bi-chevron-down"></i>
+                        </button>
+                        <div id="mobileSubmenuEdukasi" class="mobile-submenu">
+                            <a href="{{ route('edukasi.nasabah') }}" class="edukasi-submenu-item"><span>Edukasi Nasabah</span>
+                            </a>
+                            <a href="{{ route('edukasi.konsultan') }}" class="edukasi-submenu-item"><span>Edukasi Konsultan</span>
+                            </a>
+                            <a href="{{ route('edukasi.umum') }}" class="edukasi-submenu-item"><span>Edukasi Umum</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
 
         </header>
-
-
-
-        <!-- =================================================
-             SIDEBAR
-        ================================================== -->
-
-        <aside class="sidebar">
-
-
-            <!-- =============================================
-                 TOMBOL CLOSE
-                 Tetap ada ketika sidebar terbuka
-            ============================================== -->
-
-            <button type="button"
-                id="sidebarClose"
-                class="sidebar-close-btn"
-                aria-label="Tutup menu">
-
-                <i class="bi bi-x-lg"></i>
-
-            </button>
-
-
-
-            <!-- =============================================
-                 MENU SIDEBAR
-            ============================================== -->
-
-            <nav class="sidebar-nav">
-
-
-                <!-- =========================================
-                     DASHBOARD
-                ========================================== -->
-
-                <a href="{{ route('dashboard') }}"
-                    id="dashboardBtn"
-                    class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-
-                    Dashboard
-
-                </a>
-
-
-
-                <!-- =========================================
-                     TENTANG KAMI
-                ========================================== -->
-
-                <div id="tentangKamiContainer"
-                    class="sidebar-dropdown-container">
-
-
-                    <button type="button"
-                        id="tentangKamiBtn"
-                        class="{{ request()->routeIs('profile.perusahaan', 'team.profile', 'wakil.pialang') ? 'active' : '' }}">
-
-                        <span>
-                            Tentang Kami
-                        </span>
-
-                        <span id="tentangKamiArrow"
-                            class="bi bi-chevron-right dropdown-arrow">
-                        </span>
-
-                    </button>
-
-
-
-                    <!-- DROPDOWN TENTANG KAMI -->
-
-                    <div id="submenuTentang"
-                        class="sidebar-submenu">
-
-
-                        <a href="{{ route('profile.perusahaan') }}"
-                            class="tentang-submenu-item">
-
-                            Profile Perusahaan
-
-                        </a>
-
-
-                        <a href="{{ route('team.profile') }}"
-                            class="tentang-submenu-item">
-
-                            Avengers Team Profile
-
-                        </a>
-
-
-                        <a href="{{ route('wakil.pialang') }}"
-                            class="tentang-submenu-item">
-
-                            Wakil Pialang Avengers
-
-                        </a>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =========================================
-                     PRODUK
-                ========================================== -->
-
-                <a href="{{ route('produk.index') }}"
-                    class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
-
-                    Produk
-
-                </a>
-
-
-
-                <!-- =========================================
-                     PROSEDUR
-                ========================================== -->
-
-                <div id="prosedurContainer"
-                    class="sidebar-dropdown-container">
-
-
-                    <button type="button"
-                        id="prosedurBtn"
-                        class="{{ request()->routeIs('prosedur.*') ? 'active' : '' }}">
-
-                        <span>
-                            Prosedur
-                        </span>
-
-                        <span id="prosedurArrow"
-                            class="bi bi-chevron-right dropdown-arrow">
-                        </span>
-
-                    </button>
-
-
-
-                    <!-- DROPDOWN PROSEDUR -->
-
-                    <div id="submenuProsedur"
-                        class="sidebar-submenu">
-
-
-                        <a href="{{ route('prosedur.pembukaan') }}"
-                            class="prosedur-submenu-item">
-
-                            Pembukaan Rekening
-
-                        </a>
-
-
-                        <a href="{{ route('prosedur.penarikan') }}"
-                            class="prosedur-submenu-item">
-
-                            Penarikan
-
-                        </a>
-
-
-                        <a href="{{ route('prosedur.petunjuk') }}"
-                            class="prosedur-submenu-item">
-
-                            Petunjuk Transaksi
-
-                        </a>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =========================================
-                     EDUKASI
-                ========================================== -->
-
-                <div id="edukasiContainer"
-                    class="sidebar-dropdown-container">
-
-
-                    <button type="button"
-                        id="edukasiBtn"
-                        class="{{ request()->routeIs('edukasi.*') ? 'active' : '' }}">
-
-                        <span>
-                            Edukasi
-                        </span>
-
-                        <span id="edukasiArrow"
-                            class="bi bi-chevron-right dropdown-arrow">
-                        </span>
-
-                    </button>
-
-
-
-                    <!-- DROPDOWN EDUKASI -->
-
-                    <div id="submenuEdukasi"
-                        class="sidebar-submenu">
-
-
-                        <a href="{{ route('edukasi.nasabah') }}"
-                            class="edukasi-submenu-item">
-
-                            Edukasi Nasabah
-
-                        </a>
-
-
-                        <a href="{{ route('edukasi.konsultan') }}"
-                            class="edukasi-submenu-item">
-
-                            Edukasi Konsultan
-
-                        </a>
-
-
-                        <a href="{{ route('edukasi.umum') }}"
-                            class="edukasi-submenu-item">
-
-                            Edukasi Umum
-
-                        </a>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =========================================
-                     MENU LAINNYA
-                ========================================== -->
-
-                <a href="#" class="nav-item">
-                    WhatsApp
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    List
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Broadcast
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Templates
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Input appointment
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Daily Leads
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Business Profile
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Auto Follow Up
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Smart Bot Action
-                </a>
-
-
-                <a href="#" class="nav-item">
-                    Text Replies
-                </a>
-
-
-            </nav>
-
-
-
-            <!-- =============================================
-                 LOGOUT
-            ============================================== -->
-
-            <form method="POST"
-                action="{{ route('logout') }}"
-                class="logout-form">
-
-                @csrf
-
-                <button type="submit"
-                    class="logout-btn">
-
-                    Keluar
-
-                </button>
-
-            </form>
-
-
-        </aside>
-
-
 
         <!-- =================================================
              MAIN CONTENT
@@ -652,280 +455,207 @@
 
 
     <!-- =====================================================
-         JAVASCRIPT SIDEBAR
+         JAVASCRIPT NAVBAR
     ====================================================== -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-            const sidebar = document.querySelector('.sidebar');
+            /* =================================================
+               DESKTOP DROPDOWN
+            ================================================== */
 
-            const appShell = document.querySelector('.app-shell');
+            const desktopDropdowns = [
+                {
+                    button: document.getElementById('tentangKamiBtn'),
+                    submenu: document.getElementById('submenuTentang'),
+                    arrow: document.getElementById('tentangKamiArrow')
+                },
+                {
+                    button: document.getElementById('prosedurBtn'),
+                    submenu: document.getElementById('submenuProsedur'),
+                    arrow: document.getElementById('prosedurArrow')
+                },
+                {
+                    button: document.getElementById('edukasiBtn'),
+                    submenu: document.getElementById('submenuEdukasi'),
+                    arrow: document.getElementById('edukasiArrow')
+                }
+            ];
 
-            const sidebarOpen = document.getElementById('sidebarOpen');
+            function closeDesktopDropdowns(except = null) {
+                desktopDropdowns.forEach(function(item) {
+                    if (!item.button || !item.submenu) return;
+                    if (item === except) return;
 
-            const sidebarClose = document.getElementById('sidebarClose');
-
-
-            if (!sidebar || !appShell || !sidebarOpen || !sidebarClose) {
-                return;
+                    item.submenu.classList.remove('show');
+                    item.button.setAttribute('aria-expanded', 'false');
+                    item.arrow?.classList.remove('rotated');
+                });
             }
 
+            desktopDropdowns.forEach(function(item) {
+                if (!item.button || !item.submenu) return;
 
+                item.button.addEventListener('click', function(e) {
+                    e.stopPropagation();
 
-            /* =================================================
-               DEFAULT
-               Sidebar tertutup saat halaman dibuka
-            ================================================== */
+                    const isOpen = item.submenu.classList.contains('show');
+                    closeDesktopDropdowns();
 
-            sidebar.classList.add('closed');
+                    if (!isOpen) {
+                        item.submenu.classList.add('show');
+                        item.button.setAttribute('aria-expanded', 'true');
+                        item.arrow?.classList.add('rotated');
+                    }
+                });
 
-            appShell.classList.add('sidebar-closed');
+                item.submenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
 
-
-
-            /* =================================================
-               BUKA SIDEBAR
-               Tombol garis tiga
-            ================================================== */
-
-            sidebarOpen.addEventListener('click', function() {
-
-                sidebar.classList.remove('closed');
-
-                appShell.classList.remove('sidebar-closed');
-
+            document.addEventListener('click', function() {
+                closeDesktopDropdowns();
             });
 
 
-
             /* =================================================
-               TUTUP SIDEBAR
-               Tombol X
+               MOBILE HAMBURGER
+               Tetap icon 3 garis, tidak berubah menjadi X.
             ================================================== */
 
-            sidebarClose.addEventListener('click', function() {
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
 
-                sidebar.classList.add('closed');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
 
-                appShell.classList.add('sidebar-closed');
+                    const isOpen = mobileMenu.classList.toggle('show');
 
+                    mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    mobileToggle.setAttribute('aria-label', isOpen ? 'Tutup menu' : 'Buka menu');
+                });
+
+                mobileMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+
+
+            /* =================================================
+               MOBILE DROPDOWN
+            ================================================== */
+
+            const mobileDropdowns = [
+                {
+                    button: document.getElementById('mobileTentangBtn'),
+                    submenu: document.getElementById('mobileSubmenuTentang'),
+                    arrow: document.getElementById('mobileTentangArrow')
+                },
+                {
+                    button: document.getElementById('mobileProsedurBtn'),
+                    submenu: document.getElementById('mobileSubmenuProsedur'),
+                    arrow: document.getElementById('mobileProsedurArrow')
+                },
+                {
+                    button: document.getElementById('mobileEdukasiBtn'),
+                    submenu: document.getElementById('mobileSubmenuEdukasi'),
+                    arrow: document.getElementById('mobileEdukasiArrow')
+                }
+            ];
+
+            function closeMobileDropdowns(except = null) {
+                mobileDropdowns.forEach(function(item) {
+                    if (!item.button || !item.submenu) return;
+                    if (item === except) return;
+
+                    item.submenu.classList.remove('show');
+                    item.button.setAttribute('aria-expanded', 'false');
+                    item.arrow?.classList.remove('rotated');
+                });
+            }
+
+            mobileDropdowns.forEach(function(item) {
+                if (!item.button || !item.submenu) return;
+
+                item.button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+
+                    const isOpen = item.submenu.classList.contains('show');
+                    closeMobileDropdowns();
+
+                    if (!isOpen) {
+                        item.submenu.classList.add('show');
+                        item.button.setAttribute('aria-expanded', 'true');
+                        item.arrow?.classList.add('rotated');
+                    }
+                });
             });
 
 
-
             /* =================================================
-               FUNGSI ACTIVE DROPDOWN
+               THEME TOGGLE
+               Mode hanya mengubah area navigasi agar halaman lain
+               tetap menggunakan desain yang sudah ada.
             ================================================== */
 
-            function setActiveDropdown(clickedButton) {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle?.querySelector('i');
+            const savedTheme = localStorage.getItem('avengersteam-nav-theme');
 
-                document
-                    .querySelectorAll('.sidebar-nav button')
-                    .forEach(function(button) {
-
-                        button.classList.remove('active');
-
-                    });
-
-
-                document
-                    .querySelectorAll('.sidebar-nav .nav-item')
-                    .forEach(function(item) {
-
-                        item.classList.remove('active');
-
-                    });
-
-
-                clickedButton.classList.add('active');
-
+            if (savedTheme === 'dark') {
+                document.body.classList.add('nav-dark-mode');
             }
 
+            function updateThemeButton() {
+                if (!themeToggle || !themeIcon) return;
 
+                const isDark = document.body.classList.contains('nav-dark-mode');
 
-            /* =================================================
-               TENTANG KAMI
-            ================================================== */
+                themeIcon.className = isDark
+                    ? 'bi bi-sun-fill'
+                    : 'bi bi-moon-stars-fill';
 
-            const tentangBtn =
-                document.getElementById('tentangKamiBtn');
+                themeToggle.setAttribute(
+                    'aria-label',
+                    isDark ? 'Aktifkan mode siang' : 'Aktifkan mode malam'
+                );
+            }
 
-            const tentangSubmenu =
-                document.getElementById('submenuTentang');
+            updateThemeButton();
 
-            const tentangArrow =
-                document.getElementById('tentangKamiArrow');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('nav-dark-mode');
 
+                    const isDark = document.body.classList.contains('nav-dark-mode');
+                    localStorage.setItem(
+                        'avengersteam-nav-theme',
+                        isDark ? 'dark' : 'light'
+                    );
 
-            if (tentangBtn && tentangSubmenu && tentangArrow) {
-
-                tentangBtn.addEventListener('click', function() {
-
-                    const isOpen =
-                        tentangSubmenu.style.display === 'block';
-
-
-                    closeAllDropdowns();
-
-
-                    if (!isOpen) {
-
-                        setActiveDropdown(this);
-
-                        tentangSubmenu.style.display = 'block';
-
-                        tentangArrow.style.transform =
-                            'rotate(90deg)';
-
-                    }
-
+                    updateThemeButton();
                 });
-
             }
-
 
 
             /* =================================================
-               PROSEDUR
+               RESPONSIVE CLEANUP
+               Saat kembali ke desktop, mobile menu ditutup.
             ================================================== */
 
-            const prosedurBtn =
-                document.getElementById('prosedurBtn');
-
-            const prosedurSubmenu =
-                document.getElementById('submenuProsedur');
-
-            const prosedurArrow =
-                document.getElementById('prosedurArrow');
-
-
-            if (prosedurBtn && prosedurSubmenu && prosedurArrow) {
-
-                prosedurBtn.addEventListener('click', function() {
-
-                    const isOpen =
-                        prosedurSubmenu.style.display === 'block';
-
-
-                    closeAllDropdowns();
-
-
-                    if (!isOpen) {
-
-                        setActiveDropdown(this);
-
-                        prosedurSubmenu.style.display = 'block';
-
-                        prosedurArrow.style.transform =
-                            'rotate(90deg)';
-
-                    }
-
-                });
-
-            }
-
-
-
-            /* =================================================
-               EDUKASI
-            ================================================== */
-
-            const edukasiBtn =
-                document.getElementById('edukasiBtn');
-
-            const edukasiSubmenu =
-                document.getElementById('submenuEdukasi');
-
-            const edukasiArrow =
-                document.getElementById('edukasiArrow');
-
-
-            if (edukasiBtn && edukasiSubmenu && edukasiArrow) {
-
-                edukasiBtn.addEventListener('click', function() {
-
-                    const isOpen =
-                        edukasiSubmenu.style.display === 'block';
-
-
-                    closeAllDropdowns();
-
-
-                    if (!isOpen) {
-
-                        setActiveDropdown(this);
-
-                        edukasiSubmenu.style.display = 'block';
-
-                        edukasiArrow.style.transform =
-                            'rotate(90deg)';
-
-                    }
-
-                });
-
-            }
-
-
-
-            /* =================================================
-               TUTUP SEMUA DROPDOWN
-            ================================================== */
-
-            function closeAllDropdowns() {
-
-                if (tentangSubmenu) {
-
-                    tentangSubmenu.style.display = 'none';
-
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 760) {
+                    mobileMenu?.classList.remove('show');
+                    mobileToggle?.setAttribute('aria-expanded', 'false');
+                    closeMobileDropdowns();
                 }
-
-
-                if (prosedurSubmenu) {
-
-                    prosedurSubmenu.style.display = 'none';
-
-                }
-
-
-                if (edukasiSubmenu) {
-
-                    edukasiSubmenu.style.display = 'none';
-
-                }
-
-
-                if (tentangArrow) {
-
-                    tentangArrow.style.transform =
-                        'rotate(0deg)';
-
-                }
-
-
-                if (prosedurArrow) {
-
-                    prosedurArrow.style.transform =
-                        'rotate(0deg)';
-
-                }
-
-
-                if (edukasiArrow) {
-
-                    edukasiArrow.style.transform =
-                        'rotate(0deg)';
-
-                }
-
-            }
-
+            });
 
         });
     </script>
-
 
 </body>
 
