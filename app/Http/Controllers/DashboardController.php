@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $latestNews = News::query()
             ->orderByDesc('published_at')
             ->orderByDesc('id')
-            ->take(3)
+            ->take(6)
             ->get();
 
         $tickerNews = News::query()

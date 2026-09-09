@@ -91,11 +91,112 @@
         </div>
 
 
-        <div class="pagination-wrap">
+        @if($news->hasPages())
 
-            {{ $news->links() }}
+    <nav class="news-pagination" aria-label="Navigasi berita">
+
+        {{-- PREVIOUS --}}
+        @if($news->onFirstPage())
+
+            <span
+                class="news-page-btn disabled"
+                aria-disabled="true"
+            >
+                <i class="bi bi-chevron-left"></i>
+                Previous
+            </span>
+
+        @else
+
+            <a
+                href="{{ $news->previousPageUrl() }}"
+                class="news-page-btn"
+                rel="prev"
+            >
+                <i class="bi bi-chevron-left"></i>
+                Previous
+            </a>
+
+        @endif
+
+
+        {{-- NOMOR HALAMAN --}}
+        <div class="news-page-numbers">
+
+            @foreach($news->getUrlRange(1, $news->lastPage()) as $page => $url)
+
+                @if($page == $news->currentPage())
+
+                    <span
+                        class="news-page-number active"
+                        aria-current="page"
+                    >
+                        {{ $page }}
+                    </span>
+
+                @else
+
+                    <a
+                        href="{{ $url }}"
+                        class="news-page-number"
+                    >
+                        {{ $page }}
+                    </a>
+
+                @endif
+
+            @endforeach
 
         </div>
+
+
+        {{-- NEXT --}}
+        @if($news->hasMorePages())
+
+            <a
+                href="{{ $news->nextPageUrl() }}"
+                class="news-page-btn"
+                rel="next"
+            >
+                Next
+                <i class="bi bi-chevron-right"></i>
+            </a>
+
+        @else
+
+            <span
+                class="news-page-btn disabled"
+                aria-disabled="true"
+            >
+                Next
+                <i class="bi bi-chevron-right"></i>
+            </span>
+
+        @endif
+
+    </nav>
+
+
+    {{-- JUMLAH BERITA --}}
+    <div class="pagination-summary">
+
+        Menampilkan
+
+        <strong>{{ $news->firstItem() }}</strong>
+
+        –
+
+        <strong>{{ $news->lastItem() }}</strong>
+
+        dari
+
+        <strong>{{ $news->total() }}</strong>
+
+        berita
+
+    </div>
+
+@endif
 
 
         <div class="bottom-actions">
