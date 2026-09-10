@@ -117,22 +117,19 @@
                 <div class="member-item">
 
                     <div class="member-photo">
-                        <img src="{{ asset('images/member1.jpg') }}" alt="Anggota Avengers Team">
+                        <img src="{{ asset('images/A1.jpeg') }}" alt="Anggota Avengers Team">
                     </div>
 
 
                     <div class="member-info">
 
-                        <span class="member-number">
-                            01
-                        </span>
 
                         <h3>
                             Christin Octavia
                         </h3>
 
                         <span class="member-position">
-                            Jabatan / Posisi
+                            Avangers Team Lead
                         </span>
 
                         <p>
@@ -158,22 +155,18 @@
                 <div class="member-item">
 
                     <div class="member-photo">
-                        <img src="{{ asset('images/member2.jpg') }}" alt="Anggota Avengers Team">
+                        <img src="{{ asset('images/A2.jpeg') }}" alt="Anggota Avengers Team">
                     </div>
 
 
                     <div class="member-info">
-
-                        <span class="member-number">
-                            02
-                        </span>
 
                         <h3>
                             Dian Sri Rahmawati
                         </h3>
 
                         <span class="member-position">
-                            Jabatan / Posisi
+                            Member Team
                         </span>
 
                         <p>
@@ -199,22 +192,19 @@
                 <div class="member-item">
 
                     <div class="member-photo">
-                        <img src="{{ asset('images/member3.jpg') }}" alt="Anggota Avengers Team">
+                        <img src="{{ asset('images/A3.jpeg') }}" alt="Anggota Avengers Team">
                     </div>
 
 
                     <div class="member-info">
 
-                        <span class="member-number">
-                            03
-                        </span>
 
                         <h3>
                             Dhiana Rizky Wulandari
                         </h3>
 
                         <span class="member-position">
-                            Jabatan / Posisi
+                            Member Team
                         </span>
 
                         <p>
@@ -240,22 +230,19 @@
                 <div class="member-item">
 
                     <div class="member-photo">
-                        <img src="{{ asset('images/member4.jpg') }}" alt="Anggota Avengers Team">
+                        <img src="{{ asset('images/A4.jpeg') }}" alt="Anggota Avengers Team">
                     </div>
 
 
                     <div class="member-info">
 
-                        <span class="member-number">
-                            04
-                        </span>
 
                         <h3>
                             Yustinus Mahendra Dwi Putra
                         </h3>
 
                         <span class="member-position">
-                            Jabatan / Posisi
+                            Member Team
                         </span>
 
                         <p>
@@ -281,22 +268,19 @@
                 <div class="member-item">
 
                     <div class="member-photo">
-                        <img src="{{ asset('images/member5.jpg') }}" alt="Anggota Avengers Team">
+                        <img src="{{ asset('images/A5.jpeg') }}" alt="Anggota Avengers Team">
                     </div>
 
 
                     <div class="member-info">
 
-                        <span class="member-number">
-                            05
-                        </span>
 
                         <h3>
                             Anita Yuliatin
                         </h3>
 
                         <span class="member-position">
-                            Jabatan / Posisi
+                            Member Team
                         </span>
 
                         <p>
@@ -322,22 +306,18 @@
                 <div class="member-item">
 
                     <div class="member-photo">
-                        <img src="{{ asset('images/member6.jpg') }}" alt="Anggota Avengers Team">
+                        <img src="{{ asset('images/A6.jpeg') }}" alt="Anggota Avengers Team">
                     </div>
 
 
                     <div class="member-info">
-
-                        <span class="member-number">
-                            06
-                        </span>
 
                         <h3>
                             ⁠Compasion Abraham
                         </h3>
 
                         <span class="member-position">
-                            Jabatan / Posisi
+                            Member Team
                         </span>
 
                         <p>
@@ -375,22 +355,18 @@
 
                 <div class="modal-photo">
 
-                    <img src="{{ asset('images/member1.jpg') }}" alt="Nama Anggota 1">
+                    <img src="{{ asset('images/A1.jpeg') }}" alt="Nama Anggota 1">
 
                 </div>
 
                 <div class="modal-info">
 
-                    <span class="modal-number">
-                        ANGGOTA 01
-                    </span>
-
                     <h2>
-                        Nama Anggota 1
+                        Christin Octavia
                     </h2>
 
                     <span class="modal-position">
-                        Jabatan / Posisi
+                        Team Avangers Lead
                     </span>
 
                     <div class="modal-divider"></div>
@@ -423,21 +399,17 @@
                 </button>
 
                 <div class="modal-photo">
-                    <img src="{{ asset('images/member2.jpg') }}" alt="Nama Anggota 2">
+                    <img src="{{ asset('images/A2.jpeg') }}" alt="Nama Anggota 2">
                 </div>
 
                 <div class="modal-info">
 
-                    <span class="modal-number">
-                        ANGGOTA 02
-                    </span>
-
                     <h2>
-                        Nama Anggota 2
+                        Dian Sri Rahmawati
                     </h2>
 
                     <span class="modal-position">
-                        Jabatan / Posisi
+                        Member Team
                     </span>
 
                     <div class="modal-divider"></div>
@@ -467,21 +439,17 @@
                 </button>
 
                 <div class="modal-photo">
-                    <img src="{{ asset('images/member3.jpg') }}" alt="Nama Anggota 3">
+                    <img src="{{ asset('images/A3.jpeg') }}" alt="Nama Anggota 3">
                 </div>
 
                 <div class="modal-info">
 
-                    <span class="modal-number">
-                        ANGGOTA 03
-                    </span>
-
                     <h2>
-                        Nama Anggota 3
+                        Dhiana Rizky Wulandari
                     </h2>
 
                     <span class="modal-position">
-                        Jabatan / Posisi
+                        Member Team
                     </span>
 
                     <div class="modal-divider"></div>
@@ -511,21 +479,17 @@
                 </button>
 
                 <div class="modal-photo">
-                    <img src="{{ asset('images/member4.jpg') }}" alt="Nama Anggota 4">
+                    <img src="{{ asset('images/A4.jpeg') }}" alt="Nama Anggota 4">
                 </div>
 
                 <div class="modal-info">
 
-                    <span class="modal-number">
-                        ANGGOTA 04
-                    </span>
-
                     <h2>
-                        Nama Anggota 4
+                        Yustinus Mahendra Dwi Putra
                     </h2>
 
                     <span class="modal-position">
-                        Jabatan / Posisi
+                        Member Team
                     </span>
 
                     <div class="modal-divider"></div>
@@ -555,21 +519,17 @@
                 </button>
 
                 <div class="modal-photo">
-                    <img src="{{ asset('images/member5.jpg') }}" alt="Nama Anggota 5">
+                    <img src="{{ asset('images/A5.jpeg') }}" alt="Nama Anggota 5">
                 </div>
 
                 <div class="modal-info">
 
-                    <span class="modal-number">
-                        ANGGOTA 05
-                    </span>
-
                     <h2>
-                        Nama Anggota 5
+                        Anita Yuliatin
                     </h2>
 
                     <span class="modal-position">
-                        Jabatan / Posisi
+                        Member Team 
                     </span>
 
                     <div class="modal-divider"></div>
@@ -599,21 +559,17 @@
                 </button>
 
                 <div class="modal-photo">
-                    <img src="{{ asset('images/member6.jpg') }}" alt="Nama Anggota 6">
+                    <img src="{{ asset('images/A6.jpeg') }}" alt="Nama Anggota 6">
                 </div>
 
                 <div class="modal-info">
 
-                    <span class="modal-number">
-                        ANGGOTA 06
-                    </span>
-
                     <h2>
-                        Nama Anggota 6
+                        Compasion Abraham
                     </h2>
 
                     <span class="modal-position">
-                        Jabatan / Posisi
+                        Member Team 
                     </span>
 
                     <div class="modal-divider"></div>
