@@ -51,18 +51,16 @@
 
 
 /* ============================================================
-   PRODUCT CONTAINER
+   PRODUCT CARDS - PREMIUM REDESIGN
+   Hanya bagian kartu produk yang diperbarui
    ============================================================ */
 
 .produk-container {
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 30px;
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
     align-items: stretch;
 }
 
@@ -72,157 +70,229 @@
    ============================================================ */
 
 .produk-card {
+    --card-bg: #ffffff;
 
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.98), rgba(248,250,252,.96));
+    border: 1px solid rgba(226,232,240,.92);
+    border-radius: 26px;
+    padding: 26px 25px 22px;
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.06);
+        0 12px 35px rgba(15,23,42,.07),
+        0 2px 8px rgba(15,23,42,.03);
 
     display: flex;
     flex-direction: column;
-
-    min-height: 610px;
-
+    min-height: 620px;
     box-sizing: border-box;
-
     position: relative;
-
     overflow: hidden;
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease,
+        border-color .35s ease;
 
-    animation: cardAppear 0.8s ease both;
+    animation: productCardReveal .8s cubic-bezier(.2,.8,.2,1) both;
+    isolation: isolate;
 }
 
 
-/* ============================================================
-   ANIMASI CARD
-   ============================================================ */
+/* soft decorative glow */
+
+.produk-card::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    right: -95px;
+    top: -95px;
+    border-radius: 50%;
+    background: var(--produk-color);
+    opacity: .055;
+    filter: blur(2px);
+    transition:
+        transform .55s ease,
+        opacity .45s ease;
+    z-index: -1;
+}
 
 .produk-card:nth-child(1) {
-    animation-delay: 0.1s;
+    animation-delay: .08s;
 }
 
 .produk-card:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: .18s;
 }
 
 .produk-card:nth-child(3) {
-    animation-delay: 0.3s;
+    animation-delay: .28s;
 }
 
 
-/* ============================================================
-   GARIS DEKORASI ATAS
-   ============================================================ */
+/* premium accent line */
 
 .produk-card::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
-    left: 0;
+    left: 24px;
+    right: 24px;
+    width: auto;
+    height: 3px;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--produk-color),
+        transparent
+    );
+    transform: scaleX(.35);
+    transform-origin: center;
+    opacity: .75;
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+}
 
-    width: 100%;
-    height: 4px;
-
-    background: var(--produk-color);
-
-    transform: scaleX(0);
-
-    transform-origin: left;
-
-    transition: transform 0.35s ease;
+.produk-card:hover {
+    transform: translateY(-12px);
+    border-color: color-mix(in srgb, var(--produk-color) 28%, #e2e8f0);
+    box-shadow:
+        0 24px 55px rgba(15,23,42,.12),
+        0 8px 22px color-mix(in srgb, var(--produk-color) 12%, transparent);
 }
 
 .produk-card:hover::before {
     transform: scaleX(1);
+    opacity: 1;
+}
+
+.produk-card:hover::after {
+    transform: scale(1.45);
+    opacity: .09;
 }
 
 
 /* ============================================================
-   HOVER CARD
+   NUMBER BADGE
    ============================================================ */
 
-.produk-card:hover {
+.produk-card:nth-child(1)::marker {
+    display: none;
+}
 
-    transform: translateY(-10px);
+.produk-card:nth-child(1) .produk-category::before,
+.produk-card:nth-child(2) .produk-category::before,
+.produk-card:nth-child(3) .produk-category::before {
+    content: attr(data-number);
+}
 
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.10);
+.produk-card:nth-child(1) .produk-category::before {
+    content: "01";
+}
+
+.produk-card:nth-child(2) .produk-category::before {
+    content: "02";
+}
+
+.produk-card:nth-child(3) .produk-category::before {
+    content: "03";
+}
+
+.produk-category::before {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--produk-color) 10%, white);
+    border: 1px solid color-mix(in srgb, var(--produk-color) 24%, white);
+    font-size: 10px;
+    letter-spacing: .5px;
 }
 
 
 /* ============================================================
-   IMAGE
+   IMAGE AREA
    ============================================================ */
 
 .produk-image-wrapper {
-
-    width: 170px;
-    height: 170px;
-
-    margin: 0 auto 25px;
-
+    width: 154px;
+    height: 154px;
+    margin: 4px auto 22px;
     border-radius: 50%;
-
-    background: #f7f8fa;
-
+    background:
+        radial-gradient(circle at 35% 25%, #ffffff 0%, #f8fafc 58%, #eef2f6 100%);
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
     position: relative;
-
-    border: 8px solid white;
-
+    border: 7px solid #ffffff;
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
+        0 14px 30px rgba(15,23,42,.10),
+        0 0 0 1px rgba(226,232,240,.8);
 
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease;
 }
 
+/* rotating decorative ring */
 
-.produk-card:hover .produk-image-wrapper {
-
-    transform: scale(1.04);
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,0.12);
+.produk-image-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 1px dashed color-mix(in srgb, var(--produk-color) 38%, transparent);
+    opacity: .55;
+    transition:
+        transform .8s ease,
+        opacity .45s ease;
 }
 
+.produk-image-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 8px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: var(--produk-color);
+    box-shadow: 0 0 0 6px rgba(255,255,255,.9);
+    opacity: .9;
+}
 
 .produk-image-wrapper img {
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     border-radius: 50%;
-
     transition:
-        transform 0.5s ease;
+        transform .65s cubic-bezier(.2,.8,.2,1),
+        filter .45s ease;
 }
 
+.produk-card:hover .produk-image-wrapper {
+    transform: translateY(-5px) scale(1.035);
+    box-shadow:
+        0 18px 38px rgba(15,23,42,.14),
+        0 0 0 7px color-mix(in srgb, var(--produk-color) 7%, white);
+}
 
-.produk-card:hover
-.produk-image-wrapper img {
+.produk-card:hover .produk-image-wrapper::before {
+    transform: rotate(180deg);
+    opacity: .9;
+}
 
-    transform: scale(1.10);
+.produk-card:hover .produk-image-wrapper img {
+    transform: scale(1.08);
+    filter: saturate(1.06);
 }
 
 
@@ -231,24 +301,17 @@
    ============================================================ */
 
 .produk-category {
-
     text-align: center;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    letter-spacing: 0.5px;
-
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
     color: var(--produk-color);
-
     margin-bottom: 7px;
-
-    height: 20px;
-
+    min-height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-transform: uppercase;
 }
 
 
@@ -257,23 +320,25 @@
    ============================================================ */
 
 .produk-card h2 {
-
     font-family: Georgia, serif;
-
     color: #111827;
-
     text-align: center;
-
     font-size: 29px;
-
-    margin: 0 0 10px;
-
-    min-height: 40px;
-
+    line-height: 1.25;
+    margin: 0 0 11px;
+    min-height: 38px;
     display: flex;
-
     align-items: center;
     justify-content: center;
+    letter-spacing: -.3px;
+    transition:
+        color .3s ease,
+        transform .35s ease;
+}
+
+.produk-card:hover h2 {
+    color: #172033;
+    transform: translateY(-2px);
 }
 
 
@@ -282,26 +347,21 @@
    ============================================================ */
 
 .produk-line {
-
-    width: 55px;
-
-    height: 4px;
-
+    width: 42px;
+    height: 3px;
     border-radius: 20px;
-
     background: var(--produk-color);
-
     margin: 0 auto 20px;
-
     flex-shrink: 0;
-
+    box-shadow: 0 3px 10px color-mix(in srgb, var(--produk-color) 28%, transparent);
     transition:
-        width 0.35s ease;
+        width .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease;
 }
 
-
 .produk-card:hover .produk-line {
-    width: 90px;
+    width: 78px;
+    box-shadow: 0 5px 16px color-mix(in srgb, var(--produk-color) 38%, transparent);
 }
 
 
@@ -310,25 +370,15 @@
    ============================================================ */
 
 .produk-description {
-
-    color: #65746b;
-
+    color: #64748b;
     text-align: center;
-
-    font-size: 15px;
-
+    font-size: 14px;
     line-height: 1.8;
-
     margin: 0;
-
-    height: 125px;
-
+    height: 122px;
     display: flex;
-
     align-items: flex-start;
-
     justify-content: center;
-
     flex-shrink: 0;
 }
 
@@ -338,65 +388,46 @@
    ============================================================ */
 
 .produk-info {
-
-    margin-top: 5px;
-
+    margin-top: 4px;
     padding: 15px 17px;
-
-    border-radius: 12px;
-
-    background: #f8fafc;
-
+    border-radius: 15px;
+    background:
+        linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--produk-color) 4%, #f8fafc),
+            #ffffff
+        );
+    border: 1px solid rgba(226,232,240,.75);
     border-left: 3px solid var(--produk-color);
-
-    color: #596579;
-
+    color: #64748b;
     font-size: 13px;
-
     line-height: 1.7;
-
-    height: 105px;
-
+    min-height: 100px;
     box-sizing: border-box;
-
     flex-shrink: 0;
-
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
 }
-
 
 .produk-card:hover .produk-info {
-
-    transform: translateY(-2px);
-
+    transform: translateY(-3px);
     box-shadow:
-        0 5px 15px rgba(0,0,0,0.04);
+        0 9px 22px rgba(15,23,42,.06);
+    background:
+        linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--produk-color) 7%, #f8fafc),
+            #ffffff
+        );
 }
-
 
 .produk-info strong {
-
     color: #263238;
-
     display: inline-block;
-
     margin-bottom: 2px;
-}
-
-
-/* ============================================================
-   BUTTON AREA
-   ============================================================ */
-
-.produk-button {
-
-    margin-top: auto;
-
-    padding-top: 25px;
-
-    flex-shrink: 0;
+    font-size: 13px;
 }
 
 
@@ -404,79 +435,159 @@
    BUTTON
    ============================================================ */
 
-.btn-detail {
-
-    width: 100%;
-
-    height: 52px;
-
-    border-radius: 10px;
-
-    border: 1.5px solid var(--produk-color);
-
-    background: white;
-
-    color: var(--produk-color);
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition:
-        color 0.3s ease,
-        transform 0.2s ease,
-        box-shadow 0.3s ease;
+.produk-button {
+    margin-top: auto;
+    padding-top: 22px;
+    flex-shrink: 0;
 }
 
+.btn-detail {
+    width: 100%;
+    height: 50px;
+    border-radius: 13px;
+    border: 1px solid color-mix(in srgb, var(--produk-color) 70%, #ffffff);
+    background: #ffffff;
+    color: var(--produk-color);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition:
+        color .35s ease,
+        transform .25s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
 
 .btn-detail::before {
-
     content: "";
-
     position: absolute;
-
     left: 0;
     top: 0;
-
     width: 0;
     height: 100%;
-
     background: var(--produk-color);
-
     transition:
-        width 0.3s ease;
-
+        width .4s cubic-bezier(.2,.8,.2,1);
     z-index: 0;
 }
 
+.btn-detail::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 45%;
+    height: 200%;
+    background: rgba(255,255,255,.22);
+    transform: rotate(20deg);
+    transition: left .65s ease;
+    z-index: 1;
+}
 
 .btn-detail:hover::before {
     width: 100%;
 }
 
+.btn-detail:hover::after {
+    left: 125%;
+}
 
 .btn-detail:hover {
-
     color: white;
-
-    transform: translateY(-2px);
-
+    border-color: var(--produk-color);
+    transform: translateY(-3px);
     box-shadow:
-        0 7px 18px rgba(0,0,0,0.08);
+        0 10px 24px color-mix(in srgb, var(--produk-color) 22%, transparent);
+}
+
+.btn-detail:active {
+    transform: translateY(-1px) scale(.99);
+}
+
+.btn-detail span {
+    position: relative;
+    z-index: 2;
 }
 
 
-.btn-detail span {
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
 
-    position: relative;
+@keyframes productCardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(45px) scale(.97);
+    }
 
-    z-index: 2;
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE - CARD AREA
+   ============================================================ */
+
+@media(max-width: 1050px) {
+    .produk-container {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        gap: 24px;
+    }
+
+    .produk-card {
+        min-height: auto;
+    }
+}
+
+@media(max-width: 650px) {
+    .produk-container {
+        gap: 20px;
+    }
+
+    .produk-card {
+        border-radius: 22px;
+        padding: 23px 20px 20px;
+    }
+
+    .produk-image-wrapper {
+        width: 138px;
+        height: 138px;
+        margin-bottom: 19px;
+    }
+
+    .produk-card h2 {
+        font-size: 26px;
+    }
+
+    .produk-description {
+        height: auto;
+        min-height: 105px;
+    }
+
+    .produk-info {
+        min-height: 96px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    .produk-card,
+    .produk-card *,
+    .produk-card::before,
+    .produk-card::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 
@@ -1202,7 +1313,7 @@ body.modal-open {
 
         <div
             class="produk-card"
-            style="--produk-color: #d49b00;"
+            style="--produk-color: #8d2634;"
         >
 
             <div class="produk-image-wrapper">
@@ -1278,7 +1389,7 @@ body.modal-open {
 
         <div
             class="produk-card"
-            style="--produk-color: #2d8a57;"
+            style="--produk-color: #8d2634;"
         >
 
             <div class="produk-image-wrapper">
@@ -1351,7 +1462,7 @@ body.modal-open {
 
         <div
             class="produk-card"
-            style="--produk-color: #2868c7;"
+            style="--produk-color: #8d2634;"
         >
 
             <div class="produk-image-wrapper">
@@ -1435,7 +1546,7 @@ body.modal-open {
 >
     <div
         class="produk-modal-box"
-        style="--produk-color: #d49b00;"
+        style="--produk-color: #8d2634;"
     >
         <button
             class="modal-close"
@@ -1528,7 +1639,7 @@ body.modal-open {
 >
     <div
         class="produk-modal-box"
-        style="--produk-color: #2d8a57;"
+        style="--produk-color: #8d2634;"
     >
         <button
             class="modal-close"
@@ -1622,7 +1733,7 @@ body.modal-open {
 >
     <div
         class="produk-modal-box"
-        style="--produk-color: #2868c7;"
+        style="--produk-color: #8d2634;"
     >
         <button
             class="modal-close"
