@@ -3,16 +3,22 @@
 @section('content')
 
 <style>
+
     .edu-page {
         --green: #176b4d;
-        --green-dark: #0f513a;
+        --green-dark: #124f39;
+        --green-light: #23805d;
         --green-soft: #eaf5ef;
-        --red: #b52b2f;
+
+        --red: #8d2634;
         --red-soft: #faeeee;
+
         --text: #202522;
         --muted: #6d756f;
         --line: #e4e9e5;
+
         --bg: #f7f9f7;
+        --white: #ffffff;
 
         padding: 28px 32px 50px;
         background: var(--bg);
@@ -20,392 +26,933 @@
         color: var(--text);
     }
 
-    /* =========================
+
+    /* =====================================================
        HERO
-    ========================= */
+    ===================================================== */
 
     .edu-hero {
         position: relative;
         overflow: hidden;
+
+        width: 100%;
+
+        height: 165px !important;
+        min-height: 165px !important;
+        max-height: 165px !important;
+
+        padding: 0 !important;
+
         background: linear-gradient(
             120deg,
             #124f39 0%,
             #176b4d 60%,
             #23805d 100%
         );
-        border-radius: 24px;
-        padding: 38px 42px;
-        color: white;
-        margin-bottom: 27px;
-        box-shadow: 0 12px 30px rgba(23,107,77,.15);
+
+        border-radius: 20px;
+
+        color: #fff;
+
+        margin-bottom: 24px;
+
+        box-shadow:
+            0 9px 22px rgba(23,107,77,.11);
+
+        box-sizing: border-box;
     }
+
 
     .edu-hero::before {
         content: "";
+
         position: absolute;
-        width: 240px;
-        height: 240px;
-        border: 45px solid rgba(255,255,255,.06);
+
+        width: 190px;
+        height: 190px;
+
+        border: 35px solid rgba(255,255,255,.06);
+
         border-radius: 50%;
-        right: -65px;
-        top: -100px;
+
+        right: -55px;
+        top: -80px;
+
+        pointer-events: none;
     }
+
 
     .edu-hero::after {
         content: "";
+
         position: absolute;
-        width: 130px;
-        height: 130px;
-        border: 25px solid rgba(181,43,47,.18);
+
+        width: 100px;
+        height: 100px;
+
+        border: 20px solid rgba(141,38,52,.14);
+
         border-radius: 50%;
+
         right: 150px;
-        bottom: -85px;
+        bottom: -65px;
+
+        pointer-events: none;
     }
+
 
     .hero-content {
         position: relative;
+
         z-index: 2;
+
+        width: 100%;
+        height: 100%;
+
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 25px;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        padding: 0 !important;
+
+        margin: 0 !important;
     }
+
+
+    .hero-text {
+        width: 100%;
+
+        max-width: 900px;
+
+        margin-left: 42px !important;
+
+        padding-top: 20px !important;
+    }
+
 
     .hero-label {
         display: inline-flex;
+
         align-items: center;
-        gap: 8px;
-        padding: 7px 13px;
+
+        gap: 5px;
+
+        padding: 4px 9px;
+
+        margin-bottom: 6px;
+
         border-radius: 50px;
+
         background: rgba(255,255,255,.12);
-        border: 1px solid rgba(255,255,255,.12);
-        font-size: 11px;
+
+        border: 1px solid rgba(255,255,255,.17);
+
+        color: #fff;
+
+        font-size: 9px;
+
         font-weight: 700;
-        letter-spacing: .4px;
-        margin-bottom: 14px;
+
+        letter-spacing: .3px;
     }
+
+
+    .hero-label i {
+        color: #fff;
+        font-size: 9px;
+    }
+
 
     .hero-title {
-        margin: 0 0 12px;
-        font-size: clamp(29px,4vw,43px);
-        line-height: 1.1;
+        margin: 0 0 5px;
+
+        font-size: 36px;
+
+        line-height: 1.05;
+
         font-weight: 800;
-        letter-spacing: -.8px;
+
+        letter-spacing: -.7px;
+
+        color: #fff !important;
     }
+
 
     .hero-description {
-        max-width: 700px;
+        max-width: 900px;
+
         margin: 0;
-        color: rgba(255,255,255,.82);
-        font-size: 14px;
-        line-height: 1.75;
+
+        color: rgba(255,255,255,.84) !important;
+
+        font-size: 12px;
+
+        line-height: 1.45;
     }
+
 
     .hero-icon {
-        width: 110px;
-        height: 110px;
-        min-width: 110px;
-        border-radius: 28px;
-        background: rgba(255,255,255,.11);
-        border: 1px solid rgba(255,255,255,.18);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 45px;
-        animation: floating 4s ease-in-out infinite;
+        display: none !important;
     }
 
-    @keyframes floating {
-        0%,100% {
-            transform: translateY(0);
-        }
 
-        50% {
-            transform: translateY(-7px);
-        }
-    }
-
-    /* =========================
+    /* =====================================================
        INTRO
-    ========================= */
+    ===================================================== */
 
     .intro-strip {
         display: flex;
+
         align-items: center;
+
         gap: 16px;
-        background: white;
+
+        background: #fff;
+
         border: 1px solid var(--line);
+
         border-radius: 18px;
+
         padding: 17px 20px;
+
         margin-bottom: 29px;
+
+        box-shadow:
+            0 5px 16px rgba(30,50,40,.025);
     }
+
 
     .intro-icon {
         width: 48px;
         height: 48px;
+
         min-width: 48px;
+
         border-radius: 14px;
+
         background: var(--red-soft);
+
         color: var(--red);
+
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
         font-size: 21px;
     }
 
+
     .intro-strip strong {
         display: block;
+
         font-size: 14px;
+
         margin-bottom: 3px;
     }
 
+
     .intro-strip span {
         display: block;
+
         color: var(--muted);
+
         font-size: 12.5px;
+
         line-height: 1.55;
     }
 
-    /* =========================
+
+    /* =====================================================
        SECTION
-    ========================= */
+    ===================================================== */
+
+    .edu-section {
+        margin-bottom: 30px;
+    }
+
 
     .section-marker {
         width: 42px;
+
         height: 4px;
+
         border-radius: 20px;
+
         background: linear-gradient(
             90deg,
             var(--red),
             var(--green)
         );
+
         margin-bottom: 10px;
     }
 
+
     .section-title {
         margin: 0;
+
         font-size: 21px;
+
         font-weight: 800;
+
         letter-spacing: -.3px;
     }
 
+
     .section-subtitle {
         margin: 4px 0 17px;
+
         color: var(--muted);
+
         font-size: 13px;
     }
 
-    /* =========================
-       CARDS
-    ========================= */
 
-    .general-grid {
+    /* =====================================================
+       EDUCATION CARD
+    ===================================================== */
+
+    .education-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0,1fr));
+
+        grid-template-columns:
+            repeat(3, minmax(0,1fr));
+
         gap: 17px;
     }
 
-    .general-card {
+
+    .education-card {
         position: relative;
-        background: white;
+
+        background: #fff;
+
         border: 1px solid var(--line);
+
         border-radius: 18px;
+
         overflow: hidden;
-        transition: .3s ease;
+
+        transition:
+            transform .3s ease,
+            box-shadow .3s ease,
+            border-color .3s ease;
     }
 
-    .general-card:hover {
+
+    .education-card:hover {
         transform: translateY(-5px);
+
         border-color: #cbd9d0;
-        box-shadow: 0 13px 28px rgba(30,50,40,.08);
+
+        box-shadow:
+            0 13px 28px rgba(30,50,40,.08);
     }
 
-    .general-card::before {
+
+    .education-card::before {
         content: "";
+
         position: absolute;
+
         left: 0;
         top: 0;
+
         width: 4px;
         height: 100%;
+
         background: var(--green);
     }
 
-    .general-card:nth-child(2)::before {
+
+    .education-card:nth-child(2)::before {
         background: var(--red);
     }
 
-    .card-visual {
-        height: 115px;
-        position: relative;
+
+    .education-card:nth-child(3)::before {
+        background: var(--green);
+    }
+
+
+    .card-top {
+        padding: 17px 18px 8px;
+
         display: flex;
+
+        justify-content: space-between;
+
         align-items: center;
-        justify-content: center;
-        background: var(--green-soft);
-        overflow: hidden;
     }
 
-    .general-card:nth-child(2) .card-visual {
-        background: var(--red-soft);
-    }
-
-    .card-visual::before {
-        content: "";
-        position: absolute;
-        width: 125px;
-        height: 125px;
-        border: 25px solid rgba(23,107,77,.06);
-        border-radius: 50%;
-        right: -35px;
-        top: -55px;
-    }
-
-    .general-card:nth-child(2) .card-visual::before {
-        border-color: rgba(181,43,47,.06);
-    }
-
-    .visual-icon {
-        position: relative;
-        z-index: 2;
-        width: 58px;
-        height: 58px;
-        border-radius: 17px;
-        background: white;
-        color: var(--green);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 27px;
-        box-shadow: 0 7px 18px rgba(20,60,40,.08);
-    }
-
-    .general-card:nth-child(2) .visual-icon {
-        color: var(--red);
-    }
-
-    .card-body {
-        padding: 17px 18px 19px;
-    }
 
     .card-number {
-        display: block;
         color: var(--red);
+
         font-size: 10px;
+
         font-weight: 800;
+
         letter-spacing: 1px;
-        margin-bottom: 5px;
     }
+
+
+    .card-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 13px;
+
+        background: var(--green-soft);
+
+        color: var(--green);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 20px;
+    }
+
+
+    .education-card:nth-child(2) .card-icon {
+        background: var(--red-soft);
+
+        color: var(--red);
+    }
+
+
+    .card-body {
+        padding: 4px 18px 18px;
+    }
+
 
     .card-body h3 {
         margin: 0 0 7px;
-        font-size: 17px;
+
+        font-size: 16px;
+
         font-weight: 750;
+
+        line-height: 1.35;
     }
+
 
     .card-body p {
         margin: 0;
+
         color: var(--muted);
+
         font-size: 12.5px;
+
         line-height: 1.65;
     }
 
+
     .card-footer {
         display: flex;
-        align-items: center;
+
         justify-content: space-between;
+
+        align-items: center;
+
         margin-top: 15px;
+
         padding-top: 12px;
+
         border-top: 1px solid #edf0ed;
     }
 
+
     .card-footer span {
         font-size: 10.5px;
+
         color: var(--muted);
+
         font-weight: 600;
     }
 
+
     .detail-button {
+        border: 0;
+
         width: 31px;
         height: 31px;
-        border: 0;
+
         border-radius: 9px;
+
         background: var(--green);
-        color: white;
+
+        color: #fff;
+
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
         cursor: pointer;
+
         transition: .25s;
     }
 
+
     .detail-button:hover {
         background: var(--red);
+
         transform: translateX(3px);
     }
 
-    /* =========================
+
+    /* =====================================================
        DETAIL
-    ========================= */
+    ===================================================== */
 
     .detail-panel {
         display: none;
-        margin-top: 18px;
-        background: white;
+
+        margin-top: 20px;
+
+        background: #fff;
+
         border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 22px;
-        animation: detailIn .3s ease;
+
+        border-radius: 20px;
+
+        padding: 25px;
+
+        animation: detailIn .35s ease;
+
+        box-shadow:
+            0 8px 25px rgba(30,50,40,.04);
     }
+
 
     .detail-panel.active {
         display: block;
     }
 
+
     @keyframes detailIn {
+
         from {
             opacity: 0;
-            transform: translateY(8px);
+            transform: translateY(10px);
         }
 
         to {
             opacity: 1;
             transform: translateY(0);
         }
+
     }
+
 
     .detail-head {
         display: flex;
+
         justify-content: space-between;
+
         align-items: center;
+
         gap: 15px;
-        margin-bottom: 10px;
+
+        padding-bottom: 15px;
+
+        margin-bottom: 20px;
+
+        border-bottom: 1px solid var(--line);
     }
+
 
     .detail-head h3 {
         margin: 0;
-        font-size: 17px;
-        font-weight: 750;
+
+        font-size: 19px;
+
+        font-weight: 800;
+
+        color: var(--text);
     }
+
+
+    .detail-head h3 i {
+        color: var(--green);
+    }
+
 
     .close-detail {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
+
         border: 0;
+
         border-radius: 50%;
+
         background: #f1f3f1;
+
         color: #666;
+
         cursor: pointer;
+
+        font-size: 18px;
+
+        transition: .2s;
     }
 
-    .detail-panel p {
+
+    .close-detail:hover {
+        background: var(--red);
+
+        color: #fff;
+    }
+
+
+    /* =====================================================
+       INTRO DETAIL
+    ===================================================== */
+
+    .detail-intro {
+        background: var(--green-soft);
+
+        border-left: 4px solid var(--green);
+
+        border-radius: 12px;
+
+        padding: 15px 17px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .detail-intro strong {
+        display: block;
+
+        font-size: 14px;
+
+        margin-bottom: 5px;
+
+        color: var(--green-dark);
+    }
+
+
+    .detail-intro p {
         margin: 0;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.75;
+
+        color: #5f6963;
+
+        font-size: 12.5px;
+
+        line-height: 1.7;
     }
 
-    /* =========================
+
+    /* =====================================================
+       DOKUMEN
+    ===================================================== */
+
+    .document-section {
+        margin-top: 22px;
+
+        padding-top: 22px;
+
+        border-top: 1px solid var(--line);
+    }
+
+
+    .document-title {
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .document-title i {
+        color: var(--red);
+
+        font-size: 18px;
+    }
+
+
+    .document-title strong {
+        font-size: 16px;
+    }
+
+
+    .document-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+        gap: 11px;
+    }
+
+
+    .document-item {
+        display: flex;
+
+        align-items: center;
+
+        gap: 11px;
+
+        padding: 13px 14px;
+
+        border: 1px solid var(--line);
+
+        border-radius: 12px;
+
+        background: #fafcfb;
+
+        transition: .2s ease;
+    }
+
+
+    .document-item:hover {
+        border-color: #cbd9d0;
+
+        background: var(--green-soft);
+    }
+
+
+    .document-item-icon {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+
+        border-radius: 9px;
+
+        background: var(--red-soft);
+
+        color: var(--red);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .document-item strong {
+        display: block;
+
+        font-size: 12.5px;
+
+        margin-bottom: 2px;
+    }
+
+
+    .document-item span {
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 10.5px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       TIMELINE
+    ===================================================== */
+
+    .timeline-section {
+        margin-top: 24px;
+
+        padding-top: 22px;
+
+        border-top: 1px solid var(--line);
+    }
+
+
+    .timeline-title {
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .timeline-title i {
+        color: var(--green);
+
+        font-size: 18px;
+    }
+
+
+    .timeline-title strong {
+        font-size: 16px;
+    }
+
+
+    .timeline {
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, minmax(0,1fr));
+
+        gap: 10px;
+    }
+
+
+    .timeline-item {
+        position: relative;
+
+        padding: 15px 12px;
+
+        border: 1px solid var(--line);
+
+        border-radius: 13px;
+
+        background: #fafcfb;
+    }
+
+
+    .timeline-number {
+        width: 27px;
+        height: 27px;
+
+        border-radius: 50%;
+
+        background: var(--green);
+
+        color: #fff;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        margin-bottom: 9px;
+    }
+
+
+    .timeline-item:nth-child(even)
+    .timeline-number {
+        background: var(--red);
+    }
+
+
+    .timeline-item strong {
+        display: block;
+
+        font-size: 11.5px;
+
+        margin-bottom: 4px;
+    }
+
+
+    .timeline-item span {
+        color: var(--muted);
+
+        font-size: 10.5px;
+
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       KEGIATAN & TEORI DETAIL
+    ===================================================== */
+
+    .simple-detail-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+        gap: 18px;
+    }
+
+
+    .simple-detail-box {
+        border: 1px solid var(--line);
+
+        border-radius: 15px;
+
+        padding: 18px;
+
+        background: #fff;
+    }
+
+
+    .simple-detail-box-title {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .simple-detail-box-title div {
+        width: 35px;
+        height: 35px;
+
+        border-radius: 10px;
+
+        background: var(--green-soft);
+
+        color: var(--green);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .simple-detail-box:nth-child(even)
+    .simple-detail-box-title div {
+        background: var(--red-soft);
+
+        color: var(--red);
+    }
+
+
+    .simple-detail-box-title strong {
+        font-size: 14px;
+    }
+
+
+    .simple-detail-box p {
+        margin: 0;
+
+        color: var(--muted);
+
+        font-size: 12.5px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =====================================================
        RESPONSIVE
-    ========================= */
+    ===================================================== */
 
     @media(max-width: 950px) {
 
@@ -413,10 +960,38 @@
             padding: 22px 20px 40px;
         }
 
-        .general-grid {
-            grid-template-columns: repeat(2,minmax(0,1fr));
+
+        .edu-hero {
+            height: 165px !important;
+            min-height: 165px !important;
+            max-height: 165px !important;
         }
+
+
+        .hero-text {
+            margin-left: 32px !important;
+            padding-top: 20px !important;
+        }
+
+
+        .hero-title {
+            font-size: 32px;
+        }
+
+
+        .education-grid {
+            grid-template-columns:
+                repeat(2, minmax(0,1fr));
+        }
+
+
+        .timeline {
+            grid-template-columns:
+                repeat(3, minmax(0,1fr));
+        }
+
     }
+
 
     @media(max-width: 650px) {
 
@@ -424,369 +999,957 @@
             padding: 16px 14px 35px;
         }
 
+
         .edu-hero {
-            padding: 27px 23px;
-            border-radius: 20px;
+            height: auto !important;
+
+            min-height: 165px !important;
+
+            max-height: none !important;
+
+            border-radius: 18px;
         }
 
-        .hero-icon {
-            display: none;
+
+        .hero-content {
+            min-height: 165px;
+
+            height: auto;
         }
+
+
+        .hero-text {
+            margin-left: 22px !important;
+
+            margin-right: 18px;
+
+            padding-top: 20px !important;
+        }
+
 
         .hero-title {
             font-size: 29px;
         }
 
-        .general-grid {
+
+        .hero-description {
+            font-size: 11.5px;
+        }
+
+
+        .education-grid {
             grid-template-columns: 1fr;
         }
+
+
+        .document-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .timeline {
+            grid-template-columns: 1fr;
+        }
+
+
+        .simple-detail-grid {
+            grid-template-columns: 1fr;
+        }
+
 
         .intro-strip {
             align-items: flex-start;
         }
+
     }
+
 </style>
+
 
 <div class="edu-page">
 
-```
-{{-- =========================
-     HERO
-========================= --}}
 
-<section class="edu-hero">
+    <!-- =================================================
+         HERO
+    ================================================= -->
 
-    <div class="hero-content">
+    <section class="edu-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <div class="hero-label">
+
+                    <i class="bi bi-mortarboard-fill"></i>
+
+                    PUSAT EDUKASI UMUM
+
+                </div>
+
+
+                <h1 class="hero-title">
+                    Edukasi Umum
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Informasi dan pembelajaran umum untuk mengenal
+                    dunia kerja, kegiatan sosial, serta pengetahuan
+                    dasar perdagangan berjangka.
+
+                </p>
+
+            </div>
+
+
+            <div class="hero-icon">
+
+                <i class="bi bi-book-half"></i>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         INTRO
+    ================================================= -->
+
+    <div class="intro-strip">
+
+        <div class="intro-icon">
+
+            <i class="bi bi-lightbulb"></i>
+
+        </div>
+
 
         <div>
 
-            <div class="hero-label">
-                <i class="bi bi-globe2"></i>
-                INFORMASI & KEGIATAN UMUM
-            </div>
+            <strong>
+                Belajar, berkembang, dan mengenal dunia kerja
+            </strong>
 
-            <h1 class="hero-title">
-                Edukasi Umum
-            </h1>
+            <span>
 
-            <p class="hero-description">
-                Mengenal berbagai kegiatan, program, dan wawasan umum
-                yang menjadi bagian dari aktivitas perusahaan,
-                mulai dari program magang hingga kegiatan sosial.
-            </p>
+                Edukasi umum memberikan informasi mengenai
+                pengalaman kerja, kegiatan sosial, dan pengetahuan
+                dasar yang dapat membantu peserta memahami
+                lingkungan profesional.
+
+            </span>
 
         </div>
 
-        <div class="hero-icon">
-            <i class="bi bi-people-fill"></i>
-        </div>
-
     </div>
 
-</section>
 
 
-{{-- =========================
-     INTRO
-========================= --}}
+    <!-- =================================================
+         MATERI EDUKASI
+    ================================================= -->
 
-<div class="intro-strip">
+    <section class="edu-section">
 
-    <div class="intro-icon">
-        <i class="bi bi-stars"></i>
-    </div>
-
-    <div>
-
-        <strong>
-            Belajar tidak hanya tentang teori
-        </strong>
-
-        <span>
-            Kenali kegiatan perusahaan, kontribusi sosial,
-            serta wawasan umum yang dapat memberikan pengalaman
-            dan pengetahuan lebih luas.
-        </span>
-
-    </div>
-
-</div>
+        <div class="section-marker"></div>
 
 
-{{-- =========================
-     MATERI UMUM
-========================= --}}
-
-<section>
-
-    <div class="section-marker"></div>
-
-    <h2 class="section-title">
-        Informasi & Kegiatan
-    </h2>
-
-    <p class="section-subtitle">
-        Jelajahi berbagai program dan pengetahuan umum yang tersedia.
-    </p>
+        <h2 class="section-title">
+            Materi Edukasi Umum
+        </h2>
 
 
-    <div class="general-grid">
+        <p class="section-subtitle">
+            Informasi umum untuk menambah wawasan dan pengalaman.
+        </p>
 
-        {{-- =====================
-             MAGANG
-        ====================== --}}
 
-        <article class="general-card">
+        <div class="education-grid">
 
-            <div class="card-visual">
 
-                <div class="visual-icon">
-                    <i class="bi bi-mortarboard-fill"></i>
-                </div>
+            <!-- =================================================
+                 CARD 1 - MAGANG
+            ================================================= -->
 
-            </div>
+            <article class="education-card">
 
-            <div class="card-body">
+                <div class="card-top">
 
-                <span class="card-number">
-                    01 / PROGRAM
-                </span>
-
-                <h3>
-                    Magang
-                </h3>
-
-                <p>
-                    Mengenal program magang sebagai kesempatan untuk
-                    mendapatkan pengalaman kerja, mengembangkan
-                    kemampuan, dan mengenal lingkungan profesional
-                    secara langsung.
-                </p>
-
-                <div class="card-footer">
-
-                    <span>
-                        Program pembelajaran
+                    <span class="card-number">
+                        01 / MAGANG
                     </span>
 
-                    <button
-                        class="detail-button"
-                        onclick="bukaMateri('materi1')"
-                    >
-                        <i class="bi bi-arrow-right"></i>
-                    </button>
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-briefcase-fill"></i>
+
+                    </div>
 
                 </div>
 
-            </div>
 
-        </article>
+                <div class="card-body">
+
+                    <h3>
+                        Program Magang
+                    </h3>
 
 
-        {{-- =====================
-             PANTI ASUHAN
-        ====================== --}}
+                    <p>
 
-        <article class="general-card">
+                        Kesempatan bagi pelajar dan mahasiswa
+                        untuk mengenal lingkungan kerja profesional
+                        serta memperoleh pengalaman melalui
+                        kegiatan magang.
 
-            <div class="card-visual">
+                    </p>
 
-                <div class="visual-icon">
-                    <i class="bi bi-heart-fill"></i>
+
+                    <div class="card-footer">
+
+                        <span>
+                            Pelajari program
+                        </span>
+
+
+                        <button
+                            class="detail-button"
+                            onclick="bukaMateri('materiMagang')"
+                        >
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
                 </div>
 
-            </div>
+            </article>
 
-            <div class="card-body">
 
-                <span class="card-number">
-                    02 / SOSIAL
-                </span>
+
+            <!-- =================================================
+                 CARD 2 - KEGIATAN
+            ================================================= -->
+
+            <article class="education-card">
+
+                <div class="card-top">
+
+                    <span class="card-number">
+                        02 / KEGIATAN
+                    </span>
+
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-people-fill"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <h3>
+                        Kegiatan
+                    </h3>
+
+
+                    <p>
+
+                        Informasi mengenai berbagai kegiatan
+                        yang dilakukan sebagai bagian dari
+                        pembelajaran, kebersamaan, dan kontribusi
+                        sosial.
+
+                    </p>
+
+
+                    <div class="card-footer">
+
+                        <span>
+                            Lihat kegiatan
+                        </span>
+
+
+                        <button
+                            class="detail-button"
+                            onclick="bukaMateri('materiKegiatan')"
+                        >
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 CARD 3 - TEORI
+            ================================================= -->
+
+            <article class="education-card">
+
+                <div class="card-top">
+
+                    <span class="card-number">
+                        03 / PENGETAHUAN
+                    </span>
+
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-journal-text"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <h3>
+                        Teori Umum
+                    </h3>
+
+
+                    <p>
+
+                        Materi dasar untuk membantu memahami
+                        konsep umum mengenai dunia kerja,
+                        komunikasi, dan perdagangan berjangka.
+
+                    </p>
+
+
+                    <div class="card-footer">
+
+                        <span>
+                            Pelajari materi
+                        </span>
+
+
+                        <button
+                            class="detail-button"
+                            onclick="bukaMateri('materiTeori')"
+                        >
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DETAIL PROGRAM MAGANG
+        ================================================= -->
+
+        <div
+            id="materiMagang"
+            class="detail-panel"
+        >
+
+            <div class="detail-head">
 
                 <h3>
+
+                    <i class="bi bi-briefcase-fill me-2"></i>
+
+                    Program Magang
+
+                </h3>
+
+
+                <button
+                    class="close-detail"
+                    onclick="tutupMateri()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- TENTANG PROGRAM -->
+
+            <div class="detail-intro">
+
+                <strong>
+                    Tentang Program Magang
+                </strong>
+
+
+                <p>
+
+                    Program Magang merupakan kesempatan bagi
+                    pelajar atau mahasiswa untuk memperoleh
+                    pengalaman langsung di lingkungan kerja
+                    profesional. Peserta dapat mengenal dunia
+                    kerja sekaligus mengembangkan kemampuan
+                    komunikasi, administrasi, kerja sama tim,
+                    dan kedisiplinan.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DOKUMEN YANG DIPERLUKAN
+            ================================================= -->
+
+            <div class="document-section">
+
+                <div class="document-title">
+
+                    <i class="bi bi-file-earmark-text-fill"></i>
+
+                    <strong>
+                        Dokumen yang Diperlukan
+                    </strong>
+
+                </div>
+
+
+                <div class="document-grid">
+
+
+                    <!-- DOKUMEN 1 -->
+
+                    <div class="document-item">
+
+                        <div class="document-item-icon">
+
+                            <i class="bi bi-file-earmark-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Surat Pengantar Magang
+                            </strong>
+
+                            <span>
+                                Surat resmi dari sekolah atau perguruan tinggi.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOKUMEN 2 -->
+
+                    <div class="document-item">
+
+                        <div class="document-item-icon">
+
+                            <i class="bi bi-file-earmark-richtext"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Proposal Magang
+                            </strong>
+
+                            <span>
+                                Berisi rencana, tujuan, periode, dan kegiatan magang.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOKUMEN 3 -->
+
+                    <div class="document-item">
+
+                        <div class="document-item-icon">
+
+                            <i class="bi bi-person-vcard"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                CV / Curriculum Vitae
+                            </strong>
+
+                            <span>
+                                Informasi pendidikan, pengalaman, dan kemampuan peserta.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOKUMEN 4 -->
+
+                    <div class="document-item">
+
+                        <div class="document-item-icon">
+
+                            <i class="bi bi-person-badge"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Kartu Pelajar / Mahasiswa
+                            </strong>
+
+                            <span>
+                                Dokumen pendukung status pelajar atau mahasiswa.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOKUMEN 5 -->
+
+                    <div class="document-item">
+
+                        <div class="document-item-icon">
+
+                            <i class="bi bi-folder-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Dokumen Pendukung
+                            </strong>
+
+                            <span>
+                                Dokumen tambahan sesuai kebutuhan program.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOKUMEN 6 -->
+
+                    <div class="document-item">
+
+                        <div class="document-item-icon">
+
+                            <i class="bi bi-journal-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Ketentuan dari Institusi
+                            </strong>
+
+                            <span>
+                                Dokumen tambahan sesuai ketentuan sekolah atau kampus.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ALUR PENGAJUAN
+            ================================================= -->
+
+            <div class="timeline-section">
+
+                <div class="timeline-title">
+
+                    <i class="bi bi-diagram-3-fill"></i>
+
+                    <strong>
+                        Alur Pengajuan Magang
+                    </strong>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-number">
+                            01
+                        </div>
+
+                        <strong>
+                            Persiapkan Dokumen
+                        </strong>
+
+                        <span>
+                            Lengkapi seluruh dokumen
+                            yang dibutuhkan.
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-number">
+                            02
+                        </div>
+
+                        <strong>
+                            Pengajuan
+                        </strong>
+
+                        <span>
+                            Ajukan dokumen kepada
+                            pihak perusahaan.
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-number">
+                            03
+                        </div>
+
+                        <strong>
+                            Konfirmasi
+                        </strong>
+
+                        <span>
+                            Menunggu proses pemeriksaan
+                            dan konfirmasi.
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-number">
+                            04
+                        </div>
+
+                        <strong>
+                            Pelaksanaan
+                        </strong>
+
+                        <span>
+                            Mengikuti program sesuai
+                            jadwal yang ditentukan.
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-number">
+                            05
+                        </div>
+
+                        <strong>
+                            Laporan
+                        </strong>
+
+                        <span>
+                            Menyelesaikan laporan
+                            dan evaluasi kegiatan.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DETAIL KEGIATAN
+        ================================================= -->
+
+        <div
+            id="materiKegiatan"
+            class="detail-panel"
+        >
+
+            <div class="detail-head">
+
+                <h3>
+
+                    <i class="bi bi-people-fill me-2"></i>
+
                     Kegiatan
+
                 </h3>
 
+
+                <button
+                    class="close-detail"
+                    onclick="tutupMateri()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="detail-intro">
+
+                <strong>
+                    Kegiatan Edukasi & Sosial
+                </strong>
+
+
                 <p>
-                    Mengenal kegiatan sosial dan kepedulian perusahaan
-                    melalui berbagai aktivitas bersama panti asuhan
-                    sebagai bentuk kontribusi kepada masyarakat.
+
+                    Kegiatan menjadi bagian dari proses pembelajaran
+                    untuk membangun kebersamaan, pengalaman,
+                    kepedulian, serta hubungan yang positif
+                    dengan lingkungan sekitar.
+
                 </p>
 
-                <div class="card-footer">
+            </div>
 
-                    <span>
-                        Kegiatan sosial
-                    </span>
 
-                    <button
-                        class="detail-button"
-                        onclick="bukaMateri('materi2')"
-                    >
-                        <i class="bi bi-arrow-right"></i>
-                    </button>
+            <div class="simple-detail-grid">
+
+
+                <div class="simple-detail-box">
+
+                    <div class="simple-detail-box-title">
+
+                        <div>
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+
+                        <strong>
+                            Kegiatan Internal
+                        </strong>
+
+                    </div>
+
+
+                    <p>
+
+                        Kegiatan internal dapat berupa pembelajaran,
+                        diskusi, kegiatan bersama tim, maupun aktivitas
+                        lain yang mendukung pengembangan kemampuan
+                        dan kebersamaan.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="simple-detail-box">
+
+                    <div class="simple-detail-box-title">
+
+                        <div>
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+
+                        <strong>
+                            Kegiatan Sosial
+                        </strong>
+
+                    </div>
+
+
+                    <p>
+
+                        Kegiatan sosial menjadi sarana untuk membangun
+                        kepedulian dan memberikan kontribusi positif
+                        kepada lingkungan sekitar.
+
+                    </p>
 
                 </div>
 
             </div>
 
-        </article>
+        </div>
 
 
-        {{-- =====================
-             TEORI UMUM
-        ====================== --}}
 
-        <article class="general-card">
+        <!-- =================================================
+             DETAIL TEORI UMUM
+        ================================================= -->
 
-            <div class="card-visual">
+        <div
+            id="materiTeori"
+            class="detail-panel"
+        >
 
-                <div class="visual-icon">
-                    <i class="bi bi-book-half"></i>
-                </div>
-
-            </div>
-
-            <div class="card-body">
-
-                <span class="card-number">
-                    03 / WAWASAN
-                </span>
+            <div class="detail-head">
 
                 <h3>
+
+                    <i class="bi bi-journal-text me-2"></i>
+
                     Teori Umum
+
                 </h3>
 
+
+                <button
+                    class="close-detail"
+                    onclick="tutupMateri()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="detail-intro">
+
+                <strong>
+                    Pengetahuan Dasar
+                </strong>
+
+
                 <p>
-                    Berbagai pengetahuan umum mengenai dunia kerja,
-                    perusahaan, keuangan, investasi, dan hal-hal
-                    dasar yang dapat menambah wawasan.
+
+                    Materi teori umum membantu peserta memperoleh
+                    pemahaman dasar mengenai lingkungan kerja,
+                    komunikasi profesional, serta pengenalan
+                    perdagangan berjangka.
+
                 </p>
 
-                <div class="card-footer">
+            </div>
 
-                    <span>
-                        Tambah wawasan
-                    </span>
 
-                    <button
-                        class="detail-button"
-                        onclick="bukaMateri('materi3')"
-                    >
-                        <i class="bi bi-arrow-right"></i>
-                    </button>
+            <div class="simple-detail-grid">
+
+
+                <div class="simple-detail-box">
+
+                    <div class="simple-detail-box-title">
+
+                        <div>
+                            <i class="bi bi-chat-dots-fill"></i>
+                        </div>
+
+                        <strong>
+                            Komunikasi Profesional
+                        </strong>
+
+                    </div>
+
+
+                    <p>
+
+                        Memahami pentingnya komunikasi yang baik,
+                        sopan, jelas, dan profesional dalam
+                        lingkungan kerja.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="simple-detail-box">
+
+                    <div class="simple-detail-box-title">
+
+                        <div>
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+
+                        <strong>
+                            Pengenalan Perdagangan
+                        </strong>
+
+                    </div>
+
+
+                    <p>
+
+                        Mengenal secara umum konsep perdagangan
+                        berjangka, karakteristik pasar, serta
+                        pentingnya memahami risiko sebelum
+                        melakukan aktivitas perdagangan.
+
+                    </p>
 
                 </div>
 
             </div>
 
-        </article>
-
-    </div>
-
-
-    {{-- =========================
-         DETAIL MAGANG
-    ========================= --}}
-
-    <div id="materi1" class="detail-panel">
-
-        <div class="detail-head">
-
-            <h3>
-                <i class="bi bi-mortarboard-fill text-success me-2"></i>
-                Program Magang
-            </h3>
-
-            <button
-                class="close-detail"
-                onclick="tutupMateri()"
-            >
-                ×
-            </button>
-
         </div>
 
-        <p>
-            Program magang memberikan kesempatan kepada peserta
-            untuk mengenal lingkungan kerja secara langsung,
-            memahami budaya kerja, mengembangkan keterampilan,
-            serta mendapatkan pengalaman yang dapat menjadi bekal
-            untuk memasuki dunia profesional.
-        </p>
-
-    </div>
-
-
-    {{-- =========================
-         DETAIL PANTI ASUHAN
-    ========================= --}}
-
-    <div id="materi2" class="detail-panel">
-
-        <div class="detail-head">
-
-            <h3>
-                <i class="bi bi-heart-fill text-danger me-2"></i>
-                Kegiatan Panti Asuhan
-            </h3>
-
-            <button
-                class="close-detail"
-                onclick="tutupMateri()"
-            >
-                ×
-            </button>
-
-        </div>
-
-        <p>
-            Kegiatan bersama panti asuhan merupakan salah satu bentuk
-            kepedulian sosial perusahaan kepada masyarakat. Kegiatan
-            dapat berupa kunjungan, berbagi bantuan, maupun aktivitas
-            bersama yang bertujuan memberikan manfaat dan membangun
-            kepedulian terhadap sesama.
-        </p>
-
-    </div>
-
-
-    {{-- =========================
-         DETAIL TEORI UMUM
-    ========================= --}}
-
-    <div id="materi3" class="detail-panel">
-
-        <div class="detail-head">
-
-            <h3>
-                <i class="bi bi-book-half text-success me-2"></i>
-                Teori Umum
-            </h3>
-
-            <button
-                class="close-detail"
-                onclick="tutupMateri()"
-            >
-                ×
-            </button>
-
-        </div>
-
-        <p>
-            Teori umum berisi berbagai pengetahuan dasar yang dapat
-            membantu memahami dunia kerja dan lingkungan perusahaan.
-            Materi dapat mencakup pengenalan perusahaan, dunia
-            keuangan, investasi, perdagangan, komunikasi profesional,
-            serta wawasan lain yang relevan.
-        </p>
-
-    </div>
-
-</section>
-```
+    </section>
 
 </div>
+
+
 
 <script>
 
@@ -795,14 +1958,20 @@
         document
             .querySelectorAll('.detail-panel')
             .forEach(panel => {
+
                 panel.classList.remove('active');
+
             });
 
-        const target = document.getElementById(id);
+
+        const target =
+            document.getElementById(id);
+
 
         if (target) {
 
             target.classList.add('active');
+
 
             setTimeout(() => {
 
@@ -812,7 +1981,9 @@
                 });
 
             }, 50);
+
         }
+
     }
 
 
@@ -821,7 +1992,9 @@
         document
             .querySelectorAll('.detail-panel')
             .forEach(panel => {
+
                 panel.classList.remove('active');
+
             });
 
     }

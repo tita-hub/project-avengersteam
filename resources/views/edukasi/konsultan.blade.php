@@ -5,14 +5,14 @@
 <style>
     .edu-page {
         --green: #176b4d;
-        --green-dark: #0f513a;
+        --green-dark: #124f39;
+        --green-light: #23805d;
         --green-soft: #eaf5ef;
-        --red: #b52b2f;
+        --red: #8d2634;
         --red-soft: #faeeee;
         --text: #202522;
         --muted: #6d756f;
         --line: #e4e9e5;
-        --white: #ffffff;
         --bg: #f7f9f7;
 
         padding: 28px 32px 50px;
@@ -21,327 +21,524 @@
         color: var(--text);
     }
 
-    /* HERO */
+    /* =====================================================
+       HERO
+    ===================================================== */
+
     .edu-hero {
         position: relative;
         overflow: hidden;
-        background: linear-gradient(120deg, #124f39 0%, #176b4d 60%, #23805d 100%);
-        border-radius: 24px;
-        padding: 38px 42px;
-        color: white;
+
+        width: 100%;
+        height: 175px !important;
+        min-height: 175px !important;
+        max-height: 175px !important;
+
+        padding: 0 !important;
         margin-bottom: 28px;
-        box-shadow: 0 12px 30px rgba(23, 107, 77, .15);
+
+        border-radius: 20px;
+
+        background: linear-gradient(
+            120deg,
+            #124f39 0%,
+            #176b4d 60%,
+            #23805d 100%
+        );
+
+        color: #fff;
+
+        box-shadow: 0 9px 22px rgba(23,107,77,.11);
     }
 
+    /* Lingkaran kanan atas */
     .edu-hero::before {
         content: "";
+
         position: absolute;
-        width: 230px;
-        height: 230px;
-        border: 45px solid rgba(255,255,255,.06);
+
+        width: 180px;
+        height: 180px;
+
+        border: 34px solid rgba(255,255,255,.055);
+
         border-radius: 50%;
-        right: -65px;
-        top: -90px;
+
+        right: -50px;
+        top: -75px;
     }
 
+    /* Lingkaran kanan bawah */
     .edu-hero::after {
         content: "";
+
         position: absolute;
-        width: 140px;
-        height: 140px;
-        border: 28px solid rgba(181,43,47,.20);
+
+        width: 110px;
+        height: 110px;
+
+        border: 21px solid rgba(141,38,52,.16);
+
         border-radius: 50%;
+
         right: 120px;
-        bottom: -90px;
+        bottom: -72px;
     }
+
+    /* =====================================================
+       ISI HERO
+    ===================================================== */
 
     .hero-content {
         position: relative;
         z-index: 2;
+
+        width: 100%;
+        height: 100%;
+
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
+    /* TEKS DIBUAT LEBIH KE ATAS DAN KE KIRI */
     .hero-text {
-        max-width: 720px;
+        max-width: 900px;
+
+        margin-left: 50px !important;
+        padding-top: 22px !important;
     }
+
+    /* =====================================================
+       LABEL
+    ===================================================== */
 
     .hero-label {
         display: inline-flex;
+
         align-items: center;
-        gap: 8px;
-        padding: 7px 13px;
+        justify-content: center;
+
+        gap: 5px;
+
+        padding: 4px 9px;
+
+        margin-bottom: 6px;
+
         border-radius: 50px;
+
         background: rgba(255,255,255,.12);
-        border: 1px solid rgba(255,255,255,.15);
-        font-size: 12px;
+
+        border: 1px solid rgba(255,255,255,.17);
+
+        color: #fff;
+
+        font-size: 9px;
+
         font-weight: 700;
-        letter-spacing: .5px;
-        margin-bottom: 14px;
+
+        line-height: 1.2;
+
+        letter-spacing: .3px;
     }
 
     .hero-label i {
-        color: #d9f3e5;
+        color: #fff;
+        font-size: 10px;
     }
+
+    /* =====================================================
+       JUDUL
+    ===================================================== */
 
     .hero-title {
-        font-size: clamp(28px, 4vw, 43px);
-        line-height: 1.1;
+        margin: 0 0 5px;
+
+        padding: 0;
+
+        color: #fff !important;
+
+        font-size: 36px;
+
+        line-height: 1.05;
+
         font-weight: 800;
-        margin: 0 0 12px;
-        letter-spacing: -.8px;
+
+        letter-spacing: -.7px;
     }
+
+    /* =====================================================
+       DESKRIPSI
+    ===================================================== */
 
     .hero-description {
+        max-width: 900px;
+
         margin: 0;
-        color: rgba(255,255,255,.82);
-        font-size: 14px;
-        line-height: 1.75;
-        max-width: 650px;
+
+        padding: 0;
+
+        color: rgba(255,255,255,.84) !important;
+
+        font-size: 12px;
+
+        line-height: 1.45;
     }
 
+    /* Icon hero tidak digunakan */
     .hero-icon {
-        flex: 0 0 115px;
-        width: 115px;
-        height: 115px;
-        border-radius: 28px;
-        background: rgba(255,255,255,.11);
-        border: 1px solid rgba(255,255,255,.18);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 48px;
-        backdrop-filter: blur(8px);
-        transform: rotate(3deg);
-        animation: floating 4s ease-in-out infinite;
+        display: none !important;
     }
 
-    @keyframes floating {
-        0%,100% { transform: translateY(0) rotate(3deg); }
-        50% { transform: translateY(-7px) rotate(3deg); }
-    }
 
-    /* SECTION */
-    .edu-section {
-        margin-bottom: 30px;
-    }
+    /* =====================================================
+       SECTION HEADING
+    ===================================================== */
 
     .section-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        gap: 20px;
-        margin-bottom: 16px;
-    }
-
-    .section-title {
-        margin: 0;
-        font-size: 21px;
-        font-weight: 800;
-        letter-spacing: -.3px;
-    }
-
-    .section-subtitle {
-        margin: 4px 0 0;
-        color: var(--muted);
-        font-size: 13px;
+        margin-bottom: 20px;
     }
 
     .section-marker {
-        width: 42px;
-        height: 4px;
+        width: 70px;
+        height: 5px;
+
+        margin-bottom: 12px;
+
         border-radius: 20px;
-        background: linear-gradient(90deg, var(--red), var(--green));
-        margin-bottom: 10px;
+
+        background: linear-gradient(
+            90deg,
+            #8d2634,
+            #176b4d
+        );
     }
 
-    /* ACCESS */
+    .section-heading h2 {
+        margin: 0 0 5px;
+
+        color: #202522;
+
+        font-size: 27px;
+
+        font-weight: 800;
+    }
+
+    .section-heading p {
+        margin: 0;
+
+        color: #6d756f;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       AKSES KONSULTAN
+    ===================================================== */
+
     .access-grid {
         display: grid;
+
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+
+        gap: 20px;
+
+        margin-bottom: 38px;
     }
 
     .access-card {
         position: relative;
-        display: flex;
-        align-items: center;
-        gap: 17px;
-        padding: 20px;
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        text-decoration: none;
-        color: var(--text);
-        transition: .3s ease;
+
         overflow: hidden;
+
+        padding: 24px;
+
+        background: #fff;
+
+        border: 1px solid #e4e9e5;
+
+        border-radius: 18px;
+
+        transition:
+            transform .3s ease,
+            box-shadow .3s ease,
+            border-color .3s ease;
+    }
+
+    .access-card:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(23,107,77,.25);
+
+        box-shadow: 0 14px 30px rgba(23,107,77,.10);
     }
 
     .access-card::before {
         content: "";
+
         position: absolute;
-        width: 5px;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background: var(--green);
-    }
 
-    .access-card:nth-child(2)::before {
-        background: var(--red);
-    }
+        width: 90px;
+        height: 90px;
 
-    .access-card:hover {
-        transform: translateY(-4px);
-        border-color: #cbd9d0;
-        box-shadow: 0 12px 25px rgba(30,50,40,.08);
-        color: var(--text);
+        right: -30px;
+        top: -30px;
+
+        border-radius: 50%;
+
+        background: rgba(23,107,77,.05);
     }
 
     .access-icon {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        border-radius: 15px;
+        width: 48px;
+        height: 48px;
+
         display: flex;
+
         align-items: center;
         justify-content: center;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 22px;
+
+        margin-bottom: 17px;
+
+        border-radius: 14px;
+
+        background: #eaf5ef;
+
+        color: #176b4d;
+
+        font-size: 21px;
     }
 
     .access-card:nth-child(2) .access-icon {
-        background: var(--red-soft);
-        color: var(--red);
+        background: #faeeee;
+        color: #8d2634;
     }
 
-    .access-info {
-        flex: 1;
-    }
+    .access-card h3 {
+        margin: 0 0 7px;
 
-    .access-info small {
-        display: block;
-        color: var(--muted);
-        font-size: 11px;
-        margin-bottom: 3px;
-        font-weight: 600;
-    }
+        color: #202522;
 
-    .access-info strong {
-        display: block;
-        font-size: 15px;
-        margin-bottom: 3px;
-    }
-
-    .access-info span {
-        color: var(--muted);
-        font-size: 12px;
-    }
-
-    .access-arrow {
-        color: #a2aaa5;
         font-size: 18px;
-        transition: .3s;
+
+        font-weight: 800;
     }
 
-    .access-card:hover .access-arrow {
-        color: var(--green);
-        transform: translateX(4px);
+    .access-card p {
+        margin: 0 0 17px;
+
+        color: #6d756f;
+
+        font-size: 12px;
+
+        line-height: 1.7;
     }
 
-    /* MATERIAL */
-    .material-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 17px;
-    }
+    .access-btn {
+        display: inline-flex;
 
-    .material-card {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        overflow: hidden;
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 9px 15px;
+
+        border-radius: 10px;
+
+        background: #176b4d;
+
+        color: #fff !important;
+
+        text-decoration: none;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
         transition: .3s ease;
     }
 
-    .material-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 13px 28px rgba(30,50,40,.08);
-        border-color: #ccd9d1;
+    .access-btn:hover {
+        background: #124f39;
+
+        transform: translateX(3px);
     }
 
-    .material-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 17px 18px 10px;
+    .access-card:nth-child(2) .access-btn {
+        background: #8d2634;
+    }
+
+    .access-card:nth-child(2) .access-btn:hover {
+        background: #731f2b;
+    }
+
+
+    /* =====================================================
+       MATERIAL
+    ===================================================== */
+
+    .material-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+    .material-card {
+        position: relative;
+
+        overflow: hidden;
+
+        min-height: 250px;
+
+        padding: 24px;
+
+        background: #fff;
+
+        border: 1px solid #e4e9e5;
+
+        border-radius: 18px;
+
+        transition:
+            transform .3s ease,
+            box-shadow .3s ease,
+            border-color .3s ease;
+    }
+
+    .material-card:hover {
+        transform: translateY(-6px);
+
+        border-color: rgba(23,107,77,.25);
+
+        box-shadow: 0 15px 32px rgba(23,107,77,.10);
     }
 
     .material-number {
+        margin-bottom: 19px;
+
+        color: #8d2634;
+
         font-size: 11px;
+
         font-weight: 800;
-        color: var(--red);
+
         letter-spacing: 1px;
     }
 
     .material-icon {
-        width: 43px;
-        height: 43px;
-        border-radius: 13px;
-        background: var(--green-soft);
-        color: var(--green);
+        position: absolute;
+
+        top: 22px;
+        right: 24px;
+
+        width: 55px;
+        height: 55px;
+
         display: flex;
+
         align-items: center;
         justify-content: center;
+
+        border-radius: 16px;
+
+        background: #eaf5ef;
+
+        color: #176b4d;
+
+        font-size: 22px;
+    }
+
+    .material-card:nth-child(2) .material-icon {
+        background: #faeeee;
+        color: #8d2634;
+    }
+
+    .material-card:nth-child(3) .material-icon {
+        background: #eaf5ef;
+        color: #176b4d;
+    }
+
+    .material-card h3 {
+        margin: 0 0 9px;
+
+        color: #202522;
+
         font-size: 19px;
+
+        font-weight: 800;
     }
 
-    .material-body {
-        padding: 4px 18px 18px;
-    }
+    .material-card p {
+        margin: 0 0 20px;
 
-    .material-body h3 {
-        font-size: 16px;
-        margin: 0 0 7px;
-        font-weight: 750;
-    }
+        color: #6d756f;
 
-    .material-body p {
-        color: var(--muted);
-        font-size: 12.5px;
-        line-height: 1.65;
-        margin: 0 0 15px;
-    }
-
-    .material-button {
-        width: 100%;
-        border: 0;
-        border-radius: 10px;
-        padding: 10px 13px;
-        background: var(--green);
-        color: white;
         font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+    .material-btn {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 7px;
+
+        width: 100%;
+
+        padding: 10px 15px;
+
+        border: 0;
+
+        border-radius: 10px;
+
+        background: #176b4d;
+
+        color: #fff;
+
+        font-size: 11px;
+
         font-weight: 700;
+
         cursor: pointer;
-        transition: .25s;
+
+        transition: .3s ease;
     }
 
-    .material-button:hover {
-        background: var(--green-dark);
+    .material-btn:hover {
+        background: #124f39;
+
+        transform: translateY(-2px);
     }
 
-    /* DETAIL */
+
+    /* =====================================================
+       DETAIL PANEL
+    ===================================================== */
+
     .detail-panel {
         display: none;
-        margin-top: 18px;
-        padding: 23px;
-        background: white;
-        border: 1px solid var(--line);
+
+        margin-top: 25px;
+
+        padding: 28px;
+
+        background: #fff;
+
+        border: 1px solid #e4e9e5;
+
         border-radius: 18px;
-        animation: detailIn .3s ease;
+
+        animation: detailIn .35s ease;
     }
 
     .detail-panel.active {
@@ -351,322 +548,508 @@
     @keyframes detailIn {
         from {
             opacity: 0;
-            transform: translateY(8px);
+            transform: translateY(12px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
 
-    .detail-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 15px;
-        align-items: center;
-        margin-bottom: 12px;
-    }
+    .detail-panel h3 {
+        margin: 0 0 12px;
 
-    .detail-head h3 {
-        margin: 0;
-        font-size: 17px;
-    }
+        color: #176b4d;
 
-    .close-detail {
-        border: 0;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: #f2f4f2;
-        cursor: pointer;
-        color: #666;
+        font-size: 22px;
+
+        font-weight: 800;
     }
 
     .detail-panel p {
-        color: var(--muted);
+        margin-bottom: 12px;
+
+        color: #606963;
+
         font-size: 13px;
-        line-height: 1.75;
-        margin: 0;
+
+        line-height: 1.8;
     }
 
-    /* RESPONSIVE */
-    @media(max-width: 900px) {
+    .close-detail {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+        margin-top: 10px;
+
+        padding: 8px 13px;
+
+        border: 0;
+
+        border-radius: 9px;
+
+        background: #faeeee;
+
+        color: #8d2634;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
         .edu-page {
             padding: 22px 20px 40px;
         }
 
-        .hero-icon {
-            width: 90px;
-            height: 90px;
-            flex-basis: 90px;
-            font-size: 38px;
-        }
-
-        .material-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
-    @media(max-width: 650px) {
-        .edu-page {
-            padding: 16px 14px 35px;
-        }
-
         .edu-hero {
-            padding: 27px 23px;
-            border-radius: 20px;
+            height: 175px !important;
+            min-height: 175px !important;
+            max-height: 175px !important;
         }
 
-        .hero-content {
-            align-items: flex-start;
-        }
-
-        .hero-icon {
-            display: none;
-        }
-
-        .hero-title {
-            font-size: 29px;
+        .hero-text {
+            margin-left: 32px !important;
+            padding-top: 22px !important;
+            padding-right: 25px;
         }
 
         .access-grid,
         .material-grid {
             grid-template-columns: 1fr;
         }
+    }
 
-        .section-heading {
-            display: block;
+    @media (max-width: 600px) {
+
+        .edu-page {
+            padding: 18px 15px 35px;
+        }
+
+        .edu-hero {
+            height: 165px !important;
+            min-height: 165px !important;
+            max-height: 165px !important;
+
+            border-radius: 16px !important;
+        }
+
+        .hero-text {
+            margin-left: 22px !important;
+            padding-top: 20px !important;
+            padding-right: 18px;
+        }
+
+        .hero-title {
+            font-size: 28px !important;
+        }
+
+        .hero-description {
+            font-size: 11px !important;
+        }
+
+        .section-heading h2 {
+            font-size: 23px;
+        }
+
+        .material-card,
+        .access-card {
+            padding: 20px;
         }
     }
 </style>
 
+
 <div class="edu-page">
 
-```
-<section class="edu-hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <div class="hero-label">
-                <i class="bi bi-mortarboard-fill"></i>
-                PUSAT PEMBELAJARAN
-            </div>
+    <!-- HERO -->
+    <section class="edu-hero">
 
-            <h1 class="hero-title">Edukasi Konsultan</h1>
+        <div class="hero-content">
 
-            <p class="hero-description">
-                Ruang pembelajaran untuk membantu konsultan meningkatkan
-                kemampuan komunikasi, analisis pasar, serta memahami
-                etika dan kepatuhan dalam menjalankan aktivitas profesional.
-            </p>
-        </div>
+            <div class="hero-text">
 
-        <div class="hero-icon">
-            <i class="bi bi-person-workspace"></i>
-        </div>
-    </div>
-</section>
-
-<section class="edu-section">
-    <div class="section-heading">
-        <div>
-            <div class="section-marker"></div>
-            <h2 class="section-title">Akses Konsultan</h2>
-            <p class="section-subtitle">
-                Akses cepat ke sistem pendukung aktivitas konsultan.
-            </p>
-        </div>
-    </div>
-
-    <div class="access-grid">
-
-        <a href="https://www.rf-berjangkasemarang.com/login"
-           target="_blank"
-           class="access-card">
-
-            <div class="access-icon">
-                <i class="bi bi-calendar-check"></i>
-            </div>
-
-            <div class="access-info">
-                <small>SISTEM KONSULTAN</small>
-                <strong>Input Appointment</strong>
-                <span>Request mobil untuk kebutuhan appointment.</span>
-            </div>
-
-            <i class="bi bi-arrow-up-right access-arrow"></i>
-        </a>
-
-        <a href="https://performance-rfbsmg.com/"
-           target="_blank"
-           class="access-card">
-
-            <div class="access-icon">
-                <i class="bi bi-graph-up-arrow"></i>
-            </div>
-
-            <div class="access-info">
-                <small>PERFORMANCE SYSTEM</small>
-                <strong>Input Report Kinerja Harian</strong>
-                <span>Catat dan pantau aktivitas kinerja harian.</span>
-            </div>
-
-            <i class="bi bi-arrow-up-right access-arrow"></i>
-        </a>
-
-    </div>
-</section>
-
-<section class="edu-section">
-
-    <div class="section-heading">
-        <div>
-            <div class="section-marker"></div>
-            <h2 class="section-title">Materi Edukasi</h2>
-            <p class="section-subtitle">
-                Pelajari materi yang mendukung profesionalisme konsultan.
-            </p>
-        </div>
-    </div>
-
-    <div class="material-grid">
-
-        <article class="material-card">
-            <div class="material-top">
-                <span class="material-number">01 / MATERI</span>
-                <div class="material-icon">
-                    <i class="bi bi-chat-dots"></i>
+                <div class="hero-label">
+                    <i class="bi bi-mortarboard-fill"></i>
+                    PUSAT PEMBELAJARAN
                 </div>
-            </div>
 
-            <div class="material-body">
-                <h3>Komunikasi dengan Nasabah</h3>
-                <p>
-                    Pelajari cara membangun komunikasi yang jelas,
-                    profesional, dan berorientasi pada kebutuhan nasabah.
+                <h1 class="hero-title">
+                    Edukasi Konsultan
+                </h1>
+
+                <p class="hero-description">
+                    Ruang pembelajaran untuk membantu konsultan meningkatkan
+                    kemampuan komunikasi, analisis pasar, serta memahami etika
+                    dan kepatuhan dalam menjalankan aktivitas profesional.
                 </p>
 
-                <button class="material-button"
-                        onclick="bukaMateri('materi1')">
-                    Baca Materi
-                    <i class="bi bi-arrow-right ms-1"></i>
-                </button>
             </div>
-        </article>
 
-        <article class="material-card">
-            <div class="material-top">
-                <span class="material-number">02 / MATERI</span>
-                <div class="material-icon">
-                    <i class="bi bi-bar-chart-line"></i>
+        </div>
+
+    </section>
+
+
+    <!-- AKSES KONSULTAN -->
+
+    <section>
+
+        <div class="section-heading">
+
+            <div class="section-marker"></div>
+
+            <h2>
+                Akses Konsultan
+            </h2>
+
+            <p>
+                Akses sistem pendukung aktivitas dan pelaporan konsultan.
+            </p>
+
+        </div>
+
+
+        <div class="access-grid">
+
+            <div class="access-card">
+
+                <div class="access-icon">
+                    <i class="bi bi-calendar-check"></i>
                 </div>
-            </div>
 
-            <div class="material-body">
-                <h3>Analisis Pasar</h3>
+                <h3>
+                    Input Appointment
+                </h3>
+
                 <p>
-                    Kenali dasar analisis pasar dan cara membaca kondisi
-                    pasar sebagai bagian dari proses pengambilan keputusan.
+                    Gunakan sistem appointment untuk melakukan pengajuan
+                    kebutuhan mobil kantor dalam aktivitas konsultan.
                 </p>
 
-                <button class="material-button"
-                        onclick="bukaMateri('materi2')">
-                    Baca Materi
-                    <i class="bi bi-arrow-right ms-1"></i>
-                </button>
-            </div>
-        </article>
+                <a
+                    href="https://www.rf-berjangkasemarang.com/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="access-btn"
+                >
+                    Buka Sistem
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
 
-        <article class="material-card">
-            <div class="material-top">
-                <span class="material-number">03 / MATERI</span>
+            </div>
+
+
+            <div class="access-card">
+
+                <div class="access-icon">
+                    <i class="bi bi-clipboard-data"></i>
+                </div>
+
+                <h3>
+                    Input Report Kinerja Harian
+                </h3>
+
+                <p>
+                    Gunakan sistem untuk melakukan input dan pemantauan
+                    laporan kinerja harian konsultan.
+                </p>
+
+                <a
+                    href="https://performance-rfbsmg.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="access-btn"
+                >
+                    Buka Sistem
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATERI EDUKASI -->
+
+    <section>
+
+        <div class="section-heading">
+
+            <div class="section-marker"></div>
+
+            <h2>
+                Materi Edukasi Konsultan
+            </h2>
+
+            <p>
+                Materi pembelajaran untuk meningkatkan kemampuan profesional konsultan.
+            </p>
+
+        </div>
+
+
+        <div class="material-grid">
+
+            <!-- MATERI 1 -->
+
+            <div class="material-card">
+
+                <div class="material-number">
+                    01 / KOMUNIKASI
+                </div>
+
+                <div class="material-icon">
+                    <i class="bi bi-chat-dots-fill"></i>
+                </div>
+
+                <h3>
+                    Komunikasi dengan Nasabah
+                </h3>
+
+                <p>
+                    Mempelajari cara membangun komunikasi yang baik,
+                    profesional, dan mudah dipahami ketika berinteraksi
+                    dengan nasabah.
+                </p>
+
+                <button
+                    type="button"
+                    class="material-btn"
+                    onclick="bukaMateri('materi1')"
+                >
+                    Baca Selengkapnya
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- MATERI 2 -->
+
+            <div class="material-card">
+
+                <div class="material-number">
+                    02 / ANALISIS
+                </div>
+
+                <div class="material-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+
+                <h3>
+                    Analisis Pasar
+                </h3>
+
+                <p>
+                    Memahami dasar analisis pasar dan faktor yang dapat
+                    memengaruhi pergerakan harga dalam perdagangan.
+                </p>
+
+                <button
+                    type="button"
+                    class="material-btn"
+                    onclick="bukaMateri('materi2')"
+                >
+                    Baca Selengkapnya
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- MATERI 3 -->
+
+            <div class="material-card">
+
+                <div class="material-number">
+                    03 / KEPATUHAN
+                </div>
+
                 <div class="material-icon">
                     <i class="bi bi-shield-check"></i>
                 </div>
-            </div>
 
-            <div class="material-body">
-                <h3>Etika & Kepatuhan</h3>
+                <h3>
+                    Etika & Kepatuhan
+                </h3>
+
                 <p>
-                    Pahami pentingnya etika kerja, kepatuhan terhadap
-                    ketentuan, dan menjaga profesionalisme dalam bekerja.
+                    Mengenal pentingnya etika, kepatuhan, dan tanggung jawab
+                    dalam menjalankan aktivitas sebagai konsultan.
                 </p>
 
-                <button class="material-button"
-                        onclick="bukaMateri('materi3')">
-                    Baca Materi
-                    <i class="bi bi-arrow-right ms-1"></i>
+                <button
+                    type="button"
+                    class="material-btn"
+                    onclick="bukaMateri('materi3')"
+                >
+                    Baca Selengkapnya
+                    <i class="bi bi-arrow-right"></i>
                 </button>
+
             </div>
-        </article>
 
-    </div>
-
-    <div id="materi1" class="detail-panel">
-        <div class="detail-head">
-            <h3><i class="bi bi-chat-dots text-success me-2"></i>Komunikasi dengan Nasabah</h3>
-            <button class="close-detail" onclick="tutupMateri()">×</button>
         </div>
-        <p>
-            Komunikasi yang baik dimulai dengan mendengarkan kebutuhan
-            nasabah, menyampaikan informasi secara jelas, menggunakan
-            bahasa yang mudah dipahami, serta menjaga sikap profesional
-            dalam setiap interaksi.
-        </p>
-    </div>
 
-    <div id="materi2" class="detail-panel">
-        <div class="detail-head">
-            <h3><i class="bi bi-bar-chart-line text-success me-2"></i>Analisis Pasar</h3>
-            <button class="close-detail" onclick="tutupMateri()">×</button>
+
+        <!-- DETAIL MATERI 1 -->
+
+        <div
+            id="materi1"
+            class="detail-panel"
+        >
+
+            <h3>
+                Komunikasi dengan Nasabah
+            </h3>
+
+            <p>
+                Komunikasi yang baik menjadi bagian penting dalam membangun
+                hubungan profesional dengan nasabah. Konsultan perlu
+                menyampaikan informasi dengan jelas, sopan, dan sesuai
+                dengan ketentuan yang berlaku.
+            </p>
+
+            <p>
+                Penyampaian informasi harus dilakukan secara transparan
+                sehingga nasabah dapat memahami informasi yang diberikan
+                sebelum mengambil keputusan.
+            </p>
+
+            <button
+                type="button"
+                class="close-detail"
+                onclick="tutupMateri()"
+            >
+                <i class="bi bi-x-lg"></i>
+                Tutup
+            </button>
+
         </div>
-        <p>
-            Analisis pasar membantu konsultan memahami pergerakan harga,
-            kondisi ekonomi, sentimen pasar, serta berbagai faktor yang
-            dapat memengaruhi aktivitas perdagangan.
-        </p>
-    </div>
 
-    <div id="materi3" class="detail-panel">
-        <div class="detail-head">
-            <h3><i class="bi bi-shield-check text-success me-2"></i>Etika & Kepatuhan</h3>
-            <button class="close-detail" onclick="tutupMateri()">×</button>
+
+        <!-- DETAIL MATERI 2 -->
+
+        <div
+            id="materi2"
+            class="detail-panel"
+        >
+
+            <h3>
+                Analisis Pasar
+            </h3>
+
+            <p>
+                Analisis pasar membantu konsultan memahami kondisi dan
+                dinamika pasar. Beberapa informasi yang dapat diperhatikan
+                antara lain pergerakan harga, berita ekonomi, serta kondisi
+                pasar global.
+            </p>
+
+            <p>
+                Pemahaman terhadap pasar perlu disertai dengan sikap
+                objektif dan tidak memberikan jaminan terhadap hasil
+                perdagangan.
+            </p>
+
+            <button
+                type="button"
+                class="close-detail"
+                onclick="tutupMateri()"
+            >
+                <i class="bi bi-x-lg"></i>
+                Tutup
+            </button>
+
         </div>
-        <p>
-            Etika dan kepatuhan merupakan bagian penting dalam aktivitas
-            konsultan. Setiap informasi harus disampaikan secara
-            bertanggung jawab dan sesuai dengan ketentuan yang berlaku.
-        </p>
-    </div>
 
-</section>
-```
+
+        <!-- DETAIL MATERI 3 -->
+
+        <div
+            id="materi3"
+            class="detail-panel"
+        >
+
+            <h3>
+                Etika & Kepatuhan
+            </h3>
+
+            <p>
+                Konsultan perlu menjalankan aktivitas secara profesional,
+                transparan, dan sesuai dengan ketentuan perusahaan serta
+                regulasi yang berlaku.
+            </p>
+
+            <p>
+                Etika dan kepatuhan menjadi dasar penting dalam menjaga
+                kepercayaan serta hubungan profesional dengan nasabah.
+            </p>
+
+            <button
+                type="button"
+                class="close-detail"
+                onclick="tutupMateri()"
+            >
+                <i class="bi bi-x-lg"></i>
+                Tutup
+            </button>
+
+        </div>
+
+    </section>
 
 </div>
 
+
 <script>
+
     function bukaMateri(id) {
-        document.querySelectorAll('.detail-panel').forEach(panel => {
+
+        document.querySelectorAll('.detail-panel').forEach(function(panel) {
             panel.classList.remove('active');
         });
 
         const target = document.getElementById(id);
 
         if (target) {
+
             target.classList.add('active');
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest'
-            });
+
+            setTimeout(function() {
+
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+
+            }, 50);
         }
     }
 
+
     function tutupMateri() {
-        document.querySelectorAll('.detail-panel').forEach(panel => {
+
+        document.querySelectorAll('.detail-panel').forEach(function(panel) {
             panel.classList.remove('active');
         });
     }
+
 </script>
 
 @endsection
- 
-\\
