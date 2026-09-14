@@ -6,7 +6,7 @@
 
 /* ============================================================
    PEMBUKAAN REKENING
-   TEMA : CLEAN CORPORATE — MAROON + DEEP GREEN + WHITE
+   CLEAN CORPORATE — MAROON + DEEP GREEN + WHITE
    ============================================================ */
 
 .rekening-page {
@@ -40,11 +40,13 @@
     min-height: 100vh;
 
     box-sizing: border-box;
+
+    overflow: hidden;
 }
 
 
 /* ============================================================
-   HEADER / HERO
+   HERO HEADER
    ============================================================ */
 
 .rekening-header {
@@ -73,12 +75,18 @@
 
     text-align: left;
 
+    opacity: 0;
+
+    transform: translateY(25px);
+
     animation:
-        rekeningHeroMasuk .7s ease;
+        rekeningHeroMasuk .8s cubic-bezier(.22,1,.36,1) forwards;
 }
 
 
-/* garis identitas */
+/* ============================================================
+   GARIS ATAS ANIMASI
+   ============================================================ */
 
 .rekening-header::before {
     content: "";
@@ -88,16 +96,28 @@
     left: 0;
     top: 0;
 
-    width: 100%;
+    width: 0%;
     height: 2px;
 
-    background: var(--maroon);
+    background:
+        linear-gradient(
+            90deg,
+            var(--maroon),
+            var(--maroon) 72%,
+            var(--green) 72%,
+            var(--green)
+        );
 
     opacity: .85;
+
+    animation:
+        headerLine 1.2s ease .35s forwards;
 }
 
 
-/* dekorasi sangat halus */
+/* ============================================================
+   DEKORASI LINGKARAN HERO
+   ============================================================ */
 
 .rekening-header::after {
     content: "";
@@ -117,10 +137,42 @@
     box-shadow:
         0 0 0 25px rgba(139, 36, 51, .018),
         0 0 0 50px rgba(139, 36, 51, .012);
+
+    animation:
+        heroCircleFloat 7s ease-in-out infinite;
 }
 
 
-/* isi */
+/* ============================================================
+   TAMBAHAN DEKORASI
+   ============================================================ */
+
+.rekening-header-content::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    right: -30px;
+    bottom: -70px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(61, 107, 87, .07);
+
+    box-shadow:
+        0 0 0 15px rgba(61, 107, 87, .018);
+
+    animation:
+        smallCircleFloat 5s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   ISI HERO
+   ============================================================ */
 
 .rekening-header-content {
     position: relative;
@@ -162,6 +214,13 @@
     letter-spacing: 1.2px;
 
     text-transform: uppercase;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    animation:
+        contentMasuk .6s ease .45s forwards;
 }
 
 
@@ -177,6 +236,9 @@
 
     box-shadow:
         0 0 0 4px rgba(139, 36, 51, .075);
+
+    animation:
+        labelPulse 2s ease-in-out infinite;
 }
 
 
@@ -196,11 +258,42 @@
     font-weight: 800;
 
     letter-spacing: -1px;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    animation:
+        contentMasuk .7s ease .58s forwards;
 }
 
 
 .rekening-header h1 span {
     color: var(--maroon);
+
+    position: relative;
+}
+
+
+/* underline animasi */
+
+.rekening-header h1 span::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--maroon);
+
+    border-radius: 5px;
+
+    animation:
+        titleUnderline .7s ease 1.15s forwards;
 }
 
 
@@ -218,6 +311,13 @@
     font-size: 14px;
 
     line-height: 1.85;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        contentMasuk .7s ease .72s forwards;
 }
 
 
@@ -246,6 +346,13 @@
     color: var(--text-soft);
 
     font-size: 11px;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        contentMasuk .7s ease .86s forwards;
 }
 
 
@@ -261,6 +368,9 @@
 
     box-shadow:
         0 0 0 4px rgba(61, 107, 87, .08);
+
+    animation:
+        statusPulse 2s ease-in-out infinite;
 }
 
 
@@ -272,6 +382,23 @@
     max-width: 1050px;
 
     margin: 0 auto 22px;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* saat masuk viewport */
+
+.rekening-section-title.show {
+    opacity: 1;
+
+    transform: translateY(0);
 }
 
 
@@ -307,6 +434,27 @@
     font-size: 17px;
 
     font-weight: 900;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
+}
+
+
+/* icon title bergerak */
+
+.rekening-section-title:hover .rekening-title-icon {
+    transform:
+        rotate(-5deg)
+        scale(1.06);
+
+    background: var(--maroon);
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(139, 36, 51, .14);
 }
 
 
@@ -338,6 +486,14 @@
     border-radius: 10px;
 
     opacity: .75;
+
+    transition:
+        width .4s ease;
+}
+
+
+.rekening-section-title:hover h2::after {
+    width: 55px;
 }
 
 
@@ -401,22 +557,60 @@
 
     opacity: 0;
 
-    animation:
-        rekeningCardMasuk .7s ease forwards;
-
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+        transform .4s cubic-bezier(.22,1,.36,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
 }
 
+
+/* ============================================================
+   ANIMASI CARD KIRI
+   ============================================================ */
+
+.rekening-card:nth-child(1) {
+    transform:
+        translateX(-45px)
+        translateY(20px);
+}
+
+
+/* ============================================================
+   ANIMASI CARD KANAN
+   ============================================================ */
 
 .rekening-card:nth-child(2) {
-    animation-delay: .12s;
+    transform:
+        translateX(45px)
+        translateY(20px);
 }
 
 
-/* garis maroon */
+/* saat visible */
+
+.rekening-card.show {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        translateY(0);
+
+    transition:
+        opacity .7s ease,
+        transform .8s cubic-bezier(.22,1,.36,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+
+.rekening-card:nth-child(2).show {
+    transition-delay: .12s;
+}
+
+
+/* ============================================================
+   GARIS MAROON
+   ============================================================ */
 
 .rekening-card::before {
     content: "";
@@ -429,7 +623,12 @@
     width: 100%;
     height: 3px;
 
-    background: var(--maroon);
+    background:
+        linear-gradient(
+            90deg,
+            var(--maroon),
+            #a73b4c
+        );
 
     transform:
         scaleX(0);
@@ -437,7 +636,7 @@
     transform-origin: left;
 
     transition:
-        transform .35s ease;
+        transform .5s cubic-bezier(.22,1,.36,1);
 }
 
 
@@ -447,7 +646,9 @@
 }
 
 
-/* dekorasi */
+/* ============================================================
+   DEKORASI CARD
+   ============================================================ */
 
 .rekening-card::after {
     content: "";
@@ -466,27 +667,29 @@
         1px solid rgba(61, 107, 87, .065);
 
     transition:
-        transform .4s ease;
+        transform .6s cubic-bezier(.22,1,.36,1);
 }
 
 
 .rekening-card:hover::after {
     transform:
-        scale(1.35);
+        scale(1.45);
 }
 
 
-/* hover */
+/* ============================================================
+   HOVER CARD
+   ============================================================ */
 
 .rekening-card:hover {
     transform:
-        translateY(-4px);
+        translateY(-7px) !important;
 
     border-color:
         rgba(139, 36, 51, .17);
 
     box-shadow:
-        0 14px 32px rgba(35, 42, 39, .075);
+        0 18px 40px rgba(35, 42, 39, .095);
 }
 
 
@@ -536,18 +739,20 @@
     font-size: 27px;
 
     box-shadow:
-        none;
+        0 5px 15px rgba(139, 36, 51, .035);
 
     transition:
-        transform .35s ease,
-        background .35s ease,
-        border-color .35s ease;
+        transform .5s cubic-bezier(.22,1,.36,1),
+        background .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
 }
 
 
 .rekening-card:hover .rekening-icon {
     transform:
-        translateY(-2px);
+        translateY(-5px)
+        rotate(-3deg);
 
     background:
         var(--maroon-soft);
@@ -557,6 +762,19 @@
 
     color:
         var(--maroon);
+
+    box-shadow:
+        0 10px 22px rgba(139, 36, 51, .09);
+}
+
+
+/* ============================================================
+   FLOATING ICON
+   ============================================================ */
+
+.rekening-card.show .rekening-icon {
+    animation:
+        iconFloat 4s ease-in-out 1s infinite;
 }
 
 
@@ -589,6 +807,23 @@
     letter-spacing: .9px;
 
     text-transform: uppercase;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.rekening-card:hover .rekening-label {
+    background:
+        var(--green-soft);
+
+    color:
+        var(--green-dark);
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -610,6 +845,15 @@
     font-weight: 800;
 
     letter-spacing: -.5px;
+
+    transition:
+        color .3s ease;
+}
+
+
+.rekening-card:hover h2 {
+    color:
+        var(--maroon);
 }
 
 
@@ -667,6 +911,45 @@
     font-size: 13px;
 
     line-height: 1.5;
+
+    opacity: 0;
+
+    transform:
+        translateX(-12px);
+
+    transition:
+        color .3s ease;
+}
+
+
+/* list muncul setelah card */
+
+.rekening-card.show .rekening-features li {
+    animation:
+        featureMasuk .5s ease forwards;
+}
+
+
+.rekening-card.show .rekening-features li:nth-child(1) {
+    animation-delay: .35s;
+}
+
+.rekening-card.show .rekening-features li:nth-child(2) {
+    animation-delay: .45s;
+}
+
+.rekening-card.show .rekening-features li:nth-child(3) {
+    animation-delay: .55s;
+}
+
+.rekening-card.show .rekening-features li:nth-child(4) {
+    animation-delay: .65s;
+}
+
+
+.rekening-card:hover .rekening-features li {
+    color:
+        #454d52;
 }
 
 
@@ -701,7 +984,8 @@
 
     transition:
         background .3s ease,
-        color .3s ease;
+        color .3s ease,
+        transform .3s ease;
 }
 
 
@@ -711,11 +995,14 @@
 
     color:
         white;
+
+    transform:
+        scale(1.08);
 }
 
 
 /* ============================================================
-   BUTTON
+   BUTTON WRAPPER
    ============================================================ */
 
 .rekening-button-wrapper {
@@ -726,10 +1013,27 @@
     margin-top: auto;
 
     padding-top: 23px;
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
 }
 
 
+.rekening-card.show .rekening-button-wrapper {
+    animation:
+        buttonMasuk .6s ease .75s forwards;
+}
+
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
 .rekening-button {
+    position: relative;
+
     display: inline-flex;
 
     align-items: center;
@@ -757,6 +1061,8 @@
 
     letter-spacing: .1px;
 
+    overflow: hidden;
+
     box-shadow:
         0 6px 16px rgba(139, 36, 51, .12);
 
@@ -768,6 +1074,43 @@
 }
 
 
+/* ============================================================
+   BUTTON SHINE
+   ============================================================ */
+
+.rekening-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .6s ease;
+}
+
+
+.rekening-button:hover::before {
+    left:
+        140%;
+}
+
+
 .rekening-button:hover {
     background:
         var(--maroon-dark);
@@ -775,10 +1118,10 @@
     color: white;
 
     transform:
-        translateY(-2px);
+        translateY(-3px);
 
     box-shadow:
-        0 9px 20px rgba(139, 36, 51, .16);
+        0 11px 24px rgba(139, 36, 51, .18);
 }
 
 
@@ -786,13 +1129,13 @@
     font-size: 16px;
 
     transition:
-        transform .3s ease;
+        transform .35s ease;
 }
 
 
 .rekening-button:hover .arrow {
     transform:
-        translateX(4px);
+        translateX(5px);
 }
 
 
@@ -826,6 +1169,23 @@
     font-size: 12px;
 
     line-height: 1.6;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+
+.rekening-info.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 
@@ -850,46 +1210,186 @@
     font-size: 12px;
 
     font-weight: 900;
+
+    transition:
+        transform .35s ease;
+}
+
+
+.rekening-info:hover .rekening-info-icon {
+    transform:
+        rotate(8deg)
+        scale(1.08);
 }
 
 
 /* ============================================================
-   ANIMATION
+   KEYFRAMES
    ============================================================ */
 
 @keyframes rekeningHeroMasuk {
 
-    from {
+    0% {
         opacity: 0;
-
-        transform:
-            translateY(-20px);
+        transform: translateY(25px);
     }
 
-    to {
+    100% {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
 }
 
 
-@keyframes rekeningCardMasuk {
+@keyframes headerLine {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px);
+    0% {
+        width: 0%;
     }
 
-    to {
-        opacity: 1;
+    100% {
+        width: 100%;
+    }
 
+}
+
+
+@keyframes contentMasuk {
+
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes titleUnderline {
+
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+
+}
+
+
+@keyframes heroCircleFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate(-12px, 12px)
+            rotate(8deg);
+    }
+
+}
+
+
+@keyframes smallCircleFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-8px, -8px);
+    }
+
+}
+
+
+@keyframes labelPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 4px rgba(139, 36, 51, .075);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 7px rgba(139, 36, 51, .025);
+    }
+
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 4px rgba(61, 107, 87, .08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 7px rgba(61, 107, 87, .025);
+    }
+
+}
+
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
         transform:
             translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+@keyframes featureMasuk {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes buttonMasuk {
+
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 
 }
@@ -922,6 +1422,19 @@
     .rekening-container {
         grid-template-columns:
             1fr;
+    }
+
+
+    .rekening-card:nth-child(1),
+    .rekening-card:nth-child(2) {
+        transform:
+            translateY(25px);
+    }
+
+
+    .rekening-card.show {
+        transform:
+            translateY(0);
     }
 
 
@@ -1030,20 +1543,47 @@
 @media (prefers-reduced-motion: reduce) {
 
     .rekening-header,
-    .rekening-card {
-        animation:
-            none;
-    }
-
-
+    .rekening-header-label,
+    .rekening-header h1,
+    .rekening-header p,
+    .rekening-header-status,
+    .rekening-header::before,
+    .rekening-header::after,
+    .rekening-header-content::after,
     .rekening-card,
-    .rekening-icon,
-    .rekening-button,
-    .rekening-button .arrow {
+    .rekening-card.show .rekening-features li,
+    .rekening-card.show .rekening-button-wrapper {
+        animation:
+            none !important;
+
         transition:
-            none;
+            none !important;
     }
 
+}
+
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+
+.reveal.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 </style>
@@ -1097,7 +1637,7 @@
          SECTION TITLE
     ========================================================== --}}
 
-    <div class="rekening-section-title">
+    <div class="rekening-section-title reveal">
 
         <div class="rekening-title-row">
 
@@ -1329,7 +1869,7 @@
          INFO
     ========================================================== --}}
 
-    <div class="rekening-info">
+    <div class="rekening-info reveal">
 
         <div class="rekening-info-icon">
             !
@@ -1344,5 +1884,73 @@
 
 
 </div>
+
+
+{{-- ============================================================
+     JAVASCRIPT SCROLL ANIMATION
+     ============================================================ --}}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    /*
+    |--------------------------------------------------------------------------
+    | ELEMENT YANG AKAN DIANIMASIKAN
+    |--------------------------------------------------------------------------
+    */
+
+    const animatedElements = document.querySelectorAll(
+        '.rekening-section-title.reveal, .rekening-card, .rekening-info.reveal'
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | INTERSECTION OBSERVER
+    |--------------------------------------------------------------------------
+    */
+
+    const observer = new IntersectionObserver(
+        function(entries, observer) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('show');
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15,
+
+            rootMargin:
+                '0px 0px -50px 0px'
+        }
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | OBSERVE SEMUA ELEMENT
+    |--------------------------------------------------------------------------
+    */
+
+    animatedElements.forEach(function(element) {
+
+        observer.observe(element);
+
+    });
+
+});
+
+</script>
+
 
 @endsection

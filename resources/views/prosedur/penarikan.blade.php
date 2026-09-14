@@ -5,69 +5,90 @@
 <style>
 
 /* ============================================================
-   HALAMAN PROSEDUR PENARIKAN
-   TEMA : CORPORATE CLEAN - MAROON + GREEN + WHITE
+   WITHDRAWAL PAGE
+   MODERN CORPORATE — MAROON / GREEN / WHITE
    ============================================================ */
 
 .withdrawal-page {
 
-    --maroon: #8b2635;
-    --maroon-dark: #6f1d2a;
-    --maroon-soft: #f8edef;
+    --maroon: #8b2532;
+    --maroon-dark: #681a25;
+    --maroon-soft: #f9eef0;
+    --maroon-line: #ead2d6;
 
-    --green: #3f725d;
-    --green-dark: #315b4a;
-    --green-soft: #edf4f0;
+    --green: #34715b;
+    --green-dark: #285743;
+    --green-soft: #edf6f1;
+    --green-line: #d6e8df;
 
-    --text: #30343b;
-    --text-soft: #69727d;
-    --muted: #87909a;
+    --text: #252a30;
+    --text-soft: #68717b;
+    --muted: #9299a1;
 
+    --white: #ffffff;
+    --bg: #f6f7f8;
     --border: #e5e8eb;
-    --surface: #ffffff;
-    --background: #f7f8f7;
 
-    padding: 35px 45px 70px;
+    min-height: 100vh;
+    padding: 32px 45px 80px;
+    box-sizing: border-box;
 
     background:
         radial-gradient(
-            circle at top right,
-            rgba(63,114,93,.035),
-            transparent 30%
+            circle at 8% 5%,
+            rgba(139,37,50,.045),
+            transparent 25%
         ),
-        var(--background);
+        radial-gradient(
+            circle at 92% 15%,
+            rgba(52,113,91,.045),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #fafbfb 0%,
+            var(--bg) 100%
+        );
 
-    min-height: 100vh;
-
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
 /* ============================================================
-   KEMBALI
+   CONTAINER
+   ============================================================ */
+
+.withdrawal-container {
+
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+}
+
+
+/* ============================================================
+   BACK BUTTON
    ============================================================ */
 
 .withdrawal-back {
 
-    max-width: 1050px;
+    margin-bottom: 18px;
 
-    margin: 0 auto 18px;
+    animation:
+        wdFadeDown .6s ease both;
 }
 
 .withdrawal-back a {
 
     display: inline-flex;
-
     align-items: center;
-
     gap: 9px;
 
-    color: var(--maroon);
+    color: var(--text);
 
     text-decoration: none;
 
-    font-size: 14px;
-
+    font-size: 13px;
     font-weight: 700;
 
     transition: .3s ease;
@@ -75,83 +96,75 @@
 
 .withdrawal-back a:hover {
 
-    color: var(--green);
-
+    color: var(--maroon);
     transform: translateX(-4px);
 }
 
-.withdrawal-back-arrow {
+.withdrawal-back-icon {
 
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 10px;
 
-    background: var(--surface);
-
+    background: var(--white);
     border: 1px solid var(--border);
 
     color: var(--maroon);
 
-    font-size: 18px;
-
     box-shadow:
-        0 5px 15px rgba(35,45,40,.055);
+        0 5px 16px rgba(0,0,0,.045);
 
     transition: .3s ease;
 }
 
-.withdrawal-back a:hover .withdrawal-back-arrow {
+.withdrawal-back a:hover .withdrawal-back-icon {
 
     background: var(--maroon);
-
+    border-color: var(--maroon);
     color: white;
 
-    border-color: var(--maroon);
-
-    transform: translateX(-2px);
+    transform: translateX(-3px);
 }
 
 
 /* ============================================================
-   HERO HEADER
+   HERO
    ============================================================ */
 
-.withdrawal-header {
-
-    max-width: 1050px;
-
-    margin: 0 auto 30px;
+.withdrawal-hero {
 
     position: relative;
 
-    overflow: hidden;
+    padding: 48px 50px;
 
-    padding: 42px 45px;
+    margin-bottom: 24px;
 
-    border-radius: 22px;
-
-    background: var(--surface);
-
-    color: var(--text);
+    background: var(--white);
 
     border: 1px solid var(--border);
 
-    box-shadow:
-        0 12px 35px rgba(38,48,43,.065);
+    border-radius: 25px;
 
-    animation: withdrawalHero .7s ease;
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 45px rgba(36,43,48,.065);
+
+    animation:
+        wdHero .8s cubic-bezier(.22,1,.36,1) both;
 }
 
 
-/* garis identitas */
+/* TOP LINE */
 
-.withdrawal-header-line {
+.withdrawal-hero::before {
+
+    content: "";
 
     position: absolute;
 
@@ -165,103 +178,128 @@
         linear-gradient(
             90deg,
             var(--maroon) 0%,
-            var(--maroon) 68%,
+            var(--maroon) 64%,
             var(--green) 100%
         );
 }
 
 
-/* dekorasi kanan */
+/* BIG CIRCLE */
 
-.withdrawal-header::before {
+.withdrawal-hero::after {
 
     content: "";
 
     position: absolute;
 
-    width: 230px;
-    height: 230px;
+    width: 330px;
+    height: 330px;
 
-    right: -105px;
-    top: -125px;
+    right: -170px;
+    top: -170px;
 
     border-radius: 50%;
 
     border:
-        35px solid rgba(139,38,53,.035);
+        65px solid rgba(139,37,50,.035);
+
+    animation:
+        wdFloat 6s ease-in-out infinite;
 
     pointer-events: none;
 }
 
-.withdrawal-header::after {
 
-    content: "";
+/* floating decoration */
+
+.hero-orbit {
 
     position: absolute;
 
-    width: 110px;
-    height: 110px;
+    right: 65px;
+    bottom: -40px;
 
-    right: 90px;
-    bottom: -70px;
+    width: 150px;
+    height: 150px;
 
     border-radius: 50%;
 
-    background:
-        rgba(63,114,93,.035);
+    border:
+        22px solid rgba(52,113,91,.045);
+
+    animation:
+        wdRotate 14s linear infinite;
 
     pointer-events: none;
 }
 
+.hero-dot {
 
-/* isi hero */
+    position: absolute;
 
-.withdrawal-header-content {
+    width: 9px;
+    height: 9px;
 
-    position: relative;
+    right: 180px;
+    top: 55px;
 
-    z-index: 2;
+    border-radius: 50%;
 
-    max-width: 850px;
+    background: var(--green);
+
+    opacity: .18;
+
+    animation:
+        wdPulse 2.5s ease-in-out infinite;
 }
 
 
-/* label */
+/* HERO CONTENT */
 
-.withdrawal-header-label {
+.withdrawal-hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 820px;
+}
+
+
+/* LABEL */
+
+.withdrawal-label {
 
     display: inline-flex;
 
     align-items: center;
-
     gap: 8px;
 
-    padding: 7px 13px;
+    padding: 8px 13px;
 
     margin-bottom: 17px;
 
-    border-radius: 30px;
+    border-radius: 9px;
 
-    background:
-        var(--maroon-soft);
+    background: var(--maroon-soft);
 
-    border:
-        1px solid rgba(139,38,53,.10);
+    border: 1px solid var(--maroon-line);
 
     color: var(--maroon);
 
-    font-size: 11px;
+    font-size: 10px;
 
-    font-weight: 800;
+    font-weight: 900;
 
-    letter-spacing: 1.2px;
+    letter-spacing: 1.4px;
 
     text-transform: uppercase;
+
+    animation:
+        wdFadeUp .7s .15s ease both;
 }
 
-.withdrawal-header-label::before {
-
-    content: "";
+.withdrawal-label-dot {
 
     width: 7px;
     height: 7px;
@@ -271,133 +309,179 @@
     background: var(--maroon);
 
     box-shadow:
-        0 0 0 4px rgba(139,38,53,.08);
+        0 0 0 4px rgba(139,37,50,.08);
+
+    animation:
+        wdPulse 2s infinite;
 }
 
 
-/* judul */
+/* TITLE */
 
-.withdrawal-header h1 {
+.withdrawal-hero h1 {
 
-    margin: 0 0 12px;
+    margin: 0 0 13px;
 
-    color: #292d33;
+    font-size: 40px;
 
-    font-size: 38px;
+    line-height: 1.15;
 
-    line-height: 1.2;
+    letter-spacing: -.9px;
 
-    font-weight: 800;
+    font-weight: 850;
 
-    letter-spacing: -.4px;
+    color: var(--text);
+
+    animation:
+        wdFadeUp .7s .22s ease both;
 }
 
-.withdrawal-header h1 span {
+.withdrawal-hero h1 span {
 
     color: var(--maroon);
+
+    position: relative;
+}
+
+.withdrawal-hero h1 span::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -5px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--maroon),
+            transparent
+        );
+
+    transform-origin: left;
+
+    animation:
+        wdLine .8s .7s ease both;
 }
 
 
-/* deskripsi */
+/* DESCRIPTION */
 
-.withdrawal-header p {
+.withdrawal-hero-description {
 
     margin: 0;
 
-    max-width: 800px;
+    max-width: 790px;
 
     color: var(--text-soft);
 
-    font-size: 15px;
+    font-size: 14px;
 
-    line-height: 1.8;
+    line-height: 1.85;
+
+    animation:
+        wdFadeUp .7s .3s ease both;
 }
 
-.withdrawal-header strong {
+.withdrawal-hero-description strong {
 
-    color: var(--maroon);
+    color: var(--maroon-dark);
 }
 
 
-/* status */
+/* STATUS */
 
 .withdrawal-status {
 
     display: inline-flex;
 
     align-items: center;
-
     gap: 10px;
 
-    margin-top: 23px;
+    margin-top: 22px;
 
-    padding: 10px 15px;
+    padding: 10px 14px;
 
-    background:
-        #fafbfa;
+    border-radius: 10px;
 
-    border:
-        1px solid #e4e9e6;
+    background: var(--green-soft);
 
-    border-radius: 12px;
+    border: 1px solid var(--green-line);
 
-    color: #66716b;
+    color: var(--green-dark);
 
-    font-size: 12px;
+    font-size: 11.5px;
+
+    font-weight: 700;
+
+    animation:
+        wdFadeUp .7s .4s ease both;
 }
 
-.withdrawal-status-dot {
+.status-icon {
 
-    width: 8px;
-    height: 8px;
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
     background: var(--green);
 
-    box-shadow:
-        0 0 0 4px rgba(63,114,93,.09);
+    color: white;
+
+    font-size: 10px;
+
+    animation:
+        wdPulse 2.5s infinite;
 }
 
 
 /* ============================================================
-   EFFECTIVE MARGIN
+   IMPORTANT INFO
    ============================================================ */
 
-.margin-info {
+.withdrawal-info {
 
-    max-width: 1050px;
+    display: grid;
 
-    margin: 0 auto 38px;
+    grid-template-columns: 55px 1fr auto;
 
-    position: relative;
+    align-items: center;
 
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 15px;
+    gap: 17px;
 
     padding: 21px 24px;
 
+    margin-bottom: 42px;
+
     background:
-        #fbfcfb;
+        linear-gradient(
+            110deg,
+            #f0f7f3,
+            #fbfdfc
+        );
 
-    border:
-        1px solid #dfe8e3;
+    border: 1px solid var(--green-line);
 
-    border-radius: 16px;
+    border-radius: 17px;
 
-    box-shadow:
-        0 6px 20px rgba(38,48,43,.04);
+    position: relative;
 
-    animation: withdrawalFadeUp .7s ease;
+    overflow: hidden;
+
+    animation:
+        wdFadeUp .7s .15s ease both;
 }
 
-
-/* garis kiri hijau */
-
-.margin-info::before {
+.withdrawal-info::before {
 
     content: "";
 
@@ -410,80 +494,117 @@
     width: 4px;
 
     background: var(--green);
+}
 
-    border-radius:
-        4px 0 0 4px;
+.withdrawal-info::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -50px;
+    top: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(52,113,91,.04);
 }
 
 
-/* icon */
+/* INFO ICON */
 
-.margin-icon {
+.info-icon {
 
-    width: 43px;
-    height: 43px;
-
-    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
-    background: var(--green-soft);
+    background: var(--green);
 
-    color: var(--green-dark);
+    color: white;
 
-    font-size: 19px;
+    font-size: 20px;
 
     font-weight: 900;
 
-    border:
-        1px solid rgba(63,114,93,.08);
+    box-shadow:
+        0 9px 22px rgba(52,113,91,.18);
+
+    animation:
+        wdIconFloat 3s ease-in-out infinite;
 }
 
-.margin-info h3 {
+.withdrawal-info h3 {
 
     margin: 0 0 5px;
 
     color: var(--green-dark);
 
-    font-size: 16px;
+    font-size: 15px;
 
-    font-weight: 800;
+    font-weight: 850;
 }
 
-.margin-info p {
+.withdrawal-info p {
 
     margin: 0;
 
-    color: #68736d;
+    color: #65736c;
 
-    font-size: 13px;
+    font-size: 12.5px;
 
-    line-height: 1.8;
+    line-height: 1.75;
 }
 
-.margin-info strong {
+.withdrawal-info strong {
 
-    color: #3f5148;
+    color: var(--green-dark);
+}
+
+
+/* INFO BADGE */
+
+.info-badge {
+
+    padding: 8px 11px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    border: 1px solid var(--green-line);
+
+    color: var(--green);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
 }
 
 
 /* ============================================================
-   SECTION TITLE
+   SECTION HEADING
    ============================================================ */
 
-.withdrawal-section-title {
+.withdrawal-section-heading {
 
-    max-width: 1050px;
+    margin-bottom: 25px;
 
-    margin: 0 auto 22px;
+    animation:
+        wdFadeUp .6s ease both;
 }
 
-.withdrawal-title-row {
+.heading-row {
 
     display: flex;
 
@@ -492,214 +613,243 @@
     gap: 13px;
 }
 
-.withdrawal-title-icon {
+.heading-icon {
 
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     flex-shrink: 0;
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     background: var(--maroon-soft);
 
+    border: 1px solid var(--maroon-line);
+
     color: var(--maroon);
 
-    font-size: 18px;
-
-    font-weight: 900;
-
-    border:
-        1px solid rgba(139,38,53,.08);
+    font-size: 17px;
 
     box-shadow:
-        0 6px 15px rgba(139,38,53,.06);
+        0 5px 15px rgba(139,37,50,.06);
+
+    animation:
+        wdIconFloat 3.5s ease-in-out infinite;
 }
 
-.withdrawal-section-title h2 {
+.withdrawal-section-heading h2 {
 
     margin: 0;
 
-    color: #34383e;
+    color: var(--text);
 
-    font-size: 25px;
+    font-size: 24px;
 
-    font-weight: 800;
+    font-weight: 850;
+
+    letter-spacing: -.3px;
 }
 
-.withdrawal-section-title p {
+.withdrawal-section-heading p {
 
-    margin: 5px 0 0 56px;
+    margin: 6px 0 0 57px;
 
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 12.5px;
 }
 
 
 /* ============================================================
-   TIMELINE
+   PROCESS
    ============================================================ */
 
-.withdrawal-timeline {
-
-    max-width: 1050px;
-
-    margin: 0 auto;
+.withdrawal-process {
 
     position: relative;
+
+    margin-bottom: 48px;
 }
 
 
-/* garis timeline */
+/* animated line */
 
-.withdrawal-timeline::before {
+.withdrawal-process::before {
 
     content: "";
 
     position: absolute;
 
-    left: 31px;
+    left: 25px;
 
-    top: 32px;
-
-    bottom: 32px;
+    top: 26px;
+    bottom: 26px;
 
     width: 2px;
 
     background:
         linear-gradient(
-            to bottom,
-            rgba(139,38,53,.38),
-            #dfe5e2
+            180deg,
+            var(--maroon),
+            var(--maroon-line) 55%,
+            var(--green)
         );
 
-    border-radius: 10px;
+    opacity: .7;
+
+    transform-origin: top;
+
+    animation:
+        wdTimeline 1.5s .4s ease both;
 }
 
 
-/* ============================================================
-   STEP
-   ============================================================ */
+/* STEP */
 
 .withdrawal-step {
 
-    display: flex;
+    display: grid;
 
-    align-items: flex-start;
+    grid-template-columns: 52px 1fr;
 
-    gap: 22px;
+    gap: 19px;
 
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 
     position: relative;
 
     animation:
-        withdrawalStep .65s ease both;
+        wdStep .65s ease both;
 }
 
 .withdrawal-step:nth-child(1) {
-    animation-delay: .05s;
+    animation-delay: .1s;
 }
 
 .withdrawal-step:nth-child(2) {
-    animation-delay: .13s;
+    animation-delay: .22s;
 }
 
 .withdrawal-step:nth-child(3) {
-    animation-delay: .21s;
+    animation-delay: .34s;
 }
 
 
-/* ============================================================
-   NOMOR STEP
-   ============================================================ */
+/* NUMBER */
 
-.withdrawal-step-number {
+.step-number {
 
-    width: 63px;
-    height: 63px;
-
-    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     position: relative;
-
     z-index: 3;
 
-    border-radius: 18px;
+    border-radius: 50%;
 
     background: white;
 
-    border:
-        2px solid rgba(139,38,53,.55);
+    border: 2px solid var(--maroon-line);
 
     color: var(--maroon);
 
-    font-size: 15px;
+    font-size: 12px;
 
     font-weight: 900;
 
     box-shadow:
-        0 7px 18px rgba(38,48,43,.065);
+        0 7px 18px rgba(0,0,0,.055);
 
-    transition: .3s ease;
+    transition: .35s ease;
 }
 
-.withdrawal-step:hover
-.withdrawal-step-number {
+.withdrawal-step:hover .step-number {
 
     background: var(--maroon);
 
-    color: white;
-
     border-color: var(--maroon);
 
+    color: white;
+
     transform:
-        rotate(-3deg)
-        scale(1.04);
+        scale(1.1)
+        rotate(-4deg);
+
+    box-shadow:
+        0 10px 25px rgba(139,37,50,.2);
 }
 
 
-/* ============================================================
-   CARD STEP
-   ============================================================ */
+/* CARD */
 
 .withdrawal-card {
 
-    flex: 1;
-
     position: relative;
 
-    padding: 27px 30px;
+    padding: 26px 29px;
 
     background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 17px;
 
     box-shadow:
-        0 6px 20px rgba(38,48,43,.045);
+        0 7px 23px rgba(34,41,46,.04);
+
+    overflow: hidden;
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+        transform .35s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
 
-/* garis kiri */
+/* CARD SHINE */
+
+.withdrawal-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left .7s ease;
+
+    pointer-events: none;
+}
+
+.withdrawal-card:hover::after {
+
+    left: 140%;
+}
+
+
+/* LEFT INDICATOR */
 
 .withdrawal-card::before {
 
@@ -708,51 +858,92 @@
     position: absolute;
 
     left: 0;
-
-    top: 20px;
-    bottom: 20px;
+    top: 17px;
+    bottom: 17px;
 
     width: 3px;
 
-    background: var(--maroon);
+    background:
+        linear-gradient(
+            180deg,
+            var(--maroon),
+            var(--green)
+        );
 
     border-radius:
         0 4px 4px 0;
 
-    opacity: 0;
+    transform:
+        scaleY(0);
 
-    transition: .3s ease;
+    transform-origin: center;
+
+    transition: .35s ease;
 }
 
 .withdrawal-card:hover {
 
     transform:
-        translateX(4px);
+        translateX(6px)
+        translateY(-2px);
 
-    border-color:
-        rgba(139,38,53,.20);
+    border-color: var(--maroon-line);
 
     box-shadow:
-        0 13px 28px rgba(38,48,43,.075);
+        0 17px 35px rgba(34,41,46,.08);
 }
 
 .withdrawal-card:hover::before {
 
-    opacity: 1;
+    transform:
+        scaleY(1);
 }
 
 
-/* judul */
+/* CARD TOP */
+
+.card-top {
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
 
 .withdrawal-card h3 {
 
-    margin: 0 0 10px;
+    margin: 0;
 
-    color: #34383e;
+    color: var(--text);
 
-    font-size: 19px;
+    font-size: 18px;
 
-    font-weight: 800;
+    font-weight: 850;
+}
+
+.step-tag {
+
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: #f7f8f9;
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: .7px;
+
+    text-transform: uppercase;
 }
 
 .withdrawal-card p {
@@ -761,65 +952,63 @@
 
     color: var(--text-soft);
 
-    font-size: 14px;
+    font-size: 13px;
 
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
 .withdrawal-card strong {
 
-    color: var(--maroon);
+    color: var(--maroon-dark);
 }
 
 
 /* ============================================================
-   NOTE / CHECKLIST
+   CHECK ITEMS
    ============================================================ */
 
-.step-note {
+.step-items {
 
     display: flex;
 
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 8px;
 
     margin-top: 18px;
 }
 
-.note-item {
+.step-item {
 
-    display: flex;
+    display: inline-flex;
 
     align-items: center;
 
     gap: 7px;
 
-    padding: 9px 13px;
+    padding: 8px 11px;
 
     background: #fafbfb;
 
-    border:
-        1px solid #e5e9e7;
+    border: 1px solid var(--border);
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    color: #59645f;
+    color: #59635e;
 
-    font-size: 12px;
+    font-size: 11px;
+
+    font-weight: 600;
 
     transition: .25s ease;
 }
 
-.note-item::before {
+.step-item-icon {
 
-    content: "✓";
-
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -827,77 +1016,315 @@
 
     background: var(--green-soft);
 
-    color: var(--green-dark);
+    color: var(--green);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    transition: .25s ease;
+}
+
+.step-item:hover {
+
+    transform: translateY(-3px);
+
+    background: var(--green-soft);
+
+    border-color: var(--green-line);
+}
+
+.step-item:hover .step-item-icon {
+
+    background: var(--green);
+
+    color: white;
+
+    transform: rotate(8deg);
+}
+
+
+/* ============================================================
+   MONEY FLOW VISUAL
+   ============================================================ */
+
+.money-flow {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-top: 19px;
+
+    padding: 13px;
+
+    background: #fafbfb;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+}
+
+.money-node {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    font-weight: 750;
+}
+
+.money-node-icon {
+
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: var(--maroon-soft);
+
+    color: var(--maroon);
 
     font-size: 11px;
 
     font-weight: 900;
 }
 
-.note-item:hover {
+.money-node:last-child .money-node-icon {
 
-    background:
-        var(--green-soft);
+    background: var(--green-soft);
 
-    border-color:
-        rgba(63,114,93,.18);
+    color: var(--green);
+}
+
+.money-arrow {
+
+    flex: 1;
+
+    height: 1px;
+
+    position: relative;
+
+    background: #d9dddf;
+
+    overflow: hidden;
+}
+
+.money-arrow::after {
+
+    content: "›";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
 
     transform:
-        translateY(-2px);
+        translateY(-55%);
+
+    color: var(--maroon);
+
+    font-size: 17px;
+
+    background: #fafbfb;
+
+    padding-left: 4px;
 }
 
 
 /* ============================================================
-   LEGALITAS
+   WARNING
    ============================================================ */
 
-.withdrawal-legal-section {
+.withdrawal-warning {
 
-    max-width: 1050px;
+    position: relative;
 
-    margin: 52px auto 0;
+    padding: 24px 27px;
+
+    margin-bottom: 50px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #fff7f8,
+            #fffafa
+        );
+
+    border: 1px solid #ecd7da;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    animation:
+        wdFadeUp .7s ease both;
 }
 
-.withdrawal-legal-grid {
+.withdrawal-warning::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--maroon),
+            #b64a59
+        );
+}
+
+.withdrawal-warning::after {
+
+    content: "!";
+
+    position: absolute;
+
+    right: 28px;
+    bottom: -25px;
+
+    font-size: 100px;
+
+    line-height: 1;
+
+    color: rgba(139,37,50,.035);
+
+    font-weight: 900;
+}
+
+.warning-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+    color: var(--maroon-dark);
+
+    font-size: 16px;
+
+    font-weight: 850;
+}
+
+.warning-icon {
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--maroon);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    animation:
+        wdPulse 2.5s infinite;
+}
+
+.withdrawal-warning p {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0 0 9px;
+
+    color: #686268;
+
+    font-size: 12.5px;
+
+    line-height: 1.85;
+}
+
+.withdrawal-warning p:last-child {
+
+    margin-bottom: 0;
+}
+
+.withdrawal-warning strong {
+
+    color: var(--maroon-dark);
+}
+
+
+/* ============================================================
+   LEGALITY
+   ============================================================ */
+
+.legal-section {
+
+    animation:
+        wdFadeUp .7s ease both;
+}
+
+.legal-grid {
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 16px;
+    gap: 14px;
+
+    margin-top: 23px;
 }
 
-
-/* card */
-
-.withdrawal-legal-card {
+.legal-card {
 
     position: relative;
 
-    padding: 23px;
+    padding: 21px;
 
     background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
-    border-radius: 16px;
+    border-radius: 15px;
 
     text-decoration: none;
 
     overflow: hidden;
 
     box-shadow:
-        0 6px 20px rgba(38,48,43,.04);
+        0 6px 20px rgba(34,41,46,.035);
 
-    transition: .3s ease;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
-
-/* garis atas */
-
-.withdrawal-legal-card::before {
+.legal-card::before {
 
     content: "";
 
@@ -919,112 +1346,119 @@
     transform:
         scaleX(0);
 
-    transform-origin:
-        center;
+    transform-origin: left;
 
-    transition:
-        transform .3s ease;
+    transition: .35s ease;
 }
 
-.withdrawal-legal-card:hover::before {
+.legal-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color: var(--maroon-line);
+
+    box-shadow:
+        0 16px 32px rgba(34,41,46,.08);
+}
+
+.legal-card:hover::before {
 
     transform:
         scaleX(1);
 }
 
-.withdrawal-legal-card:hover {
+.legal-icon {
 
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(139,38,53,.18);
-
-    box-shadow:
-        0 13px 28px rgba(38,48,43,.075);
-}
-
-
-/* icon */
-
-.withdrawal-legal-icon {
-
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     margin-bottom: 14px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
-    background:
-        var(--maroon-soft);
+    background: var(--maroon-soft);
 
-    color:
-        var(--maroon);
+    border: 1px solid var(--maroon-line);
 
-    font-size: 17px;
+    color: var(--maroon);
+
+    font-size: 14px;
 
     font-weight: 900;
 
     transition: .3s ease;
 }
 
-.withdrawal-legal-card:hover
-.withdrawal-legal-icon {
+.legal-card:hover .legal-icon {
 
-    background:
-        var(--maroon);
+    background: var(--maroon);
+
+    border-color: var(--maroon);
 
     color: white;
 
     transform:
-        scale(1.04);
+        rotate(-4deg)
+        scale(1.07);
 }
 
+.legal-card h3 {
 
-/* arrow kanan atas */
+    margin: 0 0 5px;
 
-.withdrawal-legal-card::after {
-
-    content: "↗";
-
-    position: absolute;
-
-    top: 19px;
-    right: 19px;
-
-    width: 30px;
-    height: 30px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 9px;
-
-    background:
-        var(--green-soft);
-
-    color:
-        var(--green-dark);
+    color: var(--text);
 
     font-size: 15px;
 
-    font-weight: 900;
+    font-weight: 850;
+}
+
+.legal-card span {
+
+    color: var(--muted);
+
+    font-size: 10.5px;
+
+    font-weight: 650;
+}
+
+.legal-arrow {
+
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #f7f8f9;
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 12px;
 
     transition: .3s ease;
 }
 
-.withdrawal-legal-card:hover::after {
+.legal-card:hover .legal-arrow {
 
-    background:
-        var(--green);
+    background: var(--maroon);
+
+    border-color: var(--maroon);
 
     color: white;
 
@@ -1033,475 +1467,233 @@
 }
 
 
-.withdrawal-legal-card h3 {
-
-    margin: 0 0 6px;
-
-    color: #34383e;
-
-    font-size: 16px;
-
-    line-height: 1.4;
-
-    font-weight: 800;
-}
-
-.withdrawal-legal-card span {
-
-    color:
-        var(--green-dark);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
 /* ============================================================
-   HELP
+   ANIMATION
    ============================================================ */
 
-.withdrawal-help-section {
-
-    max-width: 1050px;
-
-    margin: 25px auto 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 16px;
-}
-
-.withdrawal-help-card {
-
-    position: relative;
-
-    padding: 21px 23px;
-
-    background: white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 16px;
-
-    text-decoration: none;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 6px 20px rgba(38,48,43,.035);
-
-    transition: .3s ease;
-}
-
-.withdrawal-help-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 3px;
-
-    background:
-        var(--green);
-
-    transform:
-        scaleY(0);
-
-    transform-origin:
-        bottom;
-
-    transition: .3s ease;
-}
-
-.withdrawal-help-card:hover {
-
-    transform:
-        translateY(-3px);
-
-    border-color:
-        rgba(63,114,93,.18);
-
-    box-shadow:
-        0 12px 26px rgba(38,48,43,.065);
-}
-
-.withdrawal-help-card:hover::before {
-
-    transform:
-        scaleY(1);
-}
-
-.withdrawal-help-card h3 {
-
-    margin: 0 0 7px;
-
-    color: #34383e;
-
-    font-size: 16px;
-
-    font-weight: 800;
-}
-
-.withdrawal-help-card span {
-
-    color:
-        var(--green-dark);
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-
-/* ============================================================
-   WARNING
-   ============================================================ */
-
-.withdrawal-warning {
-
-    max-width: 1050px;
-
-    margin: 38px auto 0;
-
-    position: relative;
-
-    padding: 24px 27px 24px 30px;
-
-    background:
-        #fbfaf8;
-
-    border:
-        1px solid #e9e3da;
-
-    border-radius: 17px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 6px 20px rgba(38,48,43,.035);
-}
-
-.withdrawal-warning::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 4px;
-
-    background:
-        var(--maroon);
-}
-
-.withdrawal-warning-title {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 10px;
-
-    color: var(--maroon);
-
-    font-size: 17px;
-
-    font-weight: 800;
-}
-
-.withdrawal-warning-icon {
-
-    width: 31px;
-    height: 31px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 9px;
-
-    background:
-        var(--maroon-soft);
-
-    color: var(--maroon);
-
-    font-size: 15px;
-
-    font-weight: 900;
-
-    border:
-        1px solid rgba(139,38,53,.08);
-}
-
-.withdrawal-warning p {
-
-    margin: 0 0 10px;
-
-    color: #6c6b68;
-
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-.withdrawal-warning p:last-child {
-
-    margin-bottom: 0;
-}
-
-.withdrawal-warning strong {
-
-    color: #4d4a46;
-}
-
-
-/* ============================================================
-   FOOTER LINKS
-   ============================================================ */
-
-.withdrawal-footer-links {
-
-    max-width: 1050px;
-
-    margin: 35px auto 0;
-
-    padding-top: 25px;
-
-    border-top:
-        1px solid #e2e5e4;
-
-    text-align: center;
-}
-
-.withdrawal-footer-links a {
-
-    color:
-        #7b8491;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    transition: .3s ease;
-}
-
-.withdrawal-footer-links a:hover {
-
-    color:
-        var(--maroon);
-}
-
-
-/* ============================================================
-   ANIMASI
-   ============================================================ */
-
-@keyframes withdrawalHero {
+@keyframes wdHero {
 
     from {
-
         opacity: 0;
-
         transform:
-            translateY(-20px);
+            translateY(-22px)
+            scale(.985);
     }
 
     to {
-
         opacity: 1;
-
         transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes wdFadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wdFadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wdStep {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(-18px)
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(0)
             translateY(0);
     }
 }
 
-
-@keyframes withdrawalStep {
+@keyframes wdTimeline {
 
     from {
-
-        opacity: 0;
-
-        transform:
-            translateY(25px);
+        transform: scaleY(0);
     }
 
     to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: scaleY(1);
     }
 }
 
-
-@keyframes withdrawalFadeUp {
+@keyframes wdLine {
 
     from {
-
-        opacity: 0;
-
-        transform:
-            translateY(20px);
+        transform: scaleX(0);
     }
 
     to {
+        transform: scaleX(1);
+    }
+}
 
+@keyframes wdFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(12px);
+    }
+}
+
+@keyframes wdRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wdPulse {
+
+    0%,100% {
+        transform: scale(1);
         opacity: 1;
+    }
 
-        transform:
-            translateY(0);
+    50% {
+        transform: scale(1.12);
+        opacity: .75;
+    }
+}
+
+@keyframes wdIconFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
     }
 }
 
 
 /* ============================================================
-   RESPONSIVE
+   TABLET
    ============================================================ */
 
 @media (max-width: 1000px) {
 
-    .withdrawal-legal-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
+    .withdrawal-page {
+        padding:
+            28px 25px 60px;
     }
+
+    .legal-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
 
-@media (max-width: 900px) {
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
 
     .withdrawal-page {
-
         padding:
-            30px 20px 55px;
+            22px 15px 50px;
     }
 
-    .withdrawal-header {
-
+    .withdrawal-hero {
         padding:
-            35px 30px;
+            35px 25px;
+        border-radius: 20px;
     }
 
-    .withdrawal-header h1 {
-
-        font-size: 32px;
+    .withdrawal-hero h1 {
+        font-size: 29px;
     }
 
-    .withdrawal-help-section {
+    .withdrawal-hero-description {
+        font-size: 12.5px;
+    }
+
+    .withdrawal-info {
 
         grid-template-columns:
-            1fr;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .withdrawal-page {
-
-        padding:
-            22px 15px 45px;
-    }
-
-    .withdrawal-header {
-
-        padding:
-            30px 22px;
-
-        border-radius:
-            19px;
-    }
-
-    .withdrawal-header h1 {
-
-        font-size:
-            27px;
-    }
-
-    .withdrawal-header p {
-
-        font-size:
-            13px;
-    }
-
-    .withdrawal-status {
-
-        align-items:
-            flex-start;
-
-        line-height:
-            1.5;
-    }
-
-    .margin-info {
+            43px 1fr;
 
         padding:
             18px;
+
+        gap: 12px;
     }
 
-    .withdrawal-section-title h2 {
+    .info-icon {
 
-        font-size:
-            21px;
+        width: 43px;
+        height: 43px;
+
+        border-radius: 12px;
     }
 
-    .withdrawal-section-title p {
-
-        margin-left:
-            0;
+    .info-badge {
+        display: none;
     }
 
-    .withdrawal-title-icon {
-
-        width:
-            39px;
-
-        height:
-            39px;
+    .withdrawal-section-heading h2 {
+        font-size: 20px;
     }
 
-    .withdrawal-timeline::before {
+    .withdrawal-section-heading p {
+        margin-left: 57px;
+        font-size: 11.5px;
+    }
 
-        left:
-            24px;
+    .withdrawal-process::before {
+        left: 21px;
     }
 
     .withdrawal-step {
 
-        gap:
-            14px;
+        grid-template-columns:
+            44px 1fr;
+
+        gap: 12px;
     }
 
-    .withdrawal-step-number {
+    .step-number {
 
-        width:
-            49px;
+        width: 44px;
+        height: 44px;
 
-        height:
-            49px;
-
-        border-radius:
-            14px;
-
-        font-size:
-            12px;
+        font-size: 10px;
     }
 
     .withdrawal-card {
@@ -1509,41 +1701,91 @@
         padding:
             20px;
 
-        border-radius:
-            15px;
+        border-radius: 14px;
     }
 
     .withdrawal-card h3 {
-
-        font-size:
-            16px;
+        font-size: 15px;
     }
 
     .withdrawal-card p {
-
-        font-size:
-            13px;
+        font-size: 12px;
     }
 
-    .withdrawal-legal-grid {
-
-        grid-template-columns:
-            1fr;
+    .step-tag {
+        display: none;
     }
 
-    .step-note {
-
-        gap:
-            7px;
+    .money-flow {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .note-item {
+    .money-arrow {
+        width: 100%;
+    }
 
-        font-size:
-            11px;
+    .legal-grid {
+        grid-template-columns: 1fr;
+    }
 
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 420px) {
+
+    .withdrawal-page {
         padding:
-            8px 10px;
+            18px 11px 40px;
+    }
+
+    .withdrawal-hero {
+        padding:
+            29px 20px;
+    }
+
+    .withdrawal-hero h1 {
+        font-size: 25px;
+    }
+
+    .withdrawal-status {
+        align-items: flex-start;
+        line-height: 1.5;
+    }
+
+    .withdrawal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .withdrawal-section-heading p {
+        margin-left: 0;
+    }
+
+    .withdrawal-step {
+        grid-template-columns: 39px 1fr;
+        gap: 9px;
+    }
+
+    .step-number {
+        width: 39px;
+        height: 39px;
+    }
+
+    .withdrawal-process::before {
+        left: 18px;
+    }
+
+    .withdrawal-card {
+        padding: 17px;
     }
 
 }
@@ -1555,23 +1797,15 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .withdrawal-header,
-    .withdrawal-step,
-    .margin-info {
+    *,
+    *::before,
+    *::after {
 
-        animation:
-            none;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
     }
 
-    .withdrawal-card,
-    .withdrawal-step-number,
-    .withdrawal-legal-card,
-    .withdrawal-help-card,
-    .withdrawal-legal-icon {
-
-        transition:
-            none;
-    }
 }
 
 </style>
@@ -1579,16 +1813,18 @@
 
 <div class="withdrawal-page">
 
+<div class="withdrawal-container">
 
-    {{-- =========================================================
-         KEMBALI
-    ========================================================== --}}
+
+    {{-- ========================================================
+         BACK
+    ========================================================= --}}
 
     <div class="withdrawal-back">
 
         <a href="{{ url()->previous() }}">
 
-            <span class="withdrawal-back-arrow">
+            <span class="withdrawal-back-icon">
                 ←
             </span>
 
@@ -1600,34 +1836,54 @@
 
 
 
-    {{-- =========================================================
+    {{-- ========================================================
          HERO
-    ========================================================== --}}
+    ========================================================= --}}
 
-    <div class="withdrawal-header">
+    <section class="withdrawal-hero">
 
-        <div class="withdrawal-header-line"></div>
+        <div class="hero-orbit"></div>
+        <div class="hero-dot"></div>
 
-        <div class="withdrawal-header-content">
+        <div class="withdrawal-hero-content">
 
-            <div class="withdrawal-header-label">
+            <div class="withdrawal-label">
+
+                <span class="withdrawal-label-dot"></span>
+
                 Prosedur Transaksi
+
             </div>
 
+
             <h1>
+
                 Prosedur
-                <span>Penarikan Dana</span>
+
+                <span>
+                    Penarikan Dana
+                </span>
+
             </h1>
 
-            <p>
-                Penarikan dana atau <strong>Withdrawal</strong> dapat dilakukan
-                sewaktu-waktu oleh nasabah sesuai dengan ketentuan yang berlaku.
-                Pastikan proses penarikan dilakukan melalui prosedur resmi.
+
+            <p class="withdrawal-hero-description">
+
+                Penarikan dana atau
+                <strong>Withdrawal</strong>
+                dapat dilakukan oleh nasabah sesuai dengan
+                ketentuan yang berlaku. Pastikan seluruh proses
+                dilakukan melalui prosedur resmi agar penarikan
+                dana dapat diproses dengan baik.
+
             </p>
+
 
             <div class="withdrawal-status">
 
-                <span class="withdrawal-status-dot"></span>
+                <span class="status-icon">
+                    ✓
+                </span>
 
                 Ikuti setiap tahapan sesuai prosedur yang telah ditentukan.
 
@@ -1635,17 +1891,17 @@
 
         </div>
 
-    </div>
+    </section>
 
 
 
-    {{-- =========================================================
-         EFFECTIVE MARGIN
-    ========================================================== --}}
+    {{-- ========================================================
+         IMPORTANT INFO
+    ========================================================= --}}
 
-    <div class="margin-info">
+    <section class="withdrawal-info">
 
-        <div class="margin-icon">
+        <div class="info-icon">
             !
         </div>
 
@@ -1656,33 +1912,44 @@
             </h3>
 
             <p>
-                Dana yang ditarik oleh nasabah tidak boleh melebihi jumlah
-                <strong>Effective Margin</strong> yang terdapat pada
-                laporan transaksi harian nasabah
-                (<strong>Statement Report</strong>).
+
+                Dana yang ditarik tidak boleh melebihi jumlah
+                <strong>Effective Margin</strong>
+                yang terdapat pada laporan transaksi harian
+                nasabah atau
+                <strong>Statement Report</strong>.
+
             </p>
 
         </div>
 
-    </div>
+        <div class="info-badge">
+            PENTING
+        </div>
+
+    </section>
 
 
 
-    {{-- =========================================================
-         JUDUL PROSES
-    ========================================================== --}}
+    {{-- ========================================================
+         SECTION TITLE
+    ========================================================= --}}
 
-    <div class="withdrawal-section-title">
+    <section class="withdrawal-section-heading">
 
-        <div class="withdrawal-title-row">
+        <div class="heading-row">
 
-            <div class="withdrawal-title-icon">
-                ✓
+            <div class="heading-icon">
+                ↓
             </div>
 
-            <h2>
-                Proses Penarikan Dana
-            </h2>
+            <div>
+
+                <h2>
+                    Proses Penarikan Dana
+                </h2>
+
+            </div>
 
         </div>
 
@@ -1690,51 +1957,85 @@
             Ikuti tiga tahapan berikut untuk melakukan Withdrawal.
         </p>
 
-    </div>
+    </section>
 
 
 
-    {{-- =========================================================
-         TIMELINE
-    ========================================================== --}}
+    {{-- ========================================================
+         PROCESS
+    ========================================================= --}}
 
-    <div class="withdrawal-timeline">
+    <section class="withdrawal-process">
 
 
         {{-- STEP 01 --}}
 
         <div class="withdrawal-step">
 
-            <div class="withdrawal-step-number">
+            <div class="step-number">
                 01
             </div>
 
+
             <div class="withdrawal-card">
 
-                <h3>
-                    Isi Withdrawal Form
-                </h3>
+                <div class="card-top">
+
+                    <h3>
+                        Isi Withdrawal Form
+                    </h3>
+
+                    <span class="step-tag">
+                        Tahap 01
+                    </span>
+
+                </div>
+
 
                 <p>
+
                     Nasabah mengisi dan menandatangani
                     <strong>
                         Lembar Aplikasi Penarikan Dana
                         (Withdrawal Form)
-                    </strong>.
+                    </strong>
+                    sebagai dokumen pengajuan penarikan dana.
+
                 </p>
 
-                <div class="step-note">
 
-                    <div class="note-item">
+                <div class="step-items">
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
                         Isi formulir
+
                     </div>
 
-                    <div class="note-item">
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
                         Pastikan data benar
+
                     </div>
 
-                    <div class="note-item">
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
                         Tanda tangan
+
                     </div>
 
                 </div>
@@ -1749,21 +2050,74 @@
 
         <div class="withdrawal-step">
 
-            <div class="withdrawal-step-number">
+            <div class="step-number">
                 02
             </div>
 
+
             <div class="withdrawal-card">
 
-                <h3>
-                    Pengajuan ke PT Rifan Financindo Berjangka
-                </h3>
+                <div class="card-top">
+
+                    <h3>
+                        Pengajuan Withdrawal
+                    </h3>
+
+                    <span class="step-tag">
+                        Tahap 02
+                    </span>
+
+                </div>
+
 
                 <p>
-                    Withdrawal Form yang telah diisi dan ditandatangani
-                    diberikan kepada PT Rifan Financindo Berjangka
-                    untuk diproses sesuai dengan ketentuan yang berlaku.
+
+                    Withdrawal Form yang telah diisi dan
+                    ditandatangani diberikan kepada
+                    <strong>
+                        PT Rifan Financindo Berjangka
+                    </strong>
+                    untuk diproses sesuai dengan ketentuan
+                    yang berlaku.
+
                 </p>
+
+
+                <div class="step-items">
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
+                        Form telah diisi
+
+                    </div>
+
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
+                        Form telah ditandatangani
+
+                    </div>
+
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
+                        Pengajuan diproses
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -1775,34 +2129,90 @@
 
         <div class="withdrawal-step">
 
-            <div class="withdrawal-step-number">
+            <div class="step-number">
                 03
             </div>
 
+
             <div class="withdrawal-card">
 
-                <h3>
-                    Dana Ditransfer ke Rekening Nasabah
-                </h3>
+                <div class="card-top">
+
+                    <h3>
+                        Dana Ditransfer ke Rekening Nasabah
+                    </h3>
+
+                    <span class="step-tag">
+                        Tahap 03
+                    </span>
+
+                </div>
+
 
                 <p>
-                    Penarikan dana hanya dapat ditransfer ke rekening
-                    atas nama nasabah yang bersangkutan dan harus sesuai
-                    dengan rekening yang tercantum pada
+
+                    Penarikan dana hanya dapat ditransfer
+                    ke rekening atas nama nasabah yang
+                    bersangkutan dan harus sesuai dengan
+                    rekening yang tercantum pada
                     <strong>
                         Aplikasi Pembukaan Rekening
                     </strong>
                     di dalam Buku Perjanjian.
+
                 </p>
 
-                <div class="step-note">
 
-                    <div class="note-item">
-                        Rekening atas nama nasabah
+                <div class="money-flow">
+
+                    <div class="money-node">
+
+                        <span class="money-node-icon">
+                            R
+                        </span>
+
+                        PT RFB
+
                     </div>
 
-                    <div class="note-item">
+
+                    <div class="money-arrow"></div>
+
+
+                    <div class="money-node">
+
+                        <span class="money-node-icon">
+                            ✓
+                        </span>
+
+                        Rekening Nasabah
+
+                    </div>
+
+                </div>
+
+
+                <div class="step-items">
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
+                        Atas nama nasabah
+
+                    </div>
+
+
+                    <div class="step-item">
+
+                        <span class="step-item-icon">
+                            ✓
+                        </span>
+
                         Sesuai data rekening
+
                     </div>
 
                 </div>
@@ -1812,27 +2222,76 @@
         </div>
 
 
-    </div>
+    </section>
 
 
 
-    {{-- =========================================================
+    {{-- ========================================================
+         WARNING
+    ========================================================= --}}
+
+    <section class="withdrawal-warning">
+
+        <div class="warning-title">
+
+            <span class="warning-icon">
+                !
+            </span>
+
+            Perhatian!
+
+        </div>
+
+
+        <p>
+
+            Managemen PT. Rifan Financindo Berjangka (PT RFB)
+            menghimbau kepada seluruh masyarakat untuk lebih
+            berhati-hati terhadap beberapa bentuk penipuan yang
+            berkedok investasi dan mengatasnamakan PT RFB
+            menggunakan media elektronik ataupun sosial media.
+
+        </p>
+
+
+        <p>
+
+            Pastikan transfer dana untuk melaksanakan transaksi
+            Perdagangan Berjangka dilakukan ke rekening tujuan
+            <strong>Segregated Account</strong> atas nama
+            <strong>
+                PT Rifan Financindo Berjangka
+            </strong>,
+            bukan atas nama individu.
+
+        </p>
+
+    </section>
+
+
+
+    {{-- ========================================================
          LEGALITAS
-    ========================================================== --}}
+    ========================================================= --}}
 
-    <div class="withdrawal-legal-section">
+    <section class="legal-section">
 
-        <div class="withdrawal-section-title">
 
-            <div class="withdrawal-title-row">
+        <div class="withdrawal-section-heading">
 
-                <div class="withdrawal-title-icon">
+            <div class="heading-row">
+
+                <div class="heading-icon">
                     ✓
                 </div>
 
-                <h2>
-                    Link Legalitas
-                </h2>
+                <div>
+
+                    <h2>
+                        Link Legalitas
+                    </h2>
+
+                </div>
 
             </div>
 
@@ -1843,7 +2302,7 @@
         </div>
 
 
-        <div class="withdrawal-legal-grid">
+        <div class="legal-grid">
 
 
             {{-- BAPPEBTI --}}
@@ -1852,10 +2311,14 @@
                 href="https://bappebti.go.id/pialang_berjangka/detail/012"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="withdrawal-legal-card"
+                class="legal-card"
             >
 
-                <div class="withdrawal-legal-icon">
+                <div class="legal-arrow">
+                    ↗
+                </div>
+
+                <div class="legal-icon">
                     B
                 </div>
 
@@ -1864,7 +2327,7 @@
                 </h3>
 
                 <span>
-                    Lihat informasi
+                    Lihat informasi resmi
                 </span>
 
             </a>
@@ -1877,10 +2340,14 @@
                 href="https://jfx.co.id/MarketMaker/market_maker"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="withdrawal-legal-card"
+                class="legal-card"
             >
 
-                <div class="withdrawal-legal-icon">
+                <div class="legal-arrow">
+                    ↗
+                </div>
+
+                <div class="legal-icon">
                     J
                 </div>
 
@@ -1889,7 +2356,7 @@
                 </h3>
 
                 <span>
-                    Lihat informasi
+                    Lihat informasi resmi
                 </span>
 
             </a>
@@ -1902,10 +2369,14 @@
                 href="https://www.ptkbi.com/our-partner/perdagangan-berjangka-komoditi"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="withdrawal-legal-card"
+                class="legal-card"
             >
 
-                <div class="withdrawal-legal-icon">
+                <div class="legal-arrow">
+                    ↗
+                </div>
+
+                <div class="legal-icon">
                     K
                 </div>
 
@@ -1914,7 +2385,7 @@
                 </h3>
 
                 <span>
-                    Lihat informasi
+                    Lihat informasi resmi
                 </span>
 
             </a>
@@ -1927,10 +2398,14 @@
                 href="https://www.rf-berjangkasemarang.com/service-details.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="withdrawal-legal-card"
+                class="legal-card"
             >
 
-                <div class="withdrawal-legal-icon">
+                <div class="legal-arrow">
+                    ↗
+                </div>
+
+                <div class="legal-icon">
                     A
                 </div>
 
@@ -1939,7 +2414,7 @@
                 </h3>
 
                 <span>
-                    Lihat informasi
+                    Lihat informasi resmi
                 </span>
 
             </a>
@@ -1947,44 +2422,10 @@
 
         </div>
 
-    </div>
+    </section>
 
 
-
-    {{-- =========================================================
-         PERHATIAN
-    ========================================================== --}}
-
-    <div class="withdrawal-warning">
-
-        <div class="withdrawal-warning-title">
-
-            <span class="withdrawal-warning-icon">
-                !
-            </span>
-
-            Perhatian!
-
-        </div>
-
-        <p>
-            Managemen PT. Rifan Financindo Berjangka (PT RFB) menghimbau
-            kepada seluruh masyarakat untuk lebih berhati-hati terhadap
-            beberapa bentuk penipuan yang berkedok investasi mengatasnamakan
-            PT RFB dengan menggunakan media elektronik ataupun sosial media.
-        </p>
-
-        <p>
-            Untuk itu harus dipastikan bahwa transfer dana ke rekening tujuan
-            (<strong>Segregated Account</strong>) guna melaksanakan transaksi
-            Perdagangan Berjangka adalah atas nama
-            <strong>
-                PT Rifan Financindo Berjangka
-            </strong>,
-            bukan atas nama individu.
-        </p>
-
-    </div>
+</div>
 
 </div>
 

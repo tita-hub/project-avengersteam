@@ -5,14 +5,16 @@
 <style>
 
 /* ============================================================
-   HALAMAN PETUNJUK TRANSAKSI
-   TEMA : CORPORATE MAROON + GREEN
+   PETUNJUK TRANSAKSI
+   CORPORATE MAROON + GREEN
+   ANIMATION ENHANCED VERSION
    ============================================================ */
 
 .transaction-page {
 
     --red: #8b2532;
     --red-dark: #6f1d29;
+    --red-light: #a93a49;
     --red-soft: #f8eef0;
     --red-border: #ead4d8;
 
@@ -28,30 +30,102 @@
     --surface: #ffffff;
     --surface-soft: #f7f8fa;
 
-    padding: 35px 45px 70px;
+    min-height: 100vh;
+
+    padding:
+        35px 45px 80px;
+
+    box-sizing: border-box;
 
     background:
         linear-gradient(
             180deg,
             #fbfbfc 0%,
-            #f6f7f9 100%
+            #f6f7f9 55%,
+            #f3f5f7 100%
         );
 
-    min-height: 100vh;
+    position: relative;
 
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
 /* ============================================================
-   KEMBALI
+   BACKGROUND DECORATION
+   ============================================================ */
+
+.transaction-page::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    top: 70px;
+    right: -230px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,37,50,.08) 0%,
+            rgba(139,37,50,.035) 40%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    animation:
+        floatingGlow 8s ease-in-out infinite;
+}
+
+.transaction-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    bottom: 50px;
+    left: -210px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(47,107,87,.07) 0%,
+            rgba(47,107,87,.025) 45%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    animation:
+        floatingGlow 10s ease-in-out infinite reverse;
+}
+
+
+/* ============================================================
+   BACK
    ============================================================ */
 
 .transaction-back {
 
     max-width: 1050px;
 
-    margin: 0 auto 18px;
+    margin:
+        0 auto 18px;
+
+    position: relative;
+
+    z-index: 5;
 }
 
 .transaction-back a {
@@ -71,91 +145,140 @@
     font-weight: 700;
 
     transition:
-        color .25s ease,
-        transform .25s ease;
+        .3s ease;
 }
 
 .transaction-back a:hover {
 
-    color: var(--red);
+    color:
+        var(--red);
 
-    transform: translateX(-4px);
+    transform:
+        translateX(-5px);
 }
 
 .transaction-back-arrow {
 
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
+    border-radius: 10px;
 
-    background: var(--surface);
+    background:
+        rgba(255,255,255,.9);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    color: var(--red);
+    color:
+        var(--red);
 
     font-size: 17px;
 
     box-shadow:
-        0 5px 15px rgba(39,49,59,.05);
+        0 6px 18px rgba(39,49,59,.06);
 
     transition:
-        .25s ease;
+        .3s ease;
 }
 
-.transaction-back a:hover
-.transaction-back-arrow {
+.transaction-back a:hover .transaction-back-arrow {
 
-    background: var(--red);
+    background:
+        var(--red);
 
-    color: white;
+    color:
+        #fff;
 
-    border-color: var(--red);
+    border-color:
+        var(--red);
 
-    transform: translateX(-2px);
+    transform:
+        translateX(-2px)
+        scale(1.06);
+
+    box-shadow:
+        0 7px 20px rgba(139,37,50,.2);
 }
 
 
 /* ============================================================
-   HERO HEADER
+   HERO
    ============================================================ */
 
 .transaction-header {
 
     max-width: 1050px;
 
-    margin: 0 auto 30px;
+    margin:
+        0 auto 30px;
 
     position: relative;
 
     overflow: hidden;
 
-    padding: 42px 45px;
+    padding:
+        45px 48px;
 
-    border-radius: 22px;
+    border-radius:
+        24px;
 
-    background: var(--surface);
-
-    color: var(--text);
+    background:
+        rgba(255,255,255,.92);
 
     border:
-        1px solid var(--border);
+        1px solid rgba(228,231,235,.9);
 
     box-shadow:
-        0 14px 38px rgba(39,49,59,.07);
+        0 18px 45px rgba(39,49,59,.08);
 
     animation:
-        transactionHero .7s ease;
+        heroReveal .9s cubic-bezier(.22,1,.36,1);
+
+    isolation: isolate;
 }
 
 
-/* garis identitas */
+/* shimmer */
+
+.transaction-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.75),
+            transparent
+        );
+
+    transform:
+        skewX(-18deg);
+
+    animation:
+        heroShine 2s ease .4s forwards;
+
+    pointer-events: none;
+}
+
+
+/* garis atas */
 
 .transaction-header-line {
 
@@ -165,31 +288,35 @@
     top: 0;
 
     width: 100%;
-    height: 4px;
+    height: 5px;
 
     background:
         linear-gradient(
             90deg,
             var(--red) 0%,
-            var(--red) 72%,
-            var(--green) 72%,
+            var(--red) 70%,
+            var(--green) 70%,
             var(--green) 100%
         );
+
+    transform-origin:
+        left;
+
+    animation:
+        lineGrow 1s ease .25s both;
 }
 
 
-/* dekorasi halus */
+/* dekorasi lingkaran */
 
-.transaction-header::before {
-
-    content: "";
+.transaction-header-decoration {
 
     position: absolute;
 
-    width: 230px;
-    height: 230px;
+    width: 240px;
+    height: 240px;
 
-    right: -120px;
+    right: -110px;
     top: -125px;
 
     border-radius: 50%;
@@ -197,27 +324,28 @@
     border:
         45px solid rgba(139,37,50,.035);
 
+    animation:
+        slowRotate 18s linear infinite;
+
     pointer-events: none;
 }
 
-.transaction-header::after {
+.transaction-header-decoration::after {
 
     content: "";
 
     position: absolute;
 
-    width: 110px;
-    height: 110px;
+    width: 80px;
+    height: 80px;
 
-    right: 65px;
-    bottom: -80px;
+    left: -145px;
+    top: 180px;
 
     border-radius: 50%;
 
     border:
-        22px solid rgba(47,107,87,.045);
-
-    pointer-events: none;
+        18px solid rgba(47,107,87,.05);
 }
 
 
@@ -227,7 +355,7 @@
 
     position: relative;
 
-    z-index: 2;
+    z-index: 3;
 
     max-width: 850px;
 }
@@ -241,13 +369,16 @@
 
     align-items: center;
 
-    gap: 8px;
+    gap: 9px;
 
-    padding: 7px 13px;
+    padding:
+        8px 14px;
 
-    margin-bottom: 17px;
+    margin-bottom:
+        17px;
 
-    border-radius: 8px;
+    border-radius:
+        9px;
 
     background:
         var(--red-soft);
@@ -258,13 +389,20 @@
     color:
         var(--red);
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 1.2px;
+    letter-spacing:
+        1.2px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
+
+    animation:
+        labelReveal .7s ease .25s both;
 }
 
 .transaction-header-label::before {
@@ -278,48 +416,98 @@
 
     background:
         var(--red);
+
+    box-shadow:
+        0 0 0 4px rgba(139,37,50,.08);
+
+    animation:
+        dotPulse 2s ease-in-out infinite;
 }
 
 
-/* judul */
+/* title */
 
 .transaction-header h1 {
 
-    margin: 0 0 12px;
+    margin:
+        0 0 13px;
 
     color:
         var(--text);
 
-    font-size: 38px;
+    font-size:
+        39px;
 
-    line-height: 1.2;
+    line-height:
+        1.18;
 
-    font-weight: 800;
+    font-weight:
+        850;
 
-    letter-spacing: -.7px;
+    letter-spacing:
+        -.8px;
+
+    animation:
+        titleReveal .8s cubic-bezier(.22,1,.36,1) .35s both;
 }
 
 .transaction-header h1 span {
 
     color:
         var(--red);
+
+    position: relative;
+}
+
+.transaction-header h1 span::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -3px;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        var(--red);
+
+    border-radius: 5px;
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    animation:
+        underlineGrow .7s ease 1s forwards;
 }
 
 
-/* deskripsi */
+/* paragraph */
 
 .transaction-header p {
 
-    margin: 0;
+    margin:
+        0;
 
-    max-width: 820px;
+    max-width:
+        820px;
 
     color:
         var(--text-soft);
 
-    font-size: 15px;
+    font-size:
+        15px;
 
-    line-height: 1.8;
+    line-height:
+        1.85;
+
+    animation:
+        fadeUp .7s ease .55s both;
 }
 
 .transaction-header strong {
@@ -337,11 +525,13 @@
 
     align-items: center;
 
-    gap: 10px;
+    gap: 11px;
 
-    margin-top: 23px;
+    margin-top:
+        24px;
 
-    padding: 10px 15px;
+    padding:
+        11px 16px;
 
     background:
         var(--green-soft);
@@ -349,14 +539,20 @@
     border:
         1px solid #d7e7df;
 
-    border-radius: 10px;
+    border-radius:
+        11px;
 
     color:
         var(--green-dark);
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    font-weight: 600;
+    font-weight:
+        650;
+
+    animation:
+        fadeUp .7s ease .7s both;
 }
 
 .transaction-status-dot {
@@ -372,43 +568,58 @@
         var(--green);
 
     box-shadow:
-        0 0 0 4px rgba(47,107,87,.10);
+        0 0 0 4px rgba(47,107,87,.1);
+
+    animation:
+        greenPulse 2s ease-in-out infinite;
 }
 
 
 /* ============================================================
-   DEMO TRADING INFO
+   DEMO INFO
    ============================================================ */
 
 .demo-info {
 
-    max-width: 1050px;
+    max-width:
+        1050px;
 
-    margin: 0 auto 38px;
+    margin:
+        0 auto 42px;
 
-    position: relative;
+    position:
+        relative;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: flex-start;
+    align-items:
+        flex-start;
 
-    gap: 15px;
+    gap:
+        16px;
 
-    padding: 21px 24px;
+    padding:
+        22px 25px;
 
     background:
-        var(--green-soft);
+        linear-gradient(
+            135deg,
+            #f0f8f4,
+            #edf5f1
+        );
 
     border:
         1px solid #d8e7df;
 
-    border-radius: 15px;
+    border-radius:
+        16px;
 
     box-shadow:
-        0 7px 22px rgba(39,49,59,.035);
+        0 8px 25px rgba(39,49,59,.04);
 
     animation:
-        transactionFadeUp .7s ease;
+        fadeUp .8s ease .25s both;
 }
 
 .demo-info::before {
@@ -428,6 +639,9 @@
 
     border-radius:
         4px 0 0 4px;
+
+    animation:
+        sideGrow .7s ease .8s both;
 }
 
 
@@ -435,53 +649,80 @@
 
 .demo-icon {
 
-    width: 43px;
-    height: 43px;
+    width:
+        45px;
 
-    flex-shrink: 0;
+    height:
+        45px;
 
-    display: flex;
+    flex-shrink:
+        0;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    border-radius: 11px;
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        12px;
 
     background:
         var(--green);
 
-    color: white;
+    color:
+        white;
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     box-shadow:
-        0 6px 17px rgba(47,107,87,.15);
+        0 7px 18px rgba(47,107,87,.17);
+
+    animation:
+        iconPop .7s cubic-bezier(.22,1,.36,1) .5s both;
+}
+
+.demo-info:hover .demo-icon {
+
+    animation:
+        iconBounce .55s ease;
 }
 
 .demo-info h3 {
 
-    margin: 0 0 5px;
+    margin:
+        0 0 5px;
 
     color:
         var(--green-dark);
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 }
 
 .demo-info p {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         #617269;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 
@@ -491,33 +732,50 @@
 
 .transaction-section-title {
 
-    max-width: 1050px;
+    max-width:
+        1050px;
 
-    margin: 0 auto 22px;
+    margin:
+        0 auto 23px;
+
+    position:
+        relative;
 }
 
 .transaction-title-row {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 13px;
+    gap:
+        13px;
 }
 
 .transaction-title-icon {
 
-    width: 43px;
-    height: 43px;
+    width:
+        44px;
 
-    display: flex;
+    height:
+        44px;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    flex-shrink: 0;
+    align-items:
+        center;
 
-    border-radius: 11px;
+    justify-content:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        12px;
 
     background:
         var(--red-soft);
@@ -528,33 +786,60 @@
     border:
         1px solid var(--red-border);
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    font-weight: 900;
+    font-weight:
+        900;
+
+    transition:
+        .35s ease;
+}
+
+.transaction-section-title:hover .transaction-title-icon {
+
+    background:
+        var(--red);
+
+    color:
+        white;
+
+    transform:
+        rotate(-6deg)
+        scale(1.06);
+
+    box-shadow:
+        0 8px 20px rgba(139,37,50,.15);
 }
 
 .transaction-section-title h2 {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         var(--text);
 
-    font-size: 25px;
+    font-size:
+        25px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: -.25px;
+    letter-spacing:
+        -.3px;
 }
 
 .transaction-section-title p {
 
-    margin: 5px 0 0 56px;
+    margin:
+        5px 0 0 57px;
 
     color:
         var(--text-soft);
 
-    font-size: 13px;
+    font-size:
+        13px;
 }
 
 
@@ -564,34 +849,89 @@
 
 .transaction-timeline {
 
-    max-width: 1050px;
+    max-width:
+        1050px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    position: relative;
+    position:
+        relative;
 }
 
 
-/* garis timeline */
+/* background line */
 
 .transaction-timeline::before {
 
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 30px;
+    left:
+        31px;
 
-    top: 31px;
+    top:
+        31px;
 
-    bottom: 31px;
+    bottom:
+        31px;
 
-    width: 2px;
+    width:
+        2px;
 
     background:
         #dfe3e7;
 
-    border-radius: 10px;
+    border-radius:
+        10px;
+}
+
+
+/* animated progress */
+
+.transaction-timeline::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    left:
+        31px;
+
+    top:
+        31px;
+
+    width:
+        2px;
+
+    height:
+        0;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--red),
+            var(--red-light),
+            var(--green)
+        );
+
+    border-radius:
+        10px;
+
+    z-index:
+        0;
+
+    transition:
+        height 1.6s cubic-bezier(.22,1,.36,1);
+}
+
+.transaction-timeline.timeline-active::after {
+
+    height:
+        calc(100% - 62px);
 }
 
 
@@ -601,63 +941,97 @@
 
 .transaction-step {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: flex-start;
+    align-items:
+        flex-start;
 
-    gap: 22px;
+    gap:
+        22px;
 
-    margin-bottom: 22px;
+    margin-bottom:
+        24px;
 
-    position: relative;
+    position:
+        relative;
 
-    animation:
-        transactionStep .65s ease both;
+    z-index:
+        2;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px)
+        scale(.98);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+.transaction-step.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .transaction-step:nth-child(1) {
-
-    animation-delay:
+    transition-delay:
         .05s;
 }
 
 .transaction-step:nth-child(2) {
-
-    animation-delay:
-        .13s;
+    transition-delay:
+        .18s;
 }
 
 .transaction-step:nth-child(3) {
-
-    animation-delay:
-        .21s;
+    transition-delay:
+        .31s;
 }
 
 
 /* ============================================================
-   NOMOR STEP
+   NUMBER
    ============================================================ */
 
 .transaction-step-number {
 
-    width: 63px;
-    height: 63px;
+    width:
+        63px;
 
-    flex-shrink: 0;
+    height:
+        63px;
 
-    display: flex;
+    flex-shrink:
+        0;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    position: relative;
+    align-items:
+        center;
 
-    z-index: 3;
+    justify-content:
+        center;
 
-    border-radius: 16px;
+    position:
+        relative;
+
+    z-index:
+        3;
+
+    border-radius:
+        17px;
 
     background:
-        var(--surface);
+        #fff;
 
     border:
         2px solid var(--red-border);
@@ -665,19 +1039,52 @@
     color:
         var(--red);
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     box-shadow:
-        0 7px 18px rgba(39,49,59,.07);
+        0 8px 20px rgba(39,49,59,.08);
 
     transition:
-        .3s ease;
+        .4s cubic-bezier(.22,1,.36,1);
 }
 
-.transaction-step:hover
-.transaction-step-number {
+
+/* ripple */
+
+.transaction-step-number::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    inset:
+        -5px;
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid rgba(139,37,50,.2);
+
+    opacity:
+        0;
+
+    transform:
+        scale(.8);
+}
+
+.transaction-step.show .transaction-step-number::before {
+
+    animation:
+        numberRipple 2s ease-out 1;
+}
+
+.transaction-step:hover .transaction-step-number {
 
     background:
         var(--red);
@@ -689,7 +1096,11 @@
         white;
 
     transform:
-        translateY(-2px);
+        translateY(-4px)
+        rotate(-2deg);
+
+    box-shadow:
+        0 12px 25px rgba(139,37,50,.2);
 }
 
 
@@ -699,99 +1110,192 @@
 
 .transaction-card {
 
-    flex: 1;
+    flex:
+        1;
 
-    position: relative;
+    position:
+        relative;
 
-    padding: 27px 30px;
+    overflow:
+        hidden;
+
+    padding:
+        28px 31px;
 
     background:
-        var(--surface);
+        rgba(255,255,255,.96);
 
     border:
         1px solid var(--border);
 
-    border-radius: 16px;
+    border-radius:
+        17px;
 
     box-shadow:
-        0 7px 22px rgba(39,49,59,.045);
+        0 8px 25px rgba(39,49,59,.045);
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+        transform .4s cubic-bezier(.22,1,.36,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
 }
 
 
-/* garis kiri */
+/* shine */
+
+.transaction-card::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        -100%;
+
+    left:
+        -100%;
+
+    width:
+        55%;
+
+    height:
+        300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.65),
+            transparent
+        );
+
+    transform:
+        rotate(18deg);
+
+    transition:
+        .8s ease;
+
+    pointer-events:
+        none;
+}
+
+.transaction-card:hover::after {
+
+    left:
+        150%;
+}
+
+
+/* left line */
 
 .transaction-card::before {
 
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
+    left:
+        0;
 
-    top: 18px;
-    bottom: 18px;
+    top:
+        18px;
 
-    width: 3px;
+    bottom:
+        18px;
+
+    width:
+        4px;
 
     background:
-        var(--red);
+        linear-gradient(
+            180deg,
+            var(--red),
+            var(--red-light)
+        );
 
     border-radius:
-        0 4px 4px 0;
+        0 5px 5px 0;
 
-    opacity: 0;
+    opacity:
+        0;
+
+    transform:
+        scaleY(.3);
+
+    transform-origin:
+        center;
 
     transition:
-        .3s ease;
+        .4s ease;
 }
 
 .transaction-card:hover {
 
     transform:
-        translateX(4px);
+        translateX(6px)
+        translateY(-3px);
 
     border-color:
         var(--red-border);
 
     box-shadow:
-        0 13px 30px rgba(39,49,59,.075);
+        0 17px 35px rgba(39,49,59,.095);
 }
 
 .transaction-card:hover::before {
 
-    opacity: 1;
+    opacity:
+        1;
+
+    transform:
+        scaleY(1);
 }
 
 
-/* judul */
+/* card content */
 
 .transaction-card h3 {
 
-    margin: 0 0 10px;
+    margin:
+        0 0 10px;
 
     color:
         var(--text);
 
-    font-size: 19px;
+    font-size:
+        19px;
 
-    font-weight: 800;
+    font-weight:
+        800;
+
+    transition:
+        .3s ease;
+}
+
+.transaction-card:hover h3 {
+
+    color:
+        var(--red-dark);
+
+    transform:
+        translateX(3px);
 }
 
 .transaction-card p {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         var(--text-soft);
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 .transaction-card strong {
@@ -802,29 +1306,37 @@
 
 
 /* ============================================================
-   CHECKLIST
+   CHECK LIST
    ============================================================ */
 
 .check-list {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 9px;
+    gap:
+        9px;
 
-    margin-top: 18px;
+    margin-top:
+        18px;
 }
 
 .check-item {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 7px;
+    gap:
+        7px;
 
-    padding: 8px 12px;
+    padding:
+        8px 12px;
 
     background:
         #fafbfc;
@@ -832,15 +1344,47 @@
     border:
         1px solid #e5e8ec;
 
-    border-radius: 9px;
+    border-radius:
+        9px;
 
     color:
         #59636e;
 
-    font-size: 12px;
+    font-size:
+        12px;
 
     transition:
-        .25s ease;
+        .35s cubic-bezier(.22,1,.36,1);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(10px);
+}
+
+.transaction-step.show .check-item {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+.transaction-step.show .check-item:nth-child(1) {
+    transition-delay:
+        .35s;
+}
+
+.transaction-step.show .check-item:nth-child(2) {
+    transition-delay:
+        .45s;
+}
+
+.transaction-step.show .check-item:nth-child(3) {
+    transition-delay:
+        .55s;
 }
 
 .check-item::before {
@@ -848,17 +1392,26 @@
     content:
         "✓";
 
-    width: 20px;
-    height: 20px;
+    width:
+        20px;
 
-    display: flex;
+    height:
+        20px;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    flex-shrink: 0;
+    align-items:
+        center;
 
-    border-radius: 6px;
+    justify-content:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        6px;
 
     background:
         var(--green-soft);
@@ -866,9 +1419,14 @@
     color:
         var(--green);
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    font-weight: 900;
+    font-weight:
+        900;
+
+    transition:
+        .3s ease;
 }
 
 .check-item:hover {
@@ -880,19 +1438,38 @@
         #d2e3da;
 
     transform:
-        translateY(-2px);
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 6px 15px rgba(47,107,87,.08);
+}
+
+.check-item:hover::before {
+
+    background:
+        var(--green);
+
+    color:
+        white;
+
+    transform:
+        rotate(8deg)
+        scale(1.1);
 }
 
 
 /* ============================================================
-   PLATFORM TRADING
+   TRADING PLATFORM
    ============================================================ */
 
 .trading-platform {
 
-    margin-top: 18px;
+    margin-top:
+        19px;
 
-    padding: 18px;
+    padding:
+        18px 20px;
 
     background:
         #fafbfc;
@@ -900,55 +1477,97 @@
     border:
         1px solid #e5e8ec;
 
-    border-radius: 11px;
+    border-radius:
+        12px;
 
-    position: relative;
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    transition:
+        .35s ease;
 }
 
 .trading-platform::before {
 
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left:
+        0;
 
-    width: 3px;
+    top:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        4px;
 
     background:
         var(--red);
 
-    border-radius:
-        3px 0 0 3px;
+    transition:
+        .35s ease;
+}
+
+.trading-platform:hover {
+
+    background:
+        var(--red-soft);
+
+    border-color:
+        var(--red-border);
+
+    transform:
+        translateX(3px);
 }
 
 .trading-platform small {
 
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 6px;
+    margin-bottom:
+        6px;
 
     color:
         var(--muted);
 
-    font-size: 12px;
+    font-size:
+        12px;
 }
 
 .trading-platform a {
 
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
     color:
         var(--red);
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
     transition:
-        .25s ease;
+        .35s ease;
 }
 
 .trading-platform a:hover {
@@ -956,84 +1575,165 @@
     color:
         var(--red-dark);
 
-    text-decoration:
-        underline;
+    gap:
+        12px;
 }
 
 
 /* ============================================================
-   KEAMANAN AKUN
+   SECURITY
    ============================================================ */
 
 .transaction-security {
 
-    max-width: 1050px;
+    max-width:
+        1050px;
 
-    margin: 38px auto 0;
+    margin:
+        40px auto 0;
 
-    position: relative;
+    position:
+        relative;
 
-    padding: 24px 27px 24px 30px;
+    padding:
+        25px 28px 25px 31px;
 
     background:
-        #fffafa;
+        linear-gradient(
+            135deg,
+            #fffafa,
+            #fffdfd
+        );
 
     border:
         1px solid var(--red-border);
 
-    border-radius: 15px;
+    border-radius:
+        16px;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     box-shadow:
-        0 7px 22px rgba(39,49,59,.035);
+        0 8px 24px rgba(39,49,59,.04);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        .8s cubic-bezier(.22,1,.36,1);
+}
+
+.transaction-security.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
 }
 
 .transaction-security::before {
 
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left:
+        0;
 
-    width: 4px;
+    top:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        4px;
 
     background:
         var(--red);
+
+    animation:
+        sideGrow .8s ease .3s both;
+}
+
+.transaction-security::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    width:
+        130px;
+
+    height:
+        130px;
+
+    right:
+        -70px;
+
+    bottom:
+        -75px;
+
+    border-radius:
+        50%;
+
+    border:
+        20px solid rgba(139,37,50,.035);
+
+    animation:
+        slowRotate 12s linear infinite;
 }
 
 .transaction-security-title {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 10px;
+    gap:
+        10px;
 
-    margin-bottom: 10px;
+    margin-bottom:
+        10px;
 
     color:
         var(--red-dark);
 
-    font-size: 17px;
+    font-size:
+        17px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 }
 
 .transaction-security-icon {
 
-    width: 31px;
-    height: 31px;
+    width:
+        32px;
 
-    display: flex;
+    height:
+        32px;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    border-radius: 8px;
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        9px;
 
     background:
         var(--red-soft);
@@ -1044,21 +1744,42 @@
     color:
         var(--red);
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 900;
+    font-weight:
+        900;
+
+    transition:
+        .35s ease;
+}
+
+.transaction-security:hover .transaction-security-icon {
+
+    background:
+        var(--red);
+
+    color:
+        white;
+
+    transform:
+        rotate(8deg)
+        scale(1.08);
 }
 
 .transaction-security p {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         #69727c;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 .transaction-security strong {
@@ -1074,19 +1795,23 @@
 
 .transaction-legal-section {
 
-    max-width: 1050px;
+    max-width:
+        1050px;
 
-    margin: 52px auto 0;
+    margin:
+        55px auto 0;
 }
 
 .transaction-legal-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 16px;
+    gap:
+        16px;
 }
 
 
@@ -1094,46 +1819,102 @@
 
 .transaction-legal-card {
 
-    position: relative;
+    position:
+        relative;
 
-    padding: 23px;
+    padding:
+        23px;
 
     background:
-        var(--surface);
+        rgba(255,255,255,.96);
 
     border:
         1px solid var(--border);
 
-    border-radius: 15px;
+    border-radius:
+        16px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     box-shadow:
-        0 7px 22px rgba(39,49,59,.04);
+        0 8px 23px rgba(39,49,59,.04);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(25px)
+        scale(.97);
 
     transition:
-        .3s ease;
+        opacity .65s ease,
+        transform .65s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.transaction-legal-card.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.transaction-legal-card:nth-child(1) {
+    transition-delay:
+        .05s;
+}
+
+.transaction-legal-card:nth-child(2) {
+    transition-delay:
+        .13s;
+}
+
+.transaction-legal-card:nth-child(3) {
+    transition-delay:
+        .21s;
+}
+
+.transaction-legal-card:nth-child(4) {
+    transition-delay:
+        .29s;
 }
 
 
-/* garis atas */
+/* top line */
 
 .transaction-legal-card::before {
 
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
-    top: 0;
+    left:
+        0;
 
-    width: 100%;
-    height: 3px;
+    top:
+        0;
+
+    width:
+        100%;
+
+    height:
+        3px;
 
     background:
-        var(--red);
+        linear-gradient(
+            90deg,
+            var(--red),
+            var(--red-light)
+        );
 
     transform:
         scaleX(0);
@@ -1142,7 +1923,7 @@
         left;
 
     transition:
-        transform .3s ease;
+        transform .4s ease;
 }
 
 .transaction-legal-card:hover::before {
@@ -1154,13 +1935,14 @@
 .transaction-legal-card:hover {
 
     transform:
-        translateY(-4px);
+        translateY(-7px)
+        scale(1.015);
 
     border-color:
         var(--red-border);
 
     box-shadow:
-        0 13px 30px rgba(39,49,59,.075);
+        0 17px 35px rgba(39,49,59,.09);
 }
 
 
@@ -1168,17 +1950,26 @@
 
 .transaction-legal-icon {
 
-    width: 42px;
-    height: 42px;
+    width:
+        43px;
 
-    display: flex;
+    height:
+        43px;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
 
-    margin-bottom: 14px;
+    align-items:
+        center;
 
-    border-radius: 10px;
+    justify-content:
+        center;
+
+    margin-bottom:
+        14px;
+
+    border-radius:
+        11px;
 
     background:
         var(--red-soft);
@@ -1189,16 +1980,17 @@
     color:
         var(--red);
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     transition:
-        .3s ease;
+        .4s cubic-bezier(.22,1,.36,1);
 }
 
-.transaction-legal-card:hover
-.transaction-legal-icon {
+.transaction-legal-card:hover .transaction-legal-icon {
 
     background:
         var(--red);
@@ -1210,7 +2002,11 @@
         white;
 
     transform:
-        scale(1.04);
+        rotate(-5deg)
+        scale(1.08);
+
+    box-shadow:
+        0 8px 18px rgba(139,37,50,.17);
 }
 
 
@@ -1221,20 +2017,32 @@
     content:
         "↗";
 
-    position: absolute;
+    position:
+        absolute;
 
-    top: 19px;
-    right: 19px;
+    top:
+        19px;
 
-    width: 29px;
-    height: 29px;
+    right:
+        19px;
 
-    display: flex;
+    width:
+        29px;
 
-    align-items: center;
-    justify-content: center;
+    height:
+        29px;
 
-    border-radius: 8px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        8px;
 
     background:
         #f7f8fa;
@@ -1245,12 +2053,14 @@
     color:
         var(--red);
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     transition:
-        .3s ease;
+        .35s ease;
 }
 
 .transaction-legal-card:hover::after {
@@ -1265,21 +2075,34 @@
         white;
 
     transform:
-        translate(2px,-2px);
+        translate(3px,-3px);
 }
 
 .transaction-legal-card h3 {
 
-    margin: 0 0 6px;
+    margin:
+        0 0 6px;
 
     color:
         var(--text);
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    line-height: 1.4;
+    line-height:
+        1.4;
 
-    font-weight: 800;
+    font-weight:
+        800;
+
+    transition:
+        .3s ease;
+}
+
+.transaction-legal-card:hover h3 {
+
+    color:
+        var(--red-dark);
 }
 
 .transaction-legal-card span {
@@ -1287,181 +2110,255 @@
     color:
         var(--red);
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    font-weight: 700;
+    font-weight:
+        700;
 }
 
 
 /* ============================================================
-   HELP
+   ANIMATIONS
    ============================================================ */
 
-.transaction-help-section {
-
-    max-width: 1050px;
-
-    margin: 25px auto 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 16px;
-}
-
-.transaction-help-card {
-
-    position: relative;
-
-    padding: 21px 23px;
-
-    background:
-        var(--surface);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 15px;
-
-    text-decoration: none;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 7px 22px rgba(39,49,59,.035);
-
-    transition:
-        .3s ease;
-}
-
-.transaction-help-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 3px;
-
-    background:
-        var(--red);
-
-    transform:
-        scaleY(0);
-
-    transform-origin:
-        bottom;
-
-    transition:
-        .3s ease;
-}
-
-.transaction-help-card:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        var(--red-border);
-
-    box-shadow:
-        0 13px 28px rgba(39,49,59,.07);
-}
-
-.transaction-help-card:hover::before {
-
-    transform:
-        scaleY(1);
-}
-
-.transaction-help-card h3 {
-
-    margin: 0 0 7px;
-
-    color:
-        var(--text);
-
-    font-size: 16px;
-
-    font-weight: 800;
-}
-
-.transaction-help-card span {
-
-    color:
-        var(--red);
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-
-/* ============================================================
-   ANIMASI
-   ============================================================ */
-
-@keyframes transactionHero {
+@keyframes heroReveal {
 
     from {
-
         opacity: 0;
-
         transform:
-            translateY(-14px);
+            translateY(-25px)
+            scale(.97);
+        filter:
+            blur(5px);
     }
 
     to {
-
         opacity: 1;
-
         transform:
-            translateY(0);
+            translateY(0)
+            scale(1);
+        filter:
+            blur(0);
     }
 }
 
+@keyframes heroShine {
 
-@keyframes transactionStep {
+    to {
+        left: 150%;
+    }
+}
+
+@keyframes lineGrow {
 
     from {
+        transform:
+            scaleX(0);
+    }
 
+    to {
+        transform:
+            scaleX(1);
+    }
+}
+
+@keyframes labelReveal {
+
+    from {
         opacity: 0;
+        transform:
+            translateY(10px)
+            scale(.95);
+    }
 
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes titleReveal {
+
+    from {
+        opacity: 0;
         transform:
             translateY(18px);
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateY(0);
     }
 }
 
-
-@keyframes transactionFadeUp {
+@keyframes underlineGrow {
 
     from {
-
-        opacity: 0;
-
         transform:
-            translateY(16px);
+            scaleX(0);
     }
 
     to {
+        transform:
+            scaleX(1);
+    }
+}
 
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px);
+    }
+
+    to {
         opacity: 1;
-
         transform:
             translateY(0);
+    }
+}
+
+@keyframes floatingGlow {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.06);
+    }
+}
+
+@keyframes slowRotate {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+        box-shadow:
+            0 0 0 4px rgba(139,37,50,.08);
+    }
+
+    50% {
+        transform:
+            scale(1.25);
+        box-shadow:
+            0 0 0 7px rgba(139,37,50,.03);
+    }
+}
+
+@keyframes greenPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.25);
+        box-shadow:
+            0 0 0 6px rgba(47,107,87,.05);
+    }
+}
+
+@keyframes sideGrow {
+
+    from {
+        transform:
+            scaleY(0);
+        transform-origin:
+            top;
+    }
+
+    to {
+        transform:
+            scaleY(1);
+        transform-origin:
+            top;
+    }
+}
+
+@keyframes iconPop {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.5)
+            rotate(-15deg);
+    }
+
+    70% {
+        transform:
+            scale(1.12)
+            rotate(4deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+@keyframes iconBounce {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    40% {
+        transform:
+            translateY(-6px)
+            rotate(-5deg);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes numberRipple {
+
+    0% {
+        opacity:
+            .5;
+        transform:
+            scale(.8);
+    }
+
+    100% {
+        opacity:
+            0;
+        transform:
+            scale(1.5);
     }
 }
 
@@ -1485,25 +2382,19 @@
     .transaction-page {
 
         padding:
-            30px 20px 55px;
+            30px 20px 60px;
     }
 
     .transaction-header {
 
         padding:
-            35px 30px;
+            36px 30px;
     }
 
     .transaction-header h1 {
 
         font-size:
             32px;
-    }
-
-    .transaction-help-section {
-
-        grid-template-columns:
-            1fr;
     }
 }
 
@@ -1522,7 +2413,7 @@
             30px 22px;
 
         border-radius:
-            18px;
+            19px;
     }
 
     .transaction-header h1 {
@@ -1573,7 +2464,8 @@
             39px;
     }
 
-    .transaction-timeline::before {
+    .transaction-timeline::before,
+    .transaction-timeline::after {
 
         left:
             24px;
@@ -1657,22 +2549,21 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .transaction-header,
-    .transaction-step,
-    .demo-info {
+    *,
+    *::before,
+    *::after {
 
-        animation:
-            none;
-    }
+        animation-duration:
+            .01ms !important;
 
-    .transaction-card,
-    .transaction-step-number,
-    .transaction-legal-card,
-    .transaction-help-card,
-    .transaction-legal-icon {
+        animation-iteration-count:
+            1 !important;
 
-        transition:
-            none;
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            .01ms !important;
     }
 }
 
@@ -1709,6 +2600,8 @@
     <div class="transaction-header">
 
         <div class="transaction-header-line"></div>
+
+        <div class="transaction-header-decoration"></div>
 
         <div class="transaction-header-content">
 
@@ -1804,9 +2697,7 @@
     <div class="transaction-timeline">
 
 
-        {{-- =====================================================
-             STEP 01
-        ====================================================== --}}
+        {{-- STEP 01 --}}
 
         <div class="transaction-step">
 
@@ -1854,9 +2745,7 @@
 
 
 
-        {{-- =====================================================
-             STEP 02
-        ====================================================== --}}
+        {{-- STEP 02 --}}
 
         <div class="transaction-step">
 
@@ -1891,7 +2780,6 @@
 
                 </div>
 
-
                 <div class="trading-platform">
 
                     <small>
@@ -1903,7 +2791,8 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Buka Platform Trading →
+                        Buka Platform Trading
+                        <span>→</span>
                     </a>
 
                 </div>
@@ -1914,9 +2803,7 @@
 
 
 
-        {{-- =====================================================
-             STEP 03
-        ====================================================== --}}
+        {{-- STEP 03 --}}
 
         <div class="transaction-step">
 
@@ -1967,7 +2854,7 @@
 
 
     {{-- =========================================================
-         KEAMANAN AKUN
+         KEAMANAN
     ========================================================== --}}
 
     <div class="transaction-security">
@@ -2126,5 +3013,217 @@
         </div>
 
     </div>
+
+
+</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCROLL REVEAL
+    |--------------------------------------------------------------------------
+    */
+
+    const revealItems = document.querySelectorAll(
+        '.transaction-step, .transaction-security, .transaction-legal-card'
+    );
+
+    const observer = new IntersectionObserver(
+        function(entries, obs) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('show');
+
+                    obs.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15,
+            rootMargin: '0px 0px -60px 0px'
+        }
+    );
+
+
+    revealItems.forEach(function(item) {
+
+        observer.observe(item);
+
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TIMELINE PROGRESS
+    |--------------------------------------------------------------------------
+    */
+
+    const timeline =
+        document.querySelector('.transaction-timeline');
+
+
+    if (timeline) {
+
+        const timelineObserver =
+            new IntersectionObserver(
+                function(entries, obs) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            timeline.classList.add(
+                                'timeline-active'
+                            );
+
+                            obs.unobserve(entry.target);
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.2
+                }
+            );
+
+
+        timelineObserver.observe(timeline);
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CARD TILT HALUS
+    |--------------------------------------------------------------------------
+    */
+
+    const cards =
+        document.querySelectorAll(
+            '.transaction-card'
+        );
+
+
+    cards.forEach(function(card) {
+
+        card.addEventListener(
+            'mousemove',
+            function(e) {
+
+                if (window.innerWidth <= 700) {
+                    return;
+                }
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    e.clientX - rect.left;
+
+                const y =
+                    e.clientY - rect.top;
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+                const rotateX =
+                    ((y - centerY) / centerY) * -1.2;
+
+                const rotateY =
+                    ((x - centerX) / centerX) * 1.2;
+
+
+                card.style.transform =
+                    `
+                    translateX(6px)
+                    translateY(-3px)
+                    perspective(900px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    `;
+            }
+        );
+
+
+        card.addEventListener(
+            'mouseleave',
+            function() {
+
+                card.style.transform = '';
+
+            }
+        );
+
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SMOOTH BACK BUTTON
+    |--------------------------------------------------------------------------
+    */
+
+    const backButton =
+        document.querySelector(
+            '.transaction-back a'
+        );
+
+
+    if (backButton) {
+
+        backButton.addEventListener(
+            'mouseenter',
+            function() {
+
+                const arrow =
+                    this.querySelector(
+                        '.transaction-back-arrow'
+                    );
+
+                if (arrow) {
+
+                    arrow.style.transform =
+                        'translateX(-3px) scale(1.05)';
+                }
+
+            }
+        );
+
+
+        backButton.addEventListener(
+            'mouseleave',
+            function() {
+
+                const arrow =
+                    this.querySelector(
+                        '.transaction-back-arrow'
+                    );
+
+                if (arrow) {
+
+                    arrow.style.transform = '';
+                }
+
+            }
+        );
+
+    }
+
+});
+
+</script>
 
 @endsection
