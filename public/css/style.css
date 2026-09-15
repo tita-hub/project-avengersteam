@@ -302,11 +302,6 @@
     background: #e3e7ef;
 }
 
-.nav-item.active {
-    background: #3977f5;
-
-    color: #ffffff;
-}
 
 .nav-item span {
     font-size: 18px;
@@ -514,14 +509,12 @@
    ACTIVE SIDEBAR DROPDOWN
    ============================================================ */
 
-#tentangKamiBtn.active,
-#prosedurBtn.active,
-#edukasiBtn.active {
-    background: #3b73d1 !important;
-
-    color: #ffffff !important;
+#tentangKamiBtn.active #tentangKamiArrow,
+#prosedurBtn.active #prosedurArrow,
+#edukasiBtn.active #edukasiArrow {
+    background: rgba(255, 255, 255, 0.85);
+    color: #8d2634;
 }
-
 
 /* ============================================================
    DROPDOWN HOVER
@@ -2083,14 +2076,10 @@ body.modal-open {
 
 .main-content {
     width: calc(100% - 165px);
-
     margin-left: 165px;
-
     padding-top: 96px;
-
     padding-left: 38px;
     padding-right: 38px;
-
     min-height: 100vh;
 
     background: #f6f7fb;
@@ -3212,7 +3201,7 @@ body.modal-open {
 
     line-height: 1.7;
 
-    text-align: center;
+    text-align: justify;
 }
 
 
@@ -4318,10 +4307,6 @@ body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item i {
     color: #8d2634 !important;
 }
 
-/* Tidak memakai garis bawah biru/merah pada active */
-.top-nav .nav-item.active::after {
-    display: none !important;
-}
 
 /* NIGHT MODE — normal putih */
 body.nav-dark-mode .top-nav .nav-item {
@@ -4437,10 +4422,6 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
     background: rgba(141, 38, 52, 0.10) !important;
 }
 
-/* Tidak ada garis bawah pada active */
-.top-nav .nav-item.active::after {
-    display: none !important;
-}
 
 /* MALAM — semua menu normal putih */
 body.nav-dark-mode .top-nav .nav-item,
@@ -7629,4 +7610,720 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
     }
 
+}
+
+
+
+/* ============================================================
+   AVENGERSTEAM - FINAL NAVBAR
+   KHUSUS NAVBAR
+   Tidak mengubah desain halaman/content
+   ============================================================ */
+
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 76px;
+    padding: 0 30px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+
+    z-index: 2000;
+    box-sizing: border-box;
+}
+
+.top-header::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #8d2634;
+}
+
+/* ============================================================
+   HEADER INNER
+   ============================================================ */
+
+.top-header-inner {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
+.top-logo {
+    position: static !important;
+
+    flex: 0 0 auto;
+
+    width: 175px;
+    height: 100%;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+
+    transform: none !important;
+
+    pointer-events: none;
+}
+
+.top-logo img {
+    display: block;
+
+    width: 185px !important;
+    height: 98px !important;
+
+    object-fit: contain;
+}
+
+/* ============================================================
+   NAVBAR DESKTOP
+   ============================================================ */
+
+.top-nav {
+    flex: 1 1 auto;
+
+    min-width: 0;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 2px;
+}
+
+/* Semua menu */
+.top-nav .nav-item {
+    position: relative;
+
+    width: auto;
+    min-height: 76px;
+
+    padding: 0 12px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: transparent;
+
+    color: #222222;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    line-height: 1;
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+/* ============================================================
+   HOVER
+   ============================================================ */
+
+.top-nav .nav-item:hover {
+    color: #8d2634;
+    background: rgba(141, 38, 52, 0.04);
+}
+
+/* ============================================================
+   ACTIVE
+   ============================================================ */
+
+.top-nav .nav-item.active {
+    color: #8d2634;
+    background: transparent;
+}
+
+/* ============================================================
+   GARIS BAWAH
+   Muncul ketika hover DAN ketika active
+   ============================================================ */
+
+.top-nav .nav-item::after {
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    bottom: 0;
+
+    height: 3px;
+
+    border-radius: 3px 3px 0 0;
+
+    background: #8d2634;
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+}
+
+.top-nav .nav-item:hover::after,
+.top-nav .nav-item.active::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* ============================================================
+   DROPDOWN CONTAINER
+   ============================================================ */
+
+.top-nav-dropdown {
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown button */
+.top-nav .nav-dropdown-btn {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* ============================================================
+   PANAH
+   ============================================================ */
+
+.top-nav .dropdown-arrow {
+    width: auto !important;
+    height: auto !important;
+
+    margin-left: 2px;
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+
+    color: #777777 !important;
+
+    font-size: 9px;
+
+    line-height: 1;
+
+    transition:
+        color 0.15s ease,
+        transform 0.2s ease;
+}
+
+.top-nav .nav-item:hover .dropdown-arrow,
+.top-nav .nav-item.active .dropdown-arrow {
+    color: #8d2634;
+}
+
+.top-nav .dropdown-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+/* ============================================================
+   DROPDOWN MENU
+   ============================================================ */
+
+.top-nav .top-submenu {
+    position: absolute;
+
+    top: calc(100% - 1px);
+    left: 50%;
+
+    width: 245px;
+
+    padding: 7px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e7e7;
+    border-radius: 9px;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.10);
+
+    z-index: 2100;
+
+    box-sizing: border-box;
+
+    visibility: hidden;
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translate(-50%, 7px);
+
+    transition:
+        opacity 0.12s ease,
+        transform 0.12s ease,
+        visibility 0.12s ease;
+}
+
+/* Dropdown terbuka */
+.top-nav .top-submenu.show {
+    visibility: visible;
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translate(-50%, 0);
+}
+
+/* ============================================================
+   SUBMENU ITEM
+   ============================================================ */
+
+.top-nav .top-submenu .tentang-submenu-item,
+.top-nav .top-submenu .prosedur-submenu-item,
+.top-nav .top-submenu .edukasi-submenu-item {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 40px;
+
+    padding: 9px 12px;
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: #333333 !important;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    text-decoration: none !important;
+
+    box-sizing: border-box;
+
+    transition:
+        color 0.12s ease,
+        background-color 0.12s ease;
+}
+
+/* ============================================================
+   SUBMENU HOVER
+   ============================================================ */
+
+.top-nav .top-submenu .tentang-submenu-item:hover,
+.top-nav .top-submenu .prosedur-submenu-item:hover,
+.top-nav .top-submenu .edukasi-submenu-item:hover {
+    background: #f8eef0;
+
+    color: #8d2634 !important;
+}
+
+/* ============================================================
+   SUBMENU ACTIVE
+   Supaya TIDAK berubah biru
+   ============================================================ */
+
+.top-nav .top-submenu a:link,
+.top-nav .top-submenu a:visited,
+.top-nav .top-submenu a:hover,
+.top-nav .top-submenu a:focus,
+.top-nav .top-submenu a:active {
+    text-decoration: none !important;
+}
+
+.top-nav .top-submenu a:link,
+.top-nav .top-submenu a:visited,
+.top-nav .top-submenu a:active {
+    color: #333333 !important;
+}
+
+.top-nav .top-submenu a:hover,
+.top-nav .top-submenu a:focus {
+    color: #8d2634 !important;
+}
+
+.top-nav .top-submenu a:active,
+.top-nav .top-submenu a:focus {
+    color: #8d2634 !important;
+    background: rgba(141, 38, 52, 0.10) !important;
+    outline: none;
+}
+
+/* ============================================================
+   HEADER ACTION
+   ============================================================ */
+
+.top-header-actions {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+/* ============================================================
+   HILANGKAN THEME TOGGLE
+   ============================================================ */
+
+.theme-toggle,
+#themeToggle,
+.nav-dark-mode {
+    display: none !important;
+}
+
+/* ============================================================
+   MOBILE BUTTON
+   ============================================================ */
+
+.mobile-menu-toggle {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    border: 1px solid #e1e3e6;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.mobile-menu-toggle:hover {
+    color: #8d2634;
+
+    background: #f8eef0;
+
+    border-color: #e4c9ce;
+}
+
+.mobile-menu-toggle i {
+    font-size: 19px;
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+.mobile-menu-panel {
+    display: none;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+    .top-header {
+        height: 68px;
+        padding: 0 15px;
+    }
+
+    .top-header-inner {
+        gap: 10px;
+    }
+
+    .top-logo {
+        width: auto;
+
+        flex: 1 1 auto;
+    }
+
+    .top-logo img {
+        width: 126px !important;
+        height: 55px !important;
+    }
+
+    .top-nav {
+        display: none;
+    }
+
+    .top-header-actions {
+        margin-left: auto;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+
+    /* ========================================================
+       MOBILE PANEL
+       ======================================================== */
+
+    .mobile-menu-panel {
+        position: absolute;
+
+        top: 68px;
+        left: 0;
+        right: 0;
+
+        display: block;
+
+        max-height: calc(100vh - 68px);
+
+        overflow-y: auto;
+
+        background: #ffffff;
+
+        border-top: 1px solid #eeeeee;
+        border-bottom: 1px solid #e5e5e5;
+
+        box-shadow:
+            0 12px 25px rgba(0, 0, 0, 0.08);
+
+        visibility: hidden;
+        opacity: 0;
+
+        pointer-events: none;
+
+        transform: translateY(-6px);
+
+        transition:
+            opacity 0.15s ease,
+            transform 0.15s ease,
+            visibility 0.15s ease;
+    }
+
+    .mobile-menu-panel.show {
+        visibility: visible;
+        opacity: 1;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+    /* ========================================================
+       MOBILE NAV
+       ======================================================== */
+
+    .mobile-nav {
+        width: 100%;
+
+        padding: 8px 12px 12px;
+
+        box-sizing: border-box;
+    }
+
+    .mobile-nav-item {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        min-height: 45px;
+
+        padding: 0 12px;
+
+        border: 0;
+        border-radius: 6px;
+
+        background: transparent;
+
+        color: #222222;
+
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        box-sizing: border-box;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active {
+        color: #8d2634;
+        background: #f8eef0;
+    }
+
+    .mobile-nav-item::before {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 50%;
+
+        width: 3px;
+        height: 20px;
+
+        border-radius: 0 3px 3px 0;
+
+        background: #8d2634;
+
+        opacity: 0;
+
+        transform: translateY(-50%) scaleY(0);
+
+        transition:
+            opacity 0.15s ease,
+            transform 0.15s ease;
+    }
+
+    .mobile-nav-item:hover::before,
+    .mobile-nav-item.active::before {
+        opacity: 1;
+        transform: translateY(-50%) scaleY(1);
+    }
+
+    /* ========================================================
+       MOBILE DROPDOWN
+       ======================================================== */
+
+    .mobile-nav-dropdown {
+        width: 100%;
+    }
+
+    .mobile-dropdown-btn {
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .mobile-nav-dropdown .bi-chevron-down {
+        font-size: 10px;
+
+        color: #777777;
+
+        transition:
+            color 0.15s ease,
+            transform 0.2s ease;
+    }
+
+    .mobile-nav-dropdown .mobile-nav-item:hover .bi-chevron-down,
+    .mobile-nav-dropdown .mobile-nav-item.active .bi-chevron-down {
+        color: #8d2634;
+    }
+
+    .mobile-nav-dropdown .bi-chevron-down.rotated {
+        transform: rotate(180deg);
+    }
+
+    /* ========================================================
+       MOBILE SUBMENU
+       ======================================================== */
+
+    .mobile-submenu {
+        display: none;
+
+        padding: 3px 0 5px 14px;
+    }
+
+    .mobile-submenu.show {
+        display: block;
+    }
+
+    .mobile-submenu a {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        min-height: 39px;
+
+        padding: 8px 12px;
+
+        border-radius: 6px;
+
+        color: #444444 !important;
+
+        font-size: 12px;
+
+        text-decoration: none !important;
+
+        box-sizing: border-box;
+    }
+
+    .mobile-submenu a:hover,
+    .mobile-submenu a.active,
+    .mobile-submenu a[aria-current="page"] {
+        background: #f8eef0;
+
+        color: #8d2634 !important;
+    }
+
+}
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+    .top-header {
+        padding: 0 12px;
+    }
+
+    .top-logo img {
+        width: 118px !important;
+    }
+
+    .mobile-nav-item {
+        font-size: 12px;
+    }
+
+    .mobile-submenu a {
+        font-size: 11px;
+    }
 }

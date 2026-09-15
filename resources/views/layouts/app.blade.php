@@ -65,13 +65,16 @@
                         </button>
 
                         <div id="submenuTentang" class="top-submenu">
-                            <a href="{{ route('profile.perusahaan') }}" class="tentang-submenu-item">
+                            <a href="{{ route('profile.perusahaan') }}" 
+                                class="tentang-submenu-item {{ request()->routeIs('profile.perusahaan') ? 'active' : '' }}">
                                 <span>Profile Perusahaan</span>
                             </a>
-                            <a href="{{ route('team.profile') }}" class="tentang-submenu-item">
+                            <a href="{{ route('team.profile') }}" 
+                                class="tentang-submenu-item {{ request()->routeIs('team.profile') ? 'active' : '' }}">
                                 <span>Avengers Team Profile</span>
                             </a>
-                            <a href="{{ route('wakil.pialang') }}" class="tentang-submenu-item">
+                            <a href="{{ route('wakil.pialang') }}"
+                                class="tentang-submenu-item {{ request()->routeIs('wakil.pialang') ? 'active' : '' }}">
                                 <span>Wakil Pialang Avengers</span>
                             </a>
                         </div>
@@ -92,13 +95,16 @@
                         </button>
 
                         <div id="submenuProsedur" class="top-submenu">
-                            <a href="{{ route('prosedur.pembukaan') }}" class="prosedur-submenu-item">
+                            <a href="{{ route('prosedur.pembukaan') }}"
+                                class="prosedur-submenu-item {{ request()->routeIs('prosedur.pembukaan') ? 'active' : '' }}">
                                 <span>Pembukaan Rekening</span>
                             </a>
-                            <a href="{{ route('prosedur.penarikan') }}" class="prosedur-submenu-item">
+                            <a href="{{ route('prosedur.penarikan') }}"
+                                class="prosedur-submenu-item {{ request()->routeIs('prosedur.penarikan') ? 'active' : '' }}">
                                 <span>Penarikan</span>
                             </a>
-                            <a href="{{ route('prosedur.petunjuk') }}" class="prosedur-submenu-item">
+                            <a href="{{ route('prosedur.petunjuk') }}"
+                                class="prosedur-submenu-item {{ request()->routeIs('prosedur.petunjuk') ? 'active' : '' }}">
                                 <span>Petunjuk Transaksi</span>
                             </a>
                         </div>
@@ -128,18 +134,8 @@
 
                 </nav>
 
-                <!-- HEADER ACTIONS -->
                 <div class="top-header-actions">
 
-                    <button type="button"
-                        id="themeToggle"
-                        class="theme-toggle"
-                        aria-label="Aktifkan mode malam"
-                        title="Mode siang / malam">
-                        <i class="bi bi-moon-stars-fill"></i>
-                    </button>
-
-                    <!-- HAMBURGER: tetap tiga garis, tidak berubah menjadi X -->
                     <button type="button"
                         id="mobileMenuToggle"
                         class="mobile-menu-toggle"
@@ -211,11 +207,17 @@
                             <i id="mobileEdukasiArrow" class="bi bi-chevron-down"></i>
                         </button>
                         <div id="mobileSubmenuEdukasi" class="mobile-submenu">
-                            <a href="{{ route('edukasi.nasabah') }}" class="edukasi-submenu-item"><span>Edukasi Nasabah</span>
+                            <a href="{{ route('edukasi.nasabah') }}"
+                                class="edukasi-submenu-item {{ request()->routeIs('edukasi.nasabah') ? 'active' : '' }}">
+                                <span>Edukasi Nasabah</span>
                             </a>
-                            <a href="{{ route('edukasi.konsultan') }}" class="edukasi-submenu-item"><span>Edukasi Konsultan</span>
+                            <a href="{{ route('edukasi.konsultan') }}"
+                                class="edukasi-submenu-item {{ request()->routeIs('edukasi.konsultan') ? 'active' : '' }}">
+                                <span>Edukasi Konsultan</span>
                             </a>
-                            <a href="{{ route('edukasi.umum') }}" class="edukasi-submenu-item"><span>Edukasi Umum</span>
+                            <a href="{{ route('edukasi.umum') }}"
+                                class="edukasi-submenu-item {{ request()->routeIs('edukasi.umum') ? 'active' : '' }}">
+                                <span>Edukasi Umum</span>
                             </a>
                         </div>
                     </div>
@@ -593,52 +595,6 @@
                     }
                 });
             });
-
-
-            /* =================================================
-               THEME TOGGLE
-               Mode hanya mengubah area navigasi agar halaman lain
-               tetap menggunakan desain yang sudah ada.
-            ================================================== */
-
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = themeToggle?.querySelector('i');
-            const savedTheme = localStorage.getItem('avengersteam-nav-theme');
-
-            if (savedTheme === 'dark') {
-                document.body.classList.add('nav-dark-mode');
-            }
-
-            function updateThemeButton() {
-                if (!themeToggle || !themeIcon) return;
-
-                const isDark = document.body.classList.contains('nav-dark-mode');
-
-                themeIcon.className = isDark
-                    ? 'bi bi-sun-fill'
-                    : 'bi bi-moon-stars-fill';
-
-                themeToggle.setAttribute(
-                    'aria-label',
-                    isDark ? 'Aktifkan mode siang' : 'Aktifkan mode malam'
-                );
-            }
-
-            updateThemeButton();
-
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function() {
-                    document.body.classList.toggle('nav-dark-mode');
-
-                    const isDark = document.body.classList.contains('nav-dark-mode');
-                    localStorage.setItem(
-                        'avengersteam-nav-theme',
-                        isDark ? 'dark' : 'light'
-                    );
-
-                    updateThemeButton();
-                });
-            }
 
 
             /* =================================================
