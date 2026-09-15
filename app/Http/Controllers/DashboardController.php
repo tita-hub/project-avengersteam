@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-
         $latestNews = News::query()
             ->orderByDesc('published_at')
             ->orderByDesc('id')
@@ -24,7 +21,6 @@ class DashboardController extends Controller
             ->get();
 
         return view('dashboard.index', [
-            'user' => $user,
             'latestNews' => $latestNews,
             'tickerNews' => $tickerNews,
         ]);
