@@ -5109,15 +5109,15 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 .hero-info-item strong {
     color: #222;
 
-    font-size: 10px;
+    font-size: 20px;
 
-    font-weight: 800;
+    font-weight: 1200;
 }
 
 .hero-info-item small {
-    color: #8a908d;
+    color: #3c403e;
 
-    font-size: 8px;
+    font-size: 15px;
 }
 
 
@@ -5324,7 +5324,7 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
     color: #7c837f;
 
-    font-size: 9px;
+    font-size: 12px;
 }
 
 .hero-market-badge small i {
@@ -5404,7 +5404,7 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
     color: #8b918d;
 
-    font-size: 8px;
+    font-size: 15px;
 }
 
 .hero-card-trend {
@@ -5537,10 +5537,6 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
 @media (max-width: 1000px) {
 
-    .dashboard-hero {
-        min-height: 620px;
-    }
-
     .hero-content {
         width: 100%;
 
@@ -5672,9 +5668,6 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
 @media (max-width: 480px) {
 
-    .dashboard-hero {
-        min-height: 750px;
-    }
 
     .hero-content {
         min-height: 750px;
@@ -8326,4 +8319,564 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
     .mobile-submenu a {
         font-size: 11px;
     }
+}
+
+
+/* ============================================================
+   AVENGERS TEAM — DASHBOARD TOP NEWS FINAL
+   KHUSUS HALAMAN DASHBOARD
+   TIDAK MENGUBAH STYLE HALAMAN LAIN
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   TOP NEWS FULL WIDTH
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar {
+    width: 100vw;
+
+    /*
+     * Membuat Top News keluar dari batas
+     * .dashboard-page / max-width container.
+     */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    /*
+     * Header desktop = 76px
+     * Main content padding-top = 106px
+     * Jadi jarak kosong = 30px.
+     * Nilai negatif ini membuat Top News naik
+     * mendekati header.
+     */
+    margin-top: -30px;
+
+    margin-bottom: 28px;
+
+    min-height: 64px;
+
+    border-radius: 0;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   BAGIAN TICKER
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-wrap {
+    min-height: 64px;
+
+    padding-left: 22px;
+    padding-right: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   LABEL TOP NEWS
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-label {
+    flex-shrink: 0;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+}
+
+
+/* ------------------------------------------------------------
+   ISI BERITA
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-content {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    min-height: 64px;
+
+    align-items: center;
+}
+
+
+/* ------------------------------------------------------------
+   JUDUL BERITA
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-item {
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+/* ------------------------------------------------------------
+   PEMISAH ANTAR BERITA
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-dot {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+/* ------------------------------------------------------------
+   JAM WIB
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .dashboard-clock {
+    min-height: 64px;
+
+    padding-left: 18px;
+    padding-right: 22px;
+
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   DESKTOP BESAR
+   ------------------------------------------------------------ */
+
+@media (min-width: 1200px) {
+
+    .dashboard-page .dashboard-topbar {
+        min-height: 66px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-wrap {
+        min-height: 66px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-content {
+        min-height: 66px;
+    }
+
+    .dashboard-page .dashboard-topbar .dashboard-clock {
+        min-height: 66px;
+    }
+}
+
+
+/* ------------------------------------------------------------
+   TABLET
+   ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+
+    .dashboard-page .dashboard-topbar {
+        width: 100vw;
+
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+
+        margin-top: -30px;
+
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-wrap {
+        width: 100%;
+
+        min-height: 58px;
+
+        padding-left: 18px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-content {
+        min-height: 58px;
+    }
+
+    .dashboard-page .dashboard-topbar .dashboard-clock {
+        min-height: 46px;
+
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 650px) {
+
+    .dashboard-page .dashboard-topbar {
+        width: 100vw;
+
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+
+        /*
+         * Mobile:
+         * header = 68px
+         * main-content padding-top = 88px
+         * selisih = 20px
+         */
+        margin-top: -20px;
+
+        margin-bottom: 20px;
+
+        min-height: auto;
+
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-wrap {
+        min-height: 52px;
+
+        padding-left: 12px;
+
+        gap: 9px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-label {
+        padding: 7px 11px;
+
+        font-size: 9px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-content {
+        min-height: 52px;
+
+        padding: 0;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-item {
+        font-size: 10px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-dot {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .dashboard-page .dashboard-topbar .dashboard-clock {
+        min-height: 42px;
+
+        padding: 7px 14px;
+
+        justify-content: center;
+
+        font-size: 10px;
+    }
+}
+
+/* ============================================================
+   DASHBOARD TOP NEWS — FIXED DI BAWAH HEADER
+   KHUSUS HALAMAN DASHBOARD
+   ============================================================ */
+
+.dashboard-page .dashboard-topbar {
+    position: fixed;
+
+    /*
+     * Header berada di atas.
+     * Top News ditempatkan tepat di bawah header.
+     */
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    width: 100vw;
+
+    margin: 0;
+
+    min-height: 64px;
+
+    z-index: 190;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   TICKER
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-wrap {
+    min-height: 64px;
+
+    padding-left: 22px;
+    padding-right: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   ISI BERITA
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .ticker-content {
+    min-height: 64px;
+
+    align-items: center;
+}
+
+
+/* ------------------------------------------------------------
+   JAM WIB
+   ------------------------------------------------------------ */
+
+.dashboard-page .dashboard-topbar .dashboard-clock {
+    min-height: 64px;
+
+    padding-left: 18px;
+    padding-right: 22px;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   MOBILE / TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .dashboard-page .dashboard-topbar {
+        top: 64px;
+
+        width: 100vw;
+
+        margin: 0;
+
+        min-height: 58px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-wrap {
+        min-height: 58px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-content {
+        min-height: 58px;
+    }
+
+    .dashboard-page .dashboard-topbar .dashboard-clock {
+        min-height: 58px;
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    .dashboard-page .dashboard-topbar {
+        top: 64px;
+
+        min-height: 52px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-wrap {
+        min-height: 52px;
+
+        padding-left: 12px;
+    }
+
+    .dashboard-page .dashboard-topbar .ticker-content {
+        min-height: 52px;
+    }
+
+    .dashboard-page .dashboard-topbar .dashboard-clock {
+        min-height: 42px;
+
+        padding: 7px 14px;
+    }
+}
+
+/* ============================================================
+   DASHBOARD HERO — FULL WIDTH
+   KHUSUS HALAMAN DASHBOARD
+   ============================================================ */
+
+.dashboard-page .dashboard-hero {
+    width: 100vw;
+
+    /*
+     * Keluar dari batas container dashboard
+     * supaya hero memenuhi layar kiri-kanan.
+     */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   HERO INFO — PERBESAR TEKS & ICON
+   ============================================================ */
+
+.dashboard-page .hero-info-row {
+    gap: 42px;
+}
+
+
+/* Icon */
+
+.dashboard-page .hero-info-icon {
+    width: 52px;
+    height: 52px;
+
+    font-size: 21px;
+
+    flex-shrink: 0;
+}
+
+
+/* Judul */
+
+.dashboard-page .hero-info-item strong {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
+/* Keterangan */
+
+.dashboard-page .hero-info-item small {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* Jarak antara icon dan tulisan */
+
+.dashboard-page .hero-info-item {
+    gap: 15px;
+}
+
+
+/* ============================================================
+   DESKTOP BESAR
+   ============================================================ */
+
+@media (min-width: 1200px) {
+
+    .dashboard-page .hero-info-row {
+        gap: 55px;
+    }
+
+    .dashboard-page .hero-info-icon {
+        width: 54px;
+        height: 54px;
+
+        font-size: 22px;
+    }
+
+    .dashboard-page .hero-info-item strong {
+        font-size: 15px;
+    }
+
+    .dashboard-page .hero-info-item small {
+        font-size: 13px;
+    }
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .dashboard-page .dashboard-hero {
+        width: 100vw;
+
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
+
+    .dashboard-page .hero-info-row {
+        gap: 25px;
+    }
+
+    .dashboard-page .hero-info-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 20px;
+    }
+
+    .dashboard-page .hero-info-item {
+        gap: 12px;
+    }
+
+    .dashboard-page .hero-info-item strong {
+        font-size: 14px;
+    }
+
+    .dashboard-page .hero-info-item small {
+        font-size: 12px;
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    .dashboard-page .dashboard-hero {
+        width: 100vw;
+
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
+
+    .dashboard-page .hero-info-row {
+        gap: 18px;
+
+        flex-wrap: wrap;
+    }
+
+    .dashboard-page .hero-info-item {
+        gap: 10px;
+    }
+
+    .dashboard-page .hero-info-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 18px;
+    }
+
+    .dashboard-page .hero-info-item strong {
+        font-size: 14px;
+    }
+
+    .dashboard-page .hero-info-item small {
+        font-size: 11px;
+    }
+}
+
+/* ============================================================
+   DASHBOARD HERO — FULL SCREEN WIDTH
+   ============================================================ */
+
+.dashboard-page .dashboard-hero {
+    position: relative;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+
+    box-sizing: border-box;
 }
