@@ -27,6 +27,7 @@
 <body class="app-body">
 
 
+
     <!-- =====================================================
          APP SHELL
     ====================================================== -->
@@ -613,6 +614,16 @@
 
         });
     </script>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/6285128040216"
+       class="floating-whatsapp"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Hubungi kami melalui WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    <!-- END FLOATING WHATSAPP -->
 
 </body>
 
