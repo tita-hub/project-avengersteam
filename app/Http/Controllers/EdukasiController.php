@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InternshipReview;
+
 class EdukasiController extends Controller
 {
     public function edukasiNasabah()
@@ -16,6 +18,14 @@ class EdukasiController extends Controller
 
     public function edukasiUmum()
     {
-        return view('edukasi.umum');
+        $pengalamanMagang = InternshipReview::query()
+            ->where('status', 'published')
+            ->latest()
+            ->get();
+
+        return view(
+            'edukasi.umum',
+            compact('pengalamanMagang')
+        );
     }
 }

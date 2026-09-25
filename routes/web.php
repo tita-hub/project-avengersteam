@@ -7,6 +7,7 @@ use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProsedurController;
 use App\Http\Controllers\EdukasiController;
+use App\Http\Controllers\InternshipReviewController;
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
@@ -72,5 +73,10 @@ Route::controller(EdukasiController::class)->group(function () {
     // Edukasi Umum
     Route::get('/edukasi/umum', 'edukasiUmum')
         ->name('edukasi.umum');
+
+    Route::post('/edukasi/umum/pengalaman-magang', [
+    InternshipReviewController::class,
+    'store'
+        ])->name('internship-reviews.store');
 
 });

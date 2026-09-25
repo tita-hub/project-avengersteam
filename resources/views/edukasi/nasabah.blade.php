@@ -2,765 +2,1229 @@
 
 @section('content')
 
+@php
+
+    /*
+    |--------------------------------------------------------------------------
+    | 6 MATERI EDUKASI
+    |--------------------------------------------------------------------------
+    */
+
+    $materiEdukasi = [
+
+        [
+            'id' => 1,
+            'nomor' => '01',
+            'kategori' => 'LAYANAN',
+            'icon' => 'bi-grid-fill',
+            'judul' => 'Apa Itu Trading?',
+            'ringkasan' => 'Mengenal pengertian trading dan dasar aktivitas perdagangan sebelum mulai bertransaksi.',
+            'isi' => '
+                <p>
+                    Trading merupakan aktivitas melakukan transaksi pada suatu produk
+                    atau instrumen perdagangan dengan memanfaatkan perubahan harga
+                    yang terjadi di pasar.
+                </p>
+
+                <p>
+                    Dalam perdagangan berjangka, nasabah perlu memahami bagaimana
+                    mekanisme transaksi berlangsung serta karakteristik produk yang
+                    diperdagangkan.
+                </p>
+
+                <h4>Apa yang perlu dipahami?</h4>
+
+                <ul>
+                    <li>Harga dapat bergerak naik maupun turun.</li>
+                    <li>Setiap transaksi memiliki potensi keuntungan dan risiko.</li>
+                    <li>Pergerakan pasar dapat berubah dalam waktu yang cepat.</li>
+                    <li>Nasabah perlu memahami produk sebelum melakukan transaksi.</li>
+                </ul>
+
+                <p>
+                    Pemahaman dasar mengenai trading menjadi langkah penting sebelum
+                    seseorang memutuskan untuk melakukan aktivitas perdagangan.
+                </p>
+            ',
+        ],
+
+        [
+            'id' => 2,
+            'nomor' => '02',
+            'kategori' => 'TRADING',
+            'icon' => 'bi-graph-up-arrow',
+            'judul' => 'Perdagangan Berjangka',
+            'ringkasan' => 'Memahami dasar perdagangan berjangka dan bagaimana mekanisme transaksi dilakukan.',
+            'isi' => '
+                <p>
+                    Perdagangan Berjangka merupakan kegiatan jual beli komoditi
+                    berdasarkan kontrak berjangka, kontrak derivatif syariah,
+                    dan/atau kontrak derivatif lainnya yang diperdagangkan melalui
+                    Bursa Berjangka.
+                </p>
+
+                <p>
+                    Perdagangan berjangka memiliki mekanisme dan ketentuan tertentu
+                    yang perlu dipahami oleh calon maupun nasabah.
+                </p>
+
+                <h4>Hal yang perlu diketahui</h4>
+
+                <ul>
+                    <li>Transaksi dilakukan berdasarkan kontrak yang memiliki spesifikasi tertentu.</li>
+                    <li>Harga dapat bergerak mengikuti kondisi pasar.</li>
+                    <li>Setiap produk mempunyai karakteristik masing-masing.</li>
+                    <li>Transaksi memiliki potensi keuntungan dan risiko kerugian.</li>
+                    <li>Nasabah perlu memahami ketentuan sebelum melakukan transaksi.</li>
+                </ul>
+
+                <p>
+                    Dengan memahami perdagangan berjangka, nasabah dapat mengetahui
+                    bagaimana transaksi dilakukan serta memahami konsekuensi dari
+                    transaksi yang dipilih.
+                </p>
+            ',
+        ],
+
+        [
+            'id' => 3,
+            'nomor' => '03',
+            'kategori' => 'PENGENALAN',
+            'icon' => 'bi-book',
+            'judul' => 'Mengenal Produk',
+            'ringkasan' => 'Kenali karakteristik produk perdagangan agar dapat memahami transaksi dan risiko yang menyertainya.',
+            'isi' => '
+                <p>
+                    Setiap produk perdagangan mempunyai karakteristik dan pergerakan
+                    harga yang berbeda. Oleh karena itu, calon nasabah perlu
+                    mempelajari produk sebelum melakukan transaksi.
+                </p>
+
+                <h4>Hal yang perlu diperhatikan</h4>
+
+                <ul>
+                    <li>Pelajari karakteristik produk yang akan diperdagangkan.</li>
+                    <li>Pahami spesifikasi kontrak.</li>
+                    <li>Ketahui faktor yang dapat memengaruhi pergerakan harga.</li>
+                    <li>Pahami ketentuan margin dan ukuran transaksi.</li>
+                    <li>Ketahui biaya atau komisi yang berlaku.</li>
+                    <li>Pahami risiko dari produk tersebut.</li>
+                </ul>
+
+                <p>
+                    Pemilihan produk sebaiknya dilakukan berdasarkan pemahaman
+                    terhadap karakteristik dan risiko, bukan hanya berdasarkan
+                    potensi keuntungan.
+                </p>
+            ',
+        ],
+
+        [
+            'id' => 4,
+            'nomor' => '04',
+            'kategori' => 'MEKANISME',
+            'icon' => 'bi-arrow-left-right',
+            'judul' => 'Cara Kerja Trading',
+            'ringkasan' => 'Pelajari gambaran proses trading mulai dari persiapan hingga melakukan transaksi.',
+            'isi' => '
+                <p>
+                    Sebelum melakukan transaksi, calon nasabah perlu mengikuti
+                    proses dan prosedur yang berlaku serta memahami informasi
+                    yang diberikan.
+                </p>
+
+                <h4>Gambaran proses trading</h4>
+
+                <ol>
+                    <li>
+                        <strong>Pendaftaran</strong><br>
+                        Calon nasabah mengikuti proses pendaftaran sesuai prosedur
+                        yang berlaku.
+                    </li>
+
+                    <li>
+                        <strong>Verifikasi Data</strong><br>
+                        Data dan dokumen calon nasabah dilakukan pemeriksaan sesuai
+                        ketentuan.
+                    </li>
+
+                    <li>
+                        <strong>Memahami Dokumen</strong><br>
+                        Nasabah membaca dan memahami dokumen, ketentuan serta risiko
+                        perdagangan.
+                    </li>
+
+                    <li>
+                        <strong>Persiapan Dana</strong><br>
+                        Dana transaksi ditempatkan sesuai mekanisme dan ketentuan
+                        yang berlaku.
+                    </li>
+
+                    <li>
+                        <strong>Melakukan Transaksi</strong><br>
+                        Nasabah melakukan transaksi melalui sistem yang tersedia
+                        sesuai prosedur.
+                    </li>
+                </ol>
+
+                <p>
+                    Setiap tahap perlu dilakukan dengan memahami informasi yang
+                    diberikan sebelum transaksi dilakukan.
+                </p>
+            ',
+        ],
+
+        [
+            'id' => 5,
+            'nomor' => '05',
+            'kategori' => 'RISIKO',
+            'icon' => 'bi-shield-exclamation',
+            'judul' => 'Risiko Trading',
+            'ringkasan' => 'Kenali risiko perdagangan berjangka sebelum mengambil keputusan untuk melakukan transaksi.',
+            'isi' => '
+                <p>
+                    Perdagangan berjangka memiliki risiko yang perlu dipahami oleh
+                    setiap calon nasabah. Perubahan harga dapat menyebabkan nilai
+                    transaksi berubah dalam waktu yang relatif cepat.
+                </p>
+
+                <h4>Beberapa risiko yang perlu diperhatikan</h4>
+
+                <ul>
+                    <li>
+                        <strong>Risiko Pergerakan Harga</strong><br>
+                        Harga dapat bergerak berlawanan dengan posisi transaksi.
+                    </li>
+
+                    <li>
+                        <strong>Risiko Pasar</strong><br>
+                        Kondisi ekonomi dan berbagai faktor pasar dapat memengaruhi
+                        pergerakan harga.
+                    </li>
+
+                    <li>
+                        <strong>Risiko Leverage</strong><br>
+                        Mekanisme leverage dapat memperbesar dampak perubahan harga
+                        terhadap transaksi.
+                    </li>
+
+                    <li>
+                        <strong>Risiko Likuiditas</strong><br>
+                        Kondisi pasar tertentu dapat memengaruhi kemudahan melakukan
+                        transaksi pada harga yang diharapkan.
+                    </li>
+                </ul>
+
+                <p>
+                    Tidak ada metode yang dapat menjamin keuntungan pada setiap
+                    transaksi. Karena itu, risiko harus dipahami sebelum mengambil
+                    keputusan transaksi.
+                </p>
+            ',
+        ],
+
+        [
+            'id' => 6,
+            'nomor' => '06',
+            'kategori' => 'PERSIAPAN',
+            'icon' => 'bi-check2-circle',
+            'judul' => 'Sebelum Melakukan Transaksi',
+            'ringkasan' => 'Hal-hal penting yang perlu diketahui dan dipahami sebelum mulai melakukan transaksi.',
+            'isi' => '
+                <p>
+                    Sebelum melakukan transaksi, calon nasabah perlu memastikan
+                    bahwa informasi mengenai perdagangan berjangka telah dipahami
+                    dengan baik.
+                </p>
+
+                <h4>Yang perlu diperhatikan</h4>
+
+                <ul>
+                    <li>Memahami cara kerja perdagangan berjangka.</li>
+                    <li>Mempelajari karakteristik produk yang akan diperdagangkan.</li>
+                    <li>Membaca dan memahami dokumen yang diberikan.</li>
+                    <li>Memahami seluruh risiko transaksi.</li>
+                    <li>Mengetahui biaya dan ketentuan yang berlaku.</li>
+                    <li>Memastikan data yang diberikan sudah benar.</li>
+                    <li>Menggunakan informasi dan kanal resmi perusahaan.</li>
+                    <li>Tidak mengambil keputusan hanya berdasarkan janji keuntungan.</li>
+                </ul>
+
+                <h4>Yang paling penting</h4>
+
+                <p>
+                    Jangan melakukan transaksi apabila masih terdapat informasi
+                    penting mengenai mekanisme, produk, biaya, maupun risiko yang
+                    belum dipahami.
+                </p>
+            ',
+        ],
+
+    ];
+
+@endphp
+
+
 <style>
-    .edu-page {
-        --green: #176b4d;
-        --green-dark: #0f513a;
-        --green-soft: #eaf5ef;
-        --red: #b52b2f;
-        --red-soft: #faeeee;
-        --text: #202522;
-        --muted: #6d756f;
-        --line: #e4e9e5;
-        --white: #ffffff;
-        --bg: #f7f9f7;
 
-        padding: 28px 32px 50px;
-        background: var(--bg);
-        min-height: calc(100vh - 70px);
-        color: var(--text);
-    }
+/* ============================================================
+   EDUKASI NASABAH
+   FONT SAJA DIUBAH MENJADI SANS-SERIF
+   ============================================================ */
+
+.edu-page,
+.edu-page *,
+.edu-page button,
+.edu-page input,
+.edu-page textarea,
+.edu-page select {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
 
 
-    /* =====================================================
-       HERO EDUKASI NASABAH
-    ===================================================== */
+/* ============================================================
+   HALAMAN
+   ============================================================ */
 
-    .edu-hero {
-        position: relative;
-        overflow: hidden;
+.edu-page {
+    --green: #176b4d;
+    --green-dark: #10533d;
+    --green-soft: #eaf5ef;
 
-        width: 100%;
+    --red: #b52b2f;
+    --red-soft: #faeeee;
 
-        height: 165px !important;
-        min-height: 165px !important;
-        max-height: 165px !important;
+    --text: #202522;
+    --muted: #68716c;
 
-        padding: 0 !important;
+    --line: #e4e9e5;
+    --white: #ffffff;
+    --bg: #f7f9f7;
 
-        background: linear-gradient(
-            120deg,
-            #124f39 0%,
-            #176b4d 60%,
-            #23805d 100%
+    background: var(--bg);
+
+    min-height: 100vh;
+
+    padding: 44px 20px 70px;
+
+    color: var(--text);
+}
+
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+
+.edu-container {
+    width: 100%;
+    max-width: 1440px;
+
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.edu-hero {
+    position: relative;
+
+    min-height: 213px;
+
+    padding: 28px 54px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #105b43 0%,
+            #146d50 55%,
+            #298963 100%
         );
 
+    color: #ffffff;
+}
+
+.edu-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    right: -20px;
+    top: -90px;
+
+    border: 42px solid rgba(255,255,255,0.045);
+}
+
+.edu-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    right: 180px;
+    bottom: -105px;
+
+    border: 35px solid rgba(0,0,0,0.035);
+}
+
+.edu-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+}
+
+.edu-hero-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.22);
+
+    background: rgba(255,255,255,0.09);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.edu-hero h1 {
+    margin: 0 0 8px;
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.edu-hero p {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: rgba(255,255,255,0.94);
+}
+
+
+/* ============================================================
+   INTRO BOX
+   ============================================================ */
+
+.edu-intro {
+    margin-top: 31px;
+
+    min-height: 106px;
+
+    padding: 20px 26px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 23px;
+}
+
+.edu-intro-icon {
+    width: 62px;
+    height: 62px;
+
+    min-width: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: var(--red-soft);
+
+    color: var(--red);
+
+    font-size: 25px;
+}
+
+.edu-intro-content {
+    min-width: 0;
+}
+
+.edu-intro-title {
+    margin: 0 0 4px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.edu-intro-text {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   SECTION HEADING
+   ============================================================ */
+
+.edu-section {
+    margin-top: 35px;
+}
+
+.edu-section-top-line {
+    width: 55px;
+    height: 5px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red) 0%,
+            var(--red) 45%,
+            var(--green) 45%,
+            var(--green) 100%
+        );
+
+    margin-bottom: 13px;
+}
+
+.edu-section-title {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 27px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.edu-section-subtitle {
+    margin: 8px 0 21px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.edu-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.edu-card {
+    position: relative;
+
+    min-height: 275px;
+
+    padding: 27px 24px 22px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 21px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+}
+
+.edu-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background: var(--green);
+}
+
+.edu-card:nth-child(2)::before,
+.edu-card:nth-child(5)::before {
+    background: var(--red);
+}
+
+.edu-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 35px rgba(27,55,42,0.10);
+}
+
+
+/* ============================================================
+   CARD HEADER
+   ============================================================ */
+
+.edu-card-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.edu-card-category {
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    color: var(--red);
+}
+
+.edu-card-icon {
+    width: 57px;
+    height: 57px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green-soft);
+
+    color: var(--green);
+
+    font-size: 23px;
+}
+
+.edu-card:nth-child(2) .edu-card-icon,
+.edu-card:nth-child(5) .edu-card-icon {
+    background: var(--red-soft);
+
+    color: var(--red);
+}
+
+
+/* ============================================================
+   CARD CONTENT
+   ============================================================ */
+
+.edu-card h3 {
+    margin: 0 0 11px;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.edu-card-description {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   CARD FOOTER
+   ============================================================ */
+
+.edu-card-footer {
+    margin-top: auto;
+
+    padding-top: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.edu-card-footer-label {
+    font-size: 12px;
+
+    color: #919a95;
+}
+
+.edu-card-button {
+    border: 0;
+
+    background: transparent;
+
+    color: var(--green);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+.edu-card-button i {
+    margin-left: 4px;
+
+    transition: transform .2s ease;
+}
+
+.edu-card:hover .edu-card-button i {
+    transform: translateX(4px);
+}
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.edu-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15,25,20,0.68);
+
+    backdrop-filter: blur(5px);
+}
+
+.edu-modal.active {
+    display: flex;
+}
+
+.edu-modal-box {
+    width: min(950px, 100%);
+
+    height: min(650px, 90vh);
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    display: grid;
+
+    grid-template-columns: 36% 64%;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+
+    animation: eduModalIn .22s ease;
+}
+
+@keyframes eduModalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* ============================================================
+   MODAL LEFT
+   ============================================================ */
+
+.edu-modal-left {
+    position: relative;
+
+    padding: 40px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #105b43,
+            #218260
+        );
+
+    color: #ffffff;
+
+    overflow: hidden;
+}
+
+.edu-modal-left::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border: 45px solid rgba(255,255,255,.05);
+
+    border-radius: 50%;
+
+    right: -100px;
+    bottom: -100px;
+}
+
+.edu-modal-left-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.edu-modal-number {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    opacity: .7;
+
+    margin-bottom: 25px;
+}
+
+.edu-modal-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,.13);
+
+    font-size: 27px;
+
+    margin-bottom: 22px;
+}
+
+.edu-modal-left h3 {
+    margin: 0;
+
+    font-size: 27px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.edu-modal-left p {
+    margin: 14px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.84);
+}
+
+
+/* ============================================================
+   MODAL RIGHT
+   ============================================================ */
+
+.edu-modal-right {
+    position: relative;
+
+    overflow-y: auto;
+
+    padding: 40px 42px;
+}
+
+.edu-modal-close {
+    position: absolute;
+
+    top: 17px;
+    right: 17px;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--line);
+
+    background: #ffffff;
+
+    color: #68716c;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.edu-modal-close:hover {
+    background: var(--red-soft);
+
+    color: var(--red);
+}
+
+.edu-modal-category {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--red);
+}
+
+.edu-modal-right h2 {
+    margin: 0;
+
+    padding-right: 40px;
+
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.edu-modal-line {
+    width: 55px;
+    height: 4px;
+
+    margin: 17px 0 23px;
+
+    border-radius: 10px;
+
+    background: var(--green);
+}
+
+.edu-modal-content {
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color: #515a55;
+}
+
+.edu-modal-content p {
+    margin: 0 0 16px;
+}
+
+.edu-modal-content h4 {
+    margin: 24px 0 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.edu-modal-content ul,
+.edu-modal-content ol {
+    margin: 10px 0 18px;
+
+    padding-left: 22px;
+}
+
+.edu-modal-content li {
+    margin-bottom: 8px;
+}
+
+.edu-modal-content strong {
+    color: var(--text);
+}
+
+.edu-modal-note {
+    margin-top: 25px;
+
+    padding: 15px 17px;
+
+    border-left: 4px solid var(--green);
+
+    border-radius: 8px;
+
+    background: var(--green-soft);
+
+    color: var(--green-dark);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   BODY SAAT MODAL
+   ============================================================ */
+
+body.edu-modal-open {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .edu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .edu-modal-box {
+        grid-template-columns: 1fr;
+
+        height: 90vh;
+    }
+
+    .edu-modal-left {
+        min-height: 190px;
+
+        padding: 25px 30px;
+    }
+
+    .edu-modal-left p {
+        display: none;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    .edu-page {
+        padding: 25px 14px 50px;
+    }
+
+    .edu-hero {
+        min-height: 190px;
+
+        padding: 28px 25px;
+
         border-radius: 20px;
-
-        color: #fff;
-
-        margin-bottom: 24px;
-
-        box-shadow:
-            0 9px 22px rgba(23, 107, 77, .11);
-
-        box-sizing: border-box;
     }
 
-
-    /* =====================================================
-       LINGKARAN DEKORASI HERO
-    ===================================================== */
-
-    .edu-hero::before {
-        content: "";
-
-        position: absolute;
-
-        width: 190px;
-        height: 190px;
-
-        border: 35px solid rgba(255,255,255,.06);
-
-        border-radius: 50%;
-
-        right: -55px;
-        top: -80px;
-
-        pointer-events: none;
+    .edu-hero h1 {
+        font-size: 30px;
     }
 
-
-    .edu-hero::after {
-        content: "";
-
-        position: absolute;
-
-        width: 100px;
-        height: 100px;
-
-        border: 20px solid rgba(181,43,47,.12);
-
-        border-radius: 50%;
-
-        right: 150px;
-        bottom: -65px;
-
-        pointer-events: none;
+    .edu-hero p {
+        font-size: 13px;
     }
 
+    .edu-intro {
+        padding: 18px;
 
-    /* =====================================================
-       POSISI ISI HERO
-    ===================================================== */
-
-    .hero-content {
-        position: relative;
-
-        z-index: 2;
-
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-
-        align-items: flex-start;
-
-        justify-content: flex-start;
-
-        padding: 0 !important;
-        margin: 0 !important;
-
-        box-sizing: border-box;
+        gap: 14px;
     }
 
-
-    .hero-text {
-        width: 100%;
-
-        max-width: 900px;
-
-        text-align: left;
-
-        margin-left: 42px !important;
-
-        padding-top: 20px !important;
-
-        box-sizing: border-box;
-    }
-
-
-    /* =====================================================
-       LABEL
-    ===================================================== */
-
-    .hero-label {
-        display: inline-flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 5px;
-
-        padding: 4px 9px;
-
-        margin-bottom: 6px;
-
-        border-radius: 50px;
-
-        background: rgba(255,255,255,.12);
-
-        border: 1px solid rgba(255,255,255,.17);
-
-        color: #fff;
-
-        font-size: 9px;
-
-        font-weight: 700;
-
-        letter-spacing: .3px;
-
-        line-height: 1.2;
-    }
-
-
-    .hero-label i {
-        color: #fff;
-
-        font-size: 9px;
-    }
-
-
-    /* =====================================================
-       JUDUL
-    ===================================================== */
-
-    .hero-title {
-        margin: 0 0 5px;
-
-        padding: 0;
-
-        color: #fff !important;
-
-        font-size: 36px;
-
-        line-height: 1.05;
-
-        font-weight: 800;
-
-        letter-spacing: -.7px;
-    }
-
-
-    /* =====================================================
-       DESKRIPSI
-    ===================================================== */
-
-    .hero-description {
-        max-width: 900px;
-
-        margin: 0;
-
-        padding: 0;
-
-        color: rgba(255,255,255,.84) !important;
-
-        font-size: 12px;
-
-        line-height: 1.45;
-
-        text-align: left;
-    }
-
-
-    /* =====================================================
-       ICON HERO
-    ===================================================== */
-
-    .hero-icon {
-        display: none !important;
-    }
-
-
-    /* =====================================================
-       INTRO
-    ===================================================== */
-
-    .intro-strip {
-        display: flex;
-
-        align-items: center;
-
-        gap: 16px;
-
-        background: #fff;
-
-        border: 1px solid var(--line);
-
-        border-radius: 18px;
-
-        padding: 17px 20px;
-
-        margin-bottom: 29px;
-    }
-
-
-    .intro-icon {
+    .edu-intro-icon {
         width: 48px;
         height: 48px;
 
         min-width: 48px;
 
-        border-radius: 14px;
-
-        background: var(--red-soft);
-
-        color: var(--red);
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-size: 21px;
-    }
-
-
-    .intro-strip strong {
-        display: block;
-
-        font-size: 14px;
-
-        margin-bottom: 3px;
-    }
-
-
-    .intro-strip span {
-        display: block;
-
-        color: var(--muted);
-
-        font-size: 12.5px;
-
-        line-height: 1.55;
-    }
-
-
-    /* =====================================================
-       SECTION
-    ===================================================== */
-
-    .edu-section {
-        margin-bottom: 30px;
-    }
-
-
-    .section-marker {
-        width: 42px;
-
-        height: 4px;
-
-        border-radius: 20px;
-
-        background: linear-gradient(
-            90deg,
-            var(--red),
-            var(--green)
-        );
-
-        margin-bottom: 10px;
-    }
-
-
-    .section-title {
-        margin: 0;
-
-        font-size: 21px;
-
-        font-weight: 800;
-
-        letter-spacing: -.3px;
-    }
-
-
-    .section-subtitle {
-        margin: 4px 0 17px;
-
-        color: var(--muted);
-
-        font-size: 13px;
-    }
-
-
-    /* =====================================================
-       EDUCATION CARD
-    ===================================================== */
-
-    .education-grid {
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-
-        gap: 17px;
-    }
-
-
-    .education-card {
-        position: relative;
-
-        background: #fff;
-
-        border: 1px solid var(--line);
-
-        border-radius: 18px;
-
-        overflow: hidden;
-
-        transition: .3s ease;
-    }
-
-
-    .education-card:hover {
-        transform: translateY(-5px);
-
-        border-color: #cbd9d0;
-
-        box-shadow:
-            0 13px 28px rgba(30,50,40,.08);
-    }
-
-
-    .education-card::before {
-        content: "";
-
-        position: absolute;
-
-        left: 0;
-        top: 0;
-
-        width: 4px;
-        height: 100%;
-
-        background: var(--green);
-    }
-
-
-    .education-card:nth-child(2)::before,
-    .education-card:nth-child(5)::before {
-        background: var(--red);
-    }
-
-
-    .card-top {
-        padding: 17px 18px 8px;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-    }
-
-
-    .card-number {
-        color: var(--red);
-
-        font-size: 10px;
-
-        font-weight: 800;
-
-        letter-spacing: 1px;
-    }
-
-
-    .card-icon {
-        width: 45px;
-        height: 45px;
-
-        border-radius: 13px;
-
-        background: var(--green-soft);
-
-        color: var(--green);
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
         font-size: 20px;
     }
 
-
-    .education-card:nth-child(2) .card-icon,
-    .education-card:nth-child(5) .card-icon {
-        background: var(--red-soft);
-
-        color: var(--red);
+    .edu-intro-title {
+        font-size: 15px;
     }
 
-
-    .card-body {
-        padding: 4px 18px 18px;
+    .edu-intro-text {
+        font-size: 13px;
     }
 
-
-    .card-body h3 {
-        margin: 0 0 7px;
-
-        font-size: 16px;
-
-        font-weight: 750;
-
-        line-height: 1.35;
+    .edu-section-title {
+        font-size: 24px;
     }
 
+    .edu-grid {
+        grid-template-columns: 1fr;
 
-    .card-body p {
-        margin: 0;
-
-        color: var(--muted);
-
-        font-size: 12.5px;
-
-        line-height: 1.65;
+        gap: 16px;
     }
 
-
-    .card-footer {
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        margin-top: 15px;
-
-        padding-top: 12px;
-
-        border-top: 1px solid #edf0ed;
+    .edu-card {
+        min-height: 255px;
     }
 
-
-    .card-footer span {
-        font-size: 10.5px;
-
-        color: var(--muted);
-
-        font-weight: 600;
+    .edu-modal {
+        padding: 10px;
     }
 
+    .edu-modal-box {
+        height: 94vh;
 
-    .detail-button {
-        border: 0;
-
-        width: 31px;
-        height: 31px;
-
-        border-radius: 9px;
-
-        background: var(--green);
-
-        color: #fff;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        cursor: pointer;
-
-        transition: .25s;
+        border-radius: 17px;
     }
 
-
-    .detail-button:hover {
-        background: var(--red);
-
-        transform: translateX(3px);
-    }
-
-
-    /* =====================================================
-       DETAIL
-    ===================================================== */
-
-    .detail-panel {
-        display: none;
-
-        margin-top: 18px;
-
-        background: #fff;
-
-        border: 1px solid var(--line);
-
-        border-radius: 18px;
+    .edu-modal-left {
+        min-height: 150px;
 
         padding: 22px;
-
-        animation: detailIn .3s ease;
     }
 
-
-    .detail-panel.active {
-        display: block;
+    .edu-modal-number {
+        margin-bottom: 10px;
     }
 
+    .edu-modal-icon {
+        width: 45px;
+        height: 45px;
 
-    @keyframes detailIn {
-
-        from {
-            opacity: 0;
-            transform: translateY(8px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    }
-
-
-    .detail-head {
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        gap: 15px;
+        font-size: 19px;
 
         margin-bottom: 10px;
     }
 
-
-    .detail-head h3 {
-        margin: 0;
-
-        font-size: 17px;
-
-        font-weight: 750;
+    .edu-modal-left h3 {
+        font-size: 21px;
     }
 
-
-    .close-detail {
-        width: 32px;
-        height: 32px;
-
-        border: 0;
-
-        border-radius: 50%;
-
-        background: #f1f3f1;
-
-        color: #666;
-
-        cursor: pointer;
+    .edu-modal-right {
+        padding: 25px 20px;
     }
 
+    .edu-modal-right h2 {
+        font-size: 23px;
+    }
 
-    .detail-panel p {
-        margin: 0;
-
-        color: var(--muted);
-
+    .edu-modal-content {
         font-size: 13px;
-
-        line-height: 1.75;
     }
 
+}
 
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-    @media(max-width: 950px) {
-
-        .edu-page {
-            padding: 22px 20px 40px;
-        }
-
-
-        .edu-hero {
-            height: 165px !important;
-
-            min-height: 165px !important;
-
-            max-height: 165px !important;
-
-            padding: 0 !important;
-        }
-
-
-        .hero-text {
-            margin-left: 32px !important;
-
-            padding-top: 20px !important;
-        }
-
-
-        .hero-title {
-            font-size: 32px;
-        }
-
-
-        .hero-description {
-            max-width: 760px;
-        }
-
-
-        .education-grid {
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-        }
-
-    }
-
-
-    @media(max-width: 650px) {
-
-        .edu-page {
-            padding: 16px 14px 35px;
-        }
-
-
-        .edu-hero {
-            height: auto !important;
-
-            min-height: 165px !important;
-
-            max-height: none !important;
-
-            padding: 0 !important;
-
-            border-radius: 18px;
-        }
-
-
-        .hero-content {
-            height: auto;
-
-            min-height: 165px;
-
-            align-items: flex-start;
-        }
-
-
-        .hero-text {
-            margin-left: 22px !important;
-
-            margin-right: 18px;
-
-            padding-top: 20px !important;
-        }
-
-
-        .hero-title {
-            font-size: 29px;
-        }
-
-
-        .hero-description {
-            font-size: 11.5px;
-
-            line-height: 1.5;
-        }
-
-
-        .education-grid {
-            grid-template-columns: 1fr;
-        }
-
-
-        .intro-strip {
-            align-items: flex-start;
-        }
-
-    }
 </style>
 
 
 <div class="edu-page">
 
+    <div class="edu-container">
 
-    <!-- =================================================
-         HERO EDUKASI NASABAH
-    ================================================= -->
+        {{-- ========================================================
+             HERO
+             ======================================================== --}}
 
-    <section class="edu-hero">
+        <section class="edu-hero">
 
-        <div class="hero-content">
+            <div class="edu-hero-content">
 
-            <div class="hero-text">
-
-                <div class="hero-label">
+                <div class="edu-hero-label">
                     <i class="bi bi-person-check-fill"></i>
                     PUSAT INFORMASI NASABAH
                 </div>
 
-
-                <h1 class="hero-title">
+                <h1>
                     Edukasi Nasabah
                 </h1>
 
-
-                <p class="hero-description">
+                <p>
                     Kenali fasilitas dan layanan, pahami apa itu trading,
                     serta pelajari dasar perdagangan berjangka sebelum
                     memulai aktivitas perdagangan.
@@ -768,614 +1232,284 @@
 
             </div>
 
+        </section>
 
-            <div class="hero-icon">
-                <i class="bi bi-person-vcard"></i>
+
+        {{-- ========================================================
+             INTRO
+             ======================================================== --}}
+
+        <section class="edu-intro">
+
+            <div class="edu-intro-icon">
+                <i class="bi bi-lightbulb"></i>
             </div>
 
-        </div>
+            <div class="edu-intro-content">
 
-    </section>
+                <h3 class="edu-intro-title">
+                    Kenali sebelum melakukan transaksi
+                </h3>
+
+                <p class="edu-intro-text">
+                    Edukasi membantu nasabah memahami fasilitas, mekanisme trading,
+                    produk, serta risiko dalam perdagangan berjangka secara lebih menyeluruh.
+                </p>
+
+            </div>
+
+        </section>
 
 
-    <!-- =================================================
-         INTRO
-    ================================================= -->
+        {{-- ========================================================
+             MATERI
+             ======================================================== --}}
 
-    <div class="intro-strip">
+        <section class="edu-section">
 
-        <div class="intro-icon">
-            <i class="bi bi-lightbulb"></i>
-        </div>
+            <div class="edu-section-top-line"></div>
+
+            <h2 class="edu-section-title">
+                Materi Edukasi Nasabah
+            </h2>
+
+            <p class="edu-section-subtitle">
+                Informasi dasar untuk mengenal dunia perdagangan berjangka.
+            </p>
 
 
-        <div>
+            {{-- ====================================================
+                 6 CARD
+                 ==================================================== --}}
 
-            <strong>
-                Kenali sebelum melakukan transaksi
-            </strong>
+            <div class="edu-grid">
 
-            <span>
-                Edukasi membantu nasabah memahami fasilitas,
-                mekanisme trading, produk, serta risiko dalam
-                perdagangan berjangka secara lebih menyeluruh.
-            </span>
+                @foreach ($materiEdukasi as $materi)
 
-        </div>
+                    <article
+                        class="edu-card"
+                        onclick="bukaMateri({{ $materi['id'] }})"
+                    >
+
+                        <div class="edu-card-header">
+
+                            <div class="edu-card-category">
+                                {{ $materi['nomor'] }}
+                                / {{ $materi['kategori'] }}
+                            </div>
+
+                            <div class="edu-card-icon">
+                                <i class="bi {{ $materi['icon'] }}"></i>
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            {{ $materi['judul'] }}
+                        </h3>
+
+                        <p class="edu-card-description">
+                            {{ $materi['ringkasan'] }}
+                        </p>
+
+
+                        <div class="edu-card-footer">
+
+                            <span class="edu-card-footer-label">
+                                Materi edukasi
+                            </span>
+
+                            <button
+                                type="button"
+                                class="edu-card-button"
+                                onclick="event.stopPropagation(); bukaMateri({{ $materi['id'] }})"
+                            >
+                                Baca materi
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                @endforeach
+
+            </div>
+
+        </section>
 
     </div>
 
 
-    <!-- =================================================
-         MATERI EDUKASI NASABAH
-    ================================================= -->
+    {{-- ============================================================
+         MODAL
+         ============================================================ --}}
 
-    <section class="edu-section">
+    @foreach ($materiEdukasi as $materi)
 
-        <div class="section-marker"></div>
+        <div
+            class="edu-modal"
+            id="eduModal{{ $materi['id'] }}"
+            onclick="tutupJikaOverlay(event, {{ $materi['id'] }})"
+        >
 
-        <h2 class="section-title">
-            Materi Edukasi Nasabah
-        </h2>
+            <div
+                class="edu-modal-box"
+                onclick="event.stopPropagation()"
+            >
 
-        <p class="section-subtitle">
-            Informasi dasar untuk mengenal dunia perdagangan berjangka.
-        </p>
+                {{-- LEFT MODAL --}}
 
+                <div class="edu-modal-left">
 
-        <div class="education-grid">
+                    <div class="edu-modal-left-content">
 
+                        <div class="edu-modal-number">
+                            MATERI {{ $materi['nomor'] }}
+                        </div>
 
-            <!-- CARD 1 -->
+                        <div class="edu-modal-icon">
+                            <i class="bi {{ $materi['icon'] }}"></i>
+                        </div>
 
-            <article class="education-card">
+                        <h3>
+                            {{ $materi['judul'] }}
+                        </h3>
 
-                <div class="card-top">
-
-                    <span class="card-number">
-                        01 / LAYANAN
-                    </span>
-
-                    <div class="card-icon">
-                        <i class="bi bi-grid-1x2-fill"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
-                    <h3>
-                        Fasilitas & Layanan
-                    </h3>
-
-                    <p>
-                        Kenali berbagai fasilitas dan layanan yang
-                        tersedia untuk mendukung kebutuhan nasabah
-                        dalam melakukan aktivitas perdagangan.
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <span>
-                            Kenali layanan
-                        </span>
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materi1')"
-                        >
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
+                        <p>
+                            {{ $materi['ringkasan'] }}
+                        </p>
 
                     </div>
 
                 </div>
 
-            </article>
+
+                {{-- RIGHT MODAL --}}
+
+                <div class="edu-modal-right">
+
+                    <button
+                        type="button"
+                        class="edu-modal-close"
+                        onclick="tutupMateri({{ $materi['id'] }})"
+                        aria-label="Tutup"
+                    >
+                        <i class="bi bi-x-lg"></i>
+                    </button>
 
 
-            <!-- CARD 2 -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        02 / TRADING
-                    </span>
-
-                    <div class="card-icon">
-                        <i class="bi bi-graph-up-arrow"></i>
+                    <div class="edu-modal-category">
+                        {{ $materi['kategori'] }}
                     </div>
 
-                </div>
+                    <h2>
+                        {{ $materi['judul'] }}
+                    </h2>
+
+                    <div class="edu-modal-line"></div>
 
 
-                <div class="card-body">
-
-                    <h3>
-                        Apa Itu Trading?
-                    </h3>
-
-                    <p>
-                        Pahami pengertian trading, bagaimana transaksi
-                        dilakukan, serta bagaimana perubahan harga
-                        dapat memengaruhi hasil perdagangan.
-                    </p>
+                    <div class="edu-modal-content">
+                        {!! $materi['isi'] !!}
+                    </div>
 
 
-                    <div class="card-footer">
+                    <div class="edu-modal-note">
 
-                        <span>
-                            Kenali trading
-                        </span>
+                        <i class="bi bi-info-circle"></i>
 
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materi2')"
-                        >
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
+                        Pastikan Anda memahami informasi,
+                        mekanisme, serta risiko sebelum melakukan transaksi.
 
                     </div>
 
                 </div>
-
-            </article>
-
-
-            <!-- CARD 3 -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        03 / PENGENALAN
-                    </span>
-
-                    <div class="card-icon">
-                        <i class="bi bi-book-half"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
-                    <h3>
-                        Pengenalan Perdagangan Berjangka
-                    </h3>
-
-                    <p>
-                        Mengenal konsep dasar perdagangan berjangka,
-                        karakteristiknya, serta pihak-pihak yang
-                        terlibat dalam aktivitas perdagangan.
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <span>
-                            Pelajari dasarnya
-                        </span>
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materi3')"
-                        >
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- CARD 4 -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        04 / MEKANISME
-                    </span>
-
-                    <div class="card-icon">
-                        <i class="bi bi-arrow-left-right"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
-                    <h3>
-                        Cara Kerja Trading
-                    </h3>
-
-                    <p>
-                        Pelajari gambaran umum proses trading mulai
-                        dari membaca harga, menentukan posisi,
-                        hingga menutup transaksi.
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <span>
-                            Pahami mekanismenya
-                        </span>
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materi4')"
-                        >
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- CARD 5 -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        05 / PRODUK
-                    </span>
-
-                    <div class="card-icon">
-                        <i class="bi bi-box-seam"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
-                    <h3>
-                        Mengenal Produk
-                    </h3>
-
-                    <p>
-                        Kenali jenis produk perdagangan yang tersedia
-                        serta karakteristik masing-masing instrumen
-                        sebelum melakukan transaksi.
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <span>
-                            Kenali produknya
-                        </span>
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materi5')"
-                        >
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- CARD 6 -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        06 / RISIKO
-                    </span>
-
-                    <div class="card-icon">
-                        <i class="bi bi-shield-exclamation"></i>
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
-                    <h3>
-                        Risiko & Hal yang Perlu Diperhatikan
-                    </h3>
-
-                    <p>
-                        Pahami risiko perdagangan dan hal-hal penting
-                        yang perlu diperhatikan sebelum mengambil
-                        keputusan dalam aktivitas trading.
-                    </p>
-
-
-                    <div class="card-footer">
-
-                        <span>
-                            Pahami risikonya
-                        </span>
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materi6')"
-                        >
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAIL 1
-        ================================================= -->
-
-        <div id="materi1" class="detail-panel">
-
-            <div class="detail-head">
-
-                <h3>
-                    <i class="bi bi-grid-1x2-fill text-success me-2"></i>
-                    Fasilitas & Layanan
-                </h3>
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
 
             </div>
 
-
-            <p>
-                Fasilitas dan layanan disediakan untuk membantu nasabah
-                dalam memperoleh informasi, melakukan aktivitas perdagangan,
-                serta mendapatkan dukungan selama menggunakan layanan
-                perusahaan.
-            </p>
-
         </div>
 
-
-        <!-- =================================================
-             DETAIL 2
-        ================================================= -->
-
-        <div id="materi2" class="detail-panel">
-
-            <div class="detail-head">
-
-                <h3>
-                    <i class="bi bi-graph-up-arrow text-success me-2"></i>
-                    Apa Itu Trading?
-                </h3>
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <p>
-                Trading adalah aktivitas melakukan transaksi untuk
-                memperoleh peluang dari perubahan harga suatu instrumen.
-                Dalam perdagangan berjangka, transaksi dilakukan
-                berdasarkan kontrak yang memiliki karakteristik dan
-                ketentuan tertentu.
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAIL 3
-        ================================================= -->
-
-        <div id="materi3" class="detail-panel">
-
-            <div class="detail-head">
-
-                <h3>
-                    <i class="bi bi-book-half text-success me-2"></i>
-                    Pengenalan Perdagangan Berjangka
-                </h3>
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <p>
-                Perdagangan berjangka merupakan kegiatan jual beli
-                kontrak berjangka atas komoditas atau instrumen tertentu
-                melalui mekanisme perdagangan yang telah diatur.
-                Nasabah perlu memahami karakteristik kontrak dan
-                ketentuan transaksi sebelum berpartisipasi.
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAIL 4
-        ================================================= -->
-
-        <div id="materi4" class="detail-panel">
-
-            <div class="detail-head">
-
-                <h3>
-                    <i class="bi bi-arrow-left-right text-success me-2"></i>
-                    Cara Kerja Trading
-                </h3>
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <p>
-                Secara umum, aktivitas trading melibatkan pengamatan
-                kondisi pasar, penentuan transaksi, pembukaan posisi,
-                pemantauan pergerakan harga, hingga penutupan posisi.
-                Setiap keputusan perlu mempertimbangkan kondisi pasar
-                dan risiko yang mungkin terjadi.
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAIL 5
-        ================================================= -->
-
-        <div id="materi5" class="detail-panel">
-
-            <div class="detail-head">
-
-                <h3>
-                    <i class="bi bi-box-seam text-success me-2"></i>
-                    Mengenal Produk
-                </h3>
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <p>
-                Produk perdagangan memiliki karakteristik yang berbeda,
-                mulai dari aset yang menjadi dasar kontrak, ukuran kontrak,
-                hingga mekanisme perdagangannya. Pastikan memahami
-                karakteristik produk sebelum melakukan transaksi.
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAIL 6
-        ================================================= -->
-
-        <div id="materi6" class="detail-panel">
-
-            <div class="detail-head">
-
-                <h3>
-                    <i class="bi bi-shield-exclamation text-success me-2"></i>
-                    Risiko & Hal yang Perlu Diperhatikan
-                </h3>
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <p>
-                Perdagangan berjangka memiliki risiko yang perlu dipahami
-                sebelum melakukan transaksi. Nasabah perlu memperhatikan
-                kondisi pasar, memahami ketentuan produk, menggunakan dana
-                secara bijak, dan tidak mengambil keputusan berdasarkan
-                informasi yang belum dipahami dengan baik.
-            </p>
-
-        </div>
-
-    </section>
+    @endforeach
 
 </div>
 
 
 <script>
 
-    function bukaMateri(id) {
+/* ============================================================
+   BUKA MODAL
+   ============================================================ */
 
-        document
-            .querySelectorAll('.detail-panel')
-            .forEach(panel => {
+function bukaMateri(id) {
 
-                panel.classList.remove('active');
+    const modal = document.getElementById('eduModal' + id);
 
-            });
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.add('active');
+
+    document.body.classList.add('edu-modal-open');
+}
 
 
-        const target =
-            document.getElementById(id);
+/* ============================================================
+   TUTUP MODAL
+   ============================================================ */
+
+function tutupMateri(id) {
+
+    const modal = document.getElementById('eduModal' + id);
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove('active');
+
+    document.body.classList.remove('edu-modal-open');
+}
 
 
-        if (target) {
+/* ============================================================
+   KLIK AREA LUAR MODAL
+   ============================================================ */
 
-            target.classList.add('active');
+function tutupJikaOverlay(event, id) {
 
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest'
-            });
+    if (event.target === event.currentTarget) {
 
-        }
+        tutupMateri(id);
 
     }
 
+}
 
-    function tutupMateri() {
 
-        document
-            .querySelectorAll('.detail-panel')
-            .forEach(panel => {
+/* ============================================================
+   TOMBOL ESC
+   ============================================================ */
 
-                panel.classList.remove('active');
+document.addEventListener('keydown', function(event) {
 
-            });
-
+    if (event.key !== 'Escape') {
+        return;
     }
+
+    const modalAktif = document.querySelector('.edu-modal.active');
+
+    if (!modalAktif) {
+        return;
+    }
+
+    modalAktif.classList.remove('active');
+
+    document.body.classList.remove('edu-modal-open');
+
+});
 
 </script>
 

@@ -3,1110 +3,1111 @@
 @section('content')
 
 <style>
+    /* =========================================================
+       EDUKASI UMUM
+    ========================================================= */
 
     .edu-page {
+        font-family: Arial, Helvetica, sans-serif;
+
         --green: #176b4d;
         --green-dark: #124f39;
         --green-light: #23805d;
         --green-soft: #eaf5ef;
 
         --red: #8d2634;
+        --red-dark: #721d29;
         --red-soft: #faeeee;
 
-        --text: #202522;
-        --muted: #6d756f;
-        --line: #e4e9e5;
+        --text: #252525;
+        --muted: #6f7672;
+        --line: #e2e7e4;
+        --white: #fff;
+        --bg: #f7f9f8;
 
-        --bg: #f7f9f7;
-        --white: #ffffff;
-
-        padding: 28px 32px 50px;
-        background: var(--bg);
-        min-height: calc(100vh - 70px);
         color: var(--text);
+        background: var(--bg);
+        padding-bottom: 80px;
+    }
+
+    .edu-page *,
+    .edu-page *::before,
+    .edu-page *::after {
+        box-sizing: border-box;
+    }
+
+    .edu-page button,
+    .edu-page input,
+    .edu-page textarea,
+    .edu-page select {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =========================================================
+       FONT PROGRAM MAGANG
+       Semua teks menggunakan sans-serif.
+       Icon Bootstrap tetap memakai font icon bawaannya.
+    ========================================================= */
+
+    .magang-hero,
+    .magang-hero h2,
+    .magang-hero p,
+    .magang-section,
+    .magang-section h3,
+    .magang-section p,
+    .magang-section h4,
+    .magang-section small,
+    .magang-section li,
+    .magang-cta,
+    .magang-cta h3,
+    .magang-cta p,
+    .faq-list,
+    .faq-question,
+    .faq-answer {
+        font-family: Arial, Helvetica, sans-serif;
     }
 
 
-    /* =====================================================
+    .edu-container {
+        width: min(1180px, calc(100% - 40px));
+        margin: auto;
+    }
+
+
+    /* =========================================================
        HERO
-    ===================================================== */
+    ========================================================= */
 
     .edu-hero {
         position: relative;
         overflow: hidden;
-
-        width: 100%;
-
-        height: 165px !important;
-        min-height: 165px !important;
-        max-height: 165px !important;
-
-        padding: 0 !important;
-
-        background: linear-gradient(
-            120deg,
-            #124f39 0%,
-            #176b4d 60%,
-            #23805d 100%
-        );
-
-        border-radius: 20px;
-
+        padding: 80px 0;
         color: #fff;
-
-        margin-bottom: 24px;
-
-        box-shadow:
-            0 9px 22px rgba(23,107,77,.11);
-
-        box-sizing: border-box;
+        background:
+            linear-gradient(
+                120deg,
+                rgba(18, 79, 57, .98),
+                rgba(23, 107, 77, .94)
+            );
     }
-
-
-    .edu-hero::before {
-        content: "";
-
-        position: absolute;
-
-        width: 190px;
-        height: 190px;
-
-        border: 35px solid rgba(255,255,255,.06);
-
-        border-radius: 50%;
-
-        right: -55px;
-        top: -80px;
-
-        pointer-events: none;
-    }
-
 
     .edu-hero::after {
         content: "";
-
         position: absolute;
-
-        width: 100px;
-        height: 100px;
-
-        border: 20px solid rgba(141,38,52,.14);
-
+        width: 390px;
+        height: 390px;
+        right: -150px;
+        top: -170px;
         border-radius: 50%;
-
-        right: 150px;
-        bottom: -65px;
-
-        pointer-events: none;
+        border: 70px solid rgba(255,255,255,.05);
     }
 
-
-    .hero-content {
+    .edu-hero-content {
         position: relative;
-
         z-index: 2;
-
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-
-        align-items: flex-start;
-
-        justify-content: flex-start;
-
-        padding: 0 !important;
-
-        margin: 0 !important;
+        max-width: 760px;
     }
 
-
-    .hero-text {
-        width: 100%;
-
-        max-width: 900px;
-
-        margin-left: 42px !important;
-
-        padding-top: 20px !important;
-    }
-
-
-    .hero-label {
+    .edu-eyebrow {
         display: inline-flex;
-
         align-items: center;
-
-        gap: 5px;
-
-        padding: 4px 9px;
-
-        margin-bottom: 6px;
-
-        border-radius: 50px;
-
-        background: rgba(255,255,255,.12);
-
-        border: 1px solid rgba(255,255,255,.17);
-
-        color: #fff;
-
-        font-size: 9px;
-
-        font-weight: 700;
-
-        letter-spacing: .3px;
-    }
-
-
-    .hero-label i {
-        color: #fff;
-        font-size: 9px;
-    }
-
-
-    .hero-title {
-        margin: 0 0 5px;
-
-        font-size: 36px;
-
-        line-height: 1.05;
-
-        font-weight: 800;
-
-        letter-spacing: -.7px;
-
-        color: #fff !important;
-    }
-
-
-    .hero-description {
-        max-width: 900px;
-
-        margin: 0;
-
-        color: rgba(255,255,255,.84) !important;
-
+        gap: 9px;
+        margin-bottom: 18px;
         font-size: 12px;
-
-        line-height: 1.45;
+        font-weight: 800;
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+        color: #d8eee3;
     }
 
-
-    .hero-icon {
-        display: none !important;
-    }
-
-
-    /* =====================================================
-       INTRO
-    ===================================================== */
-
-    .intro-strip {
-        display: flex;
-
-        align-items: center;
-
-        gap: 16px;
-
+    .edu-eyebrow::before {
+        content: "";
+        width: 30px;
+        height: 2px;
         background: #fff;
+    }
 
-        border: 1px solid var(--line);
+    .edu-hero h1 {
+        margin: 0 0 18px;
+        font-size: clamp(38px, 5vw, 62px);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+    }
 
-        border-radius: 18px;
-
-        padding: 17px 20px;
-
-        margin-bottom: 29px;
-
-        box-shadow:
-            0 5px 16px rgba(30,50,40,.025);
+    .edu-hero p {
+        max-width: 690px;
+        margin: 0;
+        color: rgba(255,255,255,.84);
+        font-size: 17px;
+        line-height: 1.8;
     }
 
 
-    .intro-icon {
-        width: 48px;
-        height: 48px;
+    /* =========================================================
+       INTRO
+    ========================================================= */
 
-        min-width: 48px;
+    .edu-intro {
+        padding: 55px 0 35px;
+    }
 
-        border-radius: 14px;
-
-        background: var(--red-soft);
-
-        color: var(--red);
-
-        display: flex;
-
+    .edu-intro-box {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
         align-items: center;
-
-        justify-content: center;
-
-        font-size: 21px;
+        padding: 30px 34px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
     }
 
-
-    .intro-strip strong {
-        display: block;
-
-        font-size: 14px;
-
-        margin-bottom: 3px;
+    .edu-intro-box h2 {
+        margin: 0 0 8px;
+        color: var(--green-dark);
+        font-size: 25px;
     }
 
-
-    .intro-strip span {
-        display: block;
-
+    .edu-intro-box p {
+        margin: 0;
         color: var(--muted);
+        line-height: 1.75;
+    }
 
-        font-size: 12.5px;
-
-        line-height: 1.55;
+    .edu-intro-number {
+        width: 68px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--green-soft);
+        color: var(--green);
+        font-size: 24px;
+        font-weight: 800;
     }
 
 
-    /* =====================================================
-       SECTION
-    ===================================================== */
+    /* =========================================================
+       HEADING
+    ========================================================= */
 
-    .edu-section {
+    .section-heading {
         margin-bottom: 30px;
     }
 
-
-    .section-marker {
-        width: 42px;
-
-        height: 4px;
-
-        border-radius: 20px;
-
-        background: linear-gradient(
-            90deg,
-            var(--red),
-            var(--green)
-        );
-
-        margin-bottom: 10px;
-    }
-
-
-    .section-title {
-        margin: 0;
-
-        font-size: 21px;
-
+    .section-heading small,
+    .magang-section-title small {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--red);
+        font-size: 11px;
         font-weight: 800;
-
-        letter-spacing: -.3px;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
     }
 
+    .section-heading h2 {
+        margin: 0 0 10px;
+        color: var(--green-dark);
+        font-size: clamp(30px, 4vw, 42px);
+        line-height: 1.15;
+    }
 
-    .section-subtitle {
-        margin: 4px 0 17px;
-
+    .section-heading p {
+        max-width: 700px;
+        margin: 0;
         color: var(--muted);
-
-        font-size: 13px;
+        line-height: 1.75;
     }
 
 
-    /* =====================================================
-       EDUCATION CARD
-    ===================================================== */
+    /* =========================================================
+       MATERI UTAMA
+    ========================================================= */
 
-    .education-grid {
+    .materi-section {
+        padding: 20px 0 70px;
+    }
+
+    .materi-grid {
         display: grid;
-
-        grid-template-columns:
-            repeat(3, minmax(0,1fr));
-
-        gap: 17px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 
-
-    .education-card {
+    .materi-card {
         position: relative;
-
-        background: #fff;
-
-        border: 1px solid var(--line);
-
-        border-radius: 18px;
-
+        min-height: 300px;
+        padding: 30px;
         overflow: hidden;
-
-        transition:
-            transform .3s ease,
-            box-shadow .3s ease,
-            border-color .3s ease;
-    }
-
-
-    .education-card:hover {
-        transform: translateY(-5px);
-
-        border-color: #cbd9d0;
-
-        box-shadow:
-            0 13px 28px rgba(30,50,40,.08);
-    }
-
-
-    .education-card::before {
-        content: "";
-
-        position: absolute;
-
-        left: 0;
-        top: 0;
-
-        width: 4px;
-        height: 100%;
-
-        background: var(--green);
-    }
-
-
-    .education-card:nth-child(2)::before {
-        background: var(--red);
-    }
-
-
-    .education-card:nth-child(3)::before {
-        background: var(--green);
-    }
-
-
-    .card-top {
-        padding: 17px 18px 8px;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-    }
-
-
-    .card-number {
-        color: var(--red);
-
-        font-size: 10px;
-
-        font-weight: 800;
-
-        letter-spacing: 1px;
-    }
-
-
-    .card-icon {
-        width: 45px;
-        height: 45px;
-
-        border-radius: 13px;
-
-        background: var(--green-soft);
-
-        color: var(--green);
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-size: 20px;
-    }
-
-
-    .education-card:nth-child(2) .card-icon {
-        background: var(--red-soft);
-
-        color: var(--red);
-    }
-
-
-    .card-body {
-        padding: 4px 18px 18px;
-    }
-
-
-    .card-body h3 {
-        margin: 0 0 7px;
-
-        font-size: 16px;
-
-        font-weight: 750;
-
-        line-height: 1.35;
-    }
-
-
-    .card-body p {
-        margin: 0;
-
-        color: var(--muted);
-
-        font-size: 12.5px;
-
-        line-height: 1.65;
-    }
-
-
-    .card-footer {
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        margin-top: 15px;
-
-        padding-top: 12px;
-
-        border-top: 1px solid #edf0ed;
-    }
-
-
-    .card-footer span {
-        font-size: 10.5px;
-
-        color: var(--muted);
-
-        font-weight: 600;
-    }
-
-
-    .detail-button {
-        border: 0;
-
-        width: 31px;
-        height: 31px;
-
-        border-radius: 9px;
-
-        background: var(--green);
-
-        color: #fff;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
         cursor: pointer;
-
-        transition: .25s;
-    }
-
-
-    .detail-button:hover {
-        background: var(--red);
-
-        transform: translateX(3px);
-    }
-
-
-    /* =====================================================
-       DETAIL
-    ===================================================== */
-
-    .detail-panel {
-        display: none;
-
-        margin-top: 20px;
-
         background: #fff;
-
         border: 1px solid var(--line);
+        border-radius: 8px;
+        transition: .25s ease;
+    }
 
-        border-radius: 20px;
+    .materi-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(23,107,77,.35);
+        box-shadow: 0 18px 40px rgba(25,55,43,.10);
+    }
 
-        padding: 25px;
+    .materi-number {
+        margin-bottom: 45px;
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+    }
 
-        animation: detailIn .35s ease;
+    .materi-card h3 {
+        margin: 0 0 12px;
+        color: var(--green-dark);
+        font-size: 25px;
+    }
 
-        box-shadow:
-            0 8px 25px rgba(30,50,40,.04);
+    .materi-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .materi-arrow {
+        position: absolute;
+        right: 25px;
+        bottom: 24px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--green-soft);
+        color: var(--green);
+        transition: .25s ease;
+    }
+
+    .materi-card:hover .materi-arrow {
+        background: var(--green);
+        color: #fff;
+        transform: translateX(4px);
     }
 
 
-    .detail-panel.active {
+    /* =========================================================
+       DETAIL MATERI
+    ========================================================= */
+
+    .materi-detail {
+        display: none;
+        padding: 30px 0 80px;
+        animation: detailFade .35s ease;
+    }
+
+    .materi-detail.active {
         display: block;
     }
 
-
-    @keyframes detailIn {
-
+    @keyframes detailFade {
         from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(15px);
         }
 
         to {
             opacity: 1;
             transform: translateY(0);
         }
-
     }
 
-
-    .detail-head {
-        display: flex;
-
-        justify-content: space-between;
-
+    .back-materi {
+        display: inline-flex;
         align-items: center;
-
-        gap: 15px;
-
-        padding-bottom: 15px;
-
-        margin-bottom: 20px;
-
-        border-bottom: 1px solid var(--line);
-    }
-
-
-    .detail-head h3 {
-        margin: 0;
-
-        font-size: 19px;
-
-        font-weight: 800;
-
-        color: var(--text);
-    }
-
-
-    .detail-head h3 i {
-        color: var(--green);
-    }
-
-
-    .close-detail {
-        width: 34px;
-        height: 34px;
-
+        gap: 8px;
+        margin-bottom: 25px;
+        padding: 8px 0;
         border: 0;
-
-        border-radius: 50%;
-
-        background: #f1f3f1;
-
-        color: #666;
-
+        background: transparent;
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 700;
         cursor: pointer;
+    }
 
-        font-size: 18px;
-
-        transition: .2s;
+    .back-materi:hover {
+        color: var(--red);
     }
 
 
-    .close-detail:hover {
-        background: var(--red);
+    /* =========================================================
+       HERO MAGANG
+    ========================================================= */
 
+    .magang-hero {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 65px;
+        padding: 55px;
+        border-radius: 10px;
+        background: var(--green-dark);
         color: #fff;
     }
 
-
-    /* =====================================================
-       INTRO DETAIL
-    ===================================================== */
-
-    .detail-intro {
-        background: var(--green-soft);
-
-        border-left: 4px solid var(--green);
-
-        border-radius: 12px;
-
-        padding: 15px 17px;
-
-        margin-bottom: 24px;
+    .magang-hero::after {
+        content: "";
+        position: absolute;
+        right: -120px;
+        bottom: -180px;
+        width: 350px;
+        height: 350px;
+        border: 70px solid rgba(255,255,255,.05);
+        border-radius: 50%;
     }
 
+    .magang-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 760px;
+    }
 
-    .detail-intro strong {
+    .magang-hero small {
         display: block;
-
-        font-size: 14px;
-
-        margin-bottom: 5px;
-
-        color: var(--green-dark);
-    }
-
-
-    .detail-intro p {
-        margin: 0;
-
-        color: #5f6963;
-
-        font-size: 12.5px;
-
-        line-height: 1.7;
-    }
-
-
-    /* =====================================================
-       DOKUMEN
-    ===================================================== */
-
-    .document-section {
-        margin-top: 22px;
-
-        padding-top: 22px;
-
-        border-top: 1px solid var(--line);
-    }
-
-
-    .document-title {
-        display: flex;
-
-        align-items: center;
-
-        gap: 9px;
-
         margin-bottom: 15px;
+        color: #cce9dc;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
     }
 
-
-    .document-title i {
-        color: var(--red);
-
-        font-size: 18px;
+    .magang-hero h2 {
+        margin: 0 0 18px;
+        font-size: clamp(32px, 5vw, 53px);
+        line-height: 1.08;
     }
 
-
-    .document-title strong {
-        font-size: 16px;
+    .magang-hero p {
+        max-width: 690px;
+        margin: 0;
+        color: rgba(255,255,255,.82);
+        line-height: 1.8;
     }
 
-
-    .document-grid {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0,1fr));
-
-        gap: 11px;
-    }
-
-
-    .document-item {
-        display: flex;
-
+    .magang-explore {
+        display: inline-flex;
         align-items: center;
-
-        gap: 11px;
-
-        padding: 13px 14px;
-
-        border: 1px solid var(--line);
-
-        border-radius: 12px;
-
-        background: #fafcfb;
-
+        gap: 9px;
+        margin-top: 28px;
+        padding: 13px 21px;
+        border: 0;
+        border-radius: 5px;
+        background: #fff;
+        color: var(--green-dark);
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
         transition: .2s ease;
     }
 
-
-    .document-item:hover {
-        border-color: #cbd9d0;
-
-        background: var(--green-soft);
-    }
-
-
-    .document-item-icon {
-        width: 34px;
-        height: 34px;
-
-        min-width: 34px;
-
-        border-radius: 9px;
-
-        background: var(--red-soft);
-
-        color: var(--red);
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-    }
-
-
-    .document-item strong {
-        display: block;
-
-        font-size: 12.5px;
-
-        margin-bottom: 2px;
-    }
-
-
-    .document-item span {
-        display: block;
-
-        color: var(--muted);
-
-        font-size: 10.5px;
-
-        line-height: 1.4;
-    }
-
-
-    /* =====================================================
-       TIMELINE
-    ===================================================== */
-
-    .timeline-section {
-        margin-top: 24px;
-
-        padding-top: 22px;
-
-        border-top: 1px solid var(--line);
-    }
-
-
-    .timeline-title {
-        display: flex;
-
-        align-items: center;
-
-        gap: 9px;
-
-        margin-bottom: 18px;
-    }
-
-
-    .timeline-title i {
-        color: var(--green);
-
-        font-size: 18px;
-    }
-
-
-    .timeline-title strong {
-        font-size: 16px;
-    }
-
-
-    .timeline {
-        display: grid;
-
-        grid-template-columns:
-            repeat(5, minmax(0,1fr));
-
-        gap: 10px;
-    }
-
-
-    .timeline-item {
-        position: relative;
-
-        padding: 15px 12px;
-
-        border: 1px solid var(--line);
-
-        border-radius: 13px;
-
-        background: #fafcfb;
-    }
-
-
-    .timeline-number {
-        width: 27px;
-        height: 27px;
-
-        border-radius: 50%;
-
-        background: var(--green);
-
-        color: #fff;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-size: 11px;
-
-        font-weight: 800;
-
-        margin-bottom: 9px;
-    }
-
-
-    .timeline-item:nth-child(even)
-    .timeline-number {
+    .magang-explore:hover {
         background: var(--red);
+        color: #fff;
     }
 
 
-    .timeline-item strong {
-        display: block;
+    /* =========================================================
+       SECTION MAGANG
+    ========================================================= */
 
-        font-size: 11.5px;
-
-        margin-bottom: 4px;
+    .magang-section {
+        margin-bottom: 75px;
     }
 
+    .magang-section-title {
+        max-width: 720px;
+        margin-bottom: 28px;
+    }
 
-    .timeline-item span {
+    .magang-section-title h3 {
+        margin: 8px 0 10px;
+        color: var(--green-dark);
+        font-size: 32px;
+    }
+
+    .magang-section-title p {
+        margin: 0;
         color: var(--muted);
-
-        font-size: 10.5px;
-
-        line-height: 1.5;
+        line-height: 1.75;
     }
 
 
-    /* =====================================================
-       KEGIATAN & TEORI DETAIL
-    ===================================================== */
+    /* =========================================================
+       MANFAAT
+    ========================================================= */
 
-    .simple-detail-grid {
+    .benefit-grid {
         display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0,1fr));
-
-        gap: 18px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
     }
 
-
-    .simple-detail-box {
+    .benefit-card {
+        padding: 25px;
         border: 1px solid var(--line);
-
-        border-radius: 15px;
-
-        padding: 18px;
-
+        border-radius: 7px;
         background: #fff;
     }
 
-
-    .simple-detail-box-title {
+    .benefit-icon {
+        width: 46px;
+        height: 46px;
         display: flex;
-
         align-items: center;
-
-        gap: 10px;
-
-        margin-bottom: 10px;
-    }
-
-
-    .simple-detail-box-title div {
-        width: 35px;
-        height: 35px;
-
-        border-radius: 10px;
-
-        background: var(--green-soft);
-
-        color: var(--green);
-
-        display: flex;
-
-        align-items: center;
-
         justify-content: center;
+        margin-bottom: 18px;
+        border-radius: 5px;
+        background: var(--green-soft);
+        color: var(--green);
+        font-size: 20px;
     }
 
-
-    .simple-detail-box:nth-child(even)
-    .simple-detail-box-title div {
-        background: var(--red-soft);
-
-        color: var(--red);
+    .benefit-card h4 {
+        margin: 0 0 8px;
+        color: var(--green-dark);
+        font-size: 17px;
     }
 
-
-    .simple-detail-box-title strong {
-        font-size: 14px;
-    }
-
-
-    .simple-detail-box p {
+    .benefit-card p {
         margin: 0;
-
         color: var(--muted);
-
-        font-size: 12.5px;
-
+        font-size: 13px;
         line-height: 1.7;
     }
 
 
-    /* =====================================================
+    /* =========================================================
+       JURUSAN + FOTO
+    ========================================================= */
+
+    .jurusan-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .jurusan-card {
+        overflow: hidden;
+        min-height: 420px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        transition: .25s ease;
+    }
+
+    .jurusan-image {
+        width: 100%;
+        height: 190px;
+        overflow: hidden;
+        background: #eaf5ef;
+    }
+
+    .jurusan-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform .4s ease;
+    }
+
+    .jurusan-card:hover .jurusan-image img {
+        transform: scale(1.05);
+    }
+
+    .jurusan-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 38px rgba(25,55,43,.12);
+        border-color: rgba(141,38,52,.25);
+    }
+
+    .jurusan-content {
+        position: relative;
+        padding: 28px 30px 30px;
+    }
+
+    .jurusan-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin-bottom: 14px;
+        border-radius: 6px;
+        background: var(--red);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+    }
+
+    .jurusan-content h4 {
+        margin: 0 0 17px;
+        color: var(--green-dark);
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 1.25;
+        text-transform: uppercase;
+    }
+
+    .jurusan-list {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--text);
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .jurusan-list li {
+        padding-left: 3px;
+    }
+
+    /* =========================================================
+       KARTU JURUSAN - BISA DIKLIK
+    ========================================================= */
+
+    .jurusan-card {
+        position: relative;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .jurusan-card:focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: 3px;
+    }
+
+    .jurusan-card .jurusan-arrow {
+        position: absolute;
+        right: 22px;
+        bottom: 22px;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--red-soft);
+        color: var(--red);
+        font-size: 15px;
+        transition: .2s ease;
+    }
+
+    .jurusan-card:hover .jurusan-arrow {
+        background: var(--red);
+        color: #fff;
+        transform: translateX(3px);
+    }
+
+    .jurusan-detail {
+        display: none;
+        margin-top: 22px;
+        padding: 28px 30px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        animation: jurusanDetailIn .25s ease;
+    }
+
+    .jurusan-detail.active {
+        display: block;
+    }
+
+    .jurusan-detail-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 22px;
+    }
+
+    .jurusan-detail-head small {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--red);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .jurusan-detail-head h4 {
+        margin: 0;
+        color: var(--green-dark);
+        font-size: 25px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .jurusan-close {
+        flex-shrink: 0;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: #fff;
+        color: var(--muted);
+        padding: 9px 13px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .jurusan-close:hover {
+        border-color: var(--red);
+        color: var(--red);
+    }
+
+    .jurusan-program-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .jurusan-program-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 13px 15px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .jurusan-program-item i {
+        color: var(--red);
+        font-size: 15px;
+    }
+
+    @keyframes jurusanDetailIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    /* =========================================================
+       PENGALAMAN MAGANG - FOTO SLIDER
+    ========================================================= */
+
+    .experience-slider {
+        position: relative;
+    }
+
+    .experience-controls {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .experience-control {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--green-dark);
+        cursor: pointer;
+        transition: .2s ease;
+    }
+
+    .experience-control:hover {
+        border-color: var(--green);
+        background: var(--green);
+        color: #fff;
+    }
+
+    .experience-track {
+        display: flex;
+        gap: 22px;
+        overflow-x: auto;
+        padding: 5px 3px 20px;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .experience-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .experience-card {
+        flex: 0 0 calc(50% - 11px);
+        min-width: 0;
+        overflow: hidden;
+        scroll-snap-align: start;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+    }
+
+    .experience-card-image {
+        width: 100%;
+        height: 270px;
+        overflow: hidden;
+        background: #dfe7e2;
+    }
+
+    .experience-card-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform .4s ease;
+    }
+
+    .experience-card:hover .experience-card-image img {
+        transform: scale(1.04);
+    }
+
+    .experience-card-content {
+        padding: 28px;
+    }
+
+    .experience-card-content small {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--red);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+    }
+
+    .experience-card-content h3 {
+        margin: 0 0 12px;
+        color: var(--green-dark);
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+    .experience-card-content p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .experience-quote {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-left: 3px solid var(--red);
+        border-radius: 0 5px 5px 0;
+        background: var(--red-soft);
+        color: #63323a;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    .faq-list {
+        display: grid;
+        gap: 10px;
+    }
+
+    .faq-item {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 19px 20px;
+        border: 0;
+        background: transparent;
+        color: var(--green-dark);
+        font-weight: 700;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .faq-question i {
+        transition: transform .25s ease;
+    }
+
+    .faq-answer {
+        display: none;
+        padding: 0 20px 20px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .faq-item.open .faq-answer {
+        display: block;
+    }
+
+    .faq-item.open .faq-question i {
+        transform: rotate(180deg);
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .magang-cta {
+        padding: 50px;
+        border-radius: 10px;
+        background: var(--red);
+        color: #fff;
+        text-align: center;
+    }
+
+    .magang-cta h3 {
+        margin: 0 0 12px;
+        font-size: 33px;
+    }
+
+    .magang-cta p {
+        max-width: 650px;
+        margin: auto;
+        color: rgba(255,255,255,.83);
+        line-height: 1.75;
+    }
+
+    .magang-cta-button {
+        display: inline-flex;
+        margin-top: 24px;
+        padding: 13px 22px;
+        border: 0;
+        border-radius: 5px;
+        background: #fff;
+        color: var(--red);
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+
+    /* =========================================================
+       KEGIATAN
+    ========================================================= */
+
+    .kegiatan-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .kegiatan-card {
+        padding: 32px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .kegiatan-card .number {
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.3px;
+    }
+
+    .kegiatan-card h3 {
+        margin: 10px 0;
+        color: var(--green-dark);
+        font-size: 24px;
+    }
+
+    .kegiatan-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       TEORI
+    ========================================================= */
+
+    .teori-list {
+        display: grid;
+        gap: 18px;
+    }
+
+    .teori-item {
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        gap: 22px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .teori-number {
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--green-soft);
+        color: var(--green);
+        font-weight: 800;
+    }
+
+    .teori-item h3 {
+        margin: 0 0 8px;
+        color: var(--green-dark);
+    }
+
+    .teori-item p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+    }
+
+
+    /* =========================================================
        RESPONSIVE
-    ===================================================== */
+    ========================================================= */
 
-    @media(max-width: 950px) {
+    @media (max-width: 900px) {
 
-        .edu-page {
-            padding: 22px 20px 40px;
+        .materi-grid,
+        .jurusan-grid,
+        .benefit-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-
-        .edu-hero {
-            height: 165px !important;
-            min-height: 165px !important;
-            max-height: 165px !important;
+        .jurusan-detail-inner {
+            grid-template-columns: 1fr;
         }
-
-
-        .hero-text {
-            margin-left: 32px !important;
-            padding-top: 20px !important;
-        }
-
-
-        .hero-title {
-            font-size: 32px;
-        }
-
-
-        .education-grid {
-            grid-template-columns:
-                repeat(2, minmax(0,1fr));
-        }
-
-
-        .timeline {
-            grid-template-columns:
-                repeat(3, minmax(0,1fr));
-        }
-
     }
 
+    @media (max-width: 650px) {
 
-    @media(max-width: 650px) {
-
-        .edu-page {
-            padding: 16px 14px 35px;
+        .edu-container {
+            width: min(100% - 28px, 1180px);
         }
-
 
         .edu-hero {
-            height: auto !important;
-
-            min-height: 165px !important;
-
-            max-height: none !important;
-
-            border-radius: 18px;
+            padding: 60px 0;
         }
 
-
-        .hero-content {
-            min-height: 165px;
-
-            height: auto;
-        }
-
-
-        .hero-text {
-            margin-left: 22px !important;
-
-            margin-right: 18px;
-
-            padding-top: 20px !important;
-        }
-
-
-        .hero-title {
-            font-size: 29px;
-        }
-
-
-        .hero-description {
-            font-size: 11.5px;
-        }
-
-
-        .education-grid {
+        .edu-intro-box {
             grid-template-columns: 1fr;
         }
 
-
-        .document-grid {
+        .materi-grid,
+        .jurusan-grid,
+        .benefit-grid,
+        .kegiatan-grid {
             grid-template-columns: 1fr;
         }
 
+        .materi-card {
+            min-height: 250px;
+        }
 
-        .timeline {
+        .magang-hero {
+            padding: 35px 25px;
+        }
+
+        .magang-cta {
+            padding: 38px 24px;
+        }
+
+        .magang-cta h3 {
+            font-size: 27px;
+        }
+
+        .teori-item {
             grid-template-columns: 1fr;
         }
 
-
-        .simple-detail-grid {
-            grid-template-columns: 1fr;
+        .experience-controls {
+            justify-content: flex-start;
         }
 
-
-        .intro-strip {
-            align-items: flex-start;
+        .experience-card {
+            flex: 0 0 88%;
         }
 
+        .experience-card-image {
+            height: 230px;
+        }
+
+        .experience-card-content {
+            padding: 23px;
+        }
+
+        .experience-card-content h3 {
+            font-size: 21px;
+        }
+
+        .jurusan-image {
+            height: 170px;
+        }
+
+        .jurusan-card {
+            min-height: 390px;
+        }
     }
-
 </style>
 
 
 <div class="edu-page">
 
-
-    <!-- =================================================
+    {{-- =====================================================
          HERO
-    ================================================= -->
+    ====================================================== --}}
+    <section class="edu-hero"
+     id="eduHero"
+    >
 
-    <section class="edu-hero">
+        <div class="edu-container">
 
-        <div class="hero-content">
+            <div class="edu-hero-content">
 
-            <div class="hero-text">
+                <span class="edu-eyebrow">
+                    Avengers Team
+                </span>
 
-                <div class="hero-label">
-
-                    <i class="bi bi-mortarboard-fill"></i>
-
-                    PUSAT EDUKASI UMUM
-
-                </div>
-
-
-                <h1 class="hero-title">
+                <h1>
                     Edukasi Umum
                 </h1>
 
-
-                <p class="hero-description">
-
-                    Informasi dan pembelajaran umum untuk mengenal
-                    dunia kerja, kegiatan sosial, serta pengetahuan
-                    dasar perdagangan berjangka.
-
+                <p>
+                    Ruang pembelajaran untuk mengenal dunia kerja,
+                    kegiatan profesional, serta pengetahuan umum
+                    yang berkaitan dengan dunia perdagangan berjangka.
                 </p>
-
-            </div>
-
-
-            <div class="hero-icon">
-
-                <i class="bi bi-book-half"></i>
 
             </div>
 
@@ -1115,829 +1116,2178 @@
     </section>
 
 
+    {{-- =====================================================
+         3 MATERI UTAMA
+    ====================================================== --}}
+    <section
+        class="materi-section"
+        id="materiUtama"
+    >
 
-    <!-- =================================================
-         INTRO
-    ================================================= -->
+        <div class="edu-container">
 
-    <div class="intro-strip">
+            <div class="materi-grid">
 
-        <div class="intro-icon">
-
-            <i class="bi bi-lightbulb"></i>
-
-        </div>
-
-
-        <div>
-
-            <strong>
-                Belajar, berkembang, dan mengenal dunia kerja
-            </strong>
-
-            <span>
-
-                Edukasi umum memberikan informasi mengenai
-                pengalaman kerja, kegiatan sosial, dan pengetahuan
-                dasar yang dapat membantu peserta memahami
-                lingkungan profesional.
-
-            </span>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =================================================
-         MATERI EDUKASI
-    ================================================= -->
-
-    <section class="edu-section">
-
-        <div class="section-marker"></div>
-
-
-        <h2 class="section-title">
-            Materi Edukasi Umum
-        </h2>
-
-
-        <p class="section-subtitle">
-            Informasi umum untuk menambah wawasan dan pengalaman.
-        </p>
-
-
-        <div class="education-grid">
-
-
-            <!-- =================================================
-                 CARD 1 - MAGANG
-            ================================================= -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        01 / MAGANG
-                    </span>
-
-
-                    <div class="card-icon">
-
-                        <i class="bi bi-briefcase-fill"></i>
-
-                    </div>
-
-                </div>
-
-
-                <div class="card-body">
-
+                {{-- MAGANG --}}
+                <div
+                    class="materi-card"
+                    onclick="bukaMateri('magang')"
+                >
                     <h3>
                         Program Magang
                     </h3>
 
-
                     <p>
-
-                        Kesempatan bagi pelajar dan mahasiswa
-                        untuk mengenal lingkungan kerja profesional
-                        serta memperoleh pengalaman melalui
-                        kegiatan magang.
-
+                        Mengenal pengalaman magang, jurusan yang relevan,
+                        serta gambaran kegiatan pembelajaran di lingkungan
+                        profesional.
                     </p>
 
-
-                    <div class="card-footer">
-
-                        <span>
-                            Pelajari program
-                        </span>
-
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materiMagang')"
-                        >
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 CARD 2 - KEGIATAN
-            ================================================= -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        02 / KEGIATAN
+                    <span class="materi-arrow">
+                        <i class="bi bi-arrow-right"></i>
                     </span>
 
-
-                    <div class="card-icon">
-
-                        <i class="bi bi-people-fill"></i>
-
-                    </div>
-
                 </div>
 
 
-                <div class="card-body">
+                {{-- KEGIATAN --}}
+                <div
+                    class="materi-card"
+                    onclick="bukaMateri('kegiatan')"
+                >
+
 
                     <h3>
                         Kegiatan
                     </h3>
 
-
                     <p>
-
-                        Informasi mengenai berbagai kegiatan
-                        yang dilakukan sebagai bagian dari
-                        pembelajaran, kebersamaan, dan kontribusi
-                        sosial.
-
+                        Mengenal berbagai kegiatan internal dan sosial
+                        yang menjadi bagian dari proses pengembangan
+                        diri dan kebersamaan.
                     </p>
 
-
-                    <div class="card-footer">
-
-                        <span>
-                            Lihat kegiatan
-                        </span>
-
-
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materiKegiatan')"
-                        >
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 CARD 3 - TEORI
-            ================================================= -->
-
-            <article class="education-card">
-
-                <div class="card-top">
-
-                    <span class="card-number">
-                        03 / PENGETAHUAN
+                    <span class="materi-arrow">
+                        <i class="bi bi-arrow-right"></i>
                     </span>
 
-
-                    <div class="card-icon">
-
-                        <i class="bi bi-journal-text"></i>
-
-                    </div>
-
                 </div>
 
 
-                <div class="card-body">
+                {{-- TEORI UMUM --}}
+                <div
+                    class="materi-card"
+                    onclick="bukaMateri('teori')"
+                >
+
+                    {{-- 03 DIHAPUS SESUAI PERMINTAAN --}}
 
                     <h3>
                         Teori Umum
                     </h3>
 
-
                     <p>
-
-                        Materi dasar untuk membantu memahami
-                        konsep umum mengenai dunia kerja,
-                        komunikasi, dan perdagangan berjangka.
-
+                        Materi dasar mengenai komunikasi profesional
+                        dan pengenalan dunia perdagangan.
                     </p>
 
+                    <span class="materi-arrow">
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
 
-                    <div class="card-footer">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    {{-- =====================================================
+         DETAIL PROGRAM MAGANG
+    ====================================================== --}}
+    <section
+        class="materi-detail"
+        id="detail-magang"
+    >
+
+        <div class="edu-container">
+
+            <button
+                type="button"
+                class="back-materi"
+                onclick="tutupMateri()"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Kembali ke Materi
+            </button>
+
+
+            <div class="magang-hero">
+
+                <div class="magang-hero-content">
+
+                    <small>
+                        Program Magang
+                    </small>
+
+                    <h2>
+                        Kenali Dunia Kerja
+                        Lewat Pengalaman Magang
+                    </h2>
+
+                    <p>
+                        Program magang menjadi kesempatan bagi mahasiswa
+                        untuk mengenal lingkungan kerja secara langsung,
+                        menerapkan pengetahuan yang telah dipelajari,
+                        serta mengembangkan pengalaman profesional.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="magang-explore"
+                        onclick="scrollKeJurusan()"
+                    >
+                        Lihat Jurusan yang Relevan
+                        <i class="bi bi-arrow-down"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            {{-- =================================================
+                 MANFAAT
+            ================================================== --}}
+            <div class="magang-section">
+
+                <div class="magang-section-title">
+
+                
+                    <h3>
+                        Belajar Tidak Hanya dari Ruang Kelas
+                    </h3>
+
+                    <p>
+                        Pengalaman magang dapat menjadi kesempatan
+                        untuk mengenal budaya kerja, membangun
+                        keterampilan, dan memahami penerapan ilmu
+                        dalam lingkungan profesional.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-grid">
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+
+                        <h4>
+                            Menambah Wawasan
+                        </h4>
+
+                        <p>
+                            Mengenal bagaimana ilmu yang dipelajari
+                            dapat diterapkan dalam lingkungan kerja.
+                        </p>
+                    </div>
+
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-person-workspace"></i>
+                        </div>
+
+                        <h4>
+                            Mengenal Dunia Kerja
+                        </h4>
+
+                        <p>
+                            Memahami suasana kerja dan cara berinteraksi
+                            secara profesional.
+                        </p>
+                    </div>
+
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+                        <h4>
+                            Mengembangkan Komunikasi
+                        </h4>
+
+                        <p>
+                            Melatih kemampuan berkomunikasi dan
+                            bekerja bersama orang lain.
+                        </p>
+                    </div>
+
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-journal-check"></i>
+                        </div>
+
+                        <h4>
+                            Menerapkan Pengetahuan
+                        </h4>
+
+                        <p>
+                            Menghubungkan materi perkuliahan dengan
+                            pengalaman yang diperoleh selama kegiatan.
+                        </p>
+                    </div>
+
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+
+                        <h4>
+                            Mengembangkan Diri
+                        </h4>
+
+                        <p>
+                            Membangun kebiasaan kerja dan tanggung jawab
+                            dalam lingkungan profesional.
+                        </p>
+                    </div>
+
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+
+                        <h4>
+                            Menambah Pengalaman
+                        </h4>
+
+                        <p>
+                            Memiliki pengalaman yang dapat menjadi bagian
+                            dari perjalanan akademik dan profesional.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {{-- =================================================
+                 JURUSAN / BIDANG MAGANG
+            ================================================== --}}
+            <div
+                class="magang-section"
+                id="jurusanMagang"
+            >
+
+                <div class="magang-section-title">
+
+                    <h3>
+                        Bidang / Jurusan
+                    </h3>
+
+                    <p>
+                        Program magang terbuka untuk siswa SMK dan mahasiswa
+                        dari berbagai latar belakang pendidikan yang sesuai
+                        dengan bidang berikut.
+                    </p>
+
+                </div>
+
+
+                <div class="jurusan-grid">
+
+                    <div
+                        class="jurusan-card"
+                        role="button"
+                        tabindex="0"
+                        onclick="bukaJurusan('business')"
+                        onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); bukaJurusan('business'); }"
+                    >
+                        <div class="jurusan-image">
+                            <img src="{{ asset('images/business-marketing.jpeg') }}" alt="Business dan Marketing">
+                        </div>
+                        <div class="jurusan-content">
+                            <span class="jurusan-number">01</span>
+                            <h4>Business &amp; Marketing</h4>
+                            <ul class="jurusan-list">
+                                <li>Manajemen</li>
+                                <li>Administrasi Bisnis</li>
+                                <li>Marketing</li>
+                                <li>Bisnis Digital</li>
+                            </ul>
+                        </div>
+                        <span class="jurusan-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <div
+                        class="jurusan-card"
+                        role="button"
+                        tabindex="0"
+                        onclick="bukaJurusan('finance')"
+                        onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); bukaJurusan('finance'); }"
+                    >
+                        <div class="jurusan-image">
+                            <img src="{{ asset('images/finance-market-research.jpeg') }}" alt="Finance dan Market Research">
+                        </div>
+                        <div class="jurusan-content">
+                            <span class="jurusan-number">02</span>
+                            <h4>Finance &amp; Market Research</h4>
+                            <ul class="jurusan-list">
+                                <li>Ekonomi</li>
+                                <li>Keuangan</li>
+                                <li>Perbankan</li>
+                                <li>Akuntansi</li>
+                            </ul>
+                        </div>
+                        <span class="jurusan-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <div
+                        class="jurusan-card"
+                        role="button"
+                        tabindex="0"
+                        onclick="bukaJurusan('digital')"
+                        onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); bukaJurusan('digital'); }"
+                    >
+                        <div class="jurusan-image">
+                            <img src="{{ asset('images/digital-technology.jpeg') }}" alt="Digital dan Technology">
+                        </div>
+                        <div class="jurusan-content">
+                            <span class="jurusan-number">03</span>
+                            <h4>Digital &amp; Technology</h4>
+                            <ul class="jurusan-list">
+                                <li>Teknik Informatika</li>
+                                <li>Sistem Informasi</li>
+                                <li>Manajemen Informatika</li>
+                                <li>Data Science</li>
+                            </ul>
+                        </div>
+                        <span class="jurusan-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <div
+                        class="jurusan-card"
+                        role="button"
+                        tabindex="0"
+                        onclick="bukaJurusan('creative')"
+                        onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); bukaJurusan('creative'); }"
+                    >
+                        <div class="jurusan-image">
+                            <img src="{{ asset('images/creative-communication.jpeg') }}" alt="Creative dan Communication">
+                        </div>
+                        <div class="jurusan-content">
+                            <span class="jurusan-number">04</span>
+                            <h4>Creative &amp; Communication</h4>
+                            <ul class="jurusan-list">
+                                <li>Ilmu Komunikasi</li>
+                                <li>DKV</li>
+                                <li>Broadcasting</li>
+                                <li>Multimedia</li>
+                            </ul>
+                        </div>
+                        <span class="jurusan-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+
+                </div>
+
+                {{-- DETAIL PROGRAM PER BIDANG --}}
+                <div class="jurusan-detail" id="detail-business">
+                    <div class="jurusan-detail-head">
+                        <div>
+                            <small>Program Magang</small>
+                            <h4>Business &amp; Marketing</h4>
+                        </div>
+                        <button type="button" class="jurusan-close" onclick="tutupJurusan('business')">Tutup</button>
+                    </div>
+                    <div class="jurusan-program-grid">
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Manajemen</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Administrasi Bisnis</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Marketing</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Bisnis Digital</div>
+                    </div>
+                </div>
+
+                <div class="jurusan-detail" id="detail-finance">
+                    <div class="jurusan-detail-head">
+                        <div>
+                            <small>Program Magang</small>
+                            <h4>Finance &amp; Market Research</h4>
+                        </div>
+                        <button type="button" class="jurusan-close" onclick="tutupJurusan('finance')">Tutup</button>
+                    </div>
+                    <div class="jurusan-program-grid">
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Ekonomi</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Keuangan</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Perbankan</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Akuntansi</div>
+                    </div>
+                </div>
+
+                <div class="jurusan-detail" id="detail-digital">
+                    <div class="jurusan-detail-head">
+                        <div>
+                            <small>Program Magang</small>
+                            <h4>Digital &amp; Technology</h4>
+                        </div>
+                        <button type="button" class="jurusan-close" onclick="tutupJurusan('digital')">Tutup</button>
+                    </div>
+                    <div class="jurusan-program-grid">
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Teknik Informatika</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Sistem Informasi</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Manajemen Informatika</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Data Science</div>
+                    </div>
+                </div>
+
+                <div class="jurusan-detail" id="detail-creative">
+                    <div class="jurusan-detail-head">
+                        <div>
+                            <small>Program Magang</small>
+                            <h4>Creative &amp; Communication</h4>
+                        </div>
+                        <button type="button" class="jurusan-close" onclick="tutupJurusan('creative')">Tutup</button>
+                    </div>
+                    <div class="jurusan-program-grid">
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Ilmu Komunikasi</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>DKV</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Broadcasting</div>
+                        <div class="jurusan-program-item"><i class="bi bi-check-circle-fill"></i>Multimedia</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            {{-- =================================================
+                PENGALAMAN MAGANG PESERTA
+            ================================================== --}}
+
+            <div class="magang-section">
+
+                <div class="magang-section-title">
+
+                    <h3>
+                        Bagaimana Pengalaman Magang di PT Rifan Financindo Berjangka Semarang?
+                    </h3>
+
+                    <p>
+                        Cerita pengalaman mahasiswa selama mengenal
+                        lingkungan kerja dan mengikuti kegiatan magang.
+                    </p>
+
+                </div>
+
+
+                {{-- SUCCESS MESSAGE --}}
+                @if(session('review_success'))
+
+                    <div class="review-alert review-alert-success">
+                        <i class="bi bi-check-circle-fill"></i>
 
                         <span>
-                            Pelajari materi
+                            {{ session('review_success') }}
                         </span>
+                    </div>
+
+                @endif
 
 
-                        <button
-                            class="detail-button"
-                            onclick="bukaMateri('materiTeori')"
+                {{-- ERROR MESSAGE --}}
+                @if(session('review_error'))
+
+                    <div class="review-alert review-alert-error">
+                        <i class="bi bi-exclamation-circle-fill"></i>
+
+                        <span>
+                            {{ session('review_error') }}
+                        </span>
+                    </div>
+
+                @endif
+
+
+                {{-- VALIDATION ERROR --}}
+                @if($errors->any())
+
+                    <div class="review-alert review-alert-error">
+
+                        <i class="bi bi-exclamation-circle-fill"></i>
+
+                        <div>
+
+                            @foreach($errors->all() as $error)
+
+                                <div>
+                                    {{ $error }}
+                                </div>
+
+                            @endforeach
+
+                        </div>
+
+                    </div>
+
+                @endif
+
+
+                {{-- =================================================
+                    TOMBOL BAGIKAN PENGALAMAN
+                ================================================== --}}
+
+                <div class="experience-submit-box">
+
+                    <div>
+
+                        <strong>
+                            Pernah mengikuti program magang?
+                        </strong>
+
+                        <p>
+                            Bagikan pengalamanmu dan bantu mahasiswa
+                            lainnya mendapatkan gambaran tentang kegiatan magang.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="experience-submit-button"
+                        onclick="bukaFormPengalaman()"
+                    >
+                        <i class="bi bi-pencil-square"></i>
+                        Bagikan Pengalaman
+                    </button>
+
+                </div>
+
+
+
+
+                {{-- =================================================
+                    EXPERIENCE SLIDER
+                ================================================== --}}
+
+                @if($pengalamanMagang->count() > 0)
+
+                    <div class="experience-slider">
+
+                        <div class="experience-controls">
+
+                            <button
+                                type="button"
+                                class="experience-control"
+                                onclick="geserPengalaman(-1)"
+                                aria-label="Pengalaman sebelumnya"
+                            >
+                                <i class="bi bi-arrow-left"></i>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="experience-control"
+                                onclick="geserPengalaman(1)"
+                                aria-label="Pengalaman berikutnya"
+                            >
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="experience-track"
+                            id="experienceTrack"
                         >
 
-                            <i class="bi bi-arrow-right"></i>
+                            @foreach($pengalamanMagang as $pengalaman)
 
+                                <article class="experience-card">
+
+                                    <div class="experience-card-image">
+
+                                        <img
+                                            src="{{ asset('storage/' . $pengalaman->photo) }}"
+                                            alt="Foto {{ $pengalaman->name }}"
+                                        >
+
+                                    </div>
+
+
+                                    <div class="experience-card-content">
+
+                                        <small>
+                                            Pengalaman Peserta Magang
+                                        </small>
+
+
+                                        <h3>
+                                            {{ $pengalaman->name }}
+                                        </h3>
+
+
+                                        <p class="experience-institution">
+
+                                            {{ $pengalaman->institution }}
+
+                                        </p>
+
+
+                                        <p>
+
+                                            {{ \Illuminate\Support\Str::limit(
+                                                $pengalaman->review,
+                                                180,
+                                                '...'
+                                            ) }}
+
+                                        </p>
+
+
+                                        <button
+                                            type="button"
+                                            class="experience-read-more"
+                                            onclick="bukaPengalaman({{ $pengalaman->id }})"
+                                        >
+                                            Read More...
+                                        </button>
+
+                                    </div>
+
+                                </article>
+
+                            @endforeach
+
+                        </div>
+
+                    </div>
+
+                @else
+
+                    {{-- =================================================
+                        BELUM ADA PENGALAMAN
+                    ================================================== --}}
+
+                    <div class="experience-empty">
+
+                        <div class="experience-empty-icon">
+
+                            <i class="bi bi-chat-quote"></i>
+
+                        </div>
+
+                        <h3>
+                            Belum Ada Pengalaman
+                        </h3>
+
+                        <p>
+                            Belum ada peserta yang membagikan pengalaman
+                            magangnya. Jadilah peserta pertama yang berbagi cerita.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="experience-submit-button"
+                            onclick="bukaFormPengalaman()"
+                        >
+                            <i class="bi bi-pencil-square"></i>
+                            Bagikan Pengalaman
                         </button>
 
                     </div>
 
+                @endif
+
+            </div>
+
+
+            {{-- =================================================
+                MODAL FORM PENGALAMAN
+            ================================================== --}}
+
+            <div
+                class="experience-modal"
+                id="experienceFormModal"
+                aria-hidden="true"
+            >
+
+                <div
+                    class="experience-modal-overlay"
+                    onclick="tutupFormPengalaman()"
+                ></div>
+
+
+                <div class="experience-modal-box">
+
+                    <button
+                        type="button"
+                        class="experience-modal-close"
+                        onclick="tutupFormPengalaman()"
+                        aria-label="Tutup"
+                    >
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+
+
+                    <div class="experience-modal-header">
+
+                        <small>
+                            PENGALAMAN PESERTA
+                        </small>
+
+                        <h3>
+                            Bagikan Pengalaman Magang
+                        </h3>
+
+                        <p>
+                            Ceritakan pengalamanmu selama mengikuti
+                            program magang.
+                        </p>
+
+                    </div>
+
+
+                    <form
+                        action="{{ route('internship-reviews.store') }}"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        class="experience-form"
+                    >
+
+                        @csrf
+
+
+                        <div class="experience-form-group">
+
+                            <label for="review_name">
+                                Nama
+                            </label>
+
+                            <input
+                                type="text"
+                                id="review_name"
+                                name="name"
+                                value="{{ old('name') }}"
+                                placeholder="Masukkan nama"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="experience-form-group">
+
+                            <label for="review_institution">
+                                Asal Sekolah / Universitas
+                            </label>
+
+                            <input
+                                type="text"
+                                id="review_institution"
+                                name="institution"
+                                value="{{ old('institution') }}"
+                                placeholder="Contoh: Universitas Diponegoro"
+                                maxlength="150"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="experience-form-group">
+
+                            <label for="review_photo">
+                                Foto Profil
+                            </label>
+
+                            <input
+                                type="file"
+                                id="review_photo"
+                                name="photo"
+                                accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                                required
+                            >
+
+                            <small>
+                                JPG, JPEG, PNG, atau WEBP. Maksimal 2 MB.
+                            </small>
+
+                        </div>
+
+
+                        <div class="experience-form-group">
+
+                            <label for="review_text">
+                                Ulasan
+                            </label>
+
+                            <textarea
+                                id="review_text"
+                                name="review"
+                                rows="6"
+                                maxlength="3000"
+                                placeholder="Ceritakan pengalaman kamu selama mengikuti magang..."
+                                required
+                            >{{ old('review') }}</textarea>
+
+                            <small>
+                                Ulasan akan diperiksa terlebih dahulu secara otomatis
+                                sebelum ditampilkan di website.
+                            </small>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="experience-form-submit"
+                        >
+                            <i class="bi bi-send"></i>
+                            Kirim Pengalaman
+                        </button>
+
+                    </form>
+
                 </div>
 
-            </article>
+            </div>
+
+            {{-- =================================================
+                MODAL DETAIL PENGALAMAN
+================================================== --}}
+
+<div
+    class="experience-modal"
+    id="experienceDetailModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="experience-modal-overlay"
+        onclick="tutupPengalaman()"
+    ></div>
+
+
+    <div class="experience-modal-box experience-detail-box">
+
+        <button
+            type="button"
+            class="experience-modal-close"
+            onclick="tutupPengalaman()"
+            aria-label="Tutup"
+        >
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+
+        <div class="experience-detail">
+
+            <img
+                id="experienceDetailPhoto"
+                src=""
+                alt=""
+            >
+
+
+            <div class="experience-detail-content">
+
+                <small>
+                    PENGALAMAN PESERTA MAGANG
+                </small>
+
+                <h3 id="experienceDetailName"></h3>
+
+                <div
+                    class="experience-detail-institution"
+                    id="experienceDetailInstitution"
+                ></div>
+
+                <div
+                    class="experience-detail-review"
+                    id="experienceDetailReview"
+                ></div>
+
+            </div>
 
         </div>
 
+    </div>
+
+</div>
+            {{-- =================================================
+                 FAQ
+            ================================================== --}}
+            <div class="magang-section">
+
+                <div class="magang-section-title">
+
+                    <h3>
+                        FAQ Program Magang
+                    </h3>
+
+                </div>
 
 
-        <!-- =================================================
-             DETAIL PROGRAM MAGANG
-        ================================================= -->
+                <div class="faq-list">
 
-        <div
-            id="materiMagang"
-            class="detail-panel"
-        >
+                    <div class="faq-item">
 
-            <div class="detail-head">
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFaq(this)"
+                        >
+                            <span>
+                                Apa tujuan dari kegiatan magang?
+                            </span>
+
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+
+                        <div class="faq-answer">
+                            Kegiatan magang memberikan kesempatan
+                            kepada mahasiswa untuk mengenal lingkungan
+                            kerja dan mendapatkan pengalaman yang
+                            relevan dengan proses pembelajaran.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFaq(this)"
+                        >
+                            <span>
+                                Apakah semua jurusan dapat mengikuti?
+                            </span>
+
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+
+                        <div class="faq-answer">
+                            Kesesuaian jurusan dapat disesuaikan dengan
+                            kebutuhan kegiatan dan program yang tersedia.
+                            Daftar di atas merupakan gambaran jurusan
+                            yang relevan untuk konteks edukasi magang.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFaq(this)"
+                        >
+                            <span>
+                                Apa yang dapat dipelajari mahasiswa?
+                            </span>
+
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+
+                        <div class="faq-answer">
+                            Mahasiswa dapat mengenal lingkungan
+                            profesional, komunikasi kerja, kegiatan
+                            administrasi, proses bisnis, serta berbagai
+                            pengalaman yang sesuai dengan kegiatan magang.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button
+                            type="button"
+                            class="faq-question"
+                            onclick="toggleFaq(this)"
+                        >
+                            <span>
+                                Apakah pengalaman setiap mahasiswa sama?
+                            </span>
+
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+
+                        <div class="faq-answer">
+                            Pengalaman setiap mahasiswa dapat berbeda
+                            tergantung jurusan, kegiatan, pendampingan,
+                            dan aktivitas yang diikuti selama program.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {{-- CTA --}}
+            <div class="magang-cta">
 
                 <h3>
-
-                    <i class="bi bi-briefcase-fill me-2"></i>
-
-                    Program Magang
-
+                    Siap Memulai Langkahmu?
                 </h3>
 
+                <p>
+                    Kenali lebih jauh pengalaman belajar dan dunia kerja
+                    melalui program edukasi dan magang.
+                </p>
 
                 <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
+                    type="button"
+                    class="magang-cta-button"
+                    onclick="scrollKeJurusan()"
                 >
-                    ×
+                    Lihat Jurusan
                 </button>
 
             </div>
 
-
-
-            <!-- TENTANG PROGRAM -->
-
-            <div class="detail-intro">
-
-                <strong>
-                    Tentang Program Magang
-                </strong>
-
-
-                <p>
-
-                    Program Magang merupakan kesempatan bagi
-                    pelajar atau mahasiswa untuk memperoleh
-                    pengalaman langsung di lingkungan kerja
-                    profesional. Peserta dapat mengenal dunia
-                    kerja sekaligus mengembangkan kemampuan
-                    komunikasi, administrasi, kerja sama tim,
-                    dan kedisiplinan.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 DOKUMEN YANG DIPERLUKAN
-            ================================================= -->
-
-            <div class="document-section">
-
-                <div class="document-title">
-
-                    <i class="bi bi-file-earmark-text-fill"></i>
-
-                    <strong>
-                        Dokumen yang Diperlukan
-                    </strong>
-
-                </div>
-
-
-                <div class="document-grid">
-
-
-                    <!-- DOKUMEN 1 -->
-
-                    <div class="document-item">
-
-                        <div class="document-item-icon">
-
-                            <i class="bi bi-file-earmark-check"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Surat Pengantar Magang
-                            </strong>
-
-                            <span>
-                                Surat resmi dari sekolah atau perguruan tinggi.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOKUMEN 2 -->
-
-                    <div class="document-item">
-
-                        <div class="document-item-icon">
-
-                            <i class="bi bi-file-earmark-richtext"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Proposal Magang
-                            </strong>
-
-                            <span>
-                                Berisi rencana, tujuan, periode, dan kegiatan magang.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOKUMEN 3 -->
-
-                    <div class="document-item">
-
-                        <div class="document-item-icon">
-
-                            <i class="bi bi-person-vcard"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                CV / Curriculum Vitae
-                            </strong>
-
-                            <span>
-                                Informasi pendidikan, pengalaman, dan kemampuan peserta.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOKUMEN 4 -->
-
-                    <div class="document-item">
-
-                        <div class="document-item-icon">
-
-                            <i class="bi bi-person-badge"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Kartu Pelajar / Mahasiswa
-                            </strong>
-
-                            <span>
-                                Dokumen pendukung status pelajar atau mahasiswa.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOKUMEN 5 -->
-
-                    <div class="document-item">
-
-                        <div class="document-item-icon">
-
-                            <i class="bi bi-folder-check"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Dokumen Pendukung
-                            </strong>
-
-                            <span>
-                                Dokumen tambahan sesuai kebutuhan program.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOKUMEN 6 -->
-
-                    <div class="document-item">
-
-                        <div class="document-item-icon">
-
-                            <i class="bi bi-journal-check"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Ketentuan dari Institusi
-                            </strong>
-
-                            <span>
-                                Dokumen tambahan sesuai ketentuan sekolah atau kampus.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 ALUR PENGAJUAN
-            ================================================= -->
-
-            <div class="timeline-section">
-
-                <div class="timeline-title">
-
-                    <i class="bi bi-diagram-3-fill"></i>
-
-                    <strong>
-                        Alur Pengajuan Magang
-                    </strong>
-
-                </div>
-
-
-                <div class="timeline">
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-number">
-                            01
-                        </div>
-
-                        <strong>
-                            Persiapkan Dokumen
-                        </strong>
-
-                        <span>
-                            Lengkapi seluruh dokumen
-                            yang dibutuhkan.
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-number">
-                            02
-                        </div>
-
-                        <strong>
-                            Pengajuan
-                        </strong>
-
-                        <span>
-                            Ajukan dokumen kepada
-                            pihak perusahaan.
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-number">
-                            03
-                        </div>
-
-                        <strong>
-                            Konfirmasi
-                        </strong>
-
-                        <span>
-                            Menunggu proses pemeriksaan
-                            dan konfirmasi.
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-number">
-                            04
-                        </div>
-
-                        <strong>
-                            Pelaksanaan
-                        </strong>
-
-                        <span>
-                            Mengikuti program sesuai
-                            jadwal yang ditentukan.
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="timeline-item">
-
-                        <div class="timeline-number">
-                            05
-                        </div>
-
-                        <strong>
-                            Laporan
-                        </strong>
-
-                        <span>
-                            Menyelesaikan laporan
-                            dan evaluasi kegiatan.
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
 
+    </section>
 
 
-        <!-- =================================================
-             DETAIL KEGIATAN
-        ================================================= -->
+   {{-- ============================================================
+     DETAIL KEGIATAN
+     VIDEO & FOTO
+============================================================ --}}
 
-        <div
-            id="materiKegiatan"
-            class="detail-panel"
+<style>
+
+/* ============================================================
+   WRAPPER
+============================================================ */
+
+.kegiatan-wrapper {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    padding: 10px 0 40px;
+}
+
+
+/* ============================================================
+   LIST CARD
+============================================================ */
+
+.kegiatan-list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+}
+
+
+/* ============================================================
+   CARD
+============================================================ */
+
+.kegiatan-card {
+    width: 100%;
+    max-width: 520px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.kegiatan-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #c62828;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ============================================================
+   GAMBAR CARD
+============================================================ */
+
+.kegiatan-image {
+    width: 100%;
+    height: 250px;
+
+    overflow: hidden;
+
+    background: #f3f3f3;
+}
+
+.kegiatan-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.kegiatan-card:hover .kegiatan-image img {
+    transform: scale(1.04);
+}
+
+
+/* ============================================================
+   BODY CARD
+============================================================ */
+
+.kegiatan-body {
+    padding: 22px 24px 20px;
+}
+
+
+/* ============================================================
+   LABEL
+============================================================ */
+
+.kegiatan-type {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+
+    color: #c62828;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.kegiatan-type i {
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   JUDUL CARD
+============================================================ */
+
+.kegiatan-title {
+    margin: 0 0 10px;
+
+    color: #222;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+
+/* ============================================================
+   DESKRIPSI CARD
+============================================================ */
+
+.kegiatan-description {
+    margin: 0 0 18px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   INFORMASI CARD
+============================================================ */
+
+.kegiatan-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.kegiatan-info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+.kegiatan-info-item i {
+    width: 17px;
+
+    color: #c62828;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   TOMBOL DETAIL
+============================================================ */
+
+.kegiatan-detail {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 0 0;
+
+    border: none;
+
+    border-top: 1px solid #eeeeee;
+
+    background: transparent;
+
+    color: #c62828;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.kegiatan-detail span {
+    transition: transform 0.2s ease;
+}
+
+.kegiatan-card:hover .kegiatan-detail span {
+    transform: translateX(4px);
+}
+
+.kegiatan-detail i {
+    font-size: 16px;
+}
+
+
+/* ============================================================
+   HALAMAN DETAIL
+============================================================ */
+
+.kegiatan-detail-page {
+    display: none;
+
+    width: 100%;
+}
+
+.kegiatan-detail-page.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ============================================================
+   TOMBOL KEMBALI
+============================================================ */
+
+.kegiatan-back {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    padding: 9px 14px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    color: #555;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.kegiatan-back:hover {
+    border-color: #c62828;
+
+    color: #c62828;
+}
+
+
+/* ============================================================
+   DETAIL CONTENT
+============================================================ */
+
+.kegiatan-detail-content {
+    width: min(100%, 920px);
+
+    max-width: 920px;
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ============================================================
+   VIDEO DETAIL
+============================================================ */
+
+.kegiatan-detail-video {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.kegiatan-detail-video iframe {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: none;
+}
+
+
+/* ============================================================
+   FOTO UTAMA DETAIL
+============================================================ */
+
+.kegiatan-detail-photo-main {
+    width: 100%;
+
+    height: 420px;
+
+    overflow: hidden;
+
+    background: #f3f3f3;
+}
+
+.kegiatan-detail-photo-main img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ============================================================
+   DETAIL BODY
+============================================================ */
+
+.kegiatan-detail-body {
+    padding: 32px 38px 38px;
+    text-align: left;
+}
+
+.kegiatan-detail-info {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.kegiatan-detail-description {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.kegiatan-dokumentasi-title {
+    text-align: center;
+}
+
+.kegiatan-dokumentasi {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ============================================================
+   TYPE DETAIL
+============================================================ */
+
+.kegiatan-detail-type {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 9px;
+
+    color: #c62828;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+
+/* ============================================================
+   TITLE DETAIL
+============================================================ */
+
+.kegiatan-detail-title {
+    margin: 0 0 18px;
+
+    color: #222;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+
+/* ============================================================
+   INFO DETAIL
+============================================================ */
+
+.kegiatan-detail-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.kegiatan-detail-info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+.kegiatan-detail-info-item i {
+    width: 18px;
+
+    color: #c62828;
+
+    font-size: 15px;
+}
+
+
+/* ============================================================
+   PENJELASAN DETAIL
+============================================================ */
+
+.kegiatan-detail-description {
+    margin: 0 0 25px;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   JUDUL DOKUMENTASI
+============================================================ */
+
+.kegiatan-dokumentasi-title {
+    margin: 0 0 15px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #eeeeee;
+
+    color: #222;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   GALERI DOKUMENTASI
+============================================================ */
+
+.kegiatan-dokumentasi {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.kegiatan-dokumentasi-item {
+    width: 100%;
+
+    height: 180px;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background: #f3f3f3;
+}
+
+.kegiatan-dokumentasi-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.kegiatan-dokumentasi-item:hover img {
+    transform: scale(1.04);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .kegiatan-detail-content {
+        width: 100%;
+    }
+
+    .kegiatan-detail-body {
+        padding: 24px 18px 28px;
+    }
+
+
+    .kegiatan-wrapper {
+        padding: 5px 0 30px;
+    }
+
+
+    .kegiatan-card {
+        max-width: 100%;
+    }
+
+
+    .kegiatan-image {
+        height: 210px;
+    }
+
+
+    .kegiatan-body {
+        padding: 19px 18px 18px;
+    }
+
+
+    .kegiatan-title {
+        font-size: 19px;
+    }
+
+
+    .kegiatan-description {
+        font-size: 13px;
+    }
+
+
+    .kegiatan-detail-body {
+        padding: 22px 18px 25px;
+    }
+
+
+    .kegiatan-detail-title {
+        font-size: 22px;
+    }
+
+
+    .kegiatan-detail-photo-main {
+        height: 270px;
+    }
+
+
+    .kegiatan-dokumentasi {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .kegiatan-dokumentasi-item {
+        height: 140px;
+    }
+
+}
+
+</style>
+
+
+
+{{-- ============================================================
+     SECTION DETAIL KEGIATAN
+============================================================ --}}
+
+<section
+    class="materi-detail"
+    id="detail-kegiatan"
+>
+
+    <div class="edu-container">
+
+
+        {{-- ====================================================
+             TOMBOL KEMBALI KE MATERI
+        ===================================================== --}}
+
+        <button
+            type="button"
+            class="back-materi"
+            onclick="tutupMateri()"
         >
 
-            <div class="detail-head">
+            <i class="bi bi-arrow-left"></i>
 
-                <h3>
+            Kembali ke Materi
 
-                    <i class="bi bi-people-fill me-2"></i>
+        </button>
 
-                    Kegiatan
 
-                </h3>
+
+        <div class="kegiatan-wrapper">
+
+
+            {{-- ==================================================
+                 TAMPILAN AWAL
+            =================================================== --}}
+
+            <div
+                id="kegiatanListPage"
+                class="kegiatan-list-page"
+            >
+
+
+                <div class="kegiatan-list">
+
+
+                    {{-- =================================================
+                         CARD VIDEO
+                    ================================================== --}}
+
+                    <div class="kegiatan-card">
+
+
+                        <div class="kegiatan-image">
+
+                            <img
+                                src="{{ asset('images/kegiatan-video.jpg') }}"
+                                alt="Video kegiatan Baby Home Semarang"
+                            >
+
+                        </div>
+
+
+                        <div class="kegiatan-body">
+
+
+                            <div class="kegiatan-type">
+
+                                <i class="bi bi-play-circle-fill"></i>
+
+                                <span>
+                                    Video
+                                </span>
+
+                            </div>
+
+
+                            <h3 class="kegiatan-title">
+
+                                Baby Home Semarang
+
+                            </h3>
+
+
+                            <p class="kegiatan-description">
+
+                                Dokumentasi kegiatan Avengers Team
+                                bersama Baby Home Semarang di Gayamsari.
+
+                            </p>
+
+
+                            <div class="kegiatan-info">
+
+                                <div class="kegiatan-info-item">
+
+                                    <i class="bi bi-calendar-event"></i>
+
+                                    <span>
+                                        Jumat, 11 September 2026
+                                    </span>
+
+                                </div>
+
+
+                                <div class="kegiatan-info-item">
+
+                                    <i class="bi bi-clock"></i>
+
+                                    <span>
+                                        Pukul 14:00 WIB
+                                    </span>
+
+                                </div>
+
+
+                                <div class="kegiatan-info-item">
+
+                                    <i class="bi bi-geo-alt"></i>
+
+                                    <span>
+                                        Baby Home Semarang, Gayamsari
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="kegiatan-detail"
+                                onclick="bukaDetailKegiatan('video')"
+                            >
+
+                                <span>
+                                    Lihat Detail
+                                </span>
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            {{-- ====================================================
+                 DETAIL VIDEO
+            ===================================================== --}}
+
+            <div
+                id="kegiatanVideoPage"
+                class="kegiatan-detail-page"
+            >
 
 
                 <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
+                    type="button"
+                    class="kegiatan-back"
+                    onclick="kembaliKeKegiatan()"
                 >
-                    ×
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Kembali ke Kegiatan
+
                 </button>
 
-            </div>
 
 
-            <div class="detail-intro">
-
-                <strong>
-                    Kegiatan Edukasi & Sosial
-                </strong>
+                <div class="kegiatan-detail-content">
 
 
-                <p>
+                    {{-- VIDEO --}}
 
-                    Kegiatan menjadi bagian dari proses pembelajaran
-                    untuk membangun kebersamaan, pengalaman,
-                    kepedulian, serta hubungan yang positif
-                    dengan lingkungan sekitar.
+                    <div class="kegiatan-detail-video">
 
-                </p>
-
-            </div>
-
-
-            <div class="simple-detail-grid">
-
-
-                <div class="simple-detail-box">
-
-                    <div class="simple-detail-box-title">
-
-                        <div>
-                            <i class="bi bi-calendar-event"></i>
-                        </div>
-
-                        <strong>
-                            Kegiatan Internal
-                        </strong>
+                        <iframe
+                            src="https://www.youtube.com/embed/84boVMbwbVI"
+                            title="Kegiatan Avengers Team di Baby Home Semarang"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                        ></iframe>
 
                     </div>
 
 
-                    <p>
 
-                        Kegiatan internal dapat berupa pembelajaran,
-                        diskusi, kegiatan bersama tim, maupun aktivitas
-                        lain yang mendukung pengembangan kemampuan
-                        dan kebersamaan.
-
-                    </p>
-
-                </div>
+                    <div class="kegiatan-detail-body">
 
 
+                        <div class="kegiatan-detail-type">
 
-                <div class="simple-detail-box">
+                            <i class="bi bi-play-circle-fill"></i>
 
-                    <div class="simple-detail-box-title">
+                            <span>
+                                Video
+                            </span>
 
-                        <div>
-                            <i class="bi bi-heart-fill"></i>
                         </div>
 
-                        <strong>
-                            Kegiatan Sosial
-                        </strong>
+
+                        <h2 class="kegiatan-detail-title">
+
+                            Baby Home Semarang
+
+                        </h2>
+
+
+                        <div class="kegiatan-detail-info">
+
+
+                            <div class="kegiatan-detail-info-item">
+
+                                <i class="bi bi-calendar-event"></i>
+
+                                <span>
+                                    Jumat, 11 September 2026
+                                </span>
+
+                            </div>
+
+
+                            <div class="kegiatan-detail-info-item">
+
+                                <i class="bi bi-clock"></i>
+
+                                <span>
+                                    Pukul 14:00 WIB
+                                </span>
+
+                            </div>
+
+
+                            <div class="kegiatan-detail-info-item">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                                <span>
+                                    Baby Home Semarang di Gayamsari
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <p class="kegiatan-detail-description">
+
+                            Video ini mendokumentasikan kegiatan
+                            Avengers Team bersama Baby Home Semarang.
+                            Momen ini menjadi bagian dari kebersamaan
+                            dan kepedulian terhadap lingkungan sekitar.
+
+                        </p>
+
+                        {{-- =================================================
+                            DOKUMENTASI FOTO
+                        ================================================== --}}
+
+                        <h3 class="kegiatan-dokumentasi-title">
+                            Galeri
+                        </h3>
+
+                        <div class="kegiatan-dokumentasi">
+
+                            @for ($i = 1; $i <= 6; $i++)
+
+                                <div class="kegiatan-dokumentasi-item">
+
+                                    <img
+                                        src="{{ asset('images/kegiatan' . $i . '.jpg') }}"
+                                        alt="Dokumentasi kegiatan {{ $i }}"
+                                    >
+
+                                </div>
+
+                            @endfor
+
+                        </div>
+
 
                     </div>
-
-
-                    <p>
-
-                        Kegiatan sosial menjadi sarana untuk membangun
-                        kepedulian dan memberikan kontribusi positif
-                        kepada lingkungan sekitar.
-
-                    </p>
 
                 </div>
 
             </div>
 
-        </div>
 
 
+            {{-- ============================================================
+     JAVASCRIPT
+============================================================ --}}
 
-        <!-- =================================================
-             DETAIL TEORI UMUM
-        ================================================= -->
+<script>
 
-        <div
-            id="materiTeori"
-            class="detail-panel"
-        >
+/* ============================================================
+   BUKA DETAIL VIDEO / FOTO
+============================================================ */
 
-            <div class="detail-head">
+function bukaDetailKegiatan(jenis) {
 
-                <h3>
+    const listPage =
+        document.getElementById('kegiatanListPage');
 
-                    <i class="bi bi-journal-text me-2"></i>
+    const videoPage =
+        document.getElementById('kegiatanVideoPage');
 
+    /* Sembunyikan daftar */
+
+    listPage.style.display = 'none';
+
+
+    /* Sembunyikan semua detail */
+
+    videoPage.classList.remove('active');
+
+    /* ========================================================
+       DETAIL VIDEO
+    ======================================================== */
+
+    if (jenis === 'video') {
+
+        videoPage.classList.add('active');
+
+    }
+
+
+    /* Scroll ke atas section */
+
+    document
+        .getElementById('detail-kegiatan')
+        .scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+}
+
+
+/* ============================================================
+   KEMBALI KE LIST KEGIATAN
+============================================================ */
+
+function kembaliKeKegiatan() {
+
+    const listPage =
+        document.getElementById('kegiatanListPage');
+
+    const videoPage =
+        document.getElementById('kegiatanVideoPage');
+
+    /* Tampilkan card */
+
+    listPage.style.display = 'block';
+
+
+    /* Sembunyikan detail */
+
+    videoPage.classList.remove('active');
+
+    /* Scroll kembali */
+
+    document
+        .getElementById('detail-kegiatan')
+        .scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+}
+
+</script>
+
+    {{-- =====================================================
+         DETAIL TEORI
+    ====================================================== --}}
+    <section
+        class="materi-detail"
+        id="detail-teori"
+    >
+
+        <div class="edu-container">
+
+            <button
+                type="button"
+                class="back-materi"
+                onclick="tutupMateri()"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Kembali ke Materi
+            </button>
+
+
+            <div class="section-heading">
+
+                <small>
+                    Pengetahuan
+                </small>
+
+                <h2>
                     Teori Umum
-
-                </h3>
-
-
-                <button
-                    class="close-detail"
-                    onclick="tutupMateri()"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div class="detail-intro">
-
-                <strong>
-                    Pengetahuan Dasar
-                </strong>
-
+                </h2>
 
                 <p>
-
-                    Materi teori umum membantu peserta memperoleh
-                    pemahaman dasar mengenai lingkungan kerja,
-                    komunikasi profesional, serta pengenalan
-                    perdagangan berjangka.
-
+                    Materi dasar yang membantu memahami komunikasi
+                    profesional dan pengenalan perdagangan.
                 </p>
 
             </div>
 
 
-            <div class="simple-detail-grid">
+            <div class="teori-list">
 
+                <div class="teori-item">
 
-                <div class="simple-detail-box">
-
-                    <div class="simple-detail-box-title">
-
-                        <div>
-                            <i class="bi bi-chat-dots-fill"></i>
-                        </div>
-
-                        <strong>
-                            Komunikasi Profesional
-                        </strong>
-
+                    <div class="teori-number">
+                        01
                     </div>
 
+                    <div>
 
-                    <p>
+                        <h3>
+                            Komunikasi Profesional
+                        </h3>
 
-                        Memahami pentingnya komunikasi yang baik,
-                        sopan, jelas, dan profesional dalam
-                        lingkungan kerja.
+                        <p>
+                            Komunikasi profesional merupakan kemampuan
+                            menyampaikan informasi dengan jelas, sopan,
+                            dan bertanggung jawab dalam lingkungan kerja.
+                        </p>
 
-                    </p>
+                    </div>
 
                 </div>
 
 
+                <div class="teori-item">
 
-                <div class="simple-detail-box">
-
-                    <div class="simple-detail-box-title">
-
-                        <div>
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-
-                        <strong>
-                            Pengenalan Perdagangan
-                        </strong>
-
+                    <div class="teori-number">
+                        02
                     </div>
 
+                    <div>
 
-                    <p>
+                        <h3>
+                            Pengenalan Perdagangan
+                        </h3>
 
-                        Mengenal secara umum konsep perdagangan
-                        berjangka, karakteristik pasar, serta
-                        pentingnya memahami risiko sebelum
-                        melakukan aktivitas perdagangan.
+                        <p>
+                            Pengenalan perdagangan memberikan gambaran
+                            mengenai aktivitas perdagangan dan bagaimana
+                            berbagai pihak berinteraksi dalam kegiatan
+                            ekonomi.
+                        </p>
 
-                    </p>
+                    </div>
 
                 </div>
 
@@ -1950,54 +3300,442 @@
 </div>
 
 
-
 <script>
+
+    /* =========================================================
+       BUKA MATERI
+    ========================================================= */
 
     function bukaMateri(id) {
 
-        document
-            .querySelectorAll('.detail-panel')
-            .forEach(panel => {
+        const hero =
+            document.getElementById('eduHero');
 
-                panel.classList.remove('active');
+        const utama =
+            document.getElementById('materiUtama');
 
-            });
-
-
-        const target =
-            document.getElementById(id);
+        const semuaDetail =
+            document.querySelectorAll('.materi-detail');
 
 
-        if (target) {
+        /* Sembunyikan HERO */
 
-            target.classList.add('active');
-
-
-            setTimeout(() => {
-
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
-
-            }, 50);
-
+        if (hero) {
+            hero.style.display = 'none';
         }
 
+
+        /* Sembunyikan 3 card utama */
+
+        utama.style.display = 'none';
+
+
+        /* Sembunyikan semua detail */
+
+        semuaDetail.forEach(function(detail) {
+            detail.classList.remove('active');
+        });
+
+
+        /* Tampilkan detail yang dipilih */
+
+        const target =
+            document.getElementById('detail-' + id);
+
+        if (target) {
+            target.classList.add('active');
+        }
+
+
+        /* Scroll ke atas */
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
+
+    /* =========================================================
+       TUTUP MATERI
+    ========================================================= */
 
     function tutupMateri() {
 
-        document
-            .querySelectorAll('.detail-panel')
-            .forEach(panel => {
+        const hero =
+            document.getElementById('eduHero');
 
-                panel.classList.remove('active');
+        const utama =
+            document.getElementById('materiUtama');
 
-            });
+        const semuaDetail =
+            document.querySelectorAll('.materi-detail');
 
+
+        /* Tampilkan kembali HERO */
+
+        if (hero) {
+            hero.style.display = 'block';
+        }
+
+
+        /* Sembunyikan semua detail */
+
+        semuaDetail.forEach(function(detail) {
+            detail.classList.remove('active');
+        });
+
+
+        /* Tampilkan kembali 3 card */
+
+        utama.style.display = 'block';
+
+
+        /* Kembali ke halaman awal */
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
+
+
+    /* =========================================================
+       BUKA DETAIL JURUSAN
+    ========================================================= */
+
+    function bukaJurusan(id) {
+
+        const semuaDetail =
+            document.querySelectorAll('.jurusan-detail');
+
+        semuaDetail.forEach(function(detail) {
+            detail.classList.remove('active');
+        });
+
+        const target =
+            document.getElementById('detail-' + id);
+
+        if (!target) {
+            return;
+        }
+
+        target.classList.add('active');
+
+        setTimeout(function() {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 50);
+    }
+
+
+    /* =========================================================
+       TUTUP DETAIL JURUSAN
+    ========================================================= */
+
+    function tutupJurusan(id) {
+
+        const target =
+            document.getElementById('detail-' + id);
+
+        if (target) {
+            target.classList.remove('active');
+        }
+    }
+
+
+    /* =========================================================
+       SCROLL KE JURUSAN
+    ========================================================= */
+
+    function scrollKeJurusan() {
+
+        const target =
+            document.getElementById('jurusanMagang');
+
+        if (!target) {
+            return;
+        }
+
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+
+
+
+    /* =========================================================
+       SLIDER PENGALAMAN MAGANG
+    ========================================================= */
+
+    function geserPengalaman(arah) {
+
+        const track =
+            document.getElementById('experienceTrack');
+
+        if (!track) {
+            return;
+        }
+
+        const card =
+            track.querySelector('.experience-card');
+
+        if (!card) {
+            return;
+        }
+
+        const jarak =
+            card.offsetWidth + 22;
+
+        track.scrollBy({
+            left: jarak * arah,
+            behavior: 'smooth'
+        });
+    }
+
+
+
+    /* =========================================================
+   FAQ
+========================================================= */
+
+function toggleFaq(button) {
+
+    const item =
+        button.closest('.faq-item');
+
+    if (!item) {
+        return;
+    }
+
+    item.classList.toggle('open');
+}
+
+
+/* =========================================================
+   DATA PENGALAMAN MAGANG
+========================================================= */
+
+const dataPengalamanMagang =
+    @json($pengalamanMagang);
+
+
+/* =========================================================
+   BUKA FORM PENGALAMAN
+========================================================= */
+
+function bukaFormPengalaman() {
+
+    const modal =
+        document.getElementById(
+            'experienceFormModal'
+        );
+
+    if (!modal) {
+
+        console.error(
+            'experienceFormModal tidak ditemukan.'
+        );
+
+        return;
+    }
+
+    modal.classList.add('active');
+
+    modal.setAttribute(
+        'aria-hidden',
+        'false'
+    );
+
+    document.body.classList.add(
+        'experience-modal-open'
+    );
+}
+
+
+/* =========================================================
+   TUTUP FORM PENGALAMAN
+========================================================= */
+
+function tutupFormPengalaman() {
+
+    const modal =
+        document.getElementById(
+            'experienceFormModal'
+        );
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove('active');
+
+    modal.setAttribute(
+        'aria-hidden',
+        'true'
+    );
+
+    document.body.classList.remove(
+        'experience-modal-open'
+    );
+}
+
+
+/* =========================================================
+   BUKA DETAIL PENGALAMAN
+========================================================= */
+
+function bukaPengalaman(id) {
+
+    const pengalaman =
+        dataPengalamanMagang.find(
+            function(item) {
+
+                return Number(item.id) === Number(id);
+
+            }
+        );
+
+    if (!pengalaman) {
+
+        console.error(
+            'Data pengalaman dengan ID ' +
+            id +
+            ' tidak ditemukan.'
+        );
+
+        return;
+    }
+
+
+    const photo =
+        document.getElementById(
+            'experienceDetailPhoto'
+        );
+
+    const name =
+        document.getElementById(
+            'experienceDetailName'
+        );
+
+    const institution =
+        document.getElementById(
+            'experienceDetailInstitution'
+        );
+
+    const review =
+        document.getElementById(
+            'experienceDetailReview'
+        );
+
+
+    if (photo) {
+
+        photo.src =
+            '/storage/' + pengalaman.photo;
+
+        photo.alt =
+            'Foto ' + pengalaman.name;
+    }
+
+
+    if (name) {
+
+        name.textContent =
+            pengalaman.name;
+    }
+
+
+    if (institution) {
+
+        institution.textContent =
+            pengalaman.institution;
+    }
+
+
+    if (review) {
+
+        review.textContent =
+            pengalaman.review;
+    }
+
+
+    const modal =
+        document.getElementById(
+            'experienceDetailModal'
+        );
+
+    if (!modal) {
+
+        console.error(
+            'experienceDetailModal tidak ditemukan.'
+        );
+
+        return;
+    }
+
+
+    modal.classList.add('active');
+
+    modal.setAttribute(
+        'aria-hidden',
+        'false'
+    );
+
+    document.body.classList.add(
+        'experience-modal-open'
+    );
+}
+
+
+/* =========================================================
+   TUTUP DETAIL PENGALAMAN
+========================================================= */
+
+function tutupPengalaman() {
+
+    const modal =
+        document.getElementById(
+            'experienceDetailModal'
+        );
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove('active');
+
+    modal.setAttribute(
+        'aria-hidden',
+        'true'
+    );
+
+    document.body.classList.remove(
+        'experience-modal-open'
+    );
+}
+
+
+/* =========================================================
+   TUTUP MODAL DENGAN ESCAPE
+========================================================= */
+
+document.addEventListener(
+    'keydown',
+    function(event) {
+
+        if (event.key !== 'Escape') {
+            return;
+        }
+
+        tutupFormPengalaman();
+
+        tutupPengalaman();
+    }
+);
 
 </script>
 

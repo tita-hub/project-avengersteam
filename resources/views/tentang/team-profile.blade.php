@@ -252,7 +252,7 @@
 
             <div class="video-box">
                 <video controls preload="metadata" playsinline>
-                    <source src="{{ asset('videos/avengers-team.mp4') }}" type="video/mp4">
+                    <source src="{{ asset('videos/1.mp4') }}" type="video/mp4">
 
                     Browser Anda tidak mendukung pemutaran video.
                 </video>
