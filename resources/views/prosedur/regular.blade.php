@@ -1864,6 +1864,84 @@
 
 }
 
+
+/* ============================================================
+   PROCEDURE REFINEMENT — BANK HORIZONTAL + LOGO LEGALITAS
+   ============================================================ */
+.regular-bank-grid {
+    display: flex !important;
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 4px 14px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: #cfd5da transparent;
+}
+.regular-bank-grid::-webkit-scrollbar { height: 6px; }
+.regular-bank-grid::-webkit-scrollbar-track { background: transparent; }
+.regular-bank-grid::-webkit-scrollbar-thumb { background: #cfd5da; border-radius: 99px; }
+.regular-bank-card {
+    flex: 0 0 285px;
+    width: 285px;
+    min-width: 285px;
+    scroll-snap-align: start;
+}
+.regular-bank-icon {
+    width: 100%;
+    height: 86px;
+    margin-bottom: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+.regular-bank-icon img {
+    display: block;
+    width: auto;
+    max-width: 150px;
+    height: 54px;
+    object-fit: contain;
+}
+.regular-legal-icon {
+    padding: 8px;
+    box-sizing: border-box;
+    background: #fafbfc;
+}
+.regular-legal-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+@media (max-width: 600px) {
+    .regular-bank-card {
+        flex-basis: 250px;
+        width: 250px;
+        min-width: 250px;
+    }
+}
+
+
+@keyframes procedureCheckSoft {
+    0% { opacity: .35; transform: scale(.92); }
+    65% { opacity: 1; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .regular-document-item::before,
+    .online-document-item::before,
+    .step-item-icon,
+    .check-item::before { animation: none !important; }
+}
+
+/* Professional check animation */
+.regular-document-item::before { animation: procedureCheckSoft .55s ease-out both; }
+.regular-document-item:hover { transform: translateY(-1px); }
 </style>
 
 
@@ -2163,258 +2241,474 @@
 
 
 
+  {{-- =====================================================
+     REKENING TERPISAH
+====================================================== --}}
+
+<style>
+    /* ============================================================
+       BANK HORIZONTAL
+       ============================================================ */
+
+    .regular-bank-grid {
+        display: flex !important;
+
+        gap: 18px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        padding: 4px 4px 14px;
+
+        scroll-snap-type: x proximity;
+
+        scrollbar-width: thin;
+        scrollbar-color: #cfd5da transparent;
+    }
+
+    .regular-bank-grid::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .regular-bank-grid::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .regular-bank-grid::-webkit-scrollbar-thumb {
+        background: #cfd5da;
+        border-radius: 99px;
+    }
+
+
+    /* ============================================================
+       BANK CARD
+       ============================================================ */
+
+    .regular-bank-card {
+        flex: 0 0 285px;
+
+        width: 285px;
+        min-width: 285px;
+
+        position: relative;
+
+        padding: 25px;
+
+        box-sizing: border-box;
+
+        background:
+            linear-gradient(
+                145deg,
+                #ffffff,
+                #fcfcfd
+            );
+
+        border: 1px solid var(--border);
+
+        border-radius: 17px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 8px 25px rgba(39,49,59,.045);
+
+        scroll-snap-align: start;
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+        transition:
+            opacity .65s cubic-bezier(.22,1,.36,1),
+            transform .65s cubic-bezier(.22,1,.36,1),
+            box-shadow .3s ease,
+            border-color .3s ease;
+    }
+
+
+    .regular-bank-section.show .regular-bank-card {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    .regular-bank-section.show
+    .regular-bank-card:nth-child(1) {
+        transition-delay: .05s;
+    }
+
+    .regular-bank-section.show
+    .regular-bank-card:nth-child(2) {
+        transition-delay: .12s;
+    }
+
+    .regular-bank-section.show
+    .regular-bank-card:nth-child(3) {
+        transition-delay: .19s;
+    }
+
+    .regular-bank-section.show
+    .regular-bank-card:nth-child(4) {
+        transition-delay: .26s;
+    }
+
+    .regular-bank-section.show
+    .regular-bank-card:nth-child(5) {
+        transition-delay: .33s;
+    }
+
+
+    /* ============================================================
+       GARIS ATAS
+       ============================================================ */
+
+    .regular-bank-card::before {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        height: 3px;
+
+        background: var(--red);
+
+        transform: scaleX(.12);
+
+        transform-origin: left;
+
+        transition: transform .35s ease;
+    }
+
+    .regular-bank-card:hover::before {
+        transform: scaleX(1);
+    }
+
+
+    .regular-bank-card:hover {
+        transform: translateY(-5px) !important;
+
+        border-color: var(--red-border);
+
+        box-shadow:
+            0 16px 34px rgba(39,49,59,.08);
+    }
+
+
+    /* ============================================================
+       FOTO / LOGO BANK
+       ============================================================ */
+
+    .regular-bank-icon {
+        width: 100%;
+        height: 86px;
+
+        margin-bottom: 17px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 10px 14px;
+
+        box-sizing: border-box;
+
+        background: #ffffff;
+
+        border: 1px solid var(--border);
+
+        border-radius: 13px;
+
+        transition:
+            border-color .3s ease,
+            box-shadow .3s ease;
+    }
+
+
+    .regular-bank-icon img {
+        display: block;
+
+        width: auto;
+
+        max-width: 150px;
+
+        height: 54px;
+
+        object-fit: contain;
+    }
+
+
+    .regular-bank-card:hover .regular-bank-icon {
+        border-color: var(--red-border);
+
+        box-shadow:
+            0 5px 15px rgba(39,49,59,.05);
+    }
+
+
+    /* ============================================================
+       NAMA BANK
+       ============================================================ */
+
+    .regular-bank-name {
+        color: var(--text);
+
+        font-size: 17px;
+
+        font-weight: 850;
+
+        margin-bottom: 4px;
+    }
+
+
+    /* ============================================================
+       CABANG
+       ============================================================ */
+
+    .regular-bank-branch {
+        color: var(--muted);
+
+        font-size: 12px;
+
+        line-height: 1.6;
+
+        margin-bottom: 0;
+    }
+
+
+    /* ============================================================
+       NOMOR REKENING DISEMBUNYIKAN
+       ============================================================ */
+
+    .regular-account-row,
+    .regular-currency,
+    .regular-account-number {
+        display: none !important;
+    }
+
+
+    /* ============================================================
+       MOBILE
+       ============================================================ */
+
+    @media (max-width: 600px) {
+
+        .regular-bank-card {
+            flex-basis: 250px;
+
+            width: 250px;
+
+            min-width: 250px;
+        }
+
+
+        .regular-bank-icon {
+            height: 80px;
+        }
+
+
+        .regular-bank-icon img {
+            max-width: 135px;
+
+            height: 48px;
+        }
+
+    }
+
+
+    /* ============================================================
+       REDUCED MOTION
+       ============================================================ */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .regular-bank-card {
+            transition: none !important;
+
+            opacity: 1 !important;
+
+            transform: none !important;
+        }
+
+    }
+</style>
+
+
+<div class="regular-bank-section">
+
     {{-- =====================================================
-         REKENING TERPISAH
+         JUDUL
     ====================================================== --}}
 
-    <div class="regular-bank-section">
+    <div class="regular-section-title">
 
+        <div class="regular-title-row">
 
-        <div class="regular-section-title">
-
-            <div class="regular-title-row">
-
-                <div class="regular-title-icon">
-                    $
-                </div>
-
-                <h2>
-                    Rekening Terpisah
-                </h2>
-
+            <div class="regular-title-icon">
+                $
             </div>
 
-            <p>
-                Rekening tujuan untuk melakukan transfer dana.
-            </p>
+            <h2>
+                Rekening Terpisah
+            </h2>
 
         </div>
 
-
-
-        <div class="regular-bank-grid">
-
-
-            {{-- BCA --}}
-
-            <div class="regular-bank-card">
-
-                <div class="regular-bank-icon">
-                    B
-                </div>
-
-                <div class="regular-bank-name">
-                    Bank BCA
-                </div>
-
-                <div class="regular-bank-branch">
-                    Cabang Sudirman, Jakarta
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        IDR
-                    </span>
-
-                    <span class="regular-account-number">
-                        035 – 311 – 8975
-                    </span>
-
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        USD
-                    </span>
-
-                    <span class="regular-account-number">
-                        035 – 311 – 7600
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            {{-- CIMB --}}
-
-            <div class="regular-bank-card">
-
-                <div class="regular-bank-icon">
-                    C
-                </div>
-
-                <div class="regular-bank-name">
-                    Bank CIMB Niaga
-                </div>
-
-                <div class="regular-bank-branch">
-                    Cabang Gajahmada, Jakarta
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        IDR
-                    </span>
-
-                    <span class="regular-account-number">
-                        800 – 12 – 97271 – 00
-                    </span>
-
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        USD
-                    </span>
-
-                    <span class="regular-account-number">
-                        800 – 01 – 20945 – 40
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            {{-- BNI --}}
-
-            <div class="regular-bank-card">
-
-                <div class="regular-bank-icon">
-                    N
-                </div>
-
-                <div class="regular-bank-name">
-                    BNI Bank
-                </div>
-
-                <div class="regular-bank-branch">
-                    Gambir Branch, Jakarta
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        IDR
-                    </span>
-
-                    <span class="regular-account-number">
-                        017 – 5008 – 590
-                    </span>
-
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        USD
-                    </span>
-
-                    <span class="regular-account-number">
-                        017 – 5020 – 200
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            {{-- MANDIRI --}}
-
-            <div class="regular-bank-card">
-
-                <div class="regular-bank-icon">
-                    M
-                </div>
-
-                <div class="regular-bank-name">
-                    Bank Mandiri
-                </div>
-
-                <div class="regular-bank-branch">
-                    Cabang Imam Bonjol, Jakarta
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        IDR
-                    </span>
-
-                    <span class="regular-account-number">
-                        122 - 000 - 664 - 2881
-                    </span>
-
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        USD
-                    </span>
-
-                    <span class="regular-account-number">
-                        122 - 000 - 664 - 2873
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            {{-- ARTHA GRAHA --}}
-
-            <div class="regular-bank-card">
-
-                <div class="regular-bank-icon">
-                    A
-                </div>
-
-                <div class="regular-bank-name">
-                    Bank Artha Graha
-                </div>
-
-                <div class="regular-bank-branch">
-                    Cabang KPO Sudirman, Jakarta
-                </div>
-
-
-                <div class="regular-account-row">
-
-                    <span class="regular-currency">
-                        IDR
-                    </span>
-
-                    <span class="regular-account-number">
-                        107 - 996 - 3271
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
+        <p>
+            Rekening tujuan untuk melakukan transfer dana.
+        </p>
 
     </div>
 
+
+    {{-- =====================================================
+         BANK HORIZONTAL
+    ====================================================== --}}
+
+    <div class="regular-bank-grid">
+
+
+        {{-- =================================================
+             BCA
+        ================================================== --}}
+
+        <div class="regular-bank-card">
+
+            <div class="regular-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/bca.png') }}"
+                    alt="Bank BCA"
+                >
+
+            </div>
+
+            <div class="regular-bank-name">
+                Bank BCA
+            </div>
+
+            <div class="regular-bank-branch">
+                Cabang Sudirman, Jakarta
+            </div>
+
+        </div>
+
+
+
+        {{-- =================================================
+             CIMB NIAGA
+        ================================================== --}}
+
+        <div class="regular-bank-card">
+
+            <div class="regular-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/cimb-niaga.png') }}"
+                    alt="Bank CIMB Niaga"
+                >
+
+            </div>
+
+            <div class="regular-bank-name">
+                Bank CIMB Niaga
+            </div>
+
+            <div class="regular-bank-branch">
+                Cabang Gajahmada, Jakarta
+            </div>
+
+        </div>
+
+
+
+        {{-- =================================================
+             BNI
+        ================================================== --}}
+
+        <div class="regular-bank-card">
+
+            <div class="regular-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/bni.png') }}"
+                    alt="Bank BNI"
+                >
+
+            </div>
+
+            <div class="regular-bank-name">
+                BNI Bank
+            </div>
+
+            <div class="regular-bank-branch">
+                Gambir Branch, Jakarta
+            </div>
+
+        </div>
+
+
+
+        {{-- =================================================
+             MANDIRI
+        ================================================== --}}
+
+        <div class="regular-bank-card">
+
+            <div class="regular-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/mandiri.png') }}"
+                    alt="Bank Mandiri"
+                >
+
+            </div>
+
+            <div class="regular-bank-name">
+                Bank Mandiri
+            </div>
+
+            <div class="regular-bank-branch">
+                Cabang Imam Bonjol, Jakarta
+            </div>
+
+        </div>
+
+
+
+        {{-- =================================================
+             ARTHA GRAHA
+        ================================================== --}}
+
+        <div class="regular-bank-card">
+
+            <div class="regular-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/artha-graha.png') }}"
+                    alt="Bank Artha Graha"
+                >
+
+            </div>
+
+            <div class="regular-bank-name">
+                Bank Artha Graha
+            </div>
+
+            <div class="regular-bank-branch">
+                Cabang KPO Sudirman, Jakarta
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
 
 
     {{-- =====================================================
@@ -2457,7 +2751,7 @@
             >
 
                 <div class="regular-legal-icon">
-                    B
+                    <img src="{{ asset('images/legalitas/bappebti.png') }}" alt="BAPPEBTI">
                 </div>
 
                 <h3>
@@ -2480,7 +2774,7 @@
             >
 
                 <div class="regular-legal-icon">
-                    J
+                    <img src="{{ asset('images/legalitas/jfx.png') }}" alt="JFX">
                 </div>
 
                 <h3>
@@ -2503,7 +2797,7 @@
             >
 
                 <div class="regular-legal-icon">
-                    K
+                    <img src="{{ asset('images/legalitas/kbi.png') }}" alt="KBI">
                 </div>
 
                 <h3>
@@ -2526,7 +2820,7 @@
             >
 
                 <div class="regular-legal-icon">
-                    A
+                    <img src="{{ asset('images/legalitas/aspebtindo.png') }}" alt="ASPEBTINDO">
                 </div>
 
                 <h3>

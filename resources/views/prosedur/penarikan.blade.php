@@ -233,27 +233,6 @@
     pointer-events: none;
 }
 
-.hero-dot {
-
-    position: absolute;
-
-    width: 9px;
-    height: 9px;
-
-    right: 180px;
-    top: 55px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    opacity: .18;
-
-    animation:
-        wdPulse 2.5s ease-in-out infinite;
-}
-
-
 /* HERO CONTENT */
 
 .withdrawal-hero-content {
@@ -343,32 +322,40 @@
     position: relative;
 }
 
-.withdrawal-hero h1 span::after {
+.withdrawal-hero h1 span {
+    color: var(--maroon);
+    position: relative;
+}
 
+.withdrawal-hero h1 span::after {
     content: "";
 
     position: absolute;
 
     left: 0;
-    right: 0;
-    bottom: -5px;
+    bottom: -4px;
 
+    width: 0;
     height: 2px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--maroon),
-            transparent
-        );
+    background: var(--maroon);
 
-    transform-origin: left;
+    border-radius: 5px;
 
-    animation:
-        wdLine .8s .7s ease both;
+    animation: titleUnderline .7s ease 1.15s forwards;
 }
 
+@keyframes titleUnderline {
 
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+
+}
 /* DESCRIPTION */
 
 .withdrawal-hero-description {
@@ -439,10 +426,13 @@
 
     font-size: 10px;
 
-    animation:
-        wdPulse 2.5s infinite;
-}
+    /* Centang dibuat statis */
+    animation: none !important;
 
+    transform: none !important;
+
+    transition: none !important;
+}
 
 /* ============================================================
    IMPORTANT INFO
@@ -1022,27 +1012,13 @@
 
     font-weight: 900;
 
-    transition: .25s ease;
+    /* Tidak ada animasi */
+    animation: none !important;
+
+    transform: none !important;
+
+    transition: none !important;
 }
-
-.step-item:hover {
-
-    transform: translateY(-3px);
-
-    background: var(--green-soft);
-
-    border-color: var(--green-line);
-}
-
-.step-item:hover .step-item-icon {
-
-    background: var(--green);
-
-    color: white;
-
-    transform: rotate(8deg);
-}
-
 
 /* ============================================================
    MONEY FLOW VISUAL
@@ -1808,6 +1784,27 @@
 
 }
 
+
+@keyframes procedureCheckSoft {
+    0% { opacity: .35; transform: scale(.92); }
+    65% { opacity: 1; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .regular-document-item::before,
+    .online-document-item::before,
+    .step-item-icon,
+    .check-item::before { animation: none !important; }
+}
+
+/* Professional check animation */
+.step-item-icon { animation: procedureCheckSoft .55s ease-out both; }
+.step-item:hover { transform: translateY(-1px); }
+.step-item:hover .step-item-icon { transform: none; }
+
+/* Legalitas logo image */
+.legal-icon { padding: 7px; box-sizing: border-box; background:#fafbfc; }
+.legal-icon img { display:block; width:100%; height:100%; object-fit:contain; }
 </style>
 
 
@@ -2319,7 +2316,7 @@
                 </div>
 
                 <div class="legal-icon">
-                    B
+                    <img src="{{ asset('images/legalitas/bappebti.png') }}" alt="BAPPEBTI">
                 </div>
 
                 <h3>
@@ -2348,7 +2345,7 @@
                 </div>
 
                 <div class="legal-icon">
-                    J
+                    <img src="{{ asset('images/legalitas/jfx.png') }}" alt="JFX">
                 </div>
 
                 <h3>
@@ -2377,7 +2374,7 @@
                 </div>
 
                 <div class="legal-icon">
-                    K
+                    <img src="{{ asset('images/legalitas/kbi.png') }}" alt="KBI">
                 </div>
 
                 <h3>
@@ -2406,7 +2403,7 @@
                 </div>
 
                 <div class="legal-icon">
-                    A
+                    <img src="{{ asset('images/legalitas/aspebtindo.png') }}" alt="ASPEBTINDO">
                 </div>
 
                 <h3>

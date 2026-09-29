@@ -23,13 +23,11 @@
         --muted: #6f7672;
         --line: #e2e7e4;
         --white: #fff;
-        --bg: #f7f9f8;
 
         color: var(--text);
-        background: var(--bg);
+        background: transparent;
         padding-bottom: 80px;
     }
-
     .edu-page *,
     .edu-page *::before,
     .edu-page *::after {
@@ -68,81 +66,163 @@
     }
 
 
+    /* ============================================================
+    CONTAINER
+    STYLE MENGIKUTI EDUKASI NASABAH
+    ============================================================ */
+
     .edu-container {
-        width: min(1180px, calc(100% - 40px));
-        margin: auto;
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+    /* ============================================================
+    HERO
+    STYLE MENGIKUTI EDUKASI NASABAH
+    ============================================================ */
 
     .edu-hero {
         position: relative;
         overflow: hidden;
-        padding: 80px 0;
+
+        width: 100%;
+        min-height: 213px;
+
+        padding: 28px 54px;
+
+        border-radius: 25px;
+
+        display: flex;
+        align-items: center;
+
         color: #fff;
+
         background:
             linear-gradient(
                 120deg,
-                rgba(18, 79, 57, .98),
-                rgba(23, 107, 77, .94)
+                #124f39 0%,
+                #176b4d 60%,
+                #23805d 100%
             );
+
+        box-shadow:
+            0 9px 22px rgba(23, 107, 77, .11);
+
+        margin-bottom: 31px;
     }
+
+
+    /* Lingkaran dekorasi kanan */
+
+    .edu-hero::before {
+        content: "";
+
+        position: absolute;
+
+        width: 180px;
+        height: 180px;
+
+        border: 34px solid rgba(255,255,255,.055);
+
+        border-radius: 50%;
+
+        right: -50px;
+        top: -75px;
+    }
+
+
+    /* Lingkaran merah */
 
     .edu-hero::after {
         content: "";
+
         position: absolute;
-        width: 390px;
-        height: 390px;
-        right: -150px;
-        top: -170px;
+
+        width: 110px;
+        height: 110px;
+
+        border: 21px solid rgba(141,38,52,.16);
+
         border-radius: 50%;
-        border: 70px solid rgba(255,255,255,.05);
+
+        right: 120px;
+        bottom: -72px;
     }
+
+
+    /* ============================================================
+    ISI HERO
+    ============================================================ */
 
     .edu-hero-content {
         position: relative;
         z-index: 2;
-        max-width: 760px;
+
+        max-width: 900px;
     }
+
+
+    /* Label kecil */
 
     .edu-eyebrow {
         display: inline-flex;
+
         align-items: center;
-        gap: 9px;
-        margin-bottom: 18px;
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 1.7px;
+
+        padding: 5px 11px;
+
+        margin-bottom: 9px;
+
+        border-radius: 50px;
+
+        background: rgba(255,255,255,.12);
+
+        border: 1px solid rgba(255,255,255,.17);
+
+        color: #fff;
+
+        font-size: 10px;
+        font-weight: 700;
+
+        letter-spacing: .4px;
         text-transform: uppercase;
-        color: #d8eee3;
     }
 
-    .edu-eyebrow::before {
-        content: "";
-        width: 30px;
-        height: 2px;
-        background: #fff;
-    }
+
+    /* Judul */
 
     .edu-hero h1 {
-        margin: 0 0 18px;
-        font-size: clamp(38px, 5vw, 62px);
-        line-height: 1.05;
+        margin: 0 0 7px;
+
+        color: #fff;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        font-size: 42px;
+
+        line-height: 1.1;
+
         font-weight: 800;
-        letter-spacing: -1.5px;
+
+        letter-spacing: -.7px;
     }
+
+
+    /* Deskripsi */
 
     .edu-hero p {
-        max-width: 690px;
-        margin: 0;
-        color: rgba(255,255,255,.84);
-        font-size: 17px;
-        line-height: 1.8;
-    }
+        max-width: 900px;
 
+        margin: 0;
+
+        color: rgba(255,255,255,.84);
+
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
 
     /* =========================================================
        INTRO
@@ -950,6 +1030,109 @@
     }
 
 
+    /* ============================================================
+    INTRO KEGIATAN SOSIAL
+    ============================================================ */
+
+    .kegiatan-intro {
+        width: 100%;
+        max-width: 850px;
+        margin: 0 auto 45px;
+        padding: 5px 20px 0;
+        text-align: center;
+    }
+
+    .kegiatan-intro-label {
+        margin-bottom: 13px;
+
+        color: #c62828;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        letter-spacing: 2.5px;
+    }
+
+    .kegiatan-intro-title {
+        margin: 0;
+
+        color: #222;
+
+        font-size: 36px;
+        font-weight: 700;
+
+        line-height: 1.3;
+    }
+
+    .kegiatan-intro-description {
+        max-width: 680px;
+
+        margin: 18px auto 0;
+
+        color: #666;
+
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    /* GARIS */
+
+    .kegiatan-intro-line {
+        width: 55px;
+        height: 3px;
+
+        margin: 30px auto;
+
+        background: #c62828;
+    }
+
+
+    /* HIGHLIGHT */
+
+    .kegiatan-intro-highlight {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    /* LABEL KEGIATAN TERBARU */
+
+    .kegiatan-intro-highlight-label {
+        margin-bottom: 8px;
+
+        color: #777;
+
+        font-size: 11px;
+        font-weight: 700;
+
+        letter-spacing: 1.8px;
+    }
+
+
+    /* NAMA KEGIATAN */
+
+    .kegiatan-intro-highlight h3 {
+        margin: 0;
+
+        color: #222;
+
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+
+    /* TANGGAL */
+
+    .kegiatan-intro-highlight p {
+        margin: 7px 0 0;
+
+        color: #888;
+
+        font-size: 13px;
+    }
+
+
     /* =========================================================
        TEORI
     ========================================================= */
@@ -1158,7 +1341,7 @@
 
 
                     <h3>
-                        Kegiatan
+                        Kegiatan Sosial
                     </h3>
 
                     <p>
@@ -1650,39 +1833,6 @@
 
 
                 {{-- =================================================
-                    TOMBOL BAGIKAN PENGALAMAN
-                ================================================== --}}
-
-                <div class="experience-submit-box">
-
-                    <div>
-
-                        <strong>
-                            Pernah mengikuti program magang?
-                        </strong>
-
-                        <p>
-                            Bagikan pengalamanmu dan bantu mahasiswa
-                            lainnya mendapatkan gambaran tentang kegiatan magang.
-                        </p>
-
-                    </div>
-
-                    <button
-                        type="button"
-                        class="experience-submit-button"
-                        onclick="bukaFormPengalaman()"
-                    >
-                        <i class="bi bi-pencil-square"></i>
-                        Bagikan Pengalaman
-                    </button>
-
-                </div>
-
-
-
-
-                {{-- =================================================
                     EXPERIENCE SLIDER
                 ================================================== --}}
 
@@ -1948,12 +2098,7 @@
                                 placeholder="Ceritakan pengalaman kamu selama mengikuti magang..."
                                 required
                             >{{ old('review') }}</textarea>
-
-                            <small>
-                                Ulasan akan diperiksa terlebih dahulu secara otomatis
-                                sebelum ditampilkan di website.
-                            </small>
-
+         
                         </div>
 
 
@@ -2149,24 +2294,40 @@
 
 
             {{-- CTA --}}
-            <div class="magang-cta">
+            <div class="magang-cta-content">
 
-                <h3>
-                    Siap Memulai Langkahmu?
-                </h3>
+            <span class="magang-cta-label">
+                PENDAFTARAN MAGANG
+            </span>
 
-                <p>
-                    Kenali lebih jauh pengalaman belajar dan dunia kerja
-                    melalui program edukasi dan magang.
-                </p>
+            <h2>
+                Tertarik Mengikuti Program Magang?
+            </h2>
 
-                <button
-                    type="button"
-                    class="magang-cta-button"
-                    onclick="scrollKeJurusan()"
+            <p>
+                Hubungi kami untuk mendapatkan informasi mengenai
+                pendaftaran dan pelaksanaan program magang.
+            </p>
+
+            <div class="magang-cta-buttons">
+
+                <a
+                    href="https://wa.me/082262226238"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="magang-cta-btn whatsapp"
                 >
-                    Lihat Jurusan
-                </button>
+                    <i class="bi bi-whatsapp"></i>
+                    WhatsApp
+                </a>
+
+                <a
+                    href="mailto:inititaa23@gmail.com"
+                    class="magang-cta-btn email"
+                >
+                    <i class="bi bi-envelope"></i>
+                    Email
+                </a>
 
             </div>
 
@@ -2201,16 +2362,15 @@
 ============================================================ */
 
 .kegiatan-list {
-    width: 100%;
+    display: grid;
 
-    display: flex;
-    flex-direction: column;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-    align-items: flex-start;
+    gap: 22px;
 
-    gap: 25px;
+    align-items: start;
 }
-
 
 /* ============================================================
    CARD
@@ -2218,34 +2378,33 @@
 
 .kegiatan-card {
     width: 100%;
-    max-width: 520px;
 
-    background: #ffffff;
-
-    border: 1px solid #e5e5e5;
-
-    border-radius: 5px;
+    max-width: none;
 
     overflow: hidden;
 
-    box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.06);
+    background: #fff;
+
+    border: 1px solid #e4e9e5;
+
+    border-radius: 21px;
+
+    box-shadow: none;
 
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
 }
 
 .kegiatan-card:hover {
     transform: translateY(-4px);
 
-    border-color: #c62828;
+    border-color: rgba(23,107,77,.25);
 
     box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.10);
+        0 12px 28px rgba(23,107,77,.10);
 }
-
 
 /* ============================================================
    GAMBAR CARD
@@ -2253,11 +2412,12 @@
 
 .kegiatan-image {
     width: 100%;
-    height: 250px;
 
-    overflow: hidden;
+    height: 180px;
 
-    background: #f3f3f3;
+    object-fit: cover;
+
+    display: block;
 }
 
 .kegiatan-image img {
@@ -2487,21 +2647,21 @@
 ============================================================ */
 
 .kegiatan-detail-content {
-    width: min(100%, 920px);
+    width: 100%;
 
-    max-width: 920px;
+    max-width: 900px;
+
     margin: 0 auto;
 
-    background: #ffffff;
+    background: transparent;
 
-    border: 1px solid #e5e5e5;
+    border: 0;
 
-    border-radius: 5px;
+    border-radius: 0;
 
-    overflow: hidden;
+    box-shadow: none;
 
-    box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.06);
+    padding: 0;
 }
 
 
@@ -2510,26 +2670,25 @@
 ============================================================ */
 
 .kegiatan-detail-video {
-    position: relative;
+    width: 100%;
+
+    margin-bottom: 28px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+.kegiatan-detail-video iframe {
+    display: block;
 
     width: 100%;
 
     aspect-ratio: 16 / 9;
 
-    overflow: hidden;
-
-    background: #111;
+    border: 0;
 }
-
-.kegiatan-detail-video iframe {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    border: none;
-}
-
 
 /* ============================================================
    FOTO UTAMA DETAIL
@@ -2560,8 +2719,11 @@
 ============================================================ */
 
 .kegiatan-detail-body {
-    padding: 32px 38px 38px;
-    text-align: left;
+    width: 100%;
+
+    background: transparent;
+
+    padding: 0;
 }
 
 .kegiatan-detail-info {
@@ -2749,6 +2911,23 @@
 
 @media (max-width: 700px) {
 
+    .kegiatan-intro {
+        margin-bottom: 35px;
+        padding: 5px 15px 0;
+    }
+
+    .kegiatan-intro-title {
+        font-size: 28px;
+    }
+
+    .kegiatan-intro-description {
+        font-size: 14px;
+    }
+
+    .kegiatan-intro-highlight h3 {
+        font-size: 20px;
+    }
+
     .kegiatan-detail-content {
         width: 100%;
     }
@@ -2849,10 +3028,7 @@
 
         </button>
 
-
-
         <div class="kegiatan-wrapper">
-
 
             {{-- ==================================================
                  TAMPILAN AWAL
@@ -2863,16 +3039,41 @@
                 class="kegiatan-list-page"
             >
 
+                {{-- ============================================================
+                    INTRO KEGIATAN SOSIAL
+                ============================================================ --}}
+
+                <div
+                    class="kegiatan-intro"
+                    id="kegiatanIntro"
+                >
+
+                    <div class="kegiatan-intro-label">
+                        KEGIATAN SOSIAL
+                    </div>
+
+                    <h2 class="kegiatan-intro-title">
+                        Momen, Kebersamaan, dan Kepedulian
+                    </h2>
+
+                    <p class="kegiatan-intro-description">
+                        Setiap kegiatan menjadi bagian dari perjalanan
+                        Avengers Team dalam membangun kebersamaan,
+                        kepedulian, dan kontribusi bersama.
+                    </p>
+
+                </div>
+
+
+                {{-- =================================================
+                    CARD VIDEO
+                ================================================== --}}
 
                 <div class="kegiatan-list">
 
-
-                    {{-- =================================================
-                         CARD VIDEO
-                    ================================================== --}}
-
                     <div class="kegiatan-card">
 
+                        {{-- SEMUA ISI CARD KAMU TETAP DI SINI --}}
 
                         <div class="kegiatan-image">
 
@@ -2883,97 +3084,64 @@
 
                         </div>
 
-
                         <div class="kegiatan-body">
 
-
-                            <div class="kegiatan-type">
-
-                                <i class="bi bi-play-circle-fill"></i>
-
-                                <span>
-                                    Video
-                                </span>
-
-                            </div>
-
-
                             <h3 class="kegiatan-title">
-
                                 Baby Home Semarang
-
                             </h3>
 
-
                             <p class="kegiatan-description">
-
                                 Dokumentasi kegiatan Avengers Team
                                 bersama Baby Home Semarang di Gayamsari.
-
                             </p>
-
 
                             <div class="kegiatan-info">
 
                                 <div class="kegiatan-info-item">
-
                                     <i class="bi bi-calendar-event"></i>
 
                                     <span>
                                         Jumat, 11 September 2026
                                     </span>
-
                                 </div>
 
-
                                 <div class="kegiatan-info-item">
-
                                     <i class="bi bi-clock"></i>
 
                                     <span>
                                         Pukul 14:00 WIB
                                     </span>
-
                                 </div>
 
-
                                 <div class="kegiatan-info-item">
-
                                     <i class="bi bi-geo-alt"></i>
 
                                     <span>
                                         Baby Home Semarang, Gayamsari
                                     </span>
-
                                 </div>
 
                             </div>
-
 
                             <button
                                 type="button"
                                 class="kegiatan-detail"
                                 onclick="bukaDetailKegiatan('video')"
                             >
-
                                 <span>
                                     Lihat Detail
                                 </span>
 
                                 <i class="bi bi-arrow-right"></i>
-
                             </button>
-
 
                         </div>
 
                     </div>
 
-
                 </div>
 
             </div>
-
 
 
             {{-- ====================================================
@@ -2984,21 +3152,6 @@
                 id="kegiatanVideoPage"
                 class="kegiatan-detail-page"
             >
-
-
-                <button
-                    type="button"
-                    class="kegiatan-back"
-                    onclick="kembaliKeKegiatan()"
-                >
-
-                    <i class="bi bi-arrow-left"></i>
-
-                    Kembali ke Kegiatan
-
-                </button>
-
-
 
                 <div class="kegiatan-detail-content">
 
@@ -3133,6 +3286,9 @@
 
 function bukaDetailKegiatan(jenis) {
 
+    const intro =
+    document.getElementById('kegiatanIntro');
+
     const listPage =
         document.getElementById('kegiatanListPage');
 
@@ -3177,6 +3333,9 @@ function bukaDetailKegiatan(jenis) {
 
 function kembaliKeKegiatan() {
 
+    const intro =
+    document.getElementById('kegiatanIntro');
+
     const listPage =
         document.getElementById('kegiatanListPage');
 
@@ -3186,6 +3345,8 @@ function kembaliKeKegiatan() {
     /* Tampilkan card */
 
     listPage.style.display = 'block';
+
+    intro.style.display = 'block';
 
 
     /* Sembunyikan detail */

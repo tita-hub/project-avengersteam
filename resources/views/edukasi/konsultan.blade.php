@@ -18,26 +18,26 @@
     }
 
     .edu-page {
+        font-family: Arial, Helvetica, sans-serif;
+
         --green: #176b4d;
         --green-dark: #124f39;
         --green-light: #23805d;
         --green-soft: #eaf5ef;
+
         --red: #8d2634;
+        --red-dark: #721d29;
         --red-soft: #faeeee;
-        --text: #202522;
-        --muted: #6d756f;
-        --line: #e4e9e5;
-        --bg: #f7f9f7;
 
-        padding: 28px 32px 50px;
-
-        background: var(--bg);
-
-        min-height: calc(100vh - 70px);
+        --text: #252525;
+        --muted: #6f7672;
+        --line: #e2e7e4;
+        --white: #fff;
 
         color: var(--text);
+        background: transparent;
+        padding-bottom: 80px;
     }
-
 
     /* =====================================================
        HERO

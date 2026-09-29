@@ -287,29 +287,26 @@
    ============================================================ */
 
 .edu-page {
+    font-family: Arial, Helvetica, sans-serif;
+
     --green: #176b4d;
-    --green-dark: #10533d;
+    --green-dark: #124f39;
+    --green-light: #23805d;
     --green-soft: #eaf5ef;
 
-    --red: #b52b2f;
+    --red: #8d2634;
+    --red-dark: #721d29;
     --red-soft: #faeeee;
 
-    --text: #202522;
-    --muted: #68716c;
-
-    --line: #e4e9e5;
-    --white: #ffffff;
-    --bg: #f7f9f7;
-
-    background: var(--bg);
-
-    min-height: 100vh;
-
-    padding: 44px 20px 70px;
+    --text: #252525;
+    --muted: #6f7672;
+    --line: #e2e7e4;
+    --white: #fff;
 
     color: var(--text);
+    background: transparent;
+    padding-bottom: 80px;
 }
-
 
 /* ============================================================
    CONTAINER
@@ -350,6 +347,7 @@
         );
 
     color: #ffffff;
+
 }
 
 .edu-hero::before {

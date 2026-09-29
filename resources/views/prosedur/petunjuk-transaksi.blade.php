@@ -689,12 +689,6 @@
         iconPop .7s cubic-bezier(.22,1,.36,1) .5s both;
 }
 
-.demo-info:hover .demo-icon {
-
-    animation:
-        iconBounce .55s ease;
-}
-
 .demo-info h3 {
 
     margin:
@@ -1325,139 +1319,65 @@
 }
 
 .check-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
 
-    display:
-        flex;
+    padding: 8px 12px;
 
-    align-items:
-        center;
+    background: #fafbfc;
 
-    gap:
-        7px;
+    border: 1px solid #e5e8ec;
 
-    padding:
-        8px 12px;
+    border-radius: 9px;
 
-    background:
-        #fafbfc;
+    color: #59636e;
 
-    border:
-        1px solid #e5e8ec;
+    font-size: 12px;
 
-    border-radius:
-        9px;
-
-    color:
-        #59636e;
-
-    font-size:
-        12px;
-
-    transition:
-        .35s cubic-bezier(.22,1,.36,1);
-
-    opacity:
-        0;
-
-    transform:
-        translateY(10px);
+    transition: .25s ease;
 }
 
-.transaction-step.show .check-item {
 
-    opacity:
-        1;
-
-    transform:
-        translateY(0);
-}
-
-.transaction-step.show .check-item:nth-child(1) {
-    transition-delay:
-        .35s;
-}
-
-.transaction-step.show .check-item:nth-child(2) {
-    transition-delay:
-        .45s;
-}
-
-.transaction-step.show .check-item:nth-child(3) {
-    transition-delay:
-        .55s;
-}
-
+/* Centang tetap, tanpa animasi */
 .check-item::before {
+    content: "✓";
 
-    content:
-        "✓";
+    width: 20px;
+    height: 20px;
 
-    width:
-        20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    height:
-        20px;
+    flex-shrink: 0;
 
-    display:
-        flex;
+    border-radius: 6px;
 
-    align-items:
-        center;
+    background: var(--green-soft);
+    color: var(--green);
 
-    justify-content:
-        center;
-
-    flex-shrink:
-        0;
-
-    border-radius:
-        6px;
-
-    background:
-        var(--green-soft);
-
-    color:
-        var(--green);
-
-    font-size:
-        11px;
-
-    font-weight:
-        900;
-
-    transition:
-        .3s ease;
+    font-size: 11px;
+    font-weight: 900;
 }
 
+
+/* Hover tidak mengubah centang menjadi hijau */
 .check-item:hover {
+    background: #fafbfc;
+    border-color: #e5e8ec;
 
-    background:
-        var(--green-soft);
+    transform: none;
 
-    border-color:
-        #d2e3da;
-
-    transform:
-        translateY(-3px)
-        scale(1.02);
-
-    box-shadow:
-        0 6px 15px rgba(47,107,87,.08);
+    box-shadow: none;
 }
 
 .check-item:hover::before {
+    background: var(--green-soft);
+    color: var(--green);
 
-    background:
-        var(--green);
-
-    color:
-        white;
-
-    transform:
-        rotate(8deg)
-        scale(1.1);
+    transform: none;
 }
-
 
 /* ============================================================
    TRADING PLATFORM
@@ -2303,47 +2223,6 @@
     }
 }
 
-@keyframes iconPop {
-
-    from {
-        opacity: 0;
-        transform:
-            scale(.5)
-            rotate(-15deg);
-    }
-
-    70% {
-        transform:
-            scale(1.12)
-            rotate(4deg);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            scale(1)
-            rotate(0);
-    }
-}
-
-@keyframes iconBounce {
-
-    0% {
-        transform:
-            translateY(0);
-    }
-
-    40% {
-        transform:
-            translateY(-6px)
-            rotate(-5deg);
-    }
-
-    100% {
-        transform:
-            translateY(0);
-    }
-}
 
 @keyframes numberRipple {
 
@@ -2567,6 +2446,26 @@
     }
 }
 
+
+@keyframes procedureCheckSoft {
+    0% { opacity: .35; transform: scale(.92); }
+    65% { opacity: 1; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .regular-document-item::before,
+    .online-document-item::before,
+    .step-item-icon,
+    .check-item::before { animation: none !important; }
+}
+
+/* Professional check animation */
+.check-item::before { animation: procedureCheckSoft .55s ease-out both; }
+.check-item:hover::before { transform: none; }
+
+/* Legalitas logo image */
+.transaction-legal-icon { padding:7px; box-sizing:border-box; background:#fafbfc; }
+.transaction-legal-icon img { display:block; width:100%; height:100%; object-fit:contain; }
 </style>
 
 
@@ -2787,7 +2686,7 @@
                     </small>
 
                     <a
-                        href="http://etrade.rifanberjangka.com/login.php"
+                        href="https://demo.rifanberjangka.com/login"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -2921,7 +2820,7 @@
             >
 
                 <div class="transaction-legal-icon">
-                    B
+                    <img src="{{ asset('images/legalitas/bappebti.png') }}" alt="BAPPEBTI">
                 </div>
 
                 <h3>
@@ -2946,7 +2845,7 @@
             >
 
                 <div class="transaction-legal-icon">
-                    J
+                    <img src="{{ asset('images/legalitas/jfx.png') }}" alt="JFX">
                 </div>
 
                 <h3>
@@ -2971,7 +2870,7 @@
             >
 
                 <div class="transaction-legal-icon">
-                    K
+                    <img src="{{ asset('images/legalitas/kbi.png') }}" alt="KBI">
                 </div>
 
                 <h3>
@@ -2996,7 +2895,7 @@
             >
 
                 <div class="transaction-legal-icon">
-                    A
+                    <img src="{{ asset('images/legalitas/aspebtindo.png') }}" alt="ASPEBTINDO">
                 </div>
 
                 <h3>

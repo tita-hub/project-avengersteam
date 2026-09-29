@@ -5,78 +5,87 @@
 <style>
 
 /* ============================================================
-   PROSEDUR PEMBUKAAN AKUN ONLINE
-   THEME : CORPORATE RED + MUTED GREEN + WHITE
+   ONLINE PAGE
    ============================================================ */
 
 .online-page {
-    --red: #9f1d27;
-    --red-dark: #831820;
-    --red-soft: #faf0f1;
 
-    --green: #39785a;
-    --green-soft: #f1f7f3;
+    --red: #8b2532;
+    --red-dark: #701c28;
+    --red-light: #f8eef0;
+    --red-border: #ead4d8;
 
-    --text: #20272e;
-    --text-soft: #66717b;
-    --text-light: #89929a;
+    --green: #2f6b57;
+    --green-light: #edf5f1;
 
-    --border: #e4e8e6;
-    --border-soft: #edf0ee;
+    --text: #27313b;
+    --text-soft: #68727d;
+    --muted: #8a929c;
 
-    --bg: #f7f8f7;
+    --border: #e4e7eb;
     --white: #ffffff;
 
+    width: 100%;
     min-height: 100vh;
 
-    padding: 34px 45px 70px;
+    padding: 30px 40px 70px;
 
     box-sizing: border-box;
 
     background:
         radial-gradient(
-            circle at 92% 5%,
-            rgba(159, 29, 39, .035),
-            transparent 25%
+            circle at 90% 5%,
+            rgba(139,37,50,.035),
+            transparent 300px
         ),
-        radial-gradient(
-            circle at 5% 75%,
-            rgba(57, 120, 90, .025),
-            transparent 25%
-        ),
-        var(--bg);
+        linear-gradient(
+            180deg,
+            #fcfcfd 0%,
+            #f6f7f9 100%
+        );
 
-    overflow: hidden;
+    color: var(--text);
 }
 
 
 /* ============================================================
-   KEMBALI
+   BACK BUTTON
    ============================================================ */
 
 .online-back {
-    max-width: 1050px;
 
-    margin: 0 auto 18px;
+    width: 100%;
+    max-width: 1210px;
+
+    margin: 0 auto 20px;
 
     opacity: 0;
 
+    transform:
+        translateY(-12px);
+
     animation:
-        onlineBackReveal .55s ease .05s forwards;
+        backEnter
+        .7s
+        cubic-bezier(.22,1,.36,1)
+        .05s
+        forwards;
 }
 
+
 .online-back a {
+
     display: inline-flex;
 
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
-    color: var(--text-soft);
+    color: var(--text);
 
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 14px;
 
     font-weight: 700;
 
@@ -85,16 +94,20 @@
         transform .25s ease;
 }
 
+
 .online-back a:hover {
+
     color: var(--red);
 
     transform:
-        translateX(-4px);
+        translateX(-3px);
 }
 
-.online-back .arrow {
-    width: 33px;
-    height: 33px;
+
+.online-arrow {
+
+    width: 35px;
+    height: 35px;
 
     display: flex;
 
@@ -103,7 +116,7 @@
 
     border-radius: 10px;
 
-    background: var(--white);
+    background: #fff;
 
     border: 1px solid var(--border);
 
@@ -112,21 +125,26 @@
     font-size: 17px;
 
     box-shadow:
-        0 4px 14px rgba(31, 41, 51, .045);
+        0 6px 18px rgba(39,49,59,.06);
 
     transition:
-        .25s ease;
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
 }
 
-.online-back a:hover .arrow {
-    border-color:
-        rgba(159, 29, 39, .25);
 
-    background:
-        var(--red-soft);
+.online-back a:hover .online-arrow {
 
-    transform:
-        translateX(-2px);
+    background: var(--red) !important;
+
+    border-color: var(--red) !important;
+
+    color: #fff !important;
+
+    box-shadow:
+        0 8px 20px rgba(139,37,50,.18) !important;
 }
 
 
@@ -135,109 +153,169 @@
    ============================================================ */
 
 .online-hero {
-    max-width: 1050px;
 
-    margin: 0 auto 43px;
+    width: 100%;
+    max-width: 1210px;
+
+    height: 320px;
+
+    margin: 0 auto 50px;
 
     position: relative;
 
     overflow: hidden;
 
-    padding: 42px 45px;
+    box-sizing: border-box;
 
-    background: var(--white);
+    padding: 46px 52px;
 
-    border:
-        1px solid var(--border);
+    border-radius: 24px;
 
-    border-radius: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fffafb 100%
+        );
+
+    border: 1px solid var(--border);
 
     box-shadow:
-        0 12px 35px rgba(31, 41, 51, .055);
+        0 18px 45px rgba(39,49,59,.08);
 
     opacity: 0;
 
+    transform:
+        translateY(25px)
+        scale(.985);
+
+    filter:
+        blur(4px);
+
     animation:
-        onlineHeroReveal .8s cubic-bezier(.22,.61,.36,1) .12s forwards;
+        heroEnter
+        .9s
+        cubic-bezier(.22,1,.36,1)
+        .12s
+        forwards;
 }
 
 
-/* garis atas */
+/* ============================================================
+   GARIS HERO
+   ============================================================ */
 
 .online-hero-line {
+
     position: absolute;
 
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 3px;
+    height: 5px;
 
-    background: var(--red);
-
-    transform:
-        scaleX(0);
+    background:
+        linear-gradient(
+            90deg,
+            var(--red) 0%,
+            var(--red) 68%,
+            var(--green) 68%,
+            var(--green) 100%
+        );
 
     transform-origin: left;
 
     animation:
-        onlineHeroLine .9s cubic-bezier(.22,.61,.36,1) .35s forwards;
+        heroLineEnter
+        1s
+        cubic-bezier(.22,1,.36,1)
+        .35s
+        both;
 }
 
 
-/* lingkaran dekorasi */
+/* ============================================================
+   DEKORASI HERO
+   ============================================================ */
 
 .online-hero::before {
+
     content: "";
 
     position: absolute;
 
-    width: 260px;
-    height: 260px;
+    width: 320px;
+    height: 320px;
 
-    right: -135px;
-    top: -145px;
+    right: -155px;
+    top: -170px;
 
     border-radius: 50%;
 
     border:
-        1px solid rgba(159, 29, 39, .08);
+        55px solid rgba(139,37,50,.035);
 
-    box-shadow:
-        0 0 0 25px rgba(159, 29, 39, .012),
-        0 0 0 50px rgba(159, 29, 39, .008);
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+        scale(.75);
 
     animation:
-        onlineCircleFloat 8s ease-in-out infinite;
+        decorationEnter
+        1.2s
+        cubic-bezier(.22,1,.36,1)
+        .4s
+        forwards;
 }
+
 
 .online-hero::after {
+
     content: "";
 
     position: absolute;
 
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
 
-    right: 80px;
-    bottom: -75px;
+    right: 70px;
+    bottom: -135px;
 
     border-radius: 50%;
 
     border:
-        1px solid rgba(57, 120, 90, .08);
+        35px solid rgba(47,107,87,.04);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+        scale(.7);
 
     animation:
-        onlineCircleFloatReverse 9s ease-in-out infinite;
+        decorationEnter
+        1.1s
+        cubic-bezier(.22,1,.36,1)
+        .5s
+        forwards;
 }
 
 
+/* ============================================================
+   HERO CONTENT
+   ============================================================ */
+
 .online-hero-content {
+
     position: relative;
 
-    z-index: 2;
+    z-index: 5;
 
-    max-width: 780px;
+    max-width: 820px;
 }
 
 
@@ -246,53 +324,66 @@
    ============================================================ */
 
 .online-label {
+
     display: inline-flex;
 
     align-items: center;
 
     gap: 8px;
 
-    padding: 7px 12px;
+    padding: 8px 14px;
 
-    border-radius: 7px;
+    margin-bottom: 16px;
+
+    border-radius: 9px;
 
     background:
-        var(--red-soft);
+        var(--red-light);
 
     border:
-        1px solid rgba(159, 29, 39, .13);
+        1px solid var(--red-border);
 
     color:
         var(--red);
 
-    font-size: 10px;
+    font-size: 11px;
 
     font-weight: 800;
 
-    letter-spacing: 1.1px;
+    letter-spacing:
+        1.3px;
 
-    text-transform: uppercase;
-
-    margin-bottom: 17px;
+    text-transform:
+        uppercase;
 
     opacity: 0;
 
+    transform:
+        translateY(12px);
+
     animation:
-        onlineFadeUp .6s ease .38s forwards;
+        heroChildEnter
+        .65s
+        cubic-bezier(.22,1,.36,1)
+        .42s
+        forwards;
 }
 
+
 .online-label::before {
+
     content: "";
 
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
 
     border-radius: 50%;
 
-    background: var(--red);
+    background:
+        var(--red);
 
     box-shadow:
-        0 0 0 4px rgba(159, 29, 39, .06);
+        0 0 0 4px rgba(139,37,50,.08);
 }
 
 
@@ -301,26 +392,47 @@
    ============================================================ */
 
 .online-hero h1 {
-    margin: 0 0 12px;
 
-    color: var(--text);
+    margin:
+        0 0 12px;
 
-    font-size: 38px;
+    color:
+        var(--text);
 
-    line-height: 1.2;
+    font-size:
+        39px;
 
-    font-weight: 800;
+    line-height:
+        1.18;
 
-    letter-spacing: -.7px;
+    font-weight:
+        850;
 
-    opacity: 0;
+    letter-spacing:
+        -1px;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
 
     animation:
-        onlineFadeUp .7s ease .48s forwards;
+        heroChildEnter
+        .7s
+        cubic-bezier(.22,1,.36,1)
+        .52s
+        forwards;
 }
 
+
 .online-hero h1 span {
-    color: var(--red);
+
+    color:
+        var(--red);
+
+    display:
+        inline-block;
 }
 
 
@@ -328,21 +440,35 @@
    HERO DESCRIPTION
    ============================================================ */
 
-.online-hero p {
-    margin: 0;
+.online-hero-description {
 
-    max-width: 720px;
+    max-width:
+        760px;
 
-    color: var(--text-soft);
+    margin:
+        0;
 
-    font-size: 14px;
+    color:
+        var(--text-soft);
 
-    line-height: 1.85;
+    font-size:
+        14px;
 
-    opacity: 0;
+    line-height:
+        1.75;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(14px);
 
     animation:
-        onlineFadeUp .7s ease .58s forwards;
+        heroChildEnter
+        .7s
+        cubic-bezier(.22,1,.36,1)
+        .62s
+        forwards;
 }
 
 
@@ -351,48 +477,69 @@
    ============================================================ */
 
 .online-status {
+
     display: inline-flex;
 
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
-    margin-top: 23px;
+    margin-top: 19px;
 
-    padding: 9px 13px;
+    padding: 10px 15px;
 
     background:
-        var(--green-soft);
+        var(--green-light);
 
     border:
-        1px solid rgba(57, 120, 90, .13);
+        1px solid #d6e6de;
 
-    border-radius: 8px;
+    border-radius:
+        10px;
 
-    color: var(--green);
+    color:
+        #255443;
 
-    font-size: 11.5px;
+    font-size:
+        12px;
 
-    font-weight: 600;
+    font-weight:
+        700;
 
-    opacity: 0;
+    opacity:
+        0;
+
+    transform:
+        translateY(14px);
 
     animation:
-        onlineFadeUp .7s ease .68s forwards;
+        heroChildEnter
+        .7s
+        cubic-bezier(.22,1,.36,1)
+        .72s
+        forwards;
 }
 
+
 .online-status-icon {
-    width: 7px;
-    height: 7px;
 
-    flex-shrink: 0;
+    width:
+        8px;
 
-    border-radius: 50%;
+    height:
+        8px;
 
-    background: var(--green);
+    flex-shrink:
+        0;
 
-    animation:
-        onlineStatusPulse 2s ease-in-out infinite;
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 0 4px rgba(47,107,87,.10);
 }
 
 
@@ -401,107 +548,155 @@
    ============================================================ */
 
 .online-section-title {
-    max-width: 1050px;
 
-    margin: 0 auto 21px;
+    width:
+        100%;
 
-    opacity: 0;
+    max-width:
+        1100px;
 
-    animation:
-        onlineSectionReveal .7s ease .35s forwards;
+    margin:
+        0 auto 24px;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    filter:
+        blur(4px);
+
+    transition:
+        opacity .8s cubic-bezier(.22,1,.36,1),
+        transform .8s cubic-bezier(.22,1,.36,1),
+        filter .8s cubic-bezier(.22,1,.36,1);
 }
+
+
+.online-section-title.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+    filter:
+        blur(0);
+}
+
 
 .online-title-row {
-    display: flex;
 
-    align-items: center;
+    display:
+        flex;
 
-    gap: 13px;
+    align-items:
+        center;
+
+    gap:
+        13px;
 }
 
+
 .online-title-icon {
-    width: 42px;
-    height: 42px;
 
-    flex-shrink: 0;
+    width:
+        45px;
 
-    display: flex;
+    height:
+        45px;
 
-    align-items: center;
-    justify-content: center;
+    flex-shrink:
+        0;
 
-    border-radius: 11px;
+    display:
+        flex;
 
-    background: var(--white);
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff5f6,
+            #f8e9ec
+        );
 
     border:
-        1px solid rgba(159, 29, 39, .20);
+        1px solid var(--red-border);
 
-    color: var(--red);
+    color:
+        var(--red);
 
-    font-size: 17px;
+    font-size:
+        18px;
 
-    font-weight: 800;
+    font-weight:
+        900;
 
     box-shadow:
-        0 4px 13px rgba(31, 41, 51, .035);
+        0 6px 16px rgba(139,37,50,.07);
 
     transition:
         transform .3s ease,
-        background .3s ease;
+        box-shadow .3s ease;
 }
+
 
 .online-title-row:hover .online-title-icon {
-    transform:
-        rotate(-4deg)
-        scale(1.06);
 
-    background:
-        var(--red-soft);
+    transform:
+        translateY(-2px)
+        rotate(-2deg);
+
+    box-shadow:
+        0 10px 22px rgba(139,37,50,.11);
 }
+
 
 .online-section-title h2 {
-    margin: 0;
 
-    color: var(--text);
+    margin:
+        0;
 
-    font-size: 23px;
+    color:
+        var(--text);
 
-    font-weight: 800;
+    font-size:
+        26px;
 
-    letter-spacing: -.25px;
+    line-height:
+        1.2;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        -.4px;
 }
 
-.online-section-title h2::after {
-    content: "";
 
-    display: block;
+.online-section-title > p {
 
-    width: 30px;
-    height: 2px;
+    margin:
+        6px 0 0 58px;
 
-    margin-top: 6px;
+    color:
+        var(--text-soft);
 
-    background:
-        var(--red);
+    font-size:
+        13px;
 
-    border-radius: 10px;
-
-    transform:
-        scaleX(0);
-
-    transform-origin: left;
-
-    animation:
-        onlineTitleLine .55s ease .7s forwards;
-}
-
-.online-section-title p {
-    margin: 5px 0 0 55px;
-
-    color: var(--text-light);
-
-    font-size: 12.5px;
+    line-height:
+        1.6;
 }
 
 
@@ -510,40 +705,50 @@
    ============================================================ */
 
 .online-timeline {
-    max-width: 1050px;
 
-    margin: 0 auto;
+    width:
+        100%;
 
-    position: relative;
+    max-width:
+        1100px;
+
+    margin:
+        0 auto;
+
+    position:
+        relative;
 }
 
+
 .online-timeline::before {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    left: 25px;
+    position:
+        absolute;
 
-    top: 27px;
-    bottom: 27px;
+    left:
+        31px;
 
-    width: 2px;
+    top:
+        31px;
+
+    bottom:
+        31px;
+
+    width:
+        1px;
 
     background:
         linear-gradient(
-            to bottom,
-            var(--red),
-            #dfe4e1 35%,
-            #dfe4e1
+            180deg,
+            #d8dde2,
+            #e9ecef
         );
 
-    transform:
-        scaleY(0);
-
-    transform-origin: top;
-
-    animation:
-        onlineTimelineDraw 1.5s cubic-bezier(.22,.61,.36,1) .65s forwards;
+    z-index:
+        0;
 }
 
 
@@ -552,104 +757,177 @@
    ============================================================ */
 
 .online-step {
-    display: flex;
 
-    align-items: flex-start;
+    display:
+        flex;
 
-    gap: 19px;
+    align-items:
+        flex-start;
 
-    margin-bottom: 19px;
+    gap:
+        23px;
 
-    position: relative;
+    margin-bottom:
+        22px;
 
-    opacity: 0;
+    position:
+        relative;
 
-    animation:
-        onlineStepReveal .65s cubic-bezier(.22,.61,.36,1) forwards;
+    opacity:
+        0;
+
+    transform:
+        translateX(-28px)
+        translateY(10px);
+
+    filter:
+        blur(4px);
+
+    transition:
+        opacity .7s cubic-bezier(.22,1,.36,1),
+        transform .7s cubic-bezier(.22,1,.36,1),
+        filter .7s cubic-bezier(.22,1,.36,1);
 }
 
-.online-step:nth-child(1) {
-    animation-delay: .62s;
-}
 
-.online-step:nth-child(2) {
-    animation-delay: .76s;
-}
+.online-step.show {
 
-.online-step:nth-child(3) {
-    animation-delay: .90s;
-}
+    opacity:
+        1;
 
-.online-step:nth-child(4) {
-    animation-delay: 1.04s;
-}
+    transform:
+        translateX(0)
+        translateY(0);
 
-.online-step:nth-child(5) {
-    animation-delay: 1.18s;
+    filter:
+        blur(0);
 }
 
 
 /* ============================================================
-   STEP NUMBER
+   STAGGER
+   ============================================================ */
+
+.online-step:nth-child(1) {
+    transition-delay:
+        .02s;
+}
+
+.online-step:nth-child(2) {
+    transition-delay:
+        .08s;
+}
+
+.online-step:nth-child(3) {
+    transition-delay:
+        .14s;
+}
+
+.online-step:nth-child(4) {
+    transition-delay:
+        .20s;
+}
+
+.online-step:nth-child(5) {
+    transition-delay:
+        .26s;
+}
+
+
+/* ============================================================
+   NOMOR STEP
    ============================================================ */
 
 .online-step-number {
-    width: 51px;
-    height: 51px;
 
-    flex-shrink: 0;
+    width:
+        63px;
 
-    display: flex;
+    height:
+        63px;
 
-    align-items: center;
-    justify-content: center;
+    flex-shrink:
+        0;
 
-    position: relative;
+    display:
+        flex;
 
-    z-index: 3;
+    align-items:
+        center;
 
-    border-radius: 50%;
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+    box-sizing:
+        border-box;
+
+    border-radius:
+        16px;
 
     background:
-        var(--white);
+        #ffffff;
 
     border:
-        2px solid #d7ddda;
+        1px solid #dfc5ca;
 
     color:
         var(--red);
 
-    font-size: 12px;
+    font-size:
+        14px;
 
-    font-weight: 800;
+    font-weight:
+        900;
+
+    letter-spacing:
+        .5px;
 
     box-shadow:
-        0 3px 12px rgba(31, 41, 51, .035);
+        0 7px 20px rgba(39,49,59,.07);
 
     transition:
-        transform .3s cubic-bezier(.22,.61,.36,1),
         background .3s ease,
-        border-color .3s ease,
         color .3s ease,
+        border-color .3s ease,
+        transform .3s ease,
         box-shadow .3s ease;
 }
 
+
+.online-step-number::before,
+.online-step-number::after {
+
+    content:
+        none !important;
+
+    display:
+        none !important;
+}
+
+
 .online-step:hover .online-step-number {
-    border-color:
-        var(--red);
 
     background:
         var(--red);
 
+    border-color:
+        var(--red);
+
     color:
-        var(--white);
+        #fff;
 
     transform:
-        scale(1.1)
-        rotate(-4deg);
+        translateY(-3px)
+        scale(1.03);
 
     box-shadow:
-        0 8px 20px rgba(159, 29, 39, .14);
+        0 12px 25px rgba(139,37,50,.18);
 }
 
 
@@ -658,45 +936,62 @@
    ============================================================ */
 
 .online-step-card {
-    flex: 1;
 
-    position: relative;
+    flex:
+        1;
 
-    padding: 25px 28px;
+    min-width:
+        0;
+
+    position:
+        relative;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        27px 30px;
 
     background:
-        var(--white);
+        rgba(255,255,255,.96);
 
     border:
         1px solid var(--border);
 
-    border-radius: 15px;
+    border-radius:
+        17px;
 
     box-shadow:
-        0 5px 18px rgba(31, 41, 51, .035);
-
-    overflow: hidden;
+        0 8px 24px rgba(39,49,59,.045);
 
     transition:
-        transform .35s cubic-bezier(.22,.61,.36,1),
-        box-shadow .35s ease,
-        border-color .35s ease;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
 }
 
 
 /* garis kiri */
 
 .online-step-card::before {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    left: 0;
+    position:
+        absolute;
 
-    top: 18px;
-    bottom: 18px;
+    left:
+        0;
 
-    width: 3px;
+    top:
+        20px;
+
+    bottom:
+        20px;
+
+    width:
+        3px;
 
     background:
         var(--red);
@@ -704,50 +999,41 @@
     border-radius:
         0 4px 4px 0;
 
-    opacity: 0;
+    transform:
+        scaleY(.35);
+
+    transform-origin:
+        center;
+
+    opacity:
+        0;
 
     transition:
+        transform .3s ease,
         opacity .3s ease;
 }
 
 
-/* garis bawah */
-
-.online-step-card::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 2px;
-
-    background:
-        var(--red);
-
-    transition:
-        width .45s cubic-bezier(.22,.61,.36,1);
-}
-
 .online-step-card:hover {
+
     transform:
         translateX(5px);
 
     border-color:
-        rgba(159, 29, 39, .15);
+        var(--red-border);
 
     box-shadow:
-        0 12px 28px rgba(31, 41, 51, .075);
+        0 15px 35px rgba(39,49,59,.085);
 }
+
 
 .online-step-card:hover::before {
-    opacity: 1;
-}
 
-.online-step-card:hover::after {
-    width: 100%;
+    opacity:
+        1;
+
+    transform:
+        scaleY(1);
 }
 
 
@@ -756,293 +1042,447 @@
    ============================================================ */
 
 .online-step-card h3 {
-    margin: 0 0 9px;
 
-    color: var(--text);
+    margin:
+        0 0 10px;
 
-    font-size: 18px;
+    color:
+        var(--text);
 
-    font-weight: 800;
+    font-size:
+        19px;
+
+    line-height:
+        1.4;
+
+    font-weight:
+        850;
 
     transition:
-        color .3s ease,
-        transform .3s ease;
+        color .3s ease;
 }
 
+
 .online-step-card:hover h3 {
+
     color:
         var(--red);
-
-    transform:
-        translateX(3px);
 }
 
 
 /* ============================================================
-   STEP DESCRIPTION
+   STEP PARAGRAPH
    ============================================================ */
 
 .online-step-card p {
-    margin: 0;
 
-    color: var(--text-soft);
+    margin:
+        0;
 
-    font-size: 13.5px;
+    color:
+        var(--text-soft);
 
-    line-height: 1.8;
+    font-size:
+        14px;
+
+    line-height:
+        1.8;
 }
 
-.online-step-card strong {
-    color:
-        var(--red);
 
-    font-weight: 700;
+.online-step-card strong {
+
+    color:
+        var(--red-dark);
+
+    font-weight:
+        800;
 }
 
 
 /* ============================================================
-   DOKUMEN
+   DOCUMENT LIST
    ============================================================ */
 
 .online-document-list {
-    display: grid;
+
+    display:
+        grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 9px;
+    gap:
+        10px;
 
-    margin-top: 17px;
+    margin-top:
+        18px;
 }
+
 
 .online-document-item {
-    display: flex;
 
-    align-items: center;
+    display:
+        flex;
 
-    gap: 9px;
+    align-items:
+        center;
 
-    padding: 11px 13px;
+    gap:
+        10px;
+
+    min-height:
+        43px;
+
+    padding:
+        9px 12px;
+
+    box-sizing:
+        border-box;
 
     background:
-        #fafcfb;
+        #fafbfc;
 
     border:
-        1px solid var(--border-soft);
+        1px solid #e5e8ec;
 
-    border-radius: 9px;
+    border-radius:
+        10px;
 
     color:
-        #59646d;
+        #59636e;
 
-    font-size: 12.5px;
+    font-size:
+        12.5px;
 
-    position: relative;
-
-    overflow: hidden;
+    line-height:
+        1.5;
 
     transition:
-        transform .3s ease,
-        background .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
 }
 
+
 .online-document-item::before {
-    content: "✓";
 
-    width: 21px;
-    height: 21px;
+    content:
+        "✓";
 
-    flex-shrink: 0;
+    width:
+        23px;
 
-    display: flex;
+    height:
+        23px;
 
-    align-items: center;
-    justify-content: center;
+    flex-shrink:
+        0;
 
-    border-radius: 50%;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        7px;
 
     background:
-        var(--green-soft);
+        var(--green-light);
 
     color:
         var(--green);
 
-    font-size: 10px;
+    font-size:
+        11px;
 
-    font-weight: 900;
-
-    transition:
-        transform .3s ease;
+    font-weight:
+        900;
 }
 
-.online-document-item::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.7),
-            transparent
-        );
-
-    transform:
-        skewX(-20deg);
-
-    transition:
-        left .6s ease;
-}
 
 .online-document-item:hover {
+
     background:
-        var(--green-soft);
+        var(--green-light);
 
     border-color:
-        rgba(57, 120, 90, .16);
+        #d1e3da;
 
     transform:
-        translateY(-2px)
-        translateX(2px);
-
-    box-shadow:
-        0 5px 14px rgba(57, 120, 90, .06);
-}
-
-.online-document-item:hover::before {
-    transform:
-        scale(1.12);
-}
-
-.online-document-item:hover::after {
-    left: 140%;
+        translateY(-2px);
 }
 
 
 /* ============================================================
-   REKENING TERPISAH
+   BANK SECTION
    ============================================================ */
 
 .online-bank-section {
-    max-width: 1050px;
 
-    margin: 51px auto 0;
+    width:
+        100%;
 
-    opacity: 0;
+    max-width:
+        1100px;
 
-    animation:
-        onlineContentReveal .75s ease 1.35s forwards;
+    margin:
+        58px auto 0;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    filter:
+        blur(4px);
+
+    transition:
+        opacity .8s cubic-bezier(.22,1,.36,1),
+        transform .8s cubic-bezier(.22,1,.36,1),
+        filter .8s cubic-bezier(.22,1,.36,1);
 }
+
+
+.online-bank-section.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+    filter:
+        blur(0);
+}
+
+
+/* ============================================================
+   BANK GRID
+   ============================================================ */
 
 .online-bank-grid {
-    display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    display:
+        flex !important;
 
-    gap: 15px;
+    gap:
+        18px;
+
+    overflow-x:
+        auto;
+
+    overflow-y:
+        hidden;
+
+    padding:
+        4px 4px 14px;
+
+    box-sizing:
+        border-box;
+
+    scroll-snap-type:
+        x proximity;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        #cfd5da transparent;
 }
 
-.online-bank-card {
-    position: relative;
 
-    padding: 22px;
+.online-bank-grid::-webkit-scrollbar {
+
+    height:
+        6px;
+}
+
+
+.online-bank-grid::-webkit-scrollbar-track {
 
     background:
-        var(--white);
+        transparent;
+}
+
+
+.online-bank-grid::-webkit-scrollbar-thumb {
+
+    background:
+        #cfd5da;
+
+    border-radius:
+        99px;
+}
+
+
+/* ============================================================
+   BANK CARD
+   ============================================================ */
+
+.online-bank-card {
+
+    flex:
+        0 0 285px;
+
+    width:
+        285px;
+
+    min-width:
+        285px;
+
+    position:
+        relative;
+
+    padding:
+        25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fcfcfd
+        );
 
     border:
         1px solid var(--border);
 
-    border-radius: 14px;
+    border-radius:
+        17px;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     box-shadow:
-        0 5px 18px rgba(31, 41, 51, .035);
+        0 8px 25px rgba(39,49,59,.045);
 
-    opacity: 0;
+    scroll-snap-align:
+        start;
 
-    animation:
-        onlineBankReveal .65s cubic-bezier(.22,.61,.36,1) forwards;
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
 
     transition:
-        transform .3s cubic-bezier(.22,.61,.36,1),
+        opacity .65s cubic-bezier(.22,1,.36,1),
+        transform .65s cubic-bezier(.22,1,.36,1),
         box-shadow .3s ease,
         border-color .3s ease;
 }
 
+
+.online-bank-section.show .online-bank-card {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+.online-bank-section.show
 .online-bank-card:nth-child(1) {
-    animation-delay: 1.45s;
+
+    transition-delay:
+        .05s;
 }
 
+
+.online-bank-section.show
 .online-bank-card:nth-child(2) {
-    animation-delay: 1.55s;
+
+    transition-delay:
+        .12s;
 }
 
+
+.online-bank-section.show
 .online-bank-card:nth-child(3) {
-    animation-delay: 1.65s;
+
+    transition-delay:
+        .19s;
 }
 
+
+.online-bank-section.show
 .online-bank-card:nth-child(4) {
-    animation-delay: 1.75s;
+
+    transition-delay:
+        .26s;
 }
 
+
+.online-bank-section.show
 .online-bank-card:nth-child(5) {
-    animation-delay: 1.85s;
+
+    transition-delay:
+        .33s;
 }
 
 
-/* garis */
+/* ============================================================
+   BANK TOP LINE
+   ============================================================ */
 
 .online-bank-card::before {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    top: 0;
-    left: 0;
+    position:
+        absolute;
 
-    width: 100%;
-    height: 2px;
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        100%;
+
+    height:
+        3px;
 
     background:
         var(--red);
 
-    opacity: .85;
-
     transform:
-        scaleX(.25);
+        scaleX(.12);
 
-    transform-origin: left;
+    transform-origin:
+        left;
 
     transition:
         transform .35s ease;
 }
 
-.online-bank-card:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(159, 29, 39, .14);
-
-    box-shadow:
-        0 13px 28px rgba(31, 41, 51, .075);
-}
 
 .online-bank-card:hover::before {
+
     transform:
         scaleX(1);
+}
+
+
+.online-bank-card:hover {
+
+    transform:
+        translateY(-5px) !important;
+
+    border-color:
+        var(--red-border);
+
+    box-shadow:
+        0 16px 34px rgba(39,49,59,.08);
 }
 
 
@@ -1051,47 +1491,72 @@
    ============================================================ */
 
 .online-bank-icon {
-    width: 39px;
-    height: 39px;
 
-    display: flex;
+    width:
+        100%;
 
-    align-items: center;
-    justify-content: center;
+    height:
+        86px;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        17px;
 
-    border-radius: 9px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-start;
+
+    padding:
+        10px 14px;
+
+    box-sizing:
+        border-box;
 
     background:
-        #f5f6f5;
+        #ffffff;
 
     border:
         1px solid var(--border);
 
-    color:
-        var(--text);
-
-    font-size: 15px;
-
-    font-weight: 800;
+    border-radius:
+        13px;
 
     transition:
-        transform .3s ease,
-        background .3s ease,
-        color .3s ease;
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
+
+.online-bank-icon img {
+
+    display:
+        block;
+
+    width:
+        auto;
+
+    max-width:
+        150px;
+
+    height:
+        54px;
+
+    object-fit:
+        contain;
+}
+
+
 .online-bank-card:hover .online-bank-icon {
-    transform:
-        translateY(-3px)
-        rotate(-3deg);
 
-    background:
-        var(--red-soft);
+    border-color:
+        var(--red-border);
 
-    color:
-        var(--red);
+    box-shadow:
+        0 5px 15px rgba(39,49,59,.05);
 }
 
 
@@ -1100,80 +1565,34 @@
    ============================================================ */
 
 .online-bank-name {
+
     color:
         var(--text);
 
-    font-size: 16px;
+    font-size:
+        17px;
 
-    font-weight: 800;
+    font-weight:
+        850;
 
-    margin-bottom: 4px;
+    margin-bottom:
+        4px;
 }
+
 
 .online-bank-branch {
+
     color:
-        var(--text-light);
+        var(--muted);
 
-    font-size: 11.5px;
+    font-size:
+        12px;
 
-    margin-bottom: 14px;
-}
+    line-height:
+        1.6;
 
-
-/* ============================================================
-   ACCOUNT
-   ============================================================ */
-
-.online-account-row {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    padding: 9px 0;
-
-    border-top:
-        1px solid var(--border-soft);
-
-    transition:
-        background .25s ease;
-}
-
-.online-currency {
-    color:
-        var(--green);
-
-    font-size: 11px;
-
-    font-weight: 800;
-}
-
-.online-account-number {
-    color:
-        var(--text);
-
-    font-size: 12.5px;
-
-    font-weight: 750;
-
-    text-align: right;
-
-    letter-spacing: .15px;
-
-    transition:
-        color .25s ease,
-        transform .25s ease;
-}
-
-.online-account-row:hover .online-account-number {
-    color:
-        var(--red);
-
-    transform:
-        translateX(-3px);
+    margin-bottom:
+        0;
 }
 
 
@@ -1182,127 +1601,267 @@
    ============================================================ */
 
 .online-legal-section {
-    max-width: 1050px;
 
-    margin: 51px auto 0;
+    width:
+        100%;
 
-    opacity: 0;
+    max-width:
+        1100px;
 
-    animation:
-        onlineContentReveal .75s ease 1.95s forwards;
+    margin:
+        58px auto 0;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    filter:
+        blur(4px);
+
+    transition:
+        opacity .8s cubic-bezier(.22,1,.36,1),
+        transform .8s cubic-bezier(.22,1,.36,1),
+        filter .8s cubic-bezier(.22,1,.36,1);
 }
 
+
+.online-legal-section.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+    filter:
+        blur(0);
+}
+
+
 .online-legal-grid {
-    display: grid;
+
+    display:
+        grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 14px;
+    gap:
+        16px;
 }
 
-.online-legal-card {
-    position: relative;
 
-    padding: 21px;
+.online-legal-card {
+
+    position:
+        relative;
+
+    padding:
+        24px;
 
     background:
-        var(--white);
+        #fff;
 
     border:
         1px solid var(--border);
 
-    border-radius: 14px;
+    border-radius:
+        16px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     box-shadow:
-        0 5px 18px rgba(31, 41, 51, .035);
+        0 8px 24px rgba(39,49,59,.04);
 
-    opacity: 0;
+    opacity:
+        0;
 
-    animation:
-        onlineLegalReveal .6s cubic-bezier(.22,.61,.36,1) forwards;
+    transform:
+        translateY(25px);
 
     transition:
-        transform .3s cubic-bezier(.22,.61,.36,1),
+        opacity .65s cubic-bezier(.22,1,.36,1),
+        transform .65s cubic-bezier(.22,1,.36,1),
         box-shadow .3s ease,
         border-color .3s ease;
 }
 
+
+.online-legal-section.show .online-legal-card {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+.online-legal-section.show
 .online-legal-card:nth-child(1) {
-    animation-delay: 2.05s;
+
+    transition-delay:
+        .05s;
 }
 
+
+.online-legal-section.show
 .online-legal-card:nth-child(2) {
-    animation-delay: 2.15s;
+
+    transition-delay:
+        .12s;
 }
 
+
+.online-legal-section.show
 .online-legal-card:nth-child(3) {
-    animation-delay: 2.25s;
+
+    transition-delay:
+        .19s;
 }
 
+
+.online-legal-section.show
 .online-legal-card:nth-child(4) {
-    animation-delay: 2.35s;
+
+    transition-delay:
+        .26s;
 }
 
 
-/* icon link */
+/* ============================================================
+   LEGAL TOP LINE
+   ============================================================ */
 
-.online-legal-card::after {
-    content: "↗";
+.online-legal-card::before {
 
-    position: absolute;
+    content:
+        "";
 
-    top: 17px;
-    right: 17px;
+    position:
+        absolute;
 
-    width: 27px;
-    height: 27px;
+    left:
+        0;
 
-    display: flex;
+    top:
+        0;
 
-    align-items: center;
-    justify-content: center;
+    width:
+        100%;
 
-    border-radius: 7px;
+    height:
+        3px;
 
     background:
-        #f6f7f6;
+        var(--red);
 
-    color:
-        #78827c;
+    transform:
+        scaleX(0);
 
-    font-size: 13px;
-
-    font-weight: 800;
+    transform-origin:
+        left;
 
     transition:
-        .25s ease;
+        transform .3s ease;
 }
 
-.online-legal-card:hover {
+
+.online-legal-card:hover::before {
+
     transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(159, 29, 39, .22);
-
-    box-shadow:
-        0 12px 28px rgba(31, 41, 51, .075);
+        scaleX(1);
 }
 
-.online-legal-card:hover::after {
+
+/* ============================================================
+   LEGAL ARROW
+   ============================================================ */
+
+.online-legal-card::after {
+
+    content:
+        "↗";
+
+    position:
+        absolute;
+
+    top:
+        18px;
+
+    right:
+        18px;
+
+    width:
+        29px;
+
+    height:
+        29px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        8px;
+
     background:
-        var(--red-soft);
+        #f7f8fa;
+
+    border:
+        1px solid var(--border);
 
     color:
         var(--red);
 
+    font-size:
+        14px;
+
+    font-weight:
+        900;
+
+    transition:
+        .3s ease;
+}
+
+
+.online-legal-card:hover {
+
     transform:
-        translate(1px, -1px);
+        translateY(-5px) !important;
+
+    border-color:
+        var(--red-border);
+
+    box-shadow:
+        0 16px 34px rgba(39,49,59,.08);
+}
+
+
+.online-legal-card:hover::after {
+
+    background:
+        var(--red);
+
+    border-color:
+        var(--red);
+
+    color:
+        #fff;
+
+    transform:
+        translate(2px,-2px);
 }
 
 
@@ -1311,43 +1870,83 @@
    ============================================================ */
 
 .online-legal-icon {
-    width: 38px;
-    height: 38px;
 
-    display: flex;
+    width:
+        43px;
 
-    align-items: center;
-    justify-content: center;
+    height:
+        43px;
 
-    margin-bottom: 13px;
+    display:
+        flex;
 
-    border-radius: 9px;
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        14px;
+
+    border-radius:
+        10px;
 
     background:
-        #f7f8f7;
+        var(--red-light);
 
     border:
-        1px solid var(--border);
+        1px solid var(--red-border);
 
     color:
         var(--red);
 
-    font-size: 14px;
+    font-size:
+        16px;
 
-    font-weight: 800;
+    font-weight:
+        900;
+
+    padding:
+        7px;
+
+    box-sizing:
+        border-box;
 
     transition:
-        transform .3s ease,
-        background .3s ease;
+        .3s ease;
 }
 
+
+.online-legal-icon img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+}
+
+
 .online-legal-card:hover .online-legal-icon {
-    transform:
-        scale(1.08)
-        rotate(-3deg);
 
     background:
-        var(--red-soft);
+        var(--red);
+
+    border-color:
+        var(--red);
+
+    color:
+        #fff;
+
+    transform:
+        scale(1.05);
 }
 
 
@@ -1356,323 +1955,353 @@
    ============================================================ */
 
 .online-legal-card h3 {
-    margin: 0 0 6px;
+
+    margin:
+        0 0 6px;
 
     color:
         var(--text);
 
-    font-size: 15.5px;
+    font-size:
+        17px;
 
-    font-weight: 800;
-
-    transition:
-        color .25s ease;
+    font-weight:
+        850;
 }
 
-.online-legal-card:hover h3 {
-    color:
-        var(--red);
-}
 
 .online-legal-card span {
+
     color:
-        var(--text-light);
+        var(--red);
 
-    font-size: 11px;
+    font-size:
+        12px;
 
-    font-weight: 600;
+    font-weight:
+        750;
 }
 
 
 /* ============================================================
-   HELP
-   ============================================================ */
-
-.online-help {
-    max-width: 1050px;
-
-    margin: 36px auto 0;
-
-    padding: 22px 25px;
-
-    background:
-        var(--green-soft);
-
-    border:
-        1px solid rgba(57, 120, 90, .12);
-
-    border-radius: 14px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    animation:
-        onlineBottomReveal .7s ease 2.45s forwards;
-}
-
-.online-help::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-    bottom: 0;
-
-    width: 3px;
-
-    background:
-        var(--green);
-
-    transform:
-        scaleY(0);
-
-    transform-origin: top;
-
-    animation:
-        onlineSideLine .6s ease 2.7s forwards;
-}
-
-.online-help-title {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    margin-bottom: 9px;
-
-    color:
-        var(--text);
-
-    font-size: 16px;
-
-    font-weight: 800;
-}
-
-.online-help-icon {
-    width: 29px;
-    height: 29px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 8px;
-
-    background:
-        var(--white);
-
-    border:
-        1px solid rgba(57, 120, 90, .15);
-
-    color:
-        var(--green);
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    transition:
-        transform .3s ease;
-}
-
-.online-help:hover .online-help-icon {
-    transform:
-        rotate(8deg)
-        scale(1.08);
-}
-
-.online-help p {
-    margin: 0;
-
-    color:
-        var(--text-soft);
-
-    font-size: 12.5px;
-
-    line-height: 1.8;
-}
-
-
-/* ============================================================
-   PERINGATAN
+   WARNING
    ============================================================ */
 
 .online-warning {
-    max-width: 1050px;
 
-    margin: 17px auto 0;
+    width:
+        100%;
 
-    position: relative;
+    max-width:
+        1100px;
 
-    padding: 22px 25px 22px 27px;
+    margin:
+        40px auto 0;
+
+    position:
+        relative;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        25px 28px 25px 31px;
 
     background:
-        var(--red-soft);
+        linear-gradient(
+            135deg,
+            #fffafa,
+            #fffdfd
+        );
 
     border:
-        1px solid rgba(159, 29, 39, .12);
+        1px solid var(--red-border);
 
-    border-radius: 14px;
+    border-radius:
+        16px;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
-    opacity: 0;
+    box-shadow:
+        0 8px 24px rgba(39,49,59,.035);
 
-    animation:
-        onlineBottomReveal .7s ease 2.58s forwards;
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    filter:
+        blur(4px);
+
+    transition:
+        opacity .8s cubic-bezier(.22,1,.36,1),
+        transform .8s cubic-bezier(.22,1,.36,1),
+        filter .8s cubic-bezier(.22,1,.36,1);
 }
 
+
+.online-warning.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+    filter:
+        blur(0);
+}
+
+
+/* ============================================================
+   WARNING LINE
+   ============================================================ */
+
 .online-warning::before {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    left: 0;
+    position:
+        absolute;
 
-    top: 0;
-    bottom: 0;
+    left:
+        0;
 
-    width: 3px;
+    top:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        4px;
 
     background:
         var(--red);
 
     transform:
-        scaleY(0);
+        scaleY(.35);
 
-    transform-origin: top;
+    transform-origin:
+        center;
 
-    animation:
-        onlineSideLine .6s ease 2.83s forwards;
+    transition:
+        transform .6s ease;
 }
 
+
+.online-warning.show::before {
+
+    transform:
+        scaleY(1);
+}
+
+
+/* ============================================================
+   WARNING TITLE
+   ============================================================ */
+
 .online-warning-title {
-    display: flex;
 
-    align-items: center;
+    display:
+        flex;
 
-    gap: 9px;
+    align-items:
+        center;
 
-    margin-bottom: 9px;
+    gap:
+        10px;
+
+    margin-bottom:
+        11px;
 
     color:
         var(--red-dark);
 
-    font-size: 16px;
+    font-size:
+        17px;
 
-    font-weight: 800;
+    font-weight:
+        850;
 }
 
+
 .online-warning-icon {
-    width: 29px;
-    height: 29px;
 
-    display: flex;
+    width:
+        31px;
 
-    align-items: center;
-    justify-content: center;
+    height:
+        31px;
 
-    border-radius: 8px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        8px;
 
     background:
-        var(--white);
+        var(--red-light);
 
     border:
-        1px solid rgba(159, 29, 39, .13);
+        1px solid var(--red-border);
 
     color:
         var(--red);
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     transition:
-        transform .3s ease;
+        .3s ease;
 }
 
+
 .online-warning:hover .online-warning-icon {
+
     transform:
         scale(1.08)
         rotate(-3deg);
 }
 
+
+/* ============================================================
+   WARNING PARAGRAPH
+   ============================================================ */
+
 .online-warning p {
+
     margin:
-        0 0 9px;
+        0 0 10px;
 
     color:
-        #62666a;
+        #69727c;
 
-    font-size: 12.5px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
+
 
 .online-warning p:last-child {
-    margin-bottom: 0;
+
+    margin-bottom:
+        0;
 }
 
+
 .online-warning strong {
+
     color:
         var(--red-dark);
 }
 
 
 /* ============================================================
-   ANIMATION KEYFRAMES
+   KEYFRAMES
    ============================================================ */
 
-@keyframes onlineBackReveal {
+@keyframes backEnter {
 
     from {
-        opacity: 0;
+
+        opacity:
+            0;
 
         transform:
-            translateX(-12px);
+            translateY(-12px);
     }
 
     to {
-        opacity: 1;
+
+        opacity:
+            1;
 
         transform:
-            translateX(0);
+            translateY(0);
     }
 
 }
 
 
-@keyframes onlineHeroReveal {
+@keyframes heroEnter {
 
     from {
-        opacity: 0;
+
+        opacity:
+            0;
 
         transform:
-            translateY(-25px)
+            translateY(25px)
             scale(.985);
+
+        filter:
+            blur(4px);
     }
 
     to {
-        opacity: 1;
+
+        opacity:
+            1;
 
         transform:
             translateY(0)
             scale(1);
+
+        filter:
+            blur(0);
     }
 
 }
 
 
-@keyframes onlineHeroLine {
+@keyframes heroChildEnter {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(15px);
+    }
 
     to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes heroLineEnter {
+
+    from {
+
+        transform:
+            scaleX(0);
+    }
+
+    to {
+
         transform:
             scaleX(1);
     }
@@ -1680,230 +2309,83 @@
 }
 
 
-@keyframes onlineFadeUp {
+@keyframes decorationEnter {
 
     from {
-        opacity: 0;
+
+        opacity:
+            0;
 
         transform:
-            translateY(14px);
+            scale(.7);
     }
 
     to {
-        opacity: 1;
+
+        opacity:
+            1;
 
         transform:
-            translateY(0);
-    }
-
-}
-
-
-@keyframes onlineSectionReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-@keyframes onlineTitleLine {
-
-    to {
-        transform:
-            scaleX(1);
-    }
-
-}
-
-
-@keyframes onlineTimelineDraw {
-
-    to {
-        transform:
-            scaleY(1);
-    }
-
-}
-
-
-@keyframes onlineStepReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateX(-25px)
-            translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(0)
-            translateY(0);
-    }
-
-}
-
-
-@keyframes onlineBankReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(22px)
-            scale(.98);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
             scale(1);
     }
 
 }
 
 
-@keyframes onlineLegalReveal {
+@keyframes procedureCheckSoft {
 
-    from {
-        opacity: 0;
+    0% {
+
+        opacity:
+            .35;
 
         transform:
-            translateY(18px)
-            scale(.98);
+            scale(.92);
     }
 
-    to {
-        opacity: 1;
+    65% {
+
+        opacity:
+            1;
 
         transform:
-            translateY(0)
+            scale(1.03);
+    }
+
+    100% {
+
+        opacity:
+            1;
+
+        transform:
             scale(1);
-    }
-
-}
-
-
-@keyframes onlineContentReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-@keyframes onlineBottomReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-@keyframes onlineSideLine {
-
-    to {
-        transform:
-            scaleY(1);
-    }
-
-}
-
-
-@keyframes onlineCircleFloat {
-
-    0%,
-    100% {
-        transform:
-            translate(0, 0);
-    }
-
-    50% {
-        transform:
-            translate(-12px, 10px);
-    }
-
-}
-
-
-@keyframes onlineCircleFloatReverse {
-
-    0%,
-    100% {
-        transform:
-            translate(0, 0);
-    }
-
-    50% {
-        transform:
-            translate(10px, -8px);
-    }
-
-}
-
-
-@keyframes onlineStatusPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 0 rgba(57, 120, 90, .20);
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 6px rgba(57, 120, 90, 0);
     }
 
 }
 
 
 /* ============================================================
-   RESPONSIVE TABLET
+   CHECK ANIMATION
+   ============================================================ */
+
+.online-document-item::before {
+
+    animation:
+        procedureCheckSoft
+        .55s
+        ease-out
+        both;
+}
+
+
+/* ============================================================
+   TABLET
    ============================================================ */
 
 @media (max-width: 1000px) {
 
     .online-legal-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -1912,34 +2394,55 @@
 
 
 /* ============================================================
-   RESPONSIVE
+   TABLET SMALL
    ============================================================ */
 
 @media (max-width: 900px) {
 
     .online-page {
+
         padding:
-            28px 20px 55px;
+            25px 20px 55px;
     }
+
 
     .online-hero {
+
+        height:
+            295px;
+
         padding:
-            34px 30px;
+            38px 35px;
     }
+
 
     .online-hero h1 {
+
         font-size:
-            32px;
+            34px;
     }
+
 
     .online-document-list {
+
         grid-template-columns:
             1fr;
     }
 
+
     .online-bank-grid {
-        grid-template-columns:
-            1fr;
+
+        display:
+            flex !important;
+
+        flex-direction:
+            row;
+
+        overflow-x:
+            auto;
+
+        overflow-y:
+            hidden;
     }
 
 }
@@ -1952,250 +2455,236 @@
 @media (max-width: 600px) {
 
     .online-page {
+
         padding:
-            21px 14px 45px;
-    }
-
-
-    .online-back {
-        margin-bottom:
-            15px;
+            20px 15px 45px;
     }
 
 
     .online-hero {
-        padding:
-            29px 21px;
 
-        border-radius:
-            17px;
+        height:
+            auto;
+
+        padding:
+            28px 22px;
 
         margin-bottom:
-            35px;
-    }
+            38px;
 
-
-    .online-label {
-        font-size:
-            9px;
-
-        padding:
-            6px 10px;
+        border-radius:
+            19px;
     }
 
 
     .online-hero h1 {
+
         font-size:
             27px;
 
         letter-spacing:
-            -.4px;
+            -.6px;
     }
 
 
-    .online-hero p {
+    .online-hero-description {
+
         font-size:
-            12.5px;
-
-        line-height:
-            1.75;
+            13px;
     }
 
 
+    .online-hero-status,
     .online-status {
+
         align-items:
             flex-start;
-
-        font-size:
-            11px;
 
         line-height:
             1.5;
     }
 
 
-    .online-section-title {
-        margin-bottom:
-            18px;
+    .online-section-title h2 {
+
+        font-size:
+            21px;
     }
 
 
-    .online-title-row {
-        align-items:
-            flex-start;
+    .online-section-title > p {
+
+        margin-left:
+            0;
     }
 
 
     .online-title-icon {
+
         width:
-            38px;
+            40px;
 
         height:
-            38px;
-
-        border-radius:
-            10px;
-    }
-
-
-    .online-section-title h2 {
-        font-size:
-            20px;
-
-        line-height:
-            1.3;
-    }
-
-
-    .online-section-title p {
-        margin-left:
-            0;
-
-        margin-top:
-            7px;
-
-        font-size:
-            11.5px;
-    }
-
-
-    .online-timeline::before {
-        left:
-            22px;
-    }
-
-
-    .online-step {
-        gap:
-            13px;
-
-        margin-bottom:
-            15px;
-    }
-
-
-    .online-step-number {
-        width:
-            45px;
-
-        height:
-            45px;
-
-        font-size:
-            10.5px;
-    }
-
-
-    .online-step-card {
-        padding:
-            18px;
-
-        border-radius:
-            13px;
-    }
-
-
-    .online-step-card h3 {
-        font-size:
-            15px;
-
-        line-height:
-            1.4;
-    }
-
-
-    .online-step-card p {
-        font-size:
-            12.5px;
-
-        line-height:
-            1.75;
-    }
-
-
-    .online-document-item {
-        padding:
-            10px 11px;
-
-        font-size:
-            11.5px;
-    }
-
-
-    .online-bank-section,
-    .online-legal-section {
-        margin-top:
             40px;
     }
 
 
-    .online-bank-card {
-        padding:
-            19px;
+    /* TIMELINE */
+
+    .online-timeline::before {
+
+        left:
+            24px;
     }
 
 
-    .online-bank-name {
-        font-size:
-            15px;
-    }
-
-
-    .online-bank-branch {
-        font-size:
-            11px;
-    }
-
-
-    .online-account-row {
-        align-items:
-            flex-start;
-
-        flex-direction:
-            column;
+    .online-step {
 
         gap:
-            3px;
+            14px;
     }
 
 
-    .online-account-number {
-        text-align:
-            left;
+    .online-step-number {
+
+        width:
+            49px;
+
+        height:
+            49px;
+
+        border-radius:
+            13px;
 
         font-size:
             12px;
     }
 
 
+    .online-step-card {
+
+        padding:
+            20px;
+
+        border-radius:
+            14px;
+    }
+
+
+    .online-step-card h3 {
+
+        font-size:
+            16px;
+    }
+
+
+    .online-step-card p {
+
+        font-size:
+            13px;
+    }
+
+
+    /* BANK */
+
+    .online-bank-section {
+
+        margin-top:
+            40px;
+    }
+
+
+    .online-bank-grid {
+
+        gap:
+            14px;
+
+        padding:
+            4px 3px 13px;
+    }
+
+
+    .online-bank-card {
+
+        flex-basis:
+            250px;
+
+        width:
+            250px;
+
+        min-width:
+            250px;
+
+        padding:
+            19px;
+    }
+
+
+    .online-bank-icon {
+
+        height:
+            80px;
+    }
+
+
+    .online-bank-icon img {
+
+        max-width:
+            135px;
+
+        height:
+            48px;
+    }
+
+
+    .online-bank-name {
+
+        font-size:
+            15px;
+    }
+
+
+    .online-bank-branch {
+
+        font-size:
+            11px;
+    }
+
+
+    /* LEGAL */
+
     .online-legal-grid {
+
         grid-template-columns:
             1fr;
     }
 
 
     .online-legal-card {
+
         padding:
             18px;
     }
 
 
-    .online-help,
+    /* WARNING */
+
     .online-warning {
+
         padding:
-            19px 19px 19px 22px;
+            22px 21px 22px 25px;
     }
 
 
-    .online-help-title,
     .online-warning-title {
+
         font-size:
             15px;
     }
 
 
-    .online-help p,
     .online-warning p {
+
         font-size:
             11.5px;
     }
@@ -2210,6 +2699,7 @@
 @media (max-width: 400px) {
 
     .online-page {
+
         padding-left:
             11px;
 
@@ -2219,24 +2709,28 @@
 
 
     .online-hero {
+
         padding:
             25px 18px;
     }
 
 
     .online-hero h1 {
+
         font-size:
             24px;
     }
 
 
     .online-step {
+
         gap:
             10px;
     }
 
 
     .online-step-number {
+
         width:
             40px;
 
@@ -2249,18 +2743,21 @@
 
 
     .online-timeline::before {
+
         left:
             19px;
     }
 
 
     .online-step-card {
+
         padding:
             16px;
     }
 
 
     .online-document-item {
+
         align-items:
             flex-start;
     }
@@ -2278,20 +2775,12 @@
     .online-hero,
     .online-label,
     .online-hero h1,
-    .online-hero p,
+    .online-hero-description,
     .online-status,
-    .online-section-title,
-    .online-step,
-    .online-bank-section,
-    .online-bank-card,
-    .online-legal-section,
-    .online-legal-card,
-    .online-help,
-    .online-warning,
     .online-hero-line,
-    .online-timeline::before,
-    .online-help::before,
-    .online-warning::before {
+    .online-hero::before,
+    .online-hero::after {
+
         animation:
             none !important;
 
@@ -2300,35 +2789,56 @@
 
         transform:
             none !important;
+
+        filter:
+            none !important;
     }
 
-    .online-hero::before,
-    .online-hero::after,
-    .online-status-icon {
+
+    .online-section-title,
+    .online-step,
+    .online-bank-section,
+    .online-bank-card,
+    .online-legal-section,
+    .online-legal-card,
+    .online-warning {
+
+        transition:
+            none !important;
+
+        opacity:
+            1 !important;
+
+        transform:
+            none !important;
+
+        filter:
+            none !important;
+    }
+
+
+    .online-document-item::before {
+
         animation:
             none !important;
     }
 
+
+    .online-back a,
+    .online-arrow,
     .online-step-card,
     .online-step-number,
     .online-bank-card,
-    .online-legal-card,
-    .online-document-item,
-    .online-back a,
     .online-bank-icon,
+    .online-legal-card,
     .online-legal-icon,
-    .online-help-icon,
     .online-warning-icon {
+
         transition:
             none !important;
     }
 
 }
-
-
-/* ============================================================
-   END
-   ============================================================ */
 
 </style>
 
@@ -2336,15 +2846,15 @@
 <div class="online-page">
 
 
-    {{-- =========================================================
+    {{-- =====================================================
          KEMBALI
-    ========================================================== --}}
+    ====================================================== --}}
 
     <div class="online-back">
 
         <a href="{{ url()->previous() }}">
 
-            <span class="arrow">
+            <span class="online-arrow">
                 ←
             </span>
 
@@ -2355,31 +2865,45 @@
     </div>
 
 
-    {{-- =========================================================
+    {{-- =====================================================
          HERO
-    ========================================================== --}}
+    ====================================================== --}}
 
     <div class="online-hero">
 
         <div class="online-hero-line"></div>
 
+
         <div class="online-hero-content">
 
+
             <div class="online-label">
+
                 Prosedur Pembukaan Rekening
+
             </div>
 
+
             <h1>
+
                 Prosedur Pembuatan
-                <span>Akun Online</span>
+
+                <span>
+                    Akun Online
+                </span>
+
             </h1>
 
-            <p>
+
+            <p class="online-hero-description">
+
                 Panduan tahapan pembukaan rekening secara online
                 bersama PT. Rifan Financindo Berjangka.
                 Ikuti setiap proses dengan teliti agar pembukaan akun
                 berjalan dengan lancar.
+
             </p>
+
 
             <div class="online-status">
 
@@ -2389,14 +2913,15 @@
 
             </div>
 
+
         </div>
 
     </div>
 
 
-    {{-- =========================================================
-         JUDUL PROSEDUR
-    ========================================================== --}}
+    {{-- =====================================================
+         PROSEDUR
+    ====================================================== --}}
 
     <div class="online-section-title">
 
@@ -2419,9 +2944,9 @@
     </div>
 
 
-    {{-- =========================================================
+    {{-- =====================================================
          TIMELINE
-    ========================================================== --}}
+    ====================================================== --}}
 
     <div class="online-timeline">
 
@@ -2434,6 +2959,7 @@
                 01
             </div>
 
+
             <div class="online-step-card">
 
                 <h3>
@@ -2441,10 +2967,12 @@
                 </h3>
 
                 <p>
+
                     Calon Nasabah melakukan registrasi
-                    <strong>Demo Account</strong> sebagai tahap awal
-                    untuk mengenal sistem dan mekanisme transaksi
-                    perdagangan berjangka.
+                    <strong>Demo Account</strong>
+                    sebagai tahap awal untuk mengenal sistem
+                    dan mekanisme transaksi perdagangan berjangka.
+
                 </p>
 
             </div>
@@ -2460,6 +2988,7 @@
                 02
             </div>
 
+
             <div class="online-step-card">
 
                 <h3>
@@ -2467,28 +2996,44 @@
                 </h3>
 
                 <p>
+
                     Calon Nasabah melengkapi seluruh data dan dokumen
                     yang diperlukan dalam proses pembukaan rekening
                     secara online.
+
                 </p>
+
 
                 <div class="online-document-list">
 
+
                     <div class="online-document-item">
+
                         Aplikasi Pembukaan Rekening
+
                     </div>
 
+
                     <div class="online-document-item">
+
                         Dokumen Pemberitahuan Adanya Risiko
+
                     </div>
 
+
                     <div class="online-document-item">
+
                         Perjanjian Pemberian Amanat
+
                     </div>
 
+
                     <div class="online-document-item">
+
                         Mekanisme Transaksi di Perdagangan Berjangka
+
                     </div>
+
 
                 </div>
 
@@ -2505,6 +3050,7 @@
                 03
             </div>
 
+
             <div class="online-step-card">
 
                 <h3>
@@ -2512,9 +3058,11 @@
                 </h3>
 
                 <p>
+
                     Data dan dokumen yang telah dikirimkan akan melalui
                     proses verifikasi untuk memastikan kelengkapan
                     dan kesesuaian informasi calon Nasabah.
+
                 </p>
 
             </div>
@@ -2530,6 +3078,7 @@
                 04
             </div>
 
+
             <div class="online-step-card">
 
                 <h3>
@@ -2537,9 +3086,11 @@
                 </h3>
 
                 <p>
+
                     Setelah data dinyatakan lengkap dan sesuai,
                     proses pembukaan rekening akan dilanjutkan
                     hingga akun siap untuk digunakan.
+
                 </p>
 
             </div>
@@ -2555,6 +3106,7 @@
                 05
             </div>
 
+
             <div class="online-step-card">
 
                 <h3>
@@ -2562,9 +3114,11 @@
                 </h3>
 
                 <p>
+
                     Setelah seluruh proses selesai, akun Nasabah
                     akan diaktifkan dan dapat digunakan sesuai
                     dengan ketentuan yang berlaku.
+
                 </p>
 
             </div>
@@ -2575,11 +3129,12 @@
     </div>
 
 
-    {{-- =========================================================
-         REKENING BANK
-    ========================================================== --}}
+    {{-- =====================================================
+         REKENING TERPISAH
+    ====================================================== --}}
 
     <div class="online-bank-section">
+
 
         <div class="online-section-title">
 
@@ -2610,7 +3165,12 @@
             <div class="online-bank-card">
 
                 <div class="online-bank-icon">
-                    B
+
+                    <img
+                        src="{{ asset('images/bank/bca.png') }}"
+                        alt="Bank BCA"
+                    >
+
                 </div>
 
                 <div class="online-bank-name">
@@ -2621,39 +3181,20 @@
                     Cabang Sudirman, Jakarta
                 </div>
 
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        IDR
-                    </span>
-
-                    <span class="online-account-number">
-                        035 – 311 – 8975
-                    </span>
-
-                </div>
-
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        USD
-                    </span>
-
-                    <span class="online-account-number">
-                        035 – 311 – 7600
-                    </span>
-
-                </div>
-
             </div>
 
 
-            {{-- CIMB --}}
+            {{-- CIMB NIAGA --}}
 
             <div class="online-bank-card">
 
                 <div class="online-bank-icon">
-                    C
+
+                    <img
+                        src="{{ asset('images/bank/cimb-niaga.png') }}"
+                        alt="Bank CIMB Niaga"
+                    >
+
                 </div>
 
                 <div class="online-bank-name">
@@ -2664,30 +3205,6 @@
                     Cabang Gajahmada, Jakarta
                 </div>
 
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        IDR
-                    </span>
-
-                    <span class="online-account-number">
-                        800 – 12 – 97271 – 00
-                    </span>
-
-                </div>
-
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        USD
-                    </span>
-
-                    <span class="online-account-number">
-                        800 – 01 – 20945 – 40
-                    </span>
-
-                </div>
-
             </div>
 
 
@@ -2696,7 +3213,12 @@
             <div class="online-bank-card">
 
                 <div class="online-bank-icon">
-                    N
+
+                    <img
+                        src="{{ asset('images/bank/bni.png') }}"
+                        alt="Bank BNI"
+                    >
+
                 </div>
 
                 <div class="online-bank-name">
@@ -2707,30 +3229,6 @@
                     Gambir Branch, Jakarta
                 </div>
 
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        IDR
-                    </span>
-
-                    <span class="online-account-number">
-                        017 – 5008 – 590
-                    </span>
-
-                </div>
-
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        USD
-                    </span>
-
-                    <span class="online-account-number">
-                        017 – 5020 – 200
-                    </span>
-
-                </div>
-
             </div>
 
 
@@ -2739,7 +3237,12 @@
             <div class="online-bank-card">
 
                 <div class="online-bank-icon">
-                    M
+
+                    <img
+                        src="{{ asset('images/bank/mandiri.png') }}"
+                        alt="Bank Mandiri"
+                    >
+
                 </div>
 
                 <div class="online-bank-name">
@@ -2750,30 +3253,6 @@
                     Cabang Imam Bonjol, Jakarta
                 </div>
 
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        IDR
-                    </span>
-
-                    <span class="online-account-number">
-                        122 - 000 - 664 - 2881
-                    </span>
-
-                </div>
-
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        USD
-                    </span>
-
-                    <span class="online-account-number">
-                        122 - 000 - 664 - 2873
-                    </span>
-
-                </div>
-
             </div>
 
 
@@ -2782,7 +3261,12 @@
             <div class="online-bank-card">
 
                 <div class="online-bank-icon">
-                    A
+
+                    <img
+                        src="{{ asset('images/bank/artha-graha.png') }}"
+                        alt="Bank Artha Graha"
+                    >
+
                 </div>
 
                 <div class="online-bank-name">
@@ -2793,18 +3277,6 @@
                     Cabang KPO Sudirman, Jakarta
                 </div>
 
-                <div class="online-account-row">
-
-                    <span class="online-currency">
-                        IDR
-                    </span>
-
-                    <span class="online-account-number">
-                        107 - 996 - 3271
-                    </span>
-
-                </div>
-
             </div>
 
 
@@ -2813,11 +3285,12 @@
     </div>
 
 
-    {{-- =========================================================
+    {{-- =====================================================
          LEGALITAS
-    ========================================================== --}}
+    ====================================================== --}}
 
     <div class="online-legal-section">
+
 
         <div class="online-section-title">
 
@@ -2853,7 +3326,12 @@
             >
 
                 <div class="online-legal-icon">
-                    B
+
+                    <img
+                        src="{{ asset('images/legalitas/bappebti.png') }}"
+                        alt="BAPPEBTI"
+                    >
+
                 </div>
 
                 <h3>
@@ -2877,7 +3355,12 @@
             >
 
                 <div class="online-legal-icon">
-                    J
+
+                    <img
+                        src="{{ asset('images/legalitas/jfx.png') }}"
+                        alt="JFX"
+                    >
+
                 </div>
 
                 <h3>
@@ -2901,7 +3384,12 @@
             >
 
                 <div class="online-legal-icon">
-                    K
+
+                    <img
+                        src="{{ asset('images/legalitas/kbi.png') }}"
+                        alt="KBI"
+                    >
+
                 </div>
 
                 <h3>
@@ -2925,7 +3413,12 @@
             >
 
                 <div class="online-legal-icon">
-                    A
+
+                    <img
+                        src="{{ asset('images/legalitas/aspebtindo.png') }}"
+                        alt="ASPEBTINDO"
+                    >
+
                 </div>
 
                 <h3>
@@ -2944,37 +3437,12 @@
     </div>
 
 
-    {{-- =========================================================
-         HELP
-    ========================================================== --}}
-
-    <div class="online-help">
-
-        <div class="online-help-title">
-
-            <span class="online-help-icon">
-                ?
-            </span>
-
-            Butuh Bantuan?
-
-        </div>
-
-        <p>
-            Apabila terdapat kendala atau membutuhkan informasi
-            lebih lanjut mengenai proses pembukaan akun secara online,
-            silakan menghubungi Wakil Pialang Berjangka PT Rifan
-            Financindo Berjangka.
-        </p>
-
-    </div>
-
-
-    {{-- =========================================================
-         PERINGATAN
-    ========================================================== --}}
+    {{-- =====================================================
+         WARNING
+    ====================================================== --}}
 
     <div class="online-warning">
+
 
         <div class="online-warning-title">
 
@@ -2986,25 +3454,114 @@
 
         </div>
 
+
         <p>
+
             Managemen PT. Rifan Financindo Berjangka (PT RFB)
             menghimbau kepada seluruh masyarakat untuk lebih berhati-hati
             terhadap beberapa bentuk penipuan yang berkedok investasi
             mengatasnamakan PT RFB dengan menggunakan media elektronik
             ataupun sosial media.
+
         </p>
 
+
         <p>
+
             Untuk itu harus dipastikan bahwa transfer dana ke rekening
             tujuan (<strong>Segregated Account</strong>) guna melaksanakan
             transaksi Perdagangan Berjangka adalah atas nama
             <strong>PT Rifan Financindo Berjangka</strong>,
             bukan atas nama individu.
+
         </p>
+
 
     </div>
 
 
 </div>
+
+
+{{-- ============================================================
+     SCROLL REVEAL JAVASCRIPT
+     ============================================================ --}}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    /*
+    |----------------------------------------------------------------------
+    | ELEMENT YANG AKAN MUNCUL SAAT DI-SCROLL
+    |----------------------------------------------------------------------
+    */
+
+    const revealElements = document.querySelectorAll(
+
+        '.online-section-title,' +
+        '.online-step,' +
+        '.online-bank-section,' +
+        '.online-legal-section,' +
+        '.online-warning'
+
+    );
+
+
+    /*
+    |----------------------------------------------------------------------
+    | INTERSECTION OBSERVER
+    |----------------------------------------------------------------------
+    */
+
+    const revealObserver = new IntersectionObserver(
+
+        function (entries, observer) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('show');
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold:
+                0.12,
+
+            rootMargin:
+                '0px 0px -60px 0px'
+
+        }
+
+    );
+
+
+    /*
+    |----------------------------------------------------------------------
+    | OBSERVE SEMUA ELEMENT
+    |----------------------------------------------------------------------
+    */
+
+    revealElements.forEach(function (element) {
+
+        revealObserver.observe(element);
+
+    });
+
+
+});
+
+</script>
+
 
 @endsection
