@@ -992,6 +992,123 @@
         cursor: pointer;
     }
 
+    /* =========================================================
+    PENDAFTARAN MAGANG
+    ========================================================= */
+
+    .magang-cta-content {
+        width: 100%;
+
+        margin-top: 45px;
+        padding: 50px 40px;
+
+        border-radius: 18px;
+
+        background: var(--red);
+
+        color: #fff;
+
+        text-align: center;
+    }
+
+
+    .magang-cta-label {
+        display: block;
+
+        margin-bottom: 12px;
+
+        color: rgba(255, 255, 255, .85);
+
+        font-size: 12px;
+        font-weight: 700;
+
+        letter-spacing: 2px;
+    }
+
+
+    .magang-cta-content h2 {
+        margin: 0 0 14px;
+
+        color: #fff;
+
+        font-size: 32px;
+        font-weight: 700;
+
+        line-height: 1.3;
+    }
+
+
+    .magang-cta-content p {
+        max-width: 680px;
+
+        margin: 0 auto;
+
+        color: rgba(255, 255, 255, .85);
+
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+
+    /* =========================================================
+    TOMBOL
+    ========================================================= */
+
+    .magang-cta-buttons {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: 28px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .magang-cta-btn {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        min-width: 130px;
+
+        padding: 11px 20px;
+
+        border-radius: 6px;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        text-decoration: none;
+
+        transition:
+            transform .2s ease,
+            opacity .2s ease;
+    }
+
+
+    .magang-cta-btn:hover {
+        transform: translateY(-2px);
+
+        opacity: .9;
+
+        text-decoration: none;
+    }
+
+
+    .magang-cta-btn.whatsapp,
+    .magang-cta-btn.email {
+        background: #fff;
+
+        color: var(--red);
+    }
+
 
     /* =========================================================
        KEGIATAN
@@ -2992,6 +3109,28 @@
 
     .kegiatan-dokumentasi-item {
         height: 140px;
+    }
+
+    .magang-cta-content {
+        margin-top: 35px;
+        padding: 38px 24px;
+    }
+
+    .magang-cta-content h2 {
+        font-size: 27px;
+    }
+
+    .magang-cta-content p {
+        font-size: 14px;
+    }
+
+    .magang-cta-buttons {
+        flex-direction: column;
+    }
+
+    .magang-cta-btn {
+        width: 100%;
+        max-width: 220px;
     }
 
 }

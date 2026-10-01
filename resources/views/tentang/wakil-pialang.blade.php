@@ -42,7 +42,7 @@
 
                             <div>
                                 <small>Email</small>
-                                <strong>email@example.com</strong>
+                                <strong>⁠christin.rfbsmg@gmail.com</strong>
                             </div>
 
                         </div>
@@ -88,7 +88,7 @@
 
                             <div>
                                 <small>Email</small>
-                                <strong>email@example.com</strong>
+                                <strong>⁠dhiana.rfbsemarang@gmail.com</strong>
                             </div>
 
                         </div>
@@ -133,7 +133,7 @@
 
                             <div>
                                 <small>Email</small>
-                                <strong>email@example.com</strong>
+                                <strong>diansririfansemarang@gmail.com</strong>
                             </div>
 
                         </div>

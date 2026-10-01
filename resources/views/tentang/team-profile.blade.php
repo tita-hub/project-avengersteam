@@ -250,12 +250,13 @@
                 <h2>About Avengers Team</h2>
             </div>
 
-            <div class="video-box">
-                <video controls preload="metadata" playsinline>
-                    <source src="{{ asset('videos/1.mp4') }}" type="video/mp4">
-
-                    Browser Anda tidak mendukung pemutaran video.
-                </video>
+            <div class="video-box">    
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Pj0YSE1fL4Y?si=phtzdZY522K2c3lO" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
             </div>
         </section>
 
