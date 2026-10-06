@@ -35,17 +35,29 @@
 
                         <!-- EMAIL -->
                         <div class="wakil-pialang-item">
+    <div class="wakil-pialang-icon">
+        <i class="bi bi-envelope"></i>
+    </div>
 
-                            <span class="wakil-pialang-icon">
-                                <i class="bi bi-envelope"></i>
-                            </span>
+    <div>
+        <small>Email</small>
 
-                            <div>
-                                <small>Email</small>
-                                <strong>⁠christin.rfbsmg@gmail.com</strong>
-                            </div>
+        <div class="email-action">
+            <a href="mailto:christin.rfbsmg@gmail.com" class="email-link">
+                christin.rfbsmg@gmail.com
+            </a>
 
-                        </div>
+            <button
+                type="button"
+                class="copy-email-btn"
+                onclick="copyEmail('christin.rfbsmg@gmail.com', this)"
+                title="Salin email"
+            >
+                <i class="bi bi-copy"></i>
+            </button>
+        </div>
+    </div>
+</div>
 
                     </div>
                 </div>
@@ -147,6 +159,31 @@
 
     </div>
 
+<script>
+function copyEmail(email, button) {
+    navigator.clipboard.writeText(email)
+        .then(function () {
+
+            const icon = button.querySelector('i');
+
+            icon.classList.remove('bi-copy');
+            icon.classList.add('bi-check2');
+
+            button.title = 'Email berhasil disalin';
+
+            setTimeout(function () {
+                icon.classList.remove('bi-check2');
+                icon.classList.add('bi-copy');
+
+                button.title = 'Salin email';
+            }, 1500);
+
+        })
+        .catch(function () {
+            alert('Email tidak dapat disalin.');
+        });
+}
+</script>
 
     </div>
 @endsection

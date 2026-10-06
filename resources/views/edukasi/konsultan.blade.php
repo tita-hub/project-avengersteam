@@ -39,6 +39,7 @@
         padding-bottom: 80px;
     }
 
+
     /* =====================================================
        HERO
     ===================================================== */
@@ -74,7 +75,9 @@
     }
 
 
-    /* Lingkaran kanan atas */
+    /* =====================================================
+       LINGKARAN KANAN ATAS
+    ===================================================== */
 
     .edu-hero::before {
         content: "";
@@ -93,7 +96,9 @@
     }
 
 
-    /* Lingkaran kanan bawah */
+    /* =====================================================
+       LINGKARAN KANAN BAWAH
+    ===================================================== */
 
     .edu-hero::after {
         content: "";
@@ -227,7 +232,9 @@
     }
 
 
-    /* Icon hero tidak digunakan */
+    /* =====================================================
+       ICON HERO TIDAK DIGUNAKAN
+    ===================================================== */
 
     .hero-icon {
         display: none !important;
@@ -284,7 +291,7 @@
 
 
     /* =====================================================
-       AKSES KONSULTAN
+    AKSES KONSULTAN
     ===================================================== */
 
     .access-grid {
@@ -311,6 +318,12 @@
         border: 1px solid #e4e9e5;
 
         border-radius: 18px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 22px;
 
         transition:
             transform .3s ease,
@@ -347,39 +360,75 @@
 
 
     /* =====================================================
-       ICON AKSES
+    GAMBAR AKSES KONSULTAN
     ===================================================== */
 
     .access-icon {
-        width: 48px;
-        height: 48px;
+        position: relative;
+
+        z-index: 1;
+
+        flex: 0 0 120px;
+
+        width: 140px;
+        height: 92px;
 
         display: flex;
 
         align-items: center;
         justify-content: center;
 
-        margin-bottom: 17px;
+        border-radius: 7px;
 
-        border-radius: 14px;
+        overflow: hidden;
 
-        background: #eaf5ef;
+        background: #f5f7f6;
 
-        color: #176b4d;
+        border: 1px solid #e4e9e5;
 
-        font-size: 21px;
+        box-shadow:
+            0 4px 12px rgba(0,0,0,.05);
     }
 
 
-    .access-card:nth-child(2) .access-icon {
-        background: #faeeee;
+    .access-icon img {
+        width: 90%;
+        height: 90%;
 
-        color: #8d2634;
+        display: block;
+
+        object-fit: contain;
+
+        object-position: center;
     }
 
 
     /* =====================================================
-       JUDUL CARD
+    KARTU KEDUA
+    ===================================================== */
+
+    .access-card:nth-child(2) .access-icon {
+        background: #fdf5f6;
+    }
+
+
+    /* =====================================================
+    ISI CARD
+    ===================================================== */
+
+    .access-card-content {
+        position: relative;
+
+        z-index: 1;
+
+        flex: 1;
+
+        min-width: 0;
+    }
+
+
+    /* =====================================================
+    JUDUL CARD
     ===================================================== */
 
     .access-card h3 {
@@ -396,7 +445,7 @@
 
 
     /* =====================================================
-       DESKRIPSI CARD
+    DESKRIPSI CARD
     ===================================================== */
 
     .access-card p {
@@ -411,7 +460,7 @@
 
 
     /* =====================================================
-       TOMBOL
+    TOMBOL
     ===================================================== */
 
     .access-btn {
@@ -459,7 +508,7 @@
 
 
     /* =====================================================
-       RESPONSIVE
+    RESPONSIVE
     ===================================================== */
 
     @media (max-width: 900px) {
@@ -488,6 +537,7 @@
         .access-grid {
             grid-template-columns: 1fr;
         }
+
     }
 
 
@@ -532,8 +582,38 @@
 
 
         .access-card {
-            padding: 20px;
+            padding: 18px;
+
+            gap: 15px;
         }
+
+
+        .access-icon {
+            flex: 0 0 90px;
+
+            width: 90px;
+            height: 65px;
+        }
+
+
+        .access-card h3 {
+            font-size: 16px;
+        }
+
+
+        .access-card p {
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        .access-btn {
+            padding: 8px 13px;
+
+            font-size: 10px;
+        }
+
     }
 </style>
 
@@ -622,38 +702,41 @@
 
                 <div class="access-icon">
 
-                    <i class="bi bi-calendar-check"></i>
+                    <img
+                        src="{{ asset('images/appointment-login.png') }}"
+                        alt="Appointment Login"
+                    >
 
                 </div>
 
 
-                <h3>
+                <div class="access-card-content">
 
-                    Input Appointment
-
-                </h3>
-
-
-                <p>
-
-                    Gunakan sistem appointment untuk melakukan pengajuan
-                    kebutuhan mobil kantor dalam aktivitas konsultan.
-
-                </p>
+                    <h3>
+                        Report Appointment
+                    </h3>
 
 
-                <a
-                    href="https://www.rf-berjangkasemarang.com/login"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="access-btn"
-                >
+                    <p>
+                        Gunakan sistem appointment untuk melakukan pengajuan
+                        kebutuhan mobil kantor dalam aktivitas konsultan.
+                    </p>
 
-                    Buka Sistem
 
-                    <i class="bi bi-arrow-up-right"></i>
+                    <a
+                        href="https://www.rf-berjangkasemarang.com/login"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="access-btn"
+                    >
 
-                </a>
+                        Buka Sistem
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -667,43 +750,43 @@
 
                 <div class="access-icon">
 
-                    <i class="bi bi-clipboard-data"></i>
+                    <img
+                        src="{{ asset('images/performance-login.png') }}"
+                        alt="Daily Report Performance Login"
+                    >
 
                 </div>
 
 
-                <h3>
+                <div class="access-card-content">
 
-                    Input Report Kinerja Harian
-
-                </h3>
-
-
-                <p>
-
-                    Gunakan sistem untuk melakukan input dan pemantauan
-                    laporan kinerja harian konsultan.
-
-                </p>
+                    <h3>
+                        Daily Report Performance
+                    </h3>
 
 
-                <a
-                    href="https://performance-rfbsmg.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="access-btn"
-                >
+                    <p>
+                        Gunakan sistem untuk melakukan input dan pemantauan
+                        laporan kinerja harian konsultan.
+                    </p>
 
-                    Buka Sistem
 
-                    <i class="bi bi-arrow-up-right"></i>
+                    <a
+                        href="https://performance-rfbsmg.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="access-btn"
+                    >
 
-                </a>
+                        Buka Sistem
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
 
             </div>
-
-
-        </div>
 
     </section>
 

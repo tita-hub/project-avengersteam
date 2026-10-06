@@ -28,8 +28,8 @@
 
                 <p>
                     Dalam perdagangan berjangka, nasabah perlu memahami bagaimana
-                    mekanisme transaksi berlangsung serta karakteristik produk yang
-                    diperdagangkan.
+                    mekanisme transaksi berlangsung serta karakteristik produk
+                    yang diperdagangkan.
                 </p>
 
                 <h4>Apa yang perlu dipahami?</h4>
@@ -119,144 +119,292 @@
             ',
         ],
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | MATERI 04 - MEKANISME TRANSAKSI
+        |--------------------------------------------------------------------------
+        */
+
         [
             'id' => 4,
             'nomor' => '04',
             'kategori' => 'MEKANISME',
             'icon' => 'bi-arrow-left-right',
-            'judul' => 'Cara Kerja Trading',
-            'ringkasan' => 'Pelajari gambaran proses trading mulai dari persiapan hingga melakukan transaksi.',
+            'judul' => 'Mekanisme Transaksi',
+            'ringkasan' => 'Pelajari perbedaan mekanisme transaksi tradisional dan perdagangan berjangka.',
             'isi' => '
-                <p>
-                    Sebelum melakukan transaksi, calon nasabah perlu mengikuti
-                    proses dan prosedur yang berlaku serta memahami informasi
-                    yang diberikan.
-                </p>
-
-                <h4>Gambaran proses trading</h4>
-
-                <ol>
-                    <li>
-                        <strong>Pendaftaran</strong><br>
-                        Calon nasabah mengikuti proses pendaftaran sesuai prosedur
-                        yang berlaku.
-                    </li>
-
-                    <li>
-                        <strong>Verifikasi Data</strong><br>
-                        Data dan dokumen calon nasabah dilakukan pemeriksaan sesuai
-                        ketentuan.
-                    </li>
-
-                    <li>
-                        <strong>Memahami Dokumen</strong><br>
-                        Nasabah membaca dan memahami dokumen, ketentuan serta risiko
-                        perdagangan.
-                    </li>
-
-                    <li>
-                        <strong>Persiapan Dana</strong><br>
-                        Dana transaksi ditempatkan sesuai mekanisme dan ketentuan
-                        yang berlaku.
-                    </li>
-
-                    <li>
-                        <strong>Melakukan Transaksi</strong><br>
-                        Nasabah melakukan transaksi melalui sistem yang tersedia
-                        sesuai prosedur.
-                    </li>
-                </ol>
 
                 <p>
-                    Setiap tahap perlu dilakukan dengan memahami informasi yang
-                    diberikan sebelum transaksi dilakukan.
+                    Mekanisme transaksi dalam perdagangan dapat dilakukan melalui
+                    mekanisme transaksi tradisional maupun transaksi perdagangan
+                    berjangka. Keduanya memiliki karakteristik yang berbeda dalam
+                    proses transaksi dan pergerakan harga.
                 </p>
+
+                <div class="materi-image">
+
+                    <img
+                        src="' . asset('images/mekanisme-transaksi.png') . '"
+                        alt="Two Ways Market - Mekanisme Transaksi"
+                    >
+
+                </div>
+
+                <h4>Transaksi Tradisional</h4>
+
+                <p>
+                    Pada transaksi tradisional, proses jual beli dilakukan dengan
+                    membeli barang terlebih dahulu dan kemudian menjualnya kembali.
+                    Keuntungan atau kerugian dipengaruhi oleh perubahan harga barang
+                    yang diperjualbelikan.
+                </p>
+
+                <h4>Transaksi Perdagangan Berjangka</h4>
+
+                <p>
+                    Dalam perdagangan berjangka, transaksi dapat dilakukan dengan
+                    mengambil posisi beli maupun jual berdasarkan perkiraan arah
+                    pergerakan harga. Nasabah dapat memperoleh peluang keuntungan
+                    ketika harga bergerak sesuai dengan posisi yang diambil, namun
+                    tetap terdapat risiko kerugian apabila harga bergerak berlawanan.
+                </p>
+
+                <p>
+                    Oleh karena itu, pemahaman mengenai mekanisme transaksi dan
+                    pergerakan harga menjadi bagian penting sebelum melakukan
+                    perdagangan berjangka.
+                </p>
+
             ',
         ],
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | MATERI 05 - CARA KERJA TRADING
+        |--------------------------------------------------------------------------
+        */
 
         [
             'id' => 5,
             'nomor' => '05',
             'kategori' => 'RISIKO',
             'icon' => 'bi-shield-exclamation',
-            'judul' => 'Risiko Trading',
-            'ringkasan' => 'Kenali risiko perdagangan berjangka sebelum mengambil keputusan untuk melakukan transaksi.',
+            'judul' => 'Cara Kerja Trading',
+            'ringkasan' => 'Memahami perbandingan transaksi fisik dan kontrak gulir harian dalam perdagangan berjangka.',
             'isi' => '
-                <p>
-                    Perdagangan berjangka memiliki risiko yang perlu dipahami oleh
-                    setiap calon nasabah. Perubahan harga dapat menyebabkan nilai
-                    transaksi berubah dalam waktu yang relatif cepat.
-                </p>
-
-                <h4>Beberapa risiko yang perlu diperhatikan</h4>
-
-                <ul>
-                    <li>
-                        <strong>Risiko Pergerakan Harga</strong><br>
-                        Harga dapat bergerak berlawanan dengan posisi transaksi.
-                    </li>
-
-                    <li>
-                        <strong>Risiko Pasar</strong><br>
-                        Kondisi ekonomi dan berbagai faktor pasar dapat memengaruhi
-                        pergerakan harga.
-                    </li>
-
-                    <li>
-                        <strong>Risiko Leverage</strong><br>
-                        Mekanisme leverage dapat memperbesar dampak perubahan harga
-                        terhadap transaksi.
-                    </li>
-
-                    <li>
-                        <strong>Risiko Likuiditas</strong><br>
-                        Kondisi pasar tertentu dapat memengaruhi kemudahan melakukan
-                        transaksi pada harga yang diharapkan.
-                    </li>
-                </ul>
 
                 <p>
-                    Tidak ada metode yang dapat menjamin keuntungan pada setiap
-                    transaksi. Karena itu, risiko harus dipahami sebelum mengambil
-                    keputusan transaksi.
+                    Cara kerja transaksi dapat dipahami dengan membandingkan
+                    transaksi fisik dengan transaksi perdagangan berjangka
+                    menggunakan kontrak gulir harian.
                 </p>
+
+                <div class="materi-image">
+
+                    <img
+                        src="' . asset('images/cara-kerja-trading.png') . '"
+                        alt="Perbandingan Transaksi Fisik dan Kontrak Gulir Harian"
+                    >
+
+                </div>
+
+                <h4>Transaksi Fisik</h4>
+
+                <p>
+                    Pada transaksi fisik, keuntungan dapat diperoleh dari perubahan
+                    harga barang yang diperjualbelikan. Nasabah membeli pada harga
+                    tertentu dan kemudian menjual kembali ketika harga mengalami
+                    perubahan sesuai dengan kondisi pasar.
+                </p>
+
+                <p>
+                    Sebagai contoh, apabila pembelian dilakukan pada harga
+                    <strong>3.200</strong> dan posisi kemudian ditutup pada harga
+                    <strong>3.250</strong>, maka terdapat kenaikan harga sebesar
+                    <strong>1,5%</strong>.
+                </p>
+
+                <h4>Transaksi Online RF BJ (GJ)</h4>
+
+                <p>
+                    Pada transaksi perdagangan berjangka, nasabah dapat mengambil
+                    posisi berdasarkan pergerakan harga dengan menggunakan kontrak
+                    yang memiliki spesifikasi tertentu.
+                </p>
+
+                <p>
+                    Transaksi dapat dilakukan dengan mengambil posisi beli maupun
+                    jual. Perubahan harga akan memengaruhi nilai transaksi sesuai
+                    dengan ukuran kontrak yang digunakan.
+                </p>
+
+                <h4>Contoh Perhitungan</h4>
+
+                <p>
+                    Berdasarkan ilustrasi pada gambar, transaksi menggunakan
+                    <strong>Contract Size 1 LOT = 100 OZ</strong>.
+                </p>
+
+                <p>
+                    Apabila harga bergerak dari <strong>3.200</strong> menjadi
+                    <strong>3.250</strong>, maka terdapat perubahan harga sebesar
+                    <strong>50</strong>.
+                </p>
+
+                <p>
+                    Dengan ukuran kontrak yang digunakan, perubahan harga tersebut
+                    akan menghasilkan perubahan nilai transaksi sesuai dengan
+                    contract size.
+                </p>
+
+                <p>
+                    Oleh karena itu, nasabah perlu memahami ukuran kontrak,
+                    pergerakan harga, serta potensi keuntungan dan risiko sebelum
+                    melakukan transaksi.
+                </p>
+
             ',
         ],
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | MATERI 06 - MANAGEMENT RISIKO
+        |--------------------------------------------------------------------------
+        */
 
         [
             'id' => 6,
             'nomor' => '06',
-            'kategori' => 'PERSIAPAN',
-            'icon' => 'bi-check2-circle',
-            'judul' => 'Sebelum Melakukan Transaksi',
-            'ringkasan' => 'Hal-hal penting yang perlu diketahui dan dipahami sebelum mulai melakukan transaksi.',
+            'kategori' => 'RISIKO',
+            'icon' => 'bi-shield-exclamation',
+            'judul' => 'Management Risiko',
+            'ringkasan' => 'Memahami pengelolaan risiko sebelum dan setelah melakukan transaksi.',
             'isi' => '
-                <p>
-                    Sebelum melakukan transaksi, calon nasabah perlu memastikan
-                    bahwa informasi mengenai perdagangan berjangka telah dipahami
-                    dengan baik.
-                </p>
 
-                <h4>Yang perlu diperhatikan</h4>
+                <h4>Segitiga Keberhasilan Transaksi</h4>
+
+                <p>
+                    Keberhasilan transaksi dipengaruhi oleh beberapa aspek yang
+                    saling berkaitan, yaitu psikologi, analisis, manajemen kapital,
+                    strategi trading, serta timing entry dan timing exit.
+                </p>
 
                 <ul>
-                    <li>Memahami cara kerja perdagangan berjangka.</li>
-                    <li>Mempelajari karakteristik produk yang akan diperdagangkan.</li>
-                    <li>Membaca dan memahami dokumen yang diberikan.</li>
-                    <li>Memahami seluruh risiko transaksi.</li>
-                    <li>Mengetahui biaya dan ketentuan yang berlaku.</li>
-                    <li>Memastikan data yang diberikan sudah benar.</li>
-                    <li>Menggunakan informasi dan kanal resmi perusahaan.</li>
-                    <li>Tidak mengambil keputusan hanya berdasarkan janji keuntungan.</li>
+                    <li>
+                        <strong>Psikologi</strong> — mengelola harapan dan
+                        menyesuaikannya dengan analisa objektif berdasarkan kenyataan.
+                    </li>
+
+                    <li>
+                        <strong>Analisis</strong> — menggunakan analisis fundamental
+                        dan teknikal sebagai dasar dalam menentukan keputusan transaksi.
+                    </li>
+
+                    <li>
+                        <strong>Manajemen Kapital</strong> — mengatur modal dengan
+                        mempertimbangkan tujuan transaksi serta kemampuan dalam
+                        mengelola risiko.
+                    </li>
+
+                    <li>
+                        <strong>Strategi Trading</strong> — menentukan strategi yang
+                        sesuai dengan hasil analisis dan kondisi pasar.
+                    </li>
+
+                    <li>
+                        <strong>Timing Entry & Timing Exit</strong> — menentukan
+                        waktu yang tepat untuk masuk dan keluar dari transaksi.
+                    </li>
                 </ul>
 
-                <h4>Yang paling penting</h4>
+
+                <h4>Transaksi Emas | Manajemen Risiko</h4>
 
                 <p>
-                    Jangan melakukan transaksi apabila masih terdapat informasi
-                    penting mengenai mekanisme, produk, biaya, maupun risiko yang
-                    belum dipahami.
+                    Manajemen risiko dalam transaksi emas dapat dibagi menjadi
+                    dua tahap, yaitu sebelum transaksi dan setelah transaksi.
                 </p>
+
+
+                <h4>Sebelum Transaksi</h4>
+
+                <p>
+                    Sebelum melakukan transaksi, perencanaan trading dapat
+                    memperhatikan beberapa hal berikut:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Modal Proporsional</strong> — menyesuaikan modal
+                        dengan kemampuan dan rencana transaksi.
+                    </li>
+
+                    <li>
+                        <strong>Target Pencapaian</strong> — menentukan target
+                        transaksi yang ingin dicapai.
+                    </li>
+
+                    <li>
+                        <strong>Peluang Market</strong> — melihat peluang yang
+                        tersedia berdasarkan kondisi pasar.
+                    </li>
+
+                    <li>
+                        <strong>Metode Transaksi</strong> — menentukan metode
+                        yang akan digunakan dalam melakukan transaksi.
+                    </li>
+
+                    <li>
+                        <strong>Planning Trading</strong> — menyusun perencanaan
+                        transaksi sebelum mengambil posisi.
+                    </li>
+                </ul>
+
+
+                <h4>Setelah Transaksi</h4>
+
+                <p>
+                    Setelah transaksi dilakukan, pengelolaan posisi dapat
+                    disesuaikan dengan perkembangan kondisi pasar. Beberapa
+                    tindakan yang dapat dipertimbangkan antara lain:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Average (Rata-rata)</strong> — melakukan
+                        penyesuaian posisi berdasarkan strategi dan kondisi
+                        transaksi.
+                    </li>
+
+                    <li>
+                        <strong>Locking (Posisi Kunci)</strong> — melakukan
+                        pengelolaan posisi dengan mengunci posisi tertentu
+                        sesuai kondisi pasar.
+                    </li>
+
+                    <li>
+                        <strong>Switching (Balik Arah)</strong> — mengubah
+                        arah posisi apabila analisis menunjukkan perubahan
+                        kondisi pasar.
+                    </li>
+
+                    <li>
+                        <strong>Hold (Menunggu/Tahan)</strong> — mempertahankan
+                        posisi sambil menunggu perkembangan kondisi pasar.
+                    </li>
+                </ul>
+
+
+                <p>
+                    Dengan memahami aspek psikologi, analisis, manajemen kapital,
+                    strategi trading, serta pengelolaan posisi, nasabah dapat
+                    melakukan transaksi dengan perencanaan dan pengelolaan risiko
+                    yang lebih baik.
+                </p>
+
             ',
         ],
 
@@ -269,7 +417,7 @@
 
 /* ============================================================
    EDUKASI NASABAH
-   FONT SAJA DIUBAH MENJADI SANS-SERIF
+   FONT SANS-SERIF
    ============================================================ */
 
 .edu-page,
@@ -305,8 +453,10 @@
 
     color: var(--text);
     background: transparent;
+
     padding-bottom: 80px;
 }
+
 
 /* ============================================================
    CONTAINER
@@ -347,7 +497,6 @@
         );
 
     color: #ffffff;
-
 }
 
 .edu-hero::before {
@@ -1031,6 +1180,47 @@
     color: var(--text);
 }
 
+
+/* ============================================================
+   GAMBAR MATERI
+   Dipakai untuk Materi 04 dan Materi 05
+   ============================================================ */
+
+.materi-image {
+    width: 100%;
+
+    margin: 20px 0 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #f8f9f8;
+}
+
+.materi-image img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   MODAL NOTE
+   ============================================================ */
+
 .edu-modal-note {
     margin-top: 25px;
 
@@ -1196,6 +1386,10 @@ body.edu-modal-open {
         font-size: 13px;
     }
 
+    .materi-image {
+        margin: 15px 0 20px;
+    }
+
 }
 
 </style>
@@ -1357,7 +1551,9 @@ body.edu-modal-open {
                 onclick="event.stopPropagation()"
             >
 
-                {{-- LEFT MODAL --}}
+                {{-- =================================================
+                     LEFT MODAL
+                     ================================================= --}}
 
                 <div class="edu-modal-left">
 
@@ -1384,7 +1580,9 @@ body.edu-modal-open {
                 </div>
 
 
-                {{-- RIGHT MODAL --}}
+                {{-- =================================================
+                     RIGHT MODAL
+                     ================================================= --}}
 
                 <div class="edu-modal-right">
 

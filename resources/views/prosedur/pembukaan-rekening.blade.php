@@ -1,1630 +1,51 @@
+```blade
 @extends('layouts.app')
 
 @section('content')
 
-<style>
+<div class="online-page">
 
-/* ============================================================
-   PEMBUKAAN REKENING
-   CLEAN CORPORATE — MAROON + DEEP GREEN + WHITE
-   ============================================================ */
+    {{-- =====================================================
+         KEMBALI
+    ====================================================== --}}
 
-.rekening-page {
-    --maroon: #8b2433;
-    --maroon-dark: #711b28;
-    --maroon-soft: #f8eef0;
-    --maroon-line: rgba(139, 36, 51, .14);
+    <div class="online-back">
+        <a href="{{ url()->previous() }}">
+            <span class="online-arrow">←</span>
+            Kembali
+        </a>
+    </div>
 
-    --green: #3d6b57;
-    --green-dark: #315744;
-    --green-soft: #eef5f1;
 
-    --text: #292d30;
-    --text-soft: #697178;
-    --text-light: #858d92;
+    {{-- =====================================================
+         HERO
+    ====================================================== --}}
 
-    --border: #e5e8e7;
-    --surface: #f8f9f8;
-    --white: #ffffff;
+    <div class="online-hero">
 
-    padding: 35px 45px 70px;
+        <div class="online-hero-line"></div>
 
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(139, 36, 51, .025),
-            transparent 28%
-        ),
-        #f8f9f8;
+        <div class="online-hero-content">
 
-    min-height: 100vh;
-
-    box-sizing: border-box;
-
-    overflow: hidden;
-}
-
-
-/* ============================================================
-   HERO HEADER
-   ============================================================ */
-
-.rekening-header {
-    max-width: 1050px;
-
-    margin: 0 auto 45px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 42px 45px;
-
-    border-radius: 20px;
-
-    background: #ffffff;
-
-    color: var(--text);
-
-    border: 1px solid #e5e8e7;
-
-    border-left: 4px solid var(--maroon);
-
-    box-shadow:
-        0 12px 32px rgba(35, 42, 39, .055);
-
-    text-align: left;
-
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    animation:
-        rekeningHeroMasuk .8s cubic-bezier(.22,1,.36,1) forwards;
-}
-
-
-/* ============================================================
-   GARIS ATAS ANIMASI
-   ============================================================ */
-
-.rekening-header::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 0%;
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--maroon),
-            var(--maroon) 72%,
-            var(--green) 72%,
-            var(--green)
-        );
-
-    opacity: .85;
-
-    animation:
-        headerLine 1.2s ease .35s forwards;
-}
-
-
-/* ============================================================
-   DEKORASI LINGKARAN HERO
-   ============================================================ */
-
-.rekening-header::after {
-    content: "";
-
-    position: absolute;
-
-    width: 210px;
-    height: 210px;
-
-    right: -100px;
-    top: -120px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(139, 36, 51, .055);
-
-    box-shadow:
-        0 0 0 25px rgba(139, 36, 51, .018),
-        0 0 0 50px rgba(139, 36, 51, .012);
-
-    animation:
-        heroCircleFloat 7s ease-in-out infinite;
-}
-
-
-/* ============================================================
-   TAMBAHAN DEKORASI
-   ============================================================ */
-
-.rekening-header-content::after {
-    content: "";
-
-    position: absolute;
-
-    width: 90px;
-    height: 90px;
-
-    right: -30px;
-    bottom: -70px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(61, 107, 87, .07);
-
-    box-shadow:
-        0 0 0 15px rgba(61, 107, 87, .018);
-
-    animation:
-        smallCircleFloat 5s ease-in-out infinite;
-}
-
-
-/* ============================================================
-   ISI HERO
-   ============================================================ */
-
-.rekening-header-content {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 780px;
-}
-
-
-/* ============================================================
-   LABEL HEADER
-   ============================================================ */
-
-.rekening-header-label {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 7px 12px;
-
-    margin-bottom: 17px;
-
-    border-radius: 30px;
-
-    background: var(--maroon-soft);
-
-    border:
-        1px solid rgba(139, 36, 51, .10);
-
-    color: var(--maroon);
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.2px;
-
-    text-transform: uppercase;
-
-    opacity: 0;
-
-    transform: translateY(10px);
-
-    animation:
-        contentMasuk .6s ease .45s forwards;
-}
-
-
-.rekening-header-label::before {
-    content: "";
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: var(--maroon);
-
-    box-shadow:
-        0 0 0 4px rgba(139, 36, 51, .075);
-
-    animation:
-        labelPulse 2s ease-in-out infinite;
-}
-
-
-/* ============================================================
-   JUDUL
-   ============================================================ */
-
-.rekening-header h1 {
-    margin: 0 0 13px;
-
-    color: var(--text);
-
-    font-size: 38px;
-
-    line-height: 1.18;
-
-    font-weight: 800;
-
-    letter-spacing: -1px;
-
-    opacity: 0;
-
-    transform: translateY(15px);
-
-    animation:
-        contentMasuk .7s ease .58s forwards;
-}
-
-
-.rekening-header h1 span {
-    color: var(--maroon);
-
-    position: relative;
-}
-
-
-/* underline animasi */
-
-.rekening-header h1 span::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -4px;
-
-    width: 0;
-    height: 2px;
-
-    background: var(--maroon);
-
-    border-radius: 5px;
-
-    animation:
-        titleUnderline .7s ease 1.15s forwards;
-}
-
-
-/* ============================================================
-   DESKRIPSI
-   ============================================================ */
-
-.rekening-header p {
-    margin: 0;
-
-    max-width: 720px;
-
-    color: var(--text-soft);
-
-    font-size: 14px;
-
-    line-height: 1.85;
-
-    opacity: 0;
-
-    transform: translateY(12px);
-
-    animation:
-        contentMasuk .7s ease .72s forwards;
-}
-
-
-/* ============================================================
-   STATUS
-   ============================================================ */
-
-.rekening-header-status {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    margin-top: 22px;
-
-    padding: 8px 12px;
-
-    background: #fafbfa;
-
-    border:
-        1px solid #e6e9e7;
-
-    border-radius: 9px;
-
-    color: var(--text-soft);
-
-    font-size: 11px;
-
-    opacity: 0;
-
-    transform: translateY(12px);
-
-    animation:
-        contentMasuk .7s ease .86s forwards;
-}
-
-
-.rekening-status-dot {
-    width: 7px;
-    height: 7px;
-
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow:
-        0 0 0 4px rgba(61, 107, 87, .08);
-
-    animation:
-        statusPulse 2s ease-in-out infinite;
-}
-
-
-/* ============================================================
-   SECTION TITLE
-   ============================================================ */
-
-.rekening-section-title {
-    max-width: 1050px;
-
-    margin: 0 auto 22px;
-
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.22,1,.36,1);
-}
-
-
-/* saat masuk viewport */
-
-.rekening-section-title.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-.rekening-title-row {
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-}
-
-
-.rekening-title-icon {
-    width: 43px;
-    height: 43px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background: var(--maroon-soft);
-
-    border:
-        1px solid rgba(139, 36, 51, .09);
-
-    color: var(--maroon);
-
-    font-size: 17px;
-
-    font-weight: 900;
-
-    transition:
-        transform .35s ease,
-        background .35s ease,
-        box-shadow .35s ease;
-}
-
-
-/* icon title bergerak */
-
-.rekening-section-title:hover .rekening-title-icon {
-    transform:
-        rotate(-5deg)
-        scale(1.06);
-
-    background: var(--maroon);
-
-    color: white;
-
-    box-shadow:
-        0 8px 20px rgba(139, 36, 51, .14);
-}
-
-
-.rekening-section-title h2 {
-    margin: 0;
-
-    color: var(--text);
-
-    font-size: 23px;
-
-    font-weight: 800;
-
-    letter-spacing: -.4px;
-}
-
-
-.rekening-section-title h2::after {
-    content: "";
-
-    display: block;
-
-    width: 30px;
-    height: 2px;
-
-    margin-top: 6px;
-
-    background: var(--maroon);
-
-    border-radius: 10px;
-
-    opacity: .75;
-
-    transition:
-        width .4s ease;
-}
-
-
-.rekening-section-title:hover h2::after {
-    width: 55px;
-}
-
-
-.rekening-section-title p {
-    margin: 6px 0 0 56px;
-
-    color: var(--text-light);
-
-    font-size: 12.5px;
-}
-
-
-/* ============================================================
-   CARD CONTAINER
-   ============================================================ */
-
-.rekening-container {
-    max-width: 1050px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 22px;
-
-    align-items: stretch;
-}
-
-
-/* ============================================================
-   CARD
-   ============================================================ */
-
-.rekening-card {
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    min-width: 0;
-
-    padding: 30px;
-
-    background: var(--white);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 17px;
-
-    box-sizing: border-box;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 7px 24px rgba(35, 42, 39, .045);
-
-    opacity: 0;
-
-    transition:
-        transform .4s cubic-bezier(.22,1,.36,1),
-        box-shadow .4s ease,
-        border-color .4s ease;
-}
-
-
-/* ============================================================
-   ANIMASI CARD KIRI
-   ============================================================ */
-
-.rekening-card:nth-child(1) {
-    transform:
-        translateX(-45px)
-        translateY(20px);
-}
-
-
-/* ============================================================
-   ANIMASI CARD KANAN
-   ============================================================ */
-
-.rekening-card:nth-child(2) {
-    transform:
-        translateX(45px)
-        translateY(20px);
-}
-
-
-/* saat visible */
-
-.rekening-card.show {
-    opacity: 1;
-
-    transform:
-        translateX(0)
-        translateY(0);
-
-    transition:
-        opacity .7s ease,
-        transform .8s cubic-bezier(.22,1,.36,1),
-        box-shadow .4s ease,
-        border-color .4s ease;
-}
-
-
-.rekening-card:nth-child(2).show {
-    transition-delay: .12s;
-}
-
-
-/* ============================================================
-   GARIS MAROON
-   ============================================================ */
-
-.rekening-card::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--maroon),
-            #a73b4c
-        );
-
-    transform:
-        scaleX(0);
-
-    transform-origin: left;
-
-    transition:
-        transform .5s cubic-bezier(.22,1,.36,1);
-}
-
-
-.rekening-card:hover::before {
-    transform:
-        scaleX(1);
-}
-
-
-/* ============================================================
-   DEKORASI CARD
-   ============================================================ */
-
-.rekening-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 135px;
-    height: 135px;
-
-    right: -80px;
-    bottom: -80px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid rgba(61, 107, 87, .065);
-
-    transition:
-        transform .6s cubic-bezier(.22,1,.36,1);
-}
-
-
-.rekening-card:hover::after {
-    transform:
-        scale(1.45);
-}
-
-
-/* ============================================================
-   HOVER CARD
-   ============================================================ */
-
-.rekening-card:hover {
-    transform:
-        translateY(-7px) !important;
-
-    border-color:
-        rgba(139, 36, 51, .17);
-
-    box-shadow:
-        0 18px 40px rgba(35, 42, 39, .095);
-}
-
-
-/* ============================================================
-   CARD TOP
-   ============================================================ */
-
-.rekening-card-top {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-bottom: 22px;
-}
-
-
-/* ============================================================
-   ICON
-   ============================================================ */
-
-.rekening-icon {
-    width: 62px;
-    height: 62px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 15px;
-
-    background:
-        #faf7f7;
-
-    border:
-        1px solid #eee5e6;
-
-    color:
-        var(--maroon);
-
-    font-size: 27px;
-
-    box-shadow:
-        0 5px 15px rgba(139, 36, 51, .035);
-
-    transition:
-        transform .5s cubic-bezier(.22,1,.36,1),
-        background .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
-
-
-.rekening-card:hover .rekening-icon {
-    transform:
-        translateY(-5px)
-        rotate(-3deg);
-
-    background:
-        var(--maroon-soft);
-
-    border-color:
-        rgba(139, 36, 51, .10);
-
-    color:
-        var(--maroon);
-
-    box-shadow:
-        0 10px 22px rgba(139, 36, 51, .09);
-}
-
-
-/* ============================================================
-   FLOATING ICON
-   ============================================================ */
-
-.rekening-card.show .rekening-icon {
-    animation:
-        iconFloat 4s ease-in-out 1s infinite;
-}
-
-
-/* ============================================================
-   METHOD BADGE
-   ============================================================ */
-
-.rekening-label {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 6px 10px;
-
-    border-radius: 30px;
-
-    background:
-        #f7f8f7;
-
-    border:
-        1px solid #e7e9e8;
-
-    color:
-        #737a7d;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: .9px;
-
-    text-transform: uppercase;
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
-}
-
-
-.rekening-card:hover .rekening-label {
-    background:
-        var(--green-soft);
-
-    color:
-        var(--green-dark);
-
-    transform:
-        translateY(-2px);
-}
-
-
-/* ============================================================
-   TITLE CARD
-   ============================================================ */
-
-.rekening-card h2 {
-    position: relative;
-
-    z-index: 2;
-
-    margin: 0 0 11px;
-
-    color: var(--text);
-
-    font-size: 25px;
-
-    font-weight: 800;
-
-    letter-spacing: -.5px;
-
-    transition:
-        color .3s ease;
-}
-
-
-.rekening-card:hover h2 {
-    color:
-        var(--maroon);
-}
-
-
-/* ============================================================
-   DESCRIPTION
-   ============================================================ */
-
-.rekening-description {
-    position: relative;
-
-    z-index: 2;
-
-    color: var(--text-soft);
-
-    font-size: 13.5px;
-
-    line-height: 1.8;
-
-    min-height: 100px;
-
-    margin: 0;
-}
-
-
-/* ============================================================
-   FEATURE LIST
-   ============================================================ */
-
-.rekening-features {
-    position: relative;
-
-    z-index: 2;
-
-    list-style: none;
-
-    padding: 0;
-
-    margin: 20px 0 0;
-
-    text-align: left;
-}
-
-
-.rekening-features li {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 10px;
-
-    margin-bottom: 11px;
-
-    color: #535b60;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-    opacity: 0;
-
-    transform:
-        translateX(-12px);
-
-    transition:
-        color .3s ease;
-}
-
-
-/* list muncul setelah card */
-
-.rekening-card.show .rekening-features li {
-    animation:
-        featureMasuk .5s ease forwards;
-}
-
-
-.rekening-card.show .rekening-features li:nth-child(1) {
-    animation-delay: .35s;
-}
-
-.rekening-card.show .rekening-features li:nth-child(2) {
-    animation-delay: .45s;
-}
-
-.rekening-card.show .rekening-features li:nth-child(3) {
-    animation-delay: .55s;
-}
-
-.rekening-card.show .rekening-features li:nth-child(4) {
-    animation-delay: .65s;
-}
-
-
-.rekening-card:hover .rekening-features li {
-    color:
-        #454d52;
-}
-
-
-/* ============================================================
-   CHECK
-   ============================================================ */
-
-.check {
-    width: 20px;
-    height: 20px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 1px;
-
-    border-radius: 6px;
-
-    background:
-        var(--green-soft);
-
-    color:
-        var(--green);
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
-}
-
-
-.rekening-card:hover .check {
-    background:
-        var(--green);
-
-    color:
-        white;
-
-    transform:
-        scale(1.08);
-}
-
-
-/* ============================================================
-   BUTTON WRAPPER
-   ============================================================ */
-
-.rekening-button-wrapper {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: auto;
-
-    padding-top: 23px;
-
-    opacity: 0;
-
-    transform:
-        translateY(10px);
-}
-
-
-.rekening-card.show .rekening-button-wrapper {
-    animation:
-        buttonMasuk .6s ease .75s forwards;
-}
-
-
-/* ============================================================
-   BUTTON
-   ============================================================ */
-
-.rekening-button {
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 9px;
-
-    min-width: 145px;
-
-    padding: 11px 19px;
-
-    background:
-        var(--maroon);
-
-    color: white;
-
-    border-radius: 9px;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: .1px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 6px 16px rgba(139, 36, 51, .12);
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-
-/* ============================================================
-   BUTTON SHINE
-   ============================================================ */
-
-.rekening-button::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.22),
-            transparent
-        );
-
-    transform:
-        skewX(-20deg);
-
-    transition:
-        left .6s ease;
-}
-
-
-.rekening-button:hover::before {
-    left:
-        140%;
-}
-
-
-.rekening-button:hover {
-    background:
-        var(--maroon-dark);
-
-    color: white;
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 11px 24px rgba(139, 36, 51, .18);
-}
-
-
-.rekening-button .arrow {
-    font-size: 16px;
-
-    transition:
-        transform .35s ease;
-}
-
-
-.rekening-button:hover .arrow {
-    transform:
-        translateX(5px);
-}
-
-
-/* ============================================================
-   INFO BAWAH
-   ============================================================ */
-
-.rekening-info {
-    max-width: 1050px;
-
-    margin: 30px auto 0;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 16px 19px;
-
-    background:
-        #f5f8f6;
-
-    border:
-        1px solid #dfe8e3;
-
-    border-radius: 13px;
-
-    color: #68756f;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-
-    opacity: 0;
-
-    transform:
-        translateY(20px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.22,1,.36,1);
-}
-
-
-.rekening-info.show {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-.rekening-info-icon {
-    width: 30px;
-    height: 30px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 8px;
-
-    background:
-        var(--green);
-
-    color: white;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    transition:
-        transform .35s ease;
-}
-
-
-.rekening-info:hover .rekening-info-icon {
-    transform:
-        rotate(8deg)
-        scale(1.08);
-}
-
-
-/* ============================================================
-   KEYFRAMES
-   ============================================================ */
-
-@keyframes rekeningHeroMasuk {
-
-    0% {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-@keyframes headerLine {
-
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
-
-}
-
-
-@keyframes contentMasuk {
-
-    0% {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-@keyframes titleUnderline {
-
-    0% {
-        width: 0;
-    }
-
-    100% {
-        width: 100%;
-    }
-
-}
-
-
-@keyframes heroCircleFloat {
-
-    0%,
-    100% {
-        transform:
-            translate(0, 0)
-            rotate(0deg);
-    }
-
-    50% {
-        transform:
-            translate(-12px, 12px)
-            rotate(8deg);
-    }
-
-}
-
-
-@keyframes smallCircleFloat {
-
-    0%,
-    100% {
-        transform:
-            translate(0, 0);
-    }
-
-    50% {
-        transform:
-            translate(-8px, -8px);
-    }
-
-}
-
-
-@keyframes labelPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 4px rgba(139, 36, 51, .075);
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 7px rgba(139, 36, 51, .025);
-    }
-
-}
-
-
-@keyframes statusPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 4px rgba(61, 107, 87, .08);
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 7px rgba(61, 107, 87, .025);
-    }
-
-}
-
-
-@keyframes iconFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-4px);
-    }
-
-}
-
-
-@keyframes featureMasuk {
-
-    0% {
-        opacity: 0;
-        transform: translateX(-12px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-}
-
-
-@keyframes buttonMasuk {
-
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 900px) {
-
-    .rekening-page {
-        padding:
-            30px 20px 55px;
-    }
-
-
-    .rekening-header {
-        padding:
-            35px 30px;
-    }
-
-
-    .rekening-header h1 {
-        font-size:
-            32px;
-    }
-
-
-    .rekening-container {
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .rekening-card:nth-child(1),
-    .rekening-card:nth-child(2) {
-        transform:
-            translateY(25px);
-    }
-
-
-    .rekening-card.show {
-        transform:
-            translateY(0);
-    }
-
-
-    .rekening-card {
-        width: 100%;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .rekening-page {
-        padding:
-            22px 15px 45px;
-    }
-
-
-    .rekening-header {
-        padding:
-            30px 22px;
-
-        border-radius:
-            19px;
-    }
-
-
-    .rekening-header h1 {
-        font-size:
-            27px;
-    }
-
-
-    .rekening-header p {
-        font-size:
-            13px;
-    }
-
-
-    .rekening-header-status {
-        align-items:
-            flex-start;
-
-        line-height:
-            1.5;
-    }
-
-
-    .rekening-section-title h2 {
-        font-size:
-            21px;
-    }
-
-
-    .rekening-section-title p {
-        margin-left:
-            0;
-    }
-
-
-    .rekening-title-icon {
-        width:
-            39px;
-
-        height:
-            39px;
-    }
-
-
-    .rekening-card {
-        padding:
-            24px 20px;
-    }
-
-
-    .rekening-card h2 {
-        font-size:
-            24px;
-    }
-
-
-    .rekening-description {
-        min-height:
-            auto;
-    }
-
-
-    .rekening-card-top {
-        align-items:
-            flex-start;
-    }
-
-
-    .rekening-info {
-        align-items:
-            flex-start;
-    }
-
-}
-
-
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .rekening-header,
-    .rekening-header-label,
-    .rekening-header h1,
-    .rekening-header p,
-    .rekening-header-status,
-    .rekening-header::before,
-    .rekening-header::after,
-    .rekening-header-content::after,
-    .rekening-card,
-    .rekening-card.show .rekening-features li,
-    .rekening-card.show .rekening-button-wrapper {
-        animation:
-            none !important;
-
-        transition:
-            none !important;
-    }
-
-}
-
-
-/* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
-
-.reveal {
-    opacity: 0;
-
-    transform:
-        translateY(25px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.22,1,.36,1);
-}
-
-
-.reveal.show {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-</style>
-
-
-<div class="rekening-page">
-
-
-    {{-- =========================================================
-         HERO HEADER
-    ========================================================== --}}
-
-    <div class="rekening-header">
-
-        <div class="rekening-header-content">
-
-            <div class="rekening-header-label">
+            <div class="online-label">
                 Prosedur Pembukaan Rekening
             </div>
 
-
             <h1>
-                Pembukaan
-                <span>Rekening</span>
+                Prosedur Registrasi
+                <span>Online</span>
             </h1>
 
-
-            <p>
-                Pilih metode pembukaan rekening yang sesuai dengan
-                kebutuhan Anda. Tersedia pilihan pembukaan rekening
-                secara reguler maupun online bersama PT. Rifan
-                Financindo Berjangka.
+            <p class="online-hero-description">
+                Panduan tahapan registrasi dan pembukaan rekening secara
+                online bersama PT. Rifan Financindo Berjangka. Ikuti setiap
+                proses dengan teliti agar proses registrasi dapat berjalan
+                dengan lancar.
             </p>
 
-
-            <div class="rekening-header-status">
-
-                <span class="rekening-status-dot"></span>
-
-                Pilih metode yang paling sesuai dengan kebutuhan Anda.
-
+            <div class="online-status">
+                <span class="online-status-icon"></span>
+                Ikuti setiap tahapan sesuai urutan yang telah ditentukan.
             </div>
 
         </div>
@@ -1632,231 +53,248 @@
     </div>
 
 
+    {{-- =====================================================
+         PROSEDUR
+    ====================================================== --}}
 
-    {{-- =========================================================
-         SECTION TITLE
-    ========================================================== --}}
+    <div class="online-section-title">
 
-    <div class="rekening-section-title reveal">
+        <div class="online-title-row">
 
-        <div class="rekening-title-row">
-
-            <div class="rekening-title-icon">
+            <div class="online-title-icon">
                 ✓
             </div>
 
             <h2>
-                Pilih Metode Pembukaan Rekening
+                Prosedur Registrasi Online
             </h2>
 
         </div>
 
-
         <p>
-            Tersedia dua metode yang dapat dipilih sesuai kebutuhan Anda.
+            Berikut adalah tahapan registrasi dan pembukaan rekening
+            secara online.
         </p>
 
     </div>
 
 
+    {{-- =====================================================
+         TIMELINE
+    ====================================================== --}}
 
-    {{-- =========================================================
-         CARD CONTAINER
-    ========================================================== --}}
-
-    <div class="rekening-container">
-
-
-        {{-- =====================================================
-             REGULAR
-        ====================================================== --}}
-
-        <div class="rekening-card">
+    <div class="online-timeline">
 
 
-            <div class="rekening-card-top">
+        {{-- STEP 01 --}}
 
-                <div class="rekening-icon">
-                    👤
-                </div>
+        <div class="online-step">
 
+            <div class="online-step-number">01</div>
 
-                <div class="rekening-label">
-                    Metode 01
-                </div>
+            <div class="online-step-card">
+
+                <h3>Membuka Website Perusahaan</h3>
+
+                <p>
+                    Calon Nasabah mengunjungi website resmi
+                    PT Rifan Financindo Berjangka untuk memulai
+                    proses registrasi online.
+                </p>
 
             </div>
-
-
-            <h2>
-                Regular
-            </h2>
-
-
-            <p class="rekening-description">
-
-                Pembukaan rekening secara regular
-                dengan bertemu langsung dengan
-                Wakil Pialang Berjangka
-                PT. Rifan Financindo Berjangka.
-
-            </p>
-
-
-            <ul class="rekening-features">
-
-                <li>
-                    <span class="check">✓</span>
-
-                    <span>
-                        Konsultasi langsung dengan wakil pialang
-                    </span>
-                </li>
-
-
-                <li>
-                    <span class="check">✓</span>
-
-                    <span>
-                        Bantuan pengisian dokumen
-                    </span>
-                </li>
-
-
-                <li>
-                    <span class="check">✓</span>
-
-                    <span>
-                        Verifikasi dokumen di tempat
-                    </span>
-                </li>
-
-
-                <li>
-                    <span class="check">✓</span>
-
-                    <span>
-                        Pendampingan selama proses
-                    </span>
-                </li>
-
-            </ul>
-
-
-            <div class="rekening-button-wrapper">
-
-                <a
-                    href="{{ route('prosedur.regular') }}"
-                    class="rekening-button"
-                >
-
-                    View Details
-
-                    <span class="arrow">
-                        →
-                    </span>
-
-                </a>
-
-            </div>
-
 
         </div>
 
 
+        {{-- STEP 02 --}}
 
-        {{-- =====================================================
-             ONLINE
-        ====================================================== --}}
+        <div class="online-step">
 
-        <div class="rekening-card">
+            <div class="online-step-number">02</div>
 
+            <div class="online-step-card">
 
-            <div class="rekening-card-top">
+                <h3>Registrasi Akun Demo</h3>
 
-                <div class="rekening-icon">
-                    🖥️
-                </div>
+                <p>
+                    Calon Nasabah melakukan registrasi akun demo
+                    sebagai bagian dari proses pengenalan sistem
+                    dan simulasi transaksi perdagangan berjangka.
+                </p>
 
+                <div class="online-document-list">
 
-                <div class="rekening-label">
-                    Metode 02
+                    <div class="online-document-item">
+                        Memasukkan data diri
+                    </div>
+
+                    <div class="online-document-item">
+                        Mendapatkan akses akun demo
+                    </div>
+
+                    <div class="online-document-item">
+                        Melakukan simulasi transaksi
+                    </div>
+
                 </div>
 
             </div>
 
-
-            <h2>
-                Online
-            </h2>
+        </div>
 
 
-            <p class="rekening-description">
+        {{-- STEP 03 --}}
 
-                Pembukaan rekening secara online
-                dengan mengisi form pembukaan
-                rekening secara praktis dan mudah.
+        <div class="online-step">
 
-            </p>
+            <div class="online-step-number">03</div>
 
+            <div class="online-step-card">
 
-            <ul class="rekening-features">
+                <h3>Pengisian Dokumen Perjanjian</h3>
 
-                <li>
-                    <span class="check">✓</span>
+                <p>
+                    Calon Nasabah melengkapi dokumen yang diperlukan
+                    dalam proses pembukaan rekening.
+                </p>
 
-                    <span>
-                        Dapat dilakukan kapan saja
-                    </span>
-                </li>
+                <div class="online-document-list">
 
+                    <div class="online-document-item">
+                        Aplikasi Perjanjian
+                    </div>
 
-                <li>
-                    <span class="check">✓</span>
+                    <div class="online-document-item">
+                        Dokumen Pemberitahuan Adanya Risiko
+                    </div>
 
-                    <span>
-                        Pengisian formulir secara online
-                    </span>
-                </li>
+                    <div class="online-document-item">
+                        Perjanjian Pemberian Amanat (PPA)
+                    </div>
 
+                    <div class="online-document-item">
+                        Mekanisme Transaksi (Trading Rules)
+                    </div>
 
-                <li>
-                    <span class="check">✓</span>
+                    <div class="online-document-item">
+                        Dokumen pendukung (KTP dan lainnya)
+                    </div>
 
-                    <span>
-                        Upload dokumen secara digital
-                    </span>
-                </li>
-
-
-                <li>
-                    <span class="check">✓</span>
-
-                    <span>
-                        Proses praktis dan efisien
-                    </span>
-                </li>
-
-            </ul>
-
-
-            <div class="rekening-button-wrapper">
-
-                <a
-                    href="{{ route('prosedur.online') }}"
-                    class="rekening-button"
-                >
-
-                    View Details
-
-                    <span class="arrow">
-                        →
-                    </span>
-
-                </a>
+                </div>
 
             </div>
 
+        </div>
+
+
+        {{-- STEP 04 --}}
+
+        <div class="online-step">
+
+            <div class="online-step-number">04</div>
+
+            <div class="online-step-card">
+
+                <h3>Verifikasi oleh Wakil Pialang Berjangka</h3>
+
+                <p>
+                    Data yang telah diberikan akan melalui proses
+                    verifikasi oleh Wakil Pialang Berjangka untuk
+                    memastikan kesesuaian data pribadi dan bukti
+                    penyetoran dana margin.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        {{-- STEP 05 --}}
+
+        <div class="online-step">
+
+            <div class="online-step-number">05</div>
+
+            <div class="online-step-card">
+
+                <h3>Setoran Dana Margin ke Rekening Segregasi</h3>
+
+                <p>
+                    Setelah proses verifikasi, Nasabah melakukan
+                    setoran dana margin ke rekening segregasi yang
+                    telah ditentukan oleh PT Rifan Financindo Berjangka.
+                </p>
+
+                <p>
+                    Informasi rekening bank tujuan tersedia pada bagian
+                    <strong>Rekening Terpisah</strong> di bawah halaman ini.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        {{-- STEP 06 --}}
+
+        <div class="online-step">
+
+            <div class="online-step-number">06</div>
+
+            <div class="online-step-card">
+
+                <h3>Pemrosesan Pendaftaran</h3>
+
+                <p>
+                    PT Rifan Financindo Berjangka memproses seluruh
+                    data dan dokumen yang telah diberikan oleh calon
+                    Nasabah.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        {{-- STEP 07 --}}
+
+        <div class="online-step">
+
+            <div class="online-step-number">07</div>
+
+            <div class="online-step-card">
+
+                <h3>Aktivasi Akun</h3>
+
+                <p>
+                    Setelah seluruh proses verifikasi selesai, akun
+                    akan diaktifkan dan data login akan dikirimkan
+                    kepada Nasabah.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        {{-- STEP 08 --}}
+
+        <div class="online-step">
+
+            <div class="online-step-number">08</div>
+
+            <div class="online-step-card">
+
+                <h3>Siap Melakukan Transaksi</h3>
+
+                <p>
+                    Setelah akun aktif, Nasabah dapat melakukan
+                    transaksi di pasar berjangka komoditi sesuai
+                    dengan ketentuan yang berlaku.
+                </p>
+
+            </div>
 
         </div>
 
@@ -1864,93 +302,345 @@
     </div>
 
 
+   {{-- =====================================================
+     REKENING TERPISAH
+====================================================== --}}
 
-    {{-- =========================================================
-         INFO
-    ========================================================== --}}
+<div class="online-bank-section">
 
-    <div class="rekening-info reveal">
+    <div class="online-section-title">
 
-        <div class="rekening-info-icon">
-            !
+        <div class="online-title-row">
+
+            <div class="online-title-icon">
+                $
+            </div>
+
+            <h2>
+                Rekening Terpisah
+            </h2>
+
         </div>
 
-        <div>
-            Pastikan Anda memahami setiap tahapan pembukaan rekening
-            sebelum melanjutkan ke proses berikutnya.
-        </div>
+        <p>
+            Rekening tujuan untuk melakukan transfer dana.
+        </p>
 
     </div>
 
+
+    <div class="online-bank-grid">
+
+
+        {{-- =================================================
+             BCA
+        ================================================== --}}
+
+        <div class="online-bank-card">
+
+            <div class="online-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/bca.png') }}"
+                    alt="Bank BCA"
+                >
+
+            </div>
+
+            <div class="online-bank-name">
+                Bank BCA
+            </div>
+
+            <div class="online-bank-branch">
+                Cabang Sudirman, Jakarta
+            </div>
+
+            <div class="online-bank-account">
+
+                <div>
+                    <span>IDR</span>
+                    <strong>035 - 311 - 8975</strong>
+                </div>
+
+                <div>
+                    <span>USD</span>
+                    <strong>035 - 311 - 7600</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {{-- =================================================
+             CIMB NIAGA
+        ================================================== --}}
+
+        <div class="online-bank-card">
+
+            <div class="online-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/cimb-niaga.png') }}"
+                    alt="Bank CIMB Niaga"
+                >
+
+            </div>
+
+            <div class="online-bank-name">
+                Bank CIMB Niaga
+            </div>
+
+            <div class="online-bank-branch">
+                Cabang Gajahmada, Jakarta
+            </div>
+
+            <div class="online-bank-account">
+
+                <div>
+                    <span>IDR</span>
+                    <strong>800 - 12 - 97271 - 00</strong>
+                </div>
+
+                <div>
+                    <span>USD</span>
+                    <strong>800 - 01 - 20945 - 40</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {{-- =================================================
+             BNI
+        ================================================== --}}
+
+        <div class="online-bank-card">
+
+            <div class="online-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/bni.png') }}"
+                    alt="Bank BNI"
+                >
+
+            </div>
+
+            <div class="online-bank-name">
+                BNI Bank
+            </div>
+
+            <div class="online-bank-branch">
+                Gambir Branch, Jakarta
+            </div>
+
+            <div class="online-bank-account">
+
+                <div>
+                    <span>IDR</span>
+                    <strong>017 - 5008 - 590</strong>
+                </div>
+
+                <div>
+                    <span>USD</span>
+                    <strong>017 - 5020 - 200</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {{-- =================================================
+             MANDIRI
+        ================================================== --}}
+
+        <div class="online-bank-card">
+
+            <div class="online-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/mandiri.png') }}"
+                    alt="Bank Mandiri"
+                >
+
+            </div>
+
+            <div class="online-bank-name">
+                Bank Mandiri
+            </div>
+
+            <div class="online-bank-branch">
+                Cabang Imam Bonjol, Jakarta
+            </div>
+
+            <div class="online-bank-account">
+
+                <div>
+                    <span>IDR</span>
+                    <strong>122 - 000 - 664 - 2881</strong>
+                </div>
+
+                <div>
+                    <span>USD</span>
+                    <strong>122 - 000 - 664 - 2873</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {{-- =================================================
+             ARTHA GRAHA
+        ================================================== --}}
+
+        <div class="online-bank-card">
+
+            <div class="online-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/artha-graha.png') }}"
+                    alt="Bank Artha Graha"
+                >
+
+            </div>
+
+            <div class="online-bank-name">
+                Bank Artha Graha
+            </div>
+
+            <div class="online-bank-branch">
+                Cabang KPO Sudirman, Jakarta
+            </div>
+
+            <div class="online-bank-account">
+
+                <div>
+                    <span>IDR</span>
+                    <strong>107 - 996 - 3271</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {{-- =================================================
+             BRI
+        ================================================== --}}
+
+        <div class="online-bank-card">
+
+            <div class="online-bank-icon">
+
+                <img
+                    src="{{ asset('images/bank/bri.png') }}"
+                    alt="Bank BRI"
+                >
+
+            </div>
+
+            <div class="online-bank-name">
+                Bank BRI
+            </div>
+
+            <div class="online-bank-branch">
+                Ciputat Tangerang
+            </div>
+
+            <div class="online-bank-account">
+
+                <div>
+                    <span>IDR</span>
+                    <strong>038201001512303</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+    {{-- =====================================================
+         WARNING
+    ====================================================== --}}
+
+    <div class="online-warning">
+
+        <div class="online-warning-title">
+
+            <span class="online-warning-icon">
+                !
+            </span>
+
+            Perhatian!
+
+        </div>
+
+        <p>
+            Managemen PT. Rifan Financindo Berjangka (PT RFB)
+            menghimbau kepada seluruh masyarakat untuk lebih berhati-hati
+            terhadap beberapa bentuk penipuan yang berkedok investasi
+            mengatasnamakan PT RFB dengan menggunakan media elektronik
+            ataupun sosial media.
+        </p>
+
+        <p>
+            Untuk itu harus dipastikan bahwa transfer dana ke rekening
+            tujuan (<strong>Segregated Account</strong>) guna melaksanakan
+            transaksi Perdagangan Berjangka adalah atas nama
+            <strong>PT Rifan Financindo Berjangka</strong>,
+            bukan atas nama individu.
+        </p>
+
+    </div>
 
 </div>
 
 
 {{-- ============================================================
-     JAVASCRIPT SCROLL ANIMATION
-     ============================================================ --}}
+     JAVASCRIPT ANIMASI SCROLL
+============================================================ --}}
 
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
 
-    /*
-    |--------------------------------------------------------------------------
-    | ELEMENT YANG AKAN DIANIMASIKAN
-    |--------------------------------------------------------------------------
-    */
-
-    const animatedElements = document.querySelectorAll(
-        '.rekening-section-title.reveal, .rekening-card, .rekening-info.reveal'
+    const revealElements = document.querySelectorAll(
+        '.online-section-title,' +
+        '.online-step,' +
+        '.online-bank-section,' +
+        '.online-warning'
     );
 
+    const revealObserver = new IntersectionObserver(
+        function (entries, observer) {
 
-    /*
-    |--------------------------------------------------------------------------
-    | INTERSECTION OBSERVER
-    |--------------------------------------------------------------------------
-    */
-
-    const observer = new IntersectionObserver(
-        function(entries, observer) {
-
-            entries.forEach(function(entry) {
+            entries.forEach(function (entry) {
 
                 if (entry.isIntersecting) {
-
                     entry.target.classList.add('show');
-
                     observer.unobserve(entry.target);
-
                 }
 
             });
 
         },
         {
-            threshold: 0.15,
-
-            rootMargin:
-                '0px 0px -50px 0px'
+            threshold: 0.12,
+            rootMargin: '0px 0px -60px 0px'
         }
     );
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | OBSERVE SEMUA ELEMENT
-    |--------------------------------------------------------------------------
-    */
-
-    animatedElements.forEach(function(element) {
-
-        observer.observe(element);
-
+    revealElements.forEach(function (element) {
+        revealObserver.observe(element);
     });
 
 });
-
 </script>
-
 
 @endsection

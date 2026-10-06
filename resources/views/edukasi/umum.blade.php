@@ -1474,16 +1474,14 @@
                 </div>
 
 
-                {{-- TEORI UMUM --}}
+                {{-- Kegiatan Literasi --}}
                 <div
                     class="materi-card"
-                    onclick="bukaMateri('teori')"
+                    onclick="bukaMateri('literasi')"
                 >
 
-                    {{-- 03 DIHAPUS SESUAI PERMINTAAN --}}
-
                     <h3>
-                        Teori Umum
+                        Kegiatan Literasi
                     </h3>
 
                     <p>
