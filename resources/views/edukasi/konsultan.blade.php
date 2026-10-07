@@ -14,11 +14,11 @@
     .edu-page input,
     .edu-page textarea,
     .edu-page select {
-        font-family: Arial, Helvetica, sans-serif !important;
+        font-family: 'Arial',sans-serif !important;
     }
 
     .edu-page {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Arial',sans-serif;
 
         --green: #176b4d;
         --green-dark: #124f39;
@@ -201,7 +201,7 @@
 
         color: #fff !important;
 
-        font-family: Arial, Helvetica, sans-serif !important;
+        font-family: 'Arial',sans-serif !important;
 
         font-size: 36px;
 
@@ -271,7 +271,7 @@
 
         color: #202522;
 
-        font-family: Arial, Helvetica, sans-serif !important;
+        font-family: 'Arial', sans-serif !important;
 
         font-size: 27px;
 
@@ -436,7 +436,7 @@
 
         color: #202522;
 
-        font-family: Arial, Helvetica, sans-serif !important;
+        font-family: 'Arial'sans-serif !important;
 
         font-size: 18px;
 

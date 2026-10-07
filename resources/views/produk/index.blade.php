@@ -9,7 +9,8 @@
    ============================================================ */
 
 .produk-wrapper {
-    family: sans-serif;
+    font-family: 'Arial', sans-serif;
+
     padding: 45px 45px 70px;
     background: #f7f9fc;
     min-height: calc(100vh - 70px);
@@ -21,7 +22,7 @@
    ============================================================ */
 
 .produk-header {
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     max-width: 850px;
     margin: 0 auto 45px;
@@ -29,7 +30,7 @@
 }
 
 .produk-header .label {
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #2d6fd2;
     font-size: 14px;
     font-weight: bold;
@@ -41,12 +42,12 @@
 .produk-header h1 {
     margin: 0 0 15px;
     color: #173b29;
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 42px;
 }
 
 .produk-header p {
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     color: #65746b;
     font-size: 17px;
@@ -60,7 +61,7 @@
    ============================================================ */
 
 .produk-container {
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     max-width: 1240px;
     margin: 0 auto;
     display: grid;
@@ -331,7 +332,7 @@
    ============================================================ */
 
 .produk-card h2 {
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #111827;
     text-align: center;
     font-size: 29px;
@@ -620,7 +621,7 @@
 
 .produk-modal {
 
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
 
     position: fixed;
 
@@ -660,7 +661,7 @@
 
 .produk-modal-box {
 
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
 
     width: min(900px, 100%);
 
@@ -749,7 +750,7 @@
 
 .modal-title h2 {
 
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
 
     margin: 0;
 
@@ -837,7 +838,7 @@
 
     color: #173b29;
 
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
 
     margin-top: 0;
 
@@ -1180,7 +1181,7 @@ body.modal-open {
 
     color: #173b29;
 
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
 
     font-size: 30px;
 

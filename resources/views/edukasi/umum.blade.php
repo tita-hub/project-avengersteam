@@ -2,1384 +2,9 @@
 
 @section('content')
 
-<style>
-    /* =========================================================
-       EDUKASI UMUM
-    ========================================================= */
+<link rel="stylesheet" href="{{ asset('css/literasi-modal.css') }}">
 
-    .edu-page {
-        font-family: Arial, Helvetica, sans-serif;
 
-        --green: #176b4d;
-        --green-dark: #124f39;
-        --green-light: #23805d;
-        --green-soft: #eaf5ef;
-
-        --red: #8d2634;
-        --red-dark: #721d29;
-        --red-soft: #faeeee;
-
-        --text: #252525;
-        --muted: #6f7672;
-        --line: #e2e7e4;
-        --white: #fff;
-
-        color: var(--text);
-        background: transparent;
-        padding-bottom: 80px;
-    }
-    .edu-page *,
-    .edu-page *::before,
-    .edu-page *::after {
-        box-sizing: border-box;
-    }
-
-    .edu-page button,
-    .edu-page input,
-    .edu-page textarea,
-    .edu-page select {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* =========================================================
-       FONT PROGRAM MAGANG
-       Semua teks menggunakan sans-serif.
-       Icon Bootstrap tetap memakai font icon bawaannya.
-    ========================================================= */
-
-    .magang-hero,
-    .magang-hero h2,
-    .magang-hero p,
-    .magang-section,
-    .magang-section h3,
-    .magang-section p,
-    .magang-section h4,
-    .magang-section small,
-    .magang-section li,
-    .magang-cta,
-    .magang-cta h3,
-    .magang-cta p,
-    .faq-list,
-    .faq-question,
-    .faq-answer {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-
-    /* ============================================================
-    CONTAINER
-    STYLE MENGIKUTI EDUKASI NASABAH
-    ============================================================ */
-
-    .edu-container {
-        width: 100%;
-        max-width: 1440px;
-        margin: 0 auto;
-    }
-
-
-    /* ============================================================
-    HERO
-    STYLE MENGIKUTI EDUKASI NASABAH
-    ============================================================ */
-
-    .edu-hero {
-        position: relative;
-        overflow: hidden;
-
-        width: 100%;
-        min-height: 213px;
-
-        padding: 28px 54px;
-
-        border-radius: 25px;
-
-        display: flex;
-        align-items: center;
-
-        color: #fff;
-
-        background:
-            linear-gradient(
-                120deg,
-                #124f39 0%,
-                #176b4d 60%,
-                #23805d 100%
-            );
-
-        box-shadow:
-            0 9px 22px rgba(23, 107, 77, .11);
-
-        margin-bottom: 31px;
-    }
-
-
-    /* Lingkaran dekorasi kanan */
-
-    .edu-hero::before {
-        content: "";
-
-        position: absolute;
-
-        width: 180px;
-        height: 180px;
-
-        border: 34px solid rgba(255,255,255,.055);
-
-        border-radius: 50%;
-
-        right: -50px;
-        top: -75px;
-    }
-
-
-    /* Lingkaran merah */
-
-    .edu-hero::after {
-        content: "";
-
-        position: absolute;
-
-        width: 110px;
-        height: 110px;
-
-        border: 21px solid rgba(141,38,52,.16);
-
-        border-radius: 50%;
-
-        right: 120px;
-        bottom: -72px;
-    }
-
-
-    /* ============================================================
-    ISI HERO
-    ============================================================ */
-
-    .edu-hero-content {
-        position: relative;
-        z-index: 2;
-
-        max-width: 900px;
-    }
-
-
-    /* Label kecil */
-
-    .edu-eyebrow {
-        display: inline-flex;
-
-        align-items: center;
-
-        padding: 5px 11px;
-
-        margin-bottom: 9px;
-
-        border-radius: 50px;
-
-        background: rgba(255,255,255,.12);
-
-        border: 1px solid rgba(255,255,255,.17);
-
-        color: #fff;
-
-        font-size: 10px;
-        font-weight: 700;
-
-        letter-spacing: .4px;
-        text-transform: uppercase;
-    }
-
-
-    /* Judul */
-
-    .edu-hero h1 {
-        margin: 0 0 7px;
-
-        color: #fff;
-
-        font-family: Arial, Helvetica, sans-serif;
-
-        font-size: 42px;
-
-        line-height: 1.1;
-
-        font-weight: 800;
-
-        letter-spacing: -.7px;
-    }
-
-
-    /* Deskripsi */
-
-    .edu-hero p {
-        max-width: 900px;
-
-        margin: 0;
-
-        color: rgba(255,255,255,.84);
-
-        font-size: 15px;
-
-        line-height: 1.6;
-    }
-
-    /* =========================================================
-       INTRO
-    ========================================================= */
-
-    .edu-intro {
-        padding: 55px 0 35px;
-    }
-
-    .edu-intro-box {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 30px;
-        align-items: center;
-        padding: 30px 34px;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-    }
-
-    .edu-intro-box h2 {
-        margin: 0 0 8px;
-        color: var(--green-dark);
-        font-size: 25px;
-    }
-
-    .edu-intro-box p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.75;
-    }
-
-    .edu-intro-number {
-        width: 68px;
-        height: 68px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 24px;
-        font-weight: 800;
-    }
-
-
-    /* =========================================================
-       HEADING
-    ========================================================= */
-
-    .section-heading {
-        margin-bottom: 30px;
-    }
-
-    .section-heading small,
-    .magang-section-title small {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--red);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1.6px;
-        text-transform: uppercase;
-    }
-
-    .section-heading h2 {
-        margin: 0 0 10px;
-        color: var(--green-dark);
-        font-size: clamp(30px, 4vw, 42px);
-        line-height: 1.15;
-    }
-
-    .section-heading p {
-        max-width: 700px;
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.75;
-    }
-
-
-    /* =========================================================
-       MATERI UTAMA
-    ========================================================= */
-
-    .materi-section {
-        padding: 20px 0 70px;
-    }
-
-    .materi-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .materi-card {
-        position: relative;
-        min-height: 300px;
-        padding: 30px;
-        overflow: hidden;
-        cursor: pointer;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        transition: .25s ease;
-    }
-
-    .materi-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(23,107,77,.35);
-        box-shadow: 0 18px 40px rgba(25,55,43,.10);
-    }
-
-    .materi-number {
-        margin-bottom: 45px;
-        color: var(--red);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 1.5px;
-    }
-
-    .materi-card h3 {
-        margin: 0 0 12px;
-        color: var(--green-dark);
-        font-size: 25px;
-    }
-
-    .materi-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .materi-arrow {
-        position: absolute;
-        right: 25px;
-        bottom: 24px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--green-soft);
-        color: var(--green);
-        transition: .25s ease;
-    }
-
-    .materi-card:hover .materi-arrow {
-        background: var(--green);
-        color: #fff;
-        transform: translateX(4px);
-    }
-
-
-    /* =========================================================
-       DETAIL MATERI
-    ========================================================= */
-
-    .materi-detail {
-        display: none;
-        padding: 30px 0 80px;
-        animation: detailFade .35s ease;
-    }
-
-    .materi-detail.active {
-        display: block;
-    }
-
-    @keyframes detailFade {
-        from {
-            opacity: 0;
-            transform: translateY(15px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .back-materi {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 25px;
-        padding: 8px 0;
-        border: 0;
-        background: transparent;
-        color: var(--green);
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-    }
-
-    .back-materi:hover {
-        color: var(--red);
-    }
-
-
-    /* =========================================================
-       HERO MAGANG
-    ========================================================= */
-
-    .magang-hero {
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 65px;
-        padding: 55px;
-        border-radius: 10px;
-        background: var(--green-dark);
-        color: #fff;
-    }
-
-    .magang-hero::after {
-        content: "";
-        position: absolute;
-        right: -120px;
-        bottom: -180px;
-        width: 350px;
-        height: 350px;
-        border: 70px solid rgba(255,255,255,.05);
-        border-radius: 50%;
-    }
-
-    .magang-hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 760px;
-    }
-
-    .magang-hero small {
-        display: block;
-        margin-bottom: 15px;
-        color: #cce9dc;
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
-
-    .magang-hero h2 {
-        margin: 0 0 18px;
-        font-size: clamp(32px, 5vw, 53px);
-        line-height: 1.08;
-    }
-
-    .magang-hero p {
-        max-width: 690px;
-        margin: 0;
-        color: rgba(255,255,255,.82);
-        line-height: 1.8;
-    }
-
-    .magang-explore {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        margin-top: 28px;
-        padding: 13px 21px;
-        border: 0;
-        border-radius: 5px;
-        background: #fff;
-        color: var(--green-dark);
-        font-size: 14px;
-        font-weight: 800;
-        cursor: pointer;
-        transition: .2s ease;
-    }
-
-    .magang-explore:hover {
-        background: var(--red);
-        color: #fff;
-    }
-
-
-    /* =========================================================
-       SECTION MAGANG
-    ========================================================= */
-
-    .magang-section {
-        margin-bottom: 75px;
-    }
-
-    .magang-section-title {
-        max-width: 720px;
-        margin-bottom: 28px;
-    }
-
-    .magang-section-title h3 {
-        margin: 8px 0 10px;
-        color: var(--green-dark);
-        font-size: 32px;
-    }
-
-    .magang-section-title p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.75;
-    }
-
-
-    /* =========================================================
-       MANFAAT
-    ========================================================= */
-
-    .benefit-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-    }
-
-    .benefit-card {
-        padding: 25px;
-        border: 1px solid var(--line);
-        border-radius: 7px;
-        background: #fff;
-    }
-
-    .benefit-icon {
-        width: 46px;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 18px;
-        border-radius: 5px;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 20px;
-    }
-
-    .benefit-card h4 {
-        margin: 0 0 8px;
-        color: var(--green-dark);
-        font-size: 17px;
-    }
-
-    .benefit-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-
-    /* =========================================================
-       JURUSAN + FOTO
-    ========================================================= */
-
-    .jurusan-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .jurusan-card {
-        overflow: hidden;
-        min-height: 420px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        transition: .25s ease;
-    }
-
-    .jurusan-image {
-        width: 100%;
-        height: 190px;
-        overflow: hidden;
-        background: #eaf5ef;
-    }
-
-    .jurusan-image img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        transition: transform .4s ease;
-    }
-
-    .jurusan-card:hover .jurusan-image img {
-        transform: scale(1.05);
-    }
-
-    .jurusan-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 18px 38px rgba(25,55,43,.12);
-        border-color: rgba(141,38,52,.25);
-    }
-
-    .jurusan-content {
-        position: relative;
-        padding: 28px 30px 30px;
-    }
-
-    .jurusan-number {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        margin-bottom: 14px;
-        border-radius: 6px;
-        background: var(--red);
-        color: #fff;
-        font-size: 15px;
-        font-weight: 800;
-    }
-
-    .jurusan-content h4 {
-        margin: 0 0 17px;
-        color: var(--green-dark);
-        font-size: 22px;
-        font-weight: 800;
-        line-height: 1.25;
-        text-transform: uppercase;
-    }
-
-    .jurusan-list {
-        margin: 0;
-        padding-left: 20px;
-        color: var(--text);
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    .jurusan-list li {
-        padding-left: 3px;
-    }
-
-    /* =========================================================
-       KARTU JURUSAN - BISA DIKLIK
-    ========================================================= */
-
-    .jurusan-card {
-        position: relative;
-        cursor: pointer;
-        text-align: left;
-    }
-
-    .jurusan-card:focus-visible {
-        outline: 2px solid var(--red);
-        outline-offset: 3px;
-    }
-
-    .jurusan-card .jurusan-arrow {
-        position: absolute;
-        right: 22px;
-        bottom: 22px;
-        width: 34px;
-        height: 34px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--red-soft);
-        color: var(--red);
-        font-size: 15px;
-        transition: .2s ease;
-    }
-
-    .jurusan-card:hover .jurusan-arrow {
-        background: var(--red);
-        color: #fff;
-        transform: translateX(3px);
-    }
-
-    .jurusan-detail {
-        display: none;
-        margin-top: 22px;
-        padding: 28px 30px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        animation: jurusanDetailIn .25s ease;
-    }
-
-    .jurusan-detail.active {
-        display: block;
-    }
-
-    .jurusan-detail-head {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 20px;
-        margin-bottom: 22px;
-    }
-
-    .jurusan-detail-head small {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--red);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-
-    .jurusan-detail-head h4 {
-        margin: 0;
-        color: var(--green-dark);
-        font-size: 25px;
-        font-weight: 800;
-        text-transform: uppercase;
-    }
-
-    .jurusan-close {
-        flex-shrink: 0;
-        border: 1px solid var(--line);
-        border-radius: 5px;
-        background: #fff;
-        color: var(--muted);
-        padding: 9px 13px;
-        font-size: 12px;
-        font-weight: 700;
-        cursor: pointer;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .jurusan-close:hover {
-        border-color: var(--red);
-        color: var(--red);
-    }
-
-    .jurusan-program-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .jurusan-program-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-height: 54px;
-        padding: 13px 15px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        background: var(--bg);
-        color: var(--text);
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    .jurusan-program-item i {
-        color: var(--red);
-        font-size: 15px;
-    }
-
-    @keyframes jurusanDetailIn {
-        from {
-            opacity: 0;
-            transform: translateY(-5px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-
-    /* =========================================================
-       PENGALAMAN MAGANG - FOTO SLIDER
-    ========================================================= */
-
-    .experience-slider {
-        position: relative;
-    }
-
-    .experience-controls {
-        display: flex;
-        justify-content: flex-end;
-        gap: 8px;
-        margin-bottom: 15px;
-    }
-
-    .experience-control {
-        width: 42px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        background: #fff;
-        color: var(--green-dark);
-        cursor: pointer;
-        transition: .2s ease;
-    }
-
-    .experience-control:hover {
-        border-color: var(--green);
-        background: var(--green);
-        color: #fff;
-    }
-
-    .experience-track {
-        display: flex;
-        gap: 22px;
-        overflow-x: auto;
-        padding: 5px 3px 20px;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-    }
-
-    .experience-track::-webkit-scrollbar {
-        display: none;
-    }
-
-    .experience-card {
-        flex: 0 0 calc(50% - 11px);
-        min-width: 0;
-        overflow: hidden;
-        scroll-snap-align: start;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        background: #fff;
-    }
-
-    .experience-card-image {
-        width: 100%;
-        height: 270px;
-        overflow: hidden;
-        background: #dfe7e2;
-    }
-
-    .experience-card-image img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        transition: transform .4s ease;
-    }
-
-    .experience-card:hover .experience-card-image img {
-        transform: scale(1.04);
-    }
-
-    .experience-card-content {
-        padding: 28px;
-    }
-
-    .experience-card-content small {
-        display: block;
-        margin-bottom: 9px;
-        color: var(--red);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-    }
-
-    .experience-card-content h3 {
-        margin: 0 0 12px;
-        color: var(--green-dark);
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .experience-card-content p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    .experience-quote {
-        margin-top: 18px;
-        padding: 14px 16px;
-        border-left: 3px solid var(--red);
-        border-radius: 0 5px 5px 0;
-        background: var(--red-soft);
-        color: #63323a;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-
-    /* =========================================================
-       FAQ
-    ========================================================= */
-
-    .faq-list {
-        display: grid;
-        gap: 10px;
-    }
-
-    .faq-item {
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        background: #fff;
-    }
-
-    .faq-question {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-        padding: 19px 20px;
-        border: 0;
-        background: transparent;
-        color: var(--green-dark);
-        font-weight: 700;
-        text-align: left;
-        cursor: pointer;
-    }
-
-    .faq-question i {
-        transition: transform .25s ease;
-    }
-
-    .faq-answer {
-        display: none;
-        padding: 0 20px 20px;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.75;
-    }
-
-    .faq-item.open .faq-answer {
-        display: block;
-    }
-
-    .faq-item.open .faq-question i {
-        transform: rotate(180deg);
-    }
-
-
-    /* =========================================================
-       CTA
-    ========================================================= */
-
-    .magang-cta {
-        padding: 50px;
-        border-radius: 10px;
-        background: var(--red);
-        color: #fff;
-        text-align: center;
-    }
-
-    .magang-cta h3 {
-        margin: 0 0 12px;
-        font-size: 33px;
-    }
-
-    .magang-cta p {
-        max-width: 650px;
-        margin: auto;
-        color: rgba(255,255,255,.83);
-        line-height: 1.75;
-    }
-
-    .magang-cta-button {
-        display: inline-flex;
-        margin-top: 24px;
-        padding: 13px 22px;
-        border: 0;
-        border-radius: 5px;
-        background: #fff;
-        color: var(--red);
-        font-size: 14px;
-        font-weight: 800;
-        cursor: pointer;
-    }
-
-    /* =========================================================
-    PENDAFTARAN MAGANG
-    ========================================================= */
-
-    .magang-cta-content {
-        width: 100%;
-
-        margin-top: 45px;
-        padding: 50px 40px;
-
-        border-radius: 18px;
-
-        background: var(--red);
-
-        color: #fff;
-
-        text-align: center;
-    }
-
-
-    .magang-cta-label {
-        display: block;
-
-        margin-bottom: 12px;
-
-        color: rgba(255, 255, 255, .85);
-
-        font-size: 12px;
-        font-weight: 700;
-
-        letter-spacing: 2px;
-    }
-
-
-    .magang-cta-content h2 {
-        margin: 0 0 14px;
-
-        color: #fff;
-
-        font-size: 32px;
-        font-weight: 700;
-
-        line-height: 1.3;
-    }
-
-
-    .magang-cta-content p {
-        max-width: 680px;
-
-        margin: 0 auto;
-
-        color: rgba(255, 255, 255, .85);
-
-        font-size: 15px;
-        line-height: 1.75;
-    }
-
-
-    /* =========================================================
-    TOMBOL
-    ========================================================= */
-
-    .magang-cta-buttons {
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        gap: 12px;
-
-        margin-top: 28px;
-
-        flex-wrap: wrap;
-    }
-
-
-    .magang-cta-btn {
-        display: inline-flex;
-
-        align-items: center;
-        justify-content: center;
-
-        gap: 8px;
-
-        min-width: 130px;
-
-        padding: 11px 20px;
-
-        border-radius: 6px;
-
-        font-size: 14px;
-        font-weight: 700;
-
-        text-decoration: none;
-
-        transition:
-            transform .2s ease,
-            opacity .2s ease;
-    }
-
-
-    .magang-cta-btn:hover {
-        transform: translateY(-2px);
-
-        opacity: .9;
-
-        text-decoration: none;
-    }
-
-
-    .magang-cta-btn.whatsapp,
-    .magang-cta-btn.email {
-        background: #fff;
-
-        color: var(--red);
-    }
-
-
-    /* =========================================================
-       KEGIATAN
-    ========================================================= */
-
-    .kegiatan-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .kegiatan-card {
-        padding: 32px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-    }
-
-    .kegiatan-card .number {
-        color: var(--red);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 1.3px;
-    }
-
-    .kegiatan-card h3 {
-        margin: 10px 0;
-        color: var(--green-dark);
-        font-size: 24px;
-    }
-
-    .kegiatan-card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.8;
-    }
-
-
-    /* ============================================================
-    INTRO KEGIATAN SOSIAL
-    ============================================================ */
-
-    .kegiatan-intro {
-        width: 100%;
-        max-width: 850px;
-        margin: 0 auto 45px;
-        padding: 5px 20px 0;
-        text-align: center;
-    }
-
-    .kegiatan-intro-label {
-        margin-bottom: 13px;
-
-        color: #c62828;
-
-        font-size: 12px;
-        font-weight: 700;
-
-        letter-spacing: 2.5px;
-    }
-
-    .kegiatan-intro-title {
-        margin: 0;
-
-        color: #222;
-
-        font-size: 36px;
-        font-weight: 700;
-
-        line-height: 1.3;
-    }
-
-    .kegiatan-intro-description {
-        max-width: 680px;
-
-        margin: 18px auto 0;
-
-        color: #666;
-
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    /* GARIS */
-
-    .kegiatan-intro-line {
-        width: 55px;
-        height: 3px;
-
-        margin: 30px auto;
-
-        background: #c62828;
-    }
-
-
-    /* HIGHLIGHT */
-
-    .kegiatan-intro-highlight {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-
-    /* LABEL KEGIATAN TERBARU */
-
-    .kegiatan-intro-highlight-label {
-        margin-bottom: 8px;
-
-        color: #777;
-
-        font-size: 11px;
-        font-weight: 700;
-
-        letter-spacing: 1.8px;
-    }
-
-
-    /* NAMA KEGIATAN */
-
-    .kegiatan-intro-highlight h3 {
-        margin: 0;
-
-        color: #222;
-
-        font-size: 22px;
-        font-weight: 700;
-    }
-
-
-    /* TANGGAL */
-
-    .kegiatan-intro-highlight p {
-        margin: 7px 0 0;
-
-        color: #888;
-
-        font-size: 13px;
-    }
-
-
-    /* =========================================================
-       TEORI
-    ========================================================= */
-
-    .teori-list {
-        display: grid;
-        gap: 18px;
-    }
-
-    .teori-item {
-        display: grid;
-        grid-template-columns: 75px 1fr;
-        gap: 22px;
-        padding: 28px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-    }
-
-    .teori-number {
-        width: 55px;
-        height: 55px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--green-soft);
-        color: var(--green);
-        font-weight: 800;
-    }
-
-    .teori-item h3 {
-        margin: 0 0 8px;
-        color: var(--green-dark);
-    }
-
-    .teori-item p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.8;
-    }
-
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
-    @media (max-width: 900px) {
-
-        .materi-grid,
-        .jurusan-grid,
-        .benefit-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .jurusan-detail-inner {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @media (max-width: 650px) {
-
-        .edu-container {
-            width: min(100% - 28px, 1180px);
-        }
-
-        .edu-hero {
-            padding: 60px 0;
-        }
-
-        .edu-intro-box {
-            grid-template-columns: 1fr;
-        }
-
-        .materi-grid,
-        .jurusan-grid,
-        .benefit-grid,
-        .kegiatan-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .materi-card {
-            min-height: 250px;
-        }
-
-        .magang-hero {
-            padding: 35px 25px;
-        }
-
-        .magang-cta {
-            padding: 38px 24px;
-        }
-
-        .magang-cta h3 {
-            font-size: 27px;
-        }
-
-        .teori-item {
-            grid-template-columns: 1fr;
-        }
-
-        .experience-controls {
-            justify-content: flex-start;
-        }
-
-        .experience-card {
-            flex: 0 0 88%;
-        }
-
-        .experience-card-image {
-            height: 230px;
-        }
-
-        .experience-card-content {
-            padding: 23px;
-        }
-
-        .experience-card-content h3 {
-            font-size: 21px;
-        }
-
-        .jurusan-image {
-            height: 170px;
-        }
-
-        .jurusan-card {
-            min-height: 390px;
-        }
-    }
-</style>
 
 
 <div class="edu-page">
@@ -1417,7 +42,7 @@
 
 
     {{-- =====================================================
-         3 MATERI UTAMA
+        3 MATERI UTAMA
     ====================================================== --}}
     <section
         class="materi-section"
@@ -1456,7 +81,6 @@
                     onclick="bukaMateri('kegiatan')"
                 >
 
-
                     <h3>
                         Kegiatan Sosial
                     </h3>
@@ -1474,24 +98,376 @@
                 </div>
 
 
-                {{-- Kegiatan Literasi --}}
-                <div
-                    class="materi-card"
-                    onclick="bukaMateri('literasi')"
-                >
+                {{-- =====================================================
+        KEGIATAN LITERASI
+    ====================================================== --}}
 
-                    <h3>
-                        Kegiatan Literasi
-                    </h3>
+    <div
+        class="materi-card"
+        onclick="bukaMateri('literasi')"
+    >
+
+        <h3>
+            Kegiatan Literasi
+        </h3>
+
+        <p>
+            Materi dasar mengenai komunikasi profesional
+            dan pengenalan dunia perdagangan.
+        </p>
+
+        <span class="materi-arrow">
+            <i class="bi bi-arrow-right"></i>
+        </span>
+
+    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    {{-- =====================================================
+        DETAIL KEGIATAN LITERASI
+    ====================================================== --}}
+
+    <section
+        class="materi-detail"
+        id="detail-literasi"
+    >
+
+        <div class="edu-container">
+
+            <button
+                type="button"
+                class="back-materi"
+                onclick="tutupMateri()"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Kembali ke Materi
+
+            </button>
+
+
+            {{-- =================================================
+                HEADER
+            ================================================== --}}
+
+            <div class="literasi-section">
+
+                <div class="literasi-header">
+
+                    <span class="literasi-label">
+                        KEGIATAN LITERASI
+                    </span>
+
+
+                    <h2>
+                        Belajar dari Dunia Nyata
+                    </h2>
+
 
                     <p>
-                        Materi dasar mengenai komunikasi profesional
-                        dan pengenalan dunia perdagangan.
+                        Kegiatan edukasi yang dilakukan Avengers Team melalui
+                        interaksi langsung dengan sekolah, kampus, dan lingkungan industri.
                     </p>
 
-                    <span class="materi-arrow">
-                        <i class="bi bi-arrow-right"></i>
-                    </span>
+                </div>
+
+
+                {{-- =================================================
+                    CARD KEGIATAN
+                ================================================== --}}
+
+                <div class="literasi-grid">
+
+
+                    {{-- =================================================
+                        SOSIALISASI SEKOLAH / KAMPUS
+                    ================================================== --}}
+
+                    <article class="literasi-card">
+
+                        <div class="literasi-card-number">
+                            01
+                        </div>
+
+
+                        <div class="literasi-card-content">
+
+                            <div class="literasi-card-icon">
+
+                                <i class="bi bi-mortarboard-fill"></i>
+
+                            </div>
+
+
+                            <span class="literasi-card-category">
+
+                                SOSIALISASI
+
+                            </span>
+
+
+                            <h3>
+
+                                Sosialisasi ke Sekolah & Kampus
+
+                            </h3>
+
+
+                            <p>
+
+                                Kegiatan berbagi wawasan kepada siswa dan mahasiswa
+                                mengenai dunia kerja, pengenalan industri, serta
+                                pengetahuan dasar perdagangan berjangka.
+
+                            </p>
+
+
+                            <div class="literasi-card-info">
+
+                                <span>
+
+                                    <i class="bi bi-people-fill"></i>
+
+                                    Edukasi langsung
+
+                                </span>
+
+
+                                <span>
+
+                                    <i class="bi bi-building"></i>
+
+                                    Sekolah / Kampus
+
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="literasi-card-link"
+                                onclick="bukaLiterasiDetail('sosialisasi')"
+                            >
+                                Lihat kegiatan
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    {{-- =================================================
+                        KUNJUNGAN INDUSTRI
+                    ================================================== --}}
+
+                    <article class="literasi-card">
+
+                        <div class="literasi-card-number">
+                            02
+                        </div>
+
+
+                        <div class="literasi-card-content">
+
+                            <div class="literasi-card-icon">
+
+                                <i class="bi bi-buildings-fill"></i>
+
+                            </div>
+
+
+                            <span class="literasi-card-category">
+
+                                KUNJUNGAN INDUSTRI
+
+                            </span>
+
+
+                            <h3>
+
+                                Kunjungan Industri
+
+                            </h3>
+
+
+                            <p>
+
+                                Kegiatan kunjungan untuk mengenalkan secara langsung
+                                lingkungan kerja, aktivitas profesional, serta gambaran
+                                dunia industri kepada peserta.
+
+                            </p>
+
+
+                            <div class="literasi-card-info">
+
+                                <span>
+
+                                    <i class="bi bi-people-fill"></i>
+
+                                    Edukasi langsung
+
+                                </span>
+
+
+                                <span>
+
+                                    <i class="bi bi-briefcase-fill"></i>
+
+                                    Dunia industri
+
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="literasi-card-link"
+                                onclick="bukaLiterasiDetail('industri')"
+                            >
+                                Lihat kegiatan
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                {{-- =================================================
+                    MODAL DETAIL SOSIALISASI & KUNJUNGAN INDUSTRI
+                ================================================== --}}
+
+                <div
+                    class="literasi-modal"
+                    id="literasiModal"
+                    aria-hidden="true"
+                >
+
+                    <div
+                        class="literasi-modal-overlay"
+                        onclick="tutupLiterasiModal()"
+                    ></div>
+
+                    <div
+                        class="literasi-modal-box"
+                        role="dialog"
+                        aria-modal="true"
+                    >
+
+                        <button
+                            type="button"
+                            class="literasi-modal-close"
+                            onclick="tutupLiterasiModal()"
+                            aria-label="Tutup detail kegiatan"
+                        >
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+
+                        <div class="literasi-modal-image-wrap">
+
+                            <img
+                                id="literasiModalImage"
+                                src=""
+                                alt="Dokumentasi kegiatan literasi"
+                                onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+                            >
+
+                            <div class="literasi-modal-image-fallback">
+                                <i class="bi bi-camera-fill"></i>
+                                <span>Dokumentasi kegiatan</span>
+                            </div>
+
+                            <div class="literasi-modal-image-overlay"></div>
+
+                            <div class="literasi-modal-image-caption">
+                                <span id="literasiModalLabel">KEGIATAN LITERASI</span>
+                                <strong id="literasiModalTitleImage">Kegiatan Literasi</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="literasi-modal-content">
+
+                            <span
+                                class="literasi-modal-label"
+                                id="literasiModalLabelText"
+                            >
+                                KEGIATAN LITERASI
+                            </span>
+
+                            <h3 id="literasiModalTitle">Kegiatan Literasi</h3>
+
+                            <p id="literasiModalDescription"></p>
+
+                            <div
+                                class="literasi-modal-meta"
+                                id="literasiModalMeta"
+                            ></div>
+
+                            <div class="literasi-modal-columns">
+
+                                <div class="literasi-modal-section">
+                                    <div class="literasi-modal-section-title">
+                                        <span class="literasi-modal-section-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </span>
+                                        <div>
+                                            <small>GAMBARAN KEGIATAN</small>
+                                            <strong id="literasiModalConceptTitle">Kegiatan</strong>
+                                        </div>
+                                    </div>
+
+                                    <p id="literasiModalConcept"></p>
+                                </div>
+
+                                <div class="literasi-modal-section">
+                                    <div class="literasi-modal-section-title">
+                                        <span class="literasi-modal-section-icon">
+                                            <i class="bi bi-bullseye"></i>
+                                        </span>
+                                        <div>
+                                            <small>TUJUAN</small>
+                                            <strong>Nilai yang Dibawa</strong>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="literasi-modal-points"
+                                        id="literasiModalPoints"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                            <div class="literasi-modal-highlight">
+                                <div class="literasi-modal-highlight-icon">
+                                    <i class="bi bi-lightbulb-fill"></i>
+                                </div>
+                                <div>
+                                    <span>INTI KEGIATAN</span>
+                                    <strong id="literasiModalHighlight"></strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -2456,684 +1432,7 @@
      VIDEO & FOTO
 ============================================================ --}}
 
-<style>
 
-/* ============================================================
-   WRAPPER
-============================================================ */
-
-.kegiatan-wrapper {
-    width: 100%;
-    max-width: 1150px;
-
-    margin: 0 auto;
-
-    padding: 10px 0 40px;
-}
-
-
-/* ============================================================
-   LIST CARD
-============================================================ */
-
-.kegiatan-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 22px;
-
-    align-items: start;
-}
-
-/* ============================================================
-   CARD
-============================================================ */
-
-.kegiatan-card {
-    width: 100%;
-
-    max-width: none;
-
-    overflow: hidden;
-
-    background: #fff;
-
-    border: 1px solid #e4e9e5;
-
-    border-radius: 21px;
-
-    box-shadow: none;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-}
-
-.kegiatan-card:hover {
-    transform: translateY(-4px);
-
-    border-color: rgba(23,107,77,.25);
-
-    box-shadow:
-        0 12px 28px rgba(23,107,77,.10);
-}
-
-/* ============================================================
-   GAMBAR CARD
-============================================================ */
-
-.kegiatan-image {
-    width: 100%;
-
-    height: 180px;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.kegiatan-image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition: transform 0.35s ease;
-}
-
-.kegiatan-card:hover .kegiatan-image img {
-    transform: scale(1.04);
-}
-
-
-/* ============================================================
-   BODY CARD
-============================================================ */
-
-.kegiatan-body {
-    padding: 22px 24px 20px;
-}
-
-
-/* ============================================================
-   LABEL
-============================================================ */
-
-.kegiatan-type {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    margin-bottom: 10px;
-
-    color: #c62828;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.6px;
-}
-
-.kegiatan-type i {
-    font-size: 14px;
-}
-
-
-/* ============================================================
-   JUDUL CARD
-============================================================ */
-
-.kegiatan-title {
-    margin: 0 0 10px;
-
-    color: #222;
-
-    font-size: 21px;
-
-    font-weight: 700;
-
-    line-height: 1.35;
-}
-
-
-/* ============================================================
-   DESKRIPSI CARD
-============================================================ */
-
-.kegiatan-description {
-    margin: 0 0 18px;
-
-    color: #666;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-/* ============================================================
-   INFORMASI CARD
-============================================================ */
-
-.kegiatan-info {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-
-    margin-bottom: 20px;
-}
-
-.kegiatan-info-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    color: #555;
-
-    font-size: 13px;
-}
-
-.kegiatan-info-item i {
-    width: 17px;
-
-    color: #c62828;
-
-    font-size: 14px;
-}
-
-
-/* ============================================================
-   TOMBOL DETAIL
-============================================================ */
-
-.kegiatan-detail {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 15px 0 0;
-
-    border: none;
-
-    border-top: 1px solid #eeeeee;
-
-    background: transparent;
-
-    color: #c62828;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    text-align: left;
-}
-
-.kegiatan-detail span {
-    transition: transform 0.2s ease;
-}
-
-.kegiatan-card:hover .kegiatan-detail span {
-    transform: translateX(4px);
-}
-
-.kegiatan-detail i {
-    font-size: 16px;
-}
-
-
-/* ============================================================
-   HALAMAN DETAIL
-============================================================ */
-
-.kegiatan-detail-page {
-    display: none;
-
-    width: 100%;
-}
-
-.kegiatan-detail-page.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-/* ============================================================
-   TOMBOL KEMBALI
-============================================================ */
-
-.kegiatan-back {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-bottom: 25px;
-
-    padding: 9px 14px;
-
-    border: 1px solid #dddddd;
-
-    border-radius: 5px;
-
-    background: #ffffff;
-
-    color: #555;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.kegiatan-back:hover {
-    border-color: #c62828;
-
-    color: #c62828;
-}
-
-
-/* ============================================================
-   DETAIL CONTENT
-============================================================ */
-
-.kegiatan-detail-content {
-    width: 100%;
-
-    max-width: 900px;
-
-    margin: 0 auto;
-
-    background: transparent;
-
-    border: 0;
-
-    border-radius: 0;
-
-    box-shadow: none;
-
-    padding: 0;
-}
-
-
-/* ============================================================
-   VIDEO DETAIL
-============================================================ */
-
-.kegiatan-detail-video {
-    width: 100%;
-
-    margin-bottom: 28px;
-
-    border-radius: 18px;
-
-    overflow: hidden;
-}
-
-
-.kegiatan-detail-video iframe {
-    display: block;
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    border: 0;
-}
-
-/* ============================================================
-   FOTO UTAMA DETAIL
-============================================================ */
-
-.kegiatan-detail-photo-main {
-    width: 100%;
-
-    height: 420px;
-
-    overflow: hidden;
-
-    background: #f3f3f3;
-}
-
-.kegiatan-detail-photo-main img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-}
-
-
-/* ============================================================
-   DETAIL BODY
-============================================================ */
-
-.kegiatan-detail-body {
-    width: 100%;
-
-    background: transparent;
-
-    padding: 0;
-}
-
-.kegiatan-detail-info {
-    align-items: flex-start;
-    text-align: left;
-}
-
-.kegiatan-detail-description {
-    max-width: 760px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
-
-.kegiatan-dokumentasi-title {
-    text-align: center;
-}
-
-.kegiatan-dokumentasi {
-    max-width: 820px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-/* ============================================================
-   TYPE DETAIL
-============================================================ */
-
-.kegiatan-detail-type {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-bottom: 9px;
-
-    color: #c62828;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.6px;
-}
-
-
-/* ============================================================
-   TITLE DETAIL
-============================================================ */
-
-.kegiatan-detail-title {
-    margin: 0 0 18px;
-
-    color: #222;
-
-    font-size: 27px;
-
-    font-weight: 700;
-
-    line-height: 1.35;
-}
-
-
-/* ============================================================
-   INFO DETAIL
-============================================================ */
-
-.kegiatan-detail-info {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    margin-bottom: 22px;
-
-    padding-bottom: 20px;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-.kegiatan-detail-info-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    color: #555;
-
-    font-size: 14px;
-}
-
-.kegiatan-detail-info-item i {
-    width: 18px;
-
-    color: #c62828;
-
-    font-size: 15px;
-}
-
-
-/* ============================================================
-   PENJELASAN DETAIL
-============================================================ */
-
-.kegiatan-detail-description {
-    margin: 0 0 25px;
-
-    color: #555;
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-/* ============================================================
-   JUDUL DOKUMENTASI
-============================================================ */
-
-.kegiatan-dokumentasi-title {
-    margin: 0 0 15px;
-
-    padding-top: 22px;
-
-    border-top: 1px solid #eeeeee;
-
-    color: #222;
-
-    font-size: 20px;
-
-    font-weight: 700;
-}
-
-
-/* ============================================================
-   GALERI DOKUMENTASI
-============================================================ */
-
-.kegiatan-dokumentasi {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 12px;
-}
-
-.kegiatan-dokumentasi-item {
-    width: 100%;
-
-    height: 180px;
-
-    overflow: hidden;
-
-    border-radius: 5px;
-
-    background: #f3f3f3;
-}
-
-.kegiatan-dokumentasi-item img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition: transform 0.3s ease;
-}
-
-.kegiatan-dokumentasi-item:hover img {
-    transform: scale(1.04);
-}
-
-
-/* ============================================================
-   RESPONSIVE
-============================================================ */
-
-@media (max-width: 700px) {
-
-    .kegiatan-intro {
-        margin-bottom: 35px;
-        padding: 5px 15px 0;
-    }
-
-    .kegiatan-intro-title {
-        font-size: 28px;
-    }
-
-    .kegiatan-intro-description {
-        font-size: 14px;
-    }
-
-    .kegiatan-intro-highlight h3 {
-        font-size: 20px;
-    }
-
-    .kegiatan-detail-content {
-        width: 100%;
-    }
-
-    .kegiatan-detail-body {
-        padding: 24px 18px 28px;
-    }
-
-
-    .kegiatan-wrapper {
-        padding: 5px 0 30px;
-    }
-
-
-    .kegiatan-card {
-        max-width: 100%;
-    }
-
-
-    .kegiatan-image {
-        height: 210px;
-    }
-
-
-    .kegiatan-body {
-        padding: 19px 18px 18px;
-    }
-
-
-    .kegiatan-title {
-        font-size: 19px;
-    }
-
-
-    .kegiatan-description {
-        font-size: 13px;
-    }
-
-
-    .kegiatan-detail-body {
-        padding: 22px 18px 25px;
-    }
-
-
-    .kegiatan-detail-title {
-        font-size: 22px;
-    }
-
-
-    .kegiatan-detail-photo-main {
-        height: 270px;
-    }
-
-
-    .kegiatan-dokumentasi {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 10px;
-    }
-
-
-    .kegiatan-dokumentasi-item {
-        height: 140px;
-    }
-
-    .magang-cta-content {
-        margin-top: 35px;
-        padding: 38px 24px;
-    }
-
-    .magang-cta-content h2 {
-        font-size: 27px;
-    }
-
-    .magang-cta-content p {
-        font-size: 14px;
-    }
-
-    .magang-cta-buttons {
-        flex-direction: column;
-    }
-
-    .magang-cta-btn {
-        width: 100%;
-        max-width: 220px;
-    }
-
-}
-
-</style>
 
 
 
@@ -4018,6 +2317,135 @@ function tutupPengalaman() {
 
 
 /* =========================================================
+   DETAIL KEGIATAN LITERASI
+========================================================= */
+
+const dataLiterasi = {
+
+    sosialisasi: {
+        label: 'SOSIALISASI SEKOLAH & KAMPUS',
+        title: 'Sosialisasi ke Sekolah & Kampus',
+        image: '{{ asset('images/literasi-sekolah.jpg') }}',
+        description: 'Kegiatan berbagi wawasan kepada siswa dan mahasiswa melalui interaksi langsung. Materi diarahkan pada pengenalan dunia kerja, lingkungan profesional, industri, serta pengetahuan dasar perdagangan berjangka.',
+        meta: [
+            ['bi-mortarboard-fill', 'Sekolah & Kampus'],
+            ['bi-people-fill', 'Interaksi langsung'],
+            ['bi-book-half', 'Edukasi & Wawasan']
+        ],
+        conceptTitle: 'Belajar melalui interaksi langsung',
+        concept: 'Avengers Team hadir sebagai ruang berbagi pengalaman dan pengetahuan. Peserta tidak hanya menerima materi, tetapi juga dapat mengenal gambaran dunia kerja dan berdiskusi secara langsung.',
+        points: [
+            'Mengenalkan dunia kerja kepada peserta.',
+            'Membuka wawasan tentang lingkungan profesional.',
+            'Mendorong peserta untuk aktif bertanya dan berdiskusi.'
+        ],
+        highlight: 'Membawa edukasi lebih dekat dengan peserta melalui komunikasi dua arah.'
+    },
+
+    industri: {
+        label: 'KUNJUNGAN INDUSTRI',
+        title: 'Kunjungan Industri',
+        image: '{{ asset('images/kunjungan-industri.jpg') }}',
+        description: 'Kegiatan kunjungan yang memberikan kesempatan kepada peserta untuk mengenal lingkungan kerja secara lebih dekat, melihat aktivitas profesional, serta mendapatkan gambaran mengenai dunia industri secara langsung.',
+        meta: [
+            ['bi-buildings-fill', 'Lingkungan Industri'],
+            ['bi-briefcase-fill', 'Dunia Profesional'],
+            ['bi-people-fill', 'Pengalaman Langsung']
+        ],
+        conceptTitle: 'Mengenal dunia industri dari dekat',
+        concept: 'Kunjungan industri dikemas sebagai pengalaman belajar di luar ruang kelas. Peserta diajak melihat bagaimana lingkungan profesional berjalan dan memahami aktivitas yang ada di dalamnya.',
+        points: [
+            'Memberikan gambaran nyata tentang lingkungan industri.',
+            'Mengenalkan aktivitas dan budaya kerja profesional.',
+            'Menghubungkan pengetahuan dengan pengalaman langsung.'
+        ],
+        highlight: 'Mengubah pengalaman kunjungan menjadi pembelajaran yang lebih nyata dan mudah dipahami.'
+    }
+};
+
+function bukaLiterasiDetail(jenis) {
+
+    const data = dataLiterasi[jenis];
+    const modal = document.getElementById('literasiModal');
+
+    if (!data || !modal) {
+        return;
+    }
+
+    const image = document.getElementById('literasiModalImage');
+    const label = document.getElementById('literasiModalLabel');
+    const imageTitle = document.getElementById('literasiModalTitleImage');
+    const labelText = document.getElementById('literasiModalLabelText');
+    const title = document.getElementById('literasiModalTitle');
+    const description = document.getElementById('literasiModalDescription');
+    const meta = document.getElementById('literasiModalMeta');
+    const conceptTitle = document.getElementById('literasiModalConceptTitle');
+    const concept = document.getElementById('literasiModalConcept');
+    const points = document.getElementById('literasiModalPoints');
+    const highlight = document.getElementById('literasiModalHighlight');
+    const imageWrap = document.querySelector('.literasi-modal-image-wrap');
+
+    if (imageWrap) {
+        imageWrap.classList.remove('image-fallback');
+    }
+
+    if (image) {
+        image.style.display = 'block';
+        image.src = data.image;
+        image.alt = data.title;
+    }
+
+    if (label) label.textContent = data.label;
+    if (imageTitle) imageTitle.textContent = data.title;
+    if (labelText) labelText.textContent = data.label;
+    if (title) title.textContent = data.title;
+    if (description) description.textContent = data.description;
+    if (conceptTitle) conceptTitle.textContent = data.conceptTitle;
+    if (concept) concept.textContent = data.concept;
+    if (highlight) highlight.textContent = data.highlight;
+
+    if (meta) {
+        meta.innerHTML = data.meta.map(function(item) {
+            return `
+                <span>
+                    <i class="bi ${item[0]}"></i>
+                    ${item[1]}
+                </span>
+            `;
+        }).join('');
+    }
+
+    if (points) {
+        points.innerHTML = data.points.map(function(item) {
+            return `
+                <div>
+                    <i class="bi bi-check2"></i>
+                    <span>${item}</span>
+                </div>
+            `;
+        }).join('');
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('literasi-modal-open');
+}
+
+function tutupLiterasiModal() {
+
+    const modal = document.getElementById('literasiModal');
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('literasi-modal-open');
+}
+
+
+/* =========================================================
    TUTUP MODAL DENGAN ESCAPE
 ========================================================= */
 
@@ -4032,9 +2460,12 @@ document.addEventListener(
         tutupFormPengalaman();
 
         tutupPengalaman();
+        tutupLiterasiModal();
     }
 );
 
 </script>
+
+
 
 @endsection
