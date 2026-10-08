@@ -35,29 +35,25 @@
 
                         <!-- EMAIL -->
                         <div class="wakil-pialang-item">
-    <div class="wakil-pialang-icon">
-        <i class="bi bi-envelope"></i>
-    </div>
+                            <div class="wakil-pialang-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
 
-    <div>
-        <small>Email</small>
+                            <div>
+                                <small>Email</small>
 
-        <div class="email-action">
-            <a href="mailto:christin.rfbsmg@gmail.com" class="email-link">
-                christin.rfbsmg@gmail.com
-            </a>
+                                <div class="email-action">
+                                    <a href="mailto:christin.rfbsmg@gmail.com" class="email-link">
+                                        christin.rfbsmg@gmail.com
+                                    </a>
 
-            <button
-                type="button"
-                class="copy-email-btn"
-                onclick="copyEmail('christin.rfbsmg@gmail.com', this)"
-                title="Salin email"
-            >
-                <i class="bi bi-copy"></i>
-            </button>
-        </div>
-    </div>
-</div>
+                                    <button type="button" class="copy-email-btn"
+                                        onclick="copyEmail('christin.rfbsmg@gmail.com', this)" title="Salin email">
+                                        <i class="bi bi-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -93,16 +89,24 @@
 
                         <!-- EMAIL -->
                         <div class="wakil-pialang-item">
-
-                            <span class="wakil-pialang-icon">
+                            <div class="wakil-pialang-icon">
                                 <i class="bi bi-envelope"></i>
-                            </span>
+                            </div>
 
                             <div>
                                 <small>Email</small>
-                                <strong>⁠dhiana.rfbsemarang@gmail.com</strong>
-                            </div>
 
+                                <div class="email-action">
+                                    <a href="mailto:dhiana.rfbsemarang@gmail.com" class="email-link">
+                                        dhiana.rfbsemarang@gmail.com
+                                    </a>
+
+                                    <button type="button" class="copy-email-btn"
+                                        onclick="copyEmail('dhiana.rfbsemarang@gmail.com', this)" title="Salin email">
+                                        <i class="bi bi-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -138,16 +142,24 @@
 
                         <!-- EMAIL -->
                         <div class="wakil-pialang-item">
-
-                            <span class="wakil-pialang-icon">
+                            <div class="wakil-pialang-icon">
                                 <i class="bi bi-envelope"></i>
-                            </span>
+                            </div>
 
                             <div>
                                 <small>Email</small>
-                                <strong>diansririfansemarang@gmail.com</strong>
-                            </div>
 
+                                <div class="email-action">
+                                    <a href="mailto:diansririfansemarang@gmail.com" class="email-link">
+                                        diansririfansemarang@gmail.com
+                                    </a>
+
+                                    <button type="button" class="copy-email-btn"
+                                        onclick="copyEmail('diansririfansemarang@gmail.com', this)" title="Salin email">
+                                        <i class="bi bi-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -159,31 +171,31 @@
 
     </div>
 
-<script>
-function copyEmail(email, button) {
-    navigator.clipboard.writeText(email)
-        .then(function () {
+    <script>
+        function copyEmail(email, button) {
+            navigator.clipboard.writeText(email)
+                .then(function() {
 
-            const icon = button.querySelector('i');
+                    const icon = button.querySelector('i');
 
-            icon.classList.remove('bi-copy');
-            icon.classList.add('bi-check2');
+                    icon.classList.remove('bi-copy');
+                    icon.classList.add('bi-check2');
 
-            button.title = 'Email berhasil disalin';
+                    button.title = 'Email berhasil disalin';
 
-            setTimeout(function () {
-                icon.classList.remove('bi-check2');
-                icon.classList.add('bi-copy');
+                    setTimeout(function() {
+                        icon.classList.remove('bi-check2');
+                        icon.classList.add('bi-copy');
 
-                button.title = 'Salin email';
-            }, 1500);
+                        button.title = 'Salin email';
+                    }, 1500);
 
-        })
-        .catch(function () {
-            alert('Email tidak dapat disalin.');
-        });
-}
-</script>
+                })
+                .catch(function() {
+                    alert('Email tidak dapat disalin.');
+                });
+        }
+    </script>
 
     </div>
 @endsection

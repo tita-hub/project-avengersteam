@@ -175,9 +175,7 @@
         @endphp
 
 
-        {{-- ============================================================
-         SECTION 01 — SEJARAH BERDIRINYA TEAM
-         ============================================================ --}}
+        {{-- ============================================================ 01 — SEJARAH BERDIRINYA TEAM ============================================================ --}}
 
         <section class="team-history">
 
@@ -240,9 +238,7 @@
         </section>
 
 
-        {{-- ============================================================
-         SECTION 02 — VIDEO
-         ============================================================ --}}
+        {{-- ============================================================ 02 — VIDEO ============================================================ --}}
 
 
         <section class="team-video">
@@ -261,12 +257,9 @@
         </section>
 
 
+        {{-- ============================================================  03 — ANGGOTA AVENGERS TEAM ============================================================ --}}
 
-
-        {{-- ============================================================
-         SECTION 03 — ANGGOTA AVENGERS TEAM
-         ============================================================ --}}
-
+        
         <section class="team-members">
 
             <div class="team-section-title">
@@ -294,10 +287,6 @@
                                 {{ $member['position'] }}
                             </span>
 
-                            {{-- 
-                            Teks card otomatis mengambil dari narasi
-                            yang sama dengan popup.
-                        --}}
                             <p>
                                 {{ \Illuminate\Support\Str::limit(strip_tags($member['description']), 180, '...') }}
                             </p>
@@ -319,9 +308,8 @@
         </section>
 
 
-        {{-- ============================================================
-         MODAL / POPUP ANGGOTA
-         ============================================================ --}}
+        {{-- ============================================================  MODAL / POPUP ANGGOTA ============================================================ --}}
+
 
         @foreach ($members as $index => $member)
             <div id="memberModal{{ $index }}" class="member-modal" aria-hidden="true">
@@ -365,9 +353,8 @@
         @endforeach
 
 
-        {{-- ============================================================
-         JAVASCRIPT MODAL
-         ============================================================ --}}
+        {{-- ============================================================ JAVASCRIPT MODAL ============================================================ --}}
+
 
         <script>
             function openMemberModal(modalId) {
@@ -394,19 +381,12 @@
                 modal.classList.remove('active');
                 modal.setAttribute('aria-hidden', 'true');
 
-                /*
-                 * Hanya menghilangkan modal-open jika
-                 * tidak ada popup lain yang sedang aktif.
-                 */
                 if (!document.querySelector('.member-modal.active')) {
                     document.body.classList.remove('modal-open');
                 }
             }
 
 
-            /*
-             * Klik area gelap di luar popup untuk menutup.
-             */
             document.querySelectorAll('.member-modal').forEach(function(modal) {
 
                 modal.addEventListener('click', function(event) {
@@ -420,9 +400,6 @@
             });
 
 
-            /*
-             * Tombol ESC untuk menutup popup yang sedang aktif.
-             */
             document.addEventListener('keydown', function(event) {
 
                 if (event.key !== 'Escape') {

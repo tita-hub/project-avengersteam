@@ -70,6 +70,93 @@
     align-items: stretch;
 }
 
+/* ============================================================
+   JUDUL SECTION PRODUK
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   JUDUL UTAMA : PRODUK PERDAGANGAN
+   ------------------------------------------------------------ */
+
+.produk-header h1 {
+    margin: 0;
+
+    font-size: 38px;
+    font-weight: 900;
+
+    color: #176b4d;
+
+    line-height: 1.2;
+    letter-spacing: .2px;
+}
+
+
+/* ------------------------------------------------------------
+   DESKRIPSI PRODUK PERDAGANGAN
+   ------------------------------------------------------------ */
+
+.produk-header p {
+    margin: 12px auto 0;
+
+    max-width: 720px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.75;
+
+    color: #176b4d;
+
+    opacity: .82;
+}
+
+
+/* ------------------------------------------------------------
+   PRODUK UNGGULAN & PRODUK LAINNYA
+   ------------------------------------------------------------ */
+
+.produk-section-heading {
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+.produk-lainnya-section {
+    margin-top: 75px;
+}
+
+.produk-section-heading h2 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 750;
+
+    color: #176b4d;
+
+    line-height: 1.25;
+    letter-spacing: .2px;
+}
+
+
+/* ------------------------------------------------------------
+   GARIS AKSEN
+   ------------------------------------------------------------ */
+
+.produk-section-heading h2::after {
+    content: "";
+
+    display: block;
+
+    width: 42px;
+    height: 3px;
+
+    margin: 11px auto 0;
+
+    border-radius: 999px;
+
+    background: #176b4d;
+}
+
 
 /* ============================================================
    PRODUCT CARD
@@ -101,26 +188,6 @@
 
     animation: productCardReveal .8s cubic-bezier(.2,.8,.2,1) both;
     isolation: isolate;
-}
-
-
-/* soft decorative glow */
-
-.produk-card::after {
-    content: "";
-    position: absolute;
-    width: 210px;
-    height: 210px;
-    right: -95px;
-    top: -95px;
-    border-radius: 50%;
-    background: var(--produk-color);
-    opacity: .055;
-    filter: blur(2px);
-    transition:
-        transform .55s ease,
-        opacity .45s ease;
-    z-index: -1;
 }
 
 .produk-card:nth-child(1) {
@@ -184,6 +251,7 @@
    NUMBER BADGE
    ============================================================ */
 
+   /*
 .produk-card:nth-child(1)::marker {
     display: none;
 }
@@ -219,6 +287,7 @@
     font-size: 10px;
     letter-spacing: .5px;
 }
+/*
 
 
 /* ============================================================
@@ -450,11 +519,9 @@
 /* ============================================================
    BUTTON
    ============================================================ */
-
-.produk-button {
-    margin-top: auto;
-    padding-top: 22px;
-    flex-shrink: 0;
+.produk-card {
+    min-height: 0;
+    height: auto;
 }
 
 .btn-detail {
@@ -765,13 +832,8 @@
    CLOSE BUTTON
    ============================================================ */
 
-/*
-   HANYA BAGIAN INI YANG DIUBAH
 
-   Tombol X tetap berada di pojok kanan atas
-   dan tidak ikut bergerak ketika isi modal
-   di-scroll.
-*/
+
 
 .modal-close {
 
@@ -1260,6 +1322,7 @@ body.modal-open {
     font-weight: 800;
 
     line-height: 1.6;
+    
 
 }
 
@@ -1492,8 +1555,7 @@ body.modal-open {
     <div class="produk-section produk-unggulan-section">
 
         <div class="produk-section-heading">
-            <h2>Produk Unggulan</h2>
-            <p>Instrumen pilihan utama kami.</p>
+            <h2>Instrumen Unggulan</h2>
         </div>
 
         <div class="produk-container">
@@ -1539,21 +1601,6 @@ body.modal-open {
                 </p>
 
 
-                <div class="produk-info">
-
-                    <strong>
-                        Produk Unggulan
-                    </strong>
-
-                    <br>
-
-                    Emas merupakan salah satu komoditas
-                    yang banyak dikenal dalam perdagangan
-                    berjangka.
-
-                </div>
-
-
                 <div class="produk-button">
 
                     <button
@@ -1570,6 +1617,250 @@ body.modal-open {
                 </div>
 
             </div>
+
+            <div class="produk-modal" id="modalEmas" onclick="tutupJikaBackground(event)">
+    <div class="produk-modal-box">
+
+        <button class="modal-close" onclick="tutupProduk()">
+            &times;
+        </button>
+
+        <div class="produk-detail-modern">
+
+            <div class="produk-detail-hero">
+                <img src="{{ asset('images/produk/emas.png') }}" alt="Emas Gold">
+                <div>
+                    <span>KOMODITAS</span>
+                    <h2>Emas (Gold)</h2>
+                    <strong>XUL10 &amp; XULF</strong>
+                </div>
+            </div>
+
+            <div class="produk-detail-description">
+
+                <p>
+                    Produk Derivatif Emas Loco London merupakan instrumen
+                    perdagangan berbasis harga emas internasional yang mengacu
+                    pada pasar London, pusat perdagangan emas fisik terbesar
+                    di dunia. Sebagai acuan global, harga emas Loco London
+                    mencerminkan dinamika pasar internasional sehingga
+                    menawarkan transparansi harga dan likuiditas yang sangat
+                    tinggi. Instrumen ini memberikan kesempatan bagi investor
+                    untuk memanfaatkan pergerakan harga emas global tanpa
+                    harus melakukan kepemilikan fisik. Dengan volatilitas yang
+                    menarik dan pergerakan harga yang dipengaruhi oleh berbagai
+                    faktor makroekonomi dunia, Produk Derivatif Emas Loco
+                    London menjadi pilihan populer bagi pelaku pasar yang
+                    memburu peluang capital gain maupun yang membutuhkan
+                    sarana lindung nilai (hedging) terhadap risiko fluktuasi
+                    harga emas. Didukung oleh standar internasional dan
+                    kemudahan akses melalui platform trading, produk ini
+                    memungkinkan investor berpartisipasi langsung dalam pasar
+                    emas global secara efisien, fleksibel, dan terstruktur.
+                    Produk Derivatif Emas Loco London menjadi salah satu
+                    instrumen unggulan bagi mereka yang ingin memanfaatkan
+                    potensi pasar emas dunia dengan tingkat likuiditas yang
+                    kuat dan peluang yang luas.
+                </p>
+
+            </div>
+
+            <div class="produk-spec-heading">
+                <h3>Spesifikasi Produk</h3>
+            </div>
+
+            <div class="produk-detail-table">
+
+                <h4>
+                    Tabel Spesifikasi Kontrak Gulir Harian Emas Loco London
+                    (XUL10 &amp; XULF)
+                </h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Items</th>
+                            <th>Remarks</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Kode Kontrak</td>
+                            <td>XUL10</td>
+                            <td>XULF</td>
+                        </tr>
+
+                        <tr>
+                            <td>Kurs</td>
+                            <td>Tetap (USD 1 = IDR 10,000)</td>
+                            <td>Mengambang (USD)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Satuan Kontrak</td>
+                            <td>100 Troy Ons</td>
+                            <td>100 Troy Ons</td>
+                        </tr>
+
+                        <tr>
+                            <td>Jam Perdagangan</td>
+                            <td>Senin - Jum'at</td>
+                            <td>Senin - Jum'at</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Summer : 06:00 – 03:30 WIB</td>
+                            <td>Summer : 06:00 – 03:30 WIB</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Winter : 06:00 – 04:30 WIB</td>
+                            <td>Winter : 06:00 – 04:30 WIB</td>
+                        </tr>
+
+                        <tr class="table-separator">
+                            <td>.</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Margin untuk Transaksi Harian</td>
+                            <td>IDR 10,000,000 / lot</td>
+                            <td>USD 1,000 / lot</td>
+                        </tr>
+
+                        <tr>
+                            <td>Margin untuk Transaksi Menginap</td>
+                            <td>IDR 30,000,000 / lot</td>
+                            <td>USD 3,000 / lot</td>
+                        </tr>
+
+                        <tr>
+                            <td>Komisi</td>
+                            <td>IDR 150,000 / lot / sisi</td>
+                            <td>USD 15 / lot / sisi</td>
+                        </tr>
+
+                        <tr>
+                            <td>Biaya Menginap untuk Jual / Beli</td>
+                            <td>IDR 50,000 / lot / malam</td>
+                            <td>USD 5 / lot / malam</td>
+                        </tr>
+
+                        <tr>
+                            <td>PPN*</td>
+                            <td>11 % dari Komisi dan Biaya Menginap untuk Jual/Beli</td>
+                            <td>11 % dari Komisi dan Biaya Menginap untuk Jual/Beli</td>
+                        </tr>
+
+                        <tr>
+                            <td>Maintenance Margin</td>
+                            <td>70% dari Kebutuhan Margin</td>
+                            <td>70% dari Kebutuhan Margin</td>
+                        </tr>
+
+                        <tr>
+                            <td>Auto Liquidasi</td>
+                            <td>30% dari Kebutuhan Margin</td>
+                            <td>30% dari Kebutuhan Margin</td>
+                        </tr>
+
+                        <tr class="table-separator">
+                            <td>.</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Sumber Harga</td>
+                            <td>Telequote</td>
+                            <td>Telequote</td>
+                        </tr>
+
+                        <tr>
+                            <td>Harga Acuan</td>
+                            <td>Last Trade</td>
+                            <td>Last Trade</td>
+                        </tr>
+
+                        <tr>
+                            <td>Spread Kuotasi Harga Minimum</td>
+                            <td>USD 0.40 / troy ons / sisi</td>
+                            <td>USD 0.40 / troy ons / sisi</td>
+                        </tr>
+
+                        <tr>
+                            <td>Spread Kuotasi Harga Maximum</td>
+                            <td>USD 1.00 / troy ons / sisi</td>
+                            <td>USD 1.00 / troy ons / sisi</td>
+                        </tr>
+
+                        <tr>
+                            <td>Spread Kuotasi Harga Hectic</td>
+                            <td>Based on market</td>
+                            <td>Based on market</td>
+                        </tr>
+
+                        <tr>
+                            <td>Pergerakan Harga Minimum</td>
+                            <td>USD 0.01 / troy ons</td>
+                            <td>USD 0.01 / troy ons</td>
+                        </tr>
+
+                        <tr>
+                            <td>Rentang Harga untuk Limit dan Stop Order</td>
+                            <td>USD 6 - USD 20</td>
+                            <td>USD 6 - USD 20</td>
+                        </tr>
+
+                        <tr>
+                            <td>Rentang Harga Hectic untuk Limit dan Stop Order</td>
+                            <td>Berdasarkan harga pasar</td>
+                            <td>Berdasarkan harga pasar</td>
+                        </tr>
+
+                        <tr>
+                            <td>Penyelesaian</td>
+                            <td>Cash Settlement</td>
+                            <td>Cash Settlement</td>
+                        </tr>
+
+                        <tr class="table-separator">
+                            <td>.</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="produk-detail-note">
+                <strong>* Catatan:</strong>
+                Perubahan biaya PPN menjadi 11%
+                (Efektif Pertanggal 01 April 2022)
+            </div>
+
+            <div class="risk-box">
+                <strong>⚠️ Catatan Risiko</strong>
+                <p>
+                    Perdagangan berjangka memiliki risiko dan dapat menyebabkan
+                    kerugian. Pastikan memahami karakteristik dan risiko produk
+                    sebelum melakukan transaksi.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 
 
             {{-- ====================================================
@@ -1610,21 +1901,6 @@ body.modal-open {
                     indikator penting dalam melihat kondisi
                     pasar saham.
                 </p>
-
-
-                <div class="produk-info">
-
-                    <strong>
-                        Indeks Jepang
-                    </strong>
-
-                    <br>
-
-                    Nikkei 225 merupakan indeks yang
-                    merepresentasikan sejumlah perusahaan
-                    besar di Jepang.
-
-                </div>
 
 
                 <div class="produk-button">
@@ -1685,20 +1961,6 @@ body.modal-open {
                 </p>
 
 
-                <div class="produk-info">
-
-                    <strong>
-                        Pasangan Mata Uang
-                    </strong>
-
-                    <br>
-
-                    AUD/USD menunjukkan nilai dolar
-                    Australia terhadap dolar Amerika Serikat.
-
-                </div>
-
-
                 <div class="produk-button">
 
                     <button
@@ -1732,14 +1994,12 @@ body.modal-open {
         <div class="produk-section-heading">
 
             <h2>
-                Produk Lainnya
+                Instrumen Perdagangan Lainnya
             </h2>
 
-            <p>
-                Pilihan instrumen perdagangan lainnya.
-            </p>
-
         </div>
+
+        
 
 
         <div class="produk-container">
@@ -1787,22 +2047,6 @@ body.modal-open {
         perusahaan-perusahaan besar di kawasan Asia Pasifik.
 
     </p>
-
-
-    <div class="produk-info">
-
-        <strong>
-
-            Indeks Hong Kong
-
-        </strong>
-
-        <br>
-
-        Hangseng memiliki likuiditas tinggi dan dinamika harga
-        yang menarik bagi pelaku pasar global.
-
-    </div>
 
 
     <div class="produk-button">
@@ -2442,12 +2686,6 @@ body.modal-open {
         digunakan di dunia.
     </p>
 
-    <div class="produk-info">
-        <strong>Komoditas Energi</strong>
-        <br>
-        Brent Crude Oil menjadi salah satu benchmark utama
-        dalam perdagangan energi global.
-    </div>
 
     <div class="produk-button">
         <button
@@ -2486,13 +2724,7 @@ body.modal-open {
         pergerakan dinamis di pasar valuta asing global.
     </p>
 
-    <div class="produk-info">
-        <strong>Pasangan Mata Uang</strong>
-        <br>
-        GBP/USD menawarkan peluang perdagangan yang dipengaruhi
-        oleh dinamika ekonomi Inggris dan Amerika Serikat.
-    </div>
-
+    
     <div class="produk-button">
         <button
             class="btn-detail"
@@ -2531,12 +2763,6 @@ body.modal-open {
         dinamika pergerakan yang mengikuti kondisi ekonomi global.
     </p>
 
-    <div class="produk-info">
-        <strong>Pasangan Mata Uang</strong>
-        <br>
-        EUR/USD menjadi salah satu pasangan mata uang utama
-        dalam perdagangan valuta asing global.
-    </div>
 
     <div class="produk-button">
         <button
@@ -2576,12 +2802,7 @@ body.modal-open {
         yang dipengaruhi kondisi ekonomi dan sentimen global.
     </p>
 
-    <div class="produk-info">
-        <strong>Pasangan Mata Uang</strong>
-        <br>
-        USD/CHF memiliki likuiditas yang solid dan menjadi
-        salah satu pasangan mata uang yang banyak diperdagangkan.
-    </div>
+    
 
     <div class="produk-button">
         <button
@@ -2621,12 +2842,6 @@ body.modal-open {
         dinamis mengikuti kondisi ekonomi dan sentimen pasar global.
     </p>
 
-    <div class="produk-info">
-        <strong>Pasangan Mata Uang</strong>
-        <br>
-        USD/JPY menawarkan peluang dari dinamika ekonomi Amerika
-        Serikat dan Jepang serta perubahan sentimen pasar global.
-    </div>
 
     <div class="produk-button">
         <button

@@ -541,34 +541,16 @@
     color: #3b73d1;
 }
 
-/* ============================================================
-   TENTANG KAMI
-   ============================================================
+/* ============================================================ START TENTANG KAMI ============================================================
 
-   FONT:
-   Seluruh bagian Tentang Kami menggunakan arial / sans-serif.
-
-   CATATAN:
-   - Tidak lagi menggunakan Lato
-   - Tidak lagi menggunakan Montserrat
-   - CSS duplikat sudah digabung
-   - Struktur class mengikuti Blade yang kamu kirim
-   ============================================================ */
-
-
-/* ============================================================
-   BAGIAN 01
-   PROFIL PERUSAHAAN
-   ============================================================ */
+/* ============================================================ 01 PROFIL PERUSAHAAN ============================================================ */
 
 .profile-section {
     margin-bottom: 60px;
 }
 
 
-/* ============================================================
-   JUDUL SECTION
-   ============================================================ */
+/* ============================================================ JUDUL SECTION ============================================================ */
 
 .section-title {
     text-align: center;
@@ -591,9 +573,7 @@
 }
 
 
-/* ============================================================
-   PROFIL
-   ============================================================ */
+/* ============================================================ PROFIL ============================================================ */
 
 .profile-content {
     background: #ffffff;
@@ -626,10 +606,7 @@
 }
 
 
-/* ============================================================
-   BAGIAN 02
-   LEGALITAS
-   ============================================================ */
+/* ============================================================ 02 LEGALITAS ============================================================ */
 
 .legalitas-list {
     display: grid;
@@ -712,10 +689,7 @@
 }
 
 
-/* ============================================================
-   BAGIAN 03
-   PENGHARGAAN / SERTIFIKAT
-   ============================================================ */
+/* ============================================================  03 PENGHARGAAN ============================================================ */
 
 .certificate-wrapper {
     width: 100%;
@@ -772,9 +746,7 @@
 }
 
 
-/* ============================================================
-   FOTO SERTIFIKAT
-   ============================================================ */
+/* ============================================================ FOTO SERTIFIKAT ============================================================ */
 
 .certificate-image {
     width: 100%;
@@ -812,9 +784,7 @@
 }
 
 
-/* ============================================================
-   INFORMASI SERTIFIKAT
-   ============================================================ */
+/* ============================================================ INFORMASI SERTIFIKAT ============================================================ */
 
 .certificate-info {
     padding: 12px 5px 5px;
@@ -848,19 +818,12 @@
 }
 
 
-/* ============================================================
-   LOGO / FOTO KECIL DI BAWAH PENGHARGAAN
-   ============================================================ */
-
 .profile-section > div[style] {
     font-family: 'arial', sans-serif;
 }
 
 
-/* ============================================================
-   BAGIAN 04
-   AVENGERS TEAM
-   ============================================================ */
+/* ============================================================ 04 AVENGERS TEAM ============================================================ */
 
 .avengers-team-page {
     width: 100%;
@@ -871,9 +834,7 @@
 }
 
 
-/* ============================================================
-   JUDUL SECTION AVENGERS
-   ============================================================ */
+/* ============================================================ JUDUL SECTION AVENGERS ============================================================ */
 
 .avengers-team-page .team-section-title {
     display: flex;
@@ -903,9 +864,7 @@
 }
 
 
-/* ============================================================
-   SECTION UMUM
-   ============================================================ */
+/* ============================================================ SECTION UMUM ============================================================ */
 
 .avengers-team-page .team-history,
 .avengers-team-page .team-video,
@@ -916,10 +875,7 @@
 }
 
 
-/* ============================================================
-   SECTION 01
-   THE BEGINNING
-   ============================================================ */
+/* ============================================================ THE BEGINNING ============================================================ */
 
 .avengers-team-page .history-box {
     display: grid;
@@ -944,9 +900,7 @@
 }
 
 
-/* ============================================================
-   FOTO SEJARAH
-   ============================================================ */
+/* ============================================================ FOTO SEJARAH ============================================================ */
 
 .avengers-team-page .history-photo {
     width: 100%;
@@ -977,9 +931,7 @@
 }
 
 
-/* ============================================================
-   KONTEN SEJARAH
-   ============================================================ */
+/* ============================================================ KONTEN ============================================================ */
 
 .avengers-team-page .history-content {
     display: flex;
@@ -1091,10 +1043,7 @@
 }
 
 
-/* ============================================================
-   SECTION 02
-   VIDEO
-   ============================================================ */
+/* ============================================================ 05 VIDEO ============================================================ */
 
 .avengers-team-page .video-box {
     width: 100%;
@@ -1120,10 +1069,7 @@
 }
 
 
-/* ============================================================
-   SECTION 03
-   ANGGOTA AVENGERS
-   ============================================================ */
+/* ============================================================ 06 ANGGOTA AVENGERS ============================================================ */
 
 .avengers-team-page .member-list {
     display: flex;
@@ -1139,9 +1085,7 @@
 }
 
 
-/* ============================================================
-   MEMBER CARD
-   ============================================================ */
+/* ============================================================ MEMBER CARD ============================================================ */
 
 .avengers-team-page .member-item {
     position: relative;
@@ -1182,9 +1126,7 @@
 }
 
 
-/* ============================================================
-   FOTO MEMBER
-   ============================================================ */
+/* ============================================================ FOTO MEMBER ============================================================ */
 
 .avengers-team-page .member-photo {
     flex-shrink: 0;
@@ -1209,9 +1151,7 @@
 }
 
 
-/* ============================================================
-   INFO MEMBER
-   ============================================================ */
+/* ============================================================ INFO MEMBER ============================================================ */
 
 .avengers-team-page .member-info {
     flex: 1;
@@ -1266,9 +1206,7 @@
 }
 
 
-/* ============================================================
-   TOMBOL BACA SELENGKAPNYA
-   ============================================================ */
+/* ============================================================ BACA SELENGKAPNYA ============================================================ */
 
 .avengers-team-page .member-detail-btn {
     position: absolute;
@@ -1313,9 +1251,7 @@
 }
 
 
-/* ============================================================
-   MODAL / POPUP MEMBER
-   ============================================================ */
+/* ============================================================ POPUP MEMBER ============================================================ */
 
 .member-modal {
     position: fixed;
@@ -1361,9 +1297,7 @@
 }
 
 
-/* ============================================================
-   ISI MODAL
-   ============================================================ */
+/* ============================================================ ISI MODAL ============================================================ */
 
 .member-modal-content {
     position: relative;
@@ -1400,9 +1334,7 @@
 }
 
 
-/* ============================================================
-   TOMBOL CLOSE
-   ============================================================ */
+/* ============================================================ CLOSE ============================================================ */
 
 .member-modal-close {
     position: absolute;
@@ -1450,9 +1382,7 @@
 }
 
 
-/* ============================================================
-   FOTO MODAL
-   ============================================================ */
+/* ============================================================   FOTO MODAL   ============================================================ */
 
 .member-modal .modal-photo {
     width: 100%;
@@ -1472,9 +1402,7 @@
 }
 
 
-/* ============================================================
-   INFORMASI MODAL
-   ============================================================ */
+/* ============================================================   INFORMASI MODAL   ============================================================ */
 
 .member-modal .modal-info {
     display: flex;
@@ -1548,326 +1476,14 @@
 }
 
 
-/* ============================================================
-   BODY SAAT MODAL TERBUKA
-   ============================================================ */
+/* ============================================================   BODY  MODAL    ============================================================ */
 
 body.modal-open {
     overflow: hidden;
 }
 
 
-/* ============================================================
-   RESPONSIVE — AVENGERS TEAM
-   ============================================================ */
-
-@media (max-width: 900px) {
-
-    .legalitas-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* HISTORY */
-
-    .avengers-team-page .history-box {
-        width: calc(100% - 30px);
-
-        grid-template-columns: 2fr 3fr;
-
-        min-height: 300px;
-    }
-
-    .avengers-team-page .history-photo {
-        min-height: 300px;
-    }
-
-    .avengers-team-page .history-content {
-        padding: 30px;
-    }
-
-    .avengers-team-page .history-content h3 {
-        font-size: 22px;
-    }
-
-    .avengers-team-page .history-content p {
-        font-size: 12.5px;
-
-        line-height: 1.7;
-    }
-
-
-    /* VIDEO + MEMBER */
-
-    .avengers-team-page .video-box,
-    .avengers-team-page .member-list {
-        width: calc(100% - 30px);
-    }
-
-
-    /* MODAL */
-
-    .member-modal-content {
-        max-width: 700px;
-
-        grid-template-columns: 230px 1fr;
-    }
-
-    .member-modal .modal-info {
-        padding: 35px;
-    }
-
-
-    /* WAKIL PIALANG */
-
-    .wakil-pialang-card {
-        flex: 1 1 300px;
-    }
-}
-
-
-/* ============================================================
-   MOBILE
-   ============================================================ */
-
-@media (max-width: 600px) {
-
-    /* --------------------------------------------------------
-       PROFIL
-       -------------------------------------------------------- */
-
-    .profile-content {
-        padding: 22px;
-    }
-
-    .section-title h2 {
-        font-size: 23px;
-    }
-
-    .section-title p {
-        font-size: 13px;
-    }
-
-
-    /* --------------------------------------------------------
-       SERTIFIKAT
-       -------------------------------------------------------- */
-
-    .certificate-card {
-        flex-basis: 220px;
-    }
-
-    .certificate-image {
-        height: 235px;
-    }
-
-
-    /* --------------------------------------------------------
-       AVENGERS TITLE
-       -------------------------------------------------------- */
-
-    .avengers-team-page .team-section-title {
-        width: calc(100% - 20px);
-
-        margin-bottom: 16px;
-    }
-
-    .avengers-team-page .team-section-title h2 {
-        font-size: 20px;
-    }
-
-
-    /* --------------------------------------------------------
-       THE BEGINNING
-       -------------------------------------------------------- */
-
-    .avengers-team-page .history-box {
-        display: flex;
-
-        flex-direction: column;
-
-        width: calc(100% - 20px);
-
-        min-height: 0;
-
-        border-radius: 18px;
-    }
-
-    .avengers-team-page .history-photo {
-        width: 100%;
-
-        height: 220px;
-
-        min-height: 220px;
-    }
-
-    .avengers-team-page .history-content {
-        width: 100%;
-
-        box-sizing: border-box;
-
-        padding: 25px 22px;
-    }
-
-    .avengers-team-page .history-icon {
-        width: 44px;
-        height: 44px;
-
-        margin-bottom: 11px;
-
-        border-radius: 11px;
-
-        font-size: 18px;
-    }
-
-    .avengers-team-page .history-label {
-        font-size: 9px;
-    }
-
-    .avengers-team-page .history-content h3 {
-        font-size: 20px;
-    }
-
-    .avengers-team-page .history-divider {
-        width: 42px;
-        height: 2px;
-
-        margin: 13px 0;
-    }
-
-    .avengers-team-page .history-content p {
-        font-size: 12px;
-
-        line-height: 1.7;
-    }
-
-
-    /* --------------------------------------------------------
-       VIDEO
-       -------------------------------------------------------- */
-
-    .avengers-team-page .video-box {
-        width: calc(100% - 20px);
-
-        border-radius: 18px;
-    }
-
-
-    /* --------------------------------------------------------
-       MEMBER
-       -------------------------------------------------------- */
-
-    .avengers-team-page .member-list {
-        width: calc(100% - 20px);
-    }
-
-    .avengers-team-page .member-item {
-        min-height: 125px;
-
-        padding: 12px;
-    }
-
-    .avengers-team-page .member-photo {
-        width: 90px;
-        height: 90px;
-
-        border-radius: 12px;
-    }
-
-    .avengers-team-page .member-info {
-        padding: 0 12px;
-    }
-
-    .avengers-team-page .member-info h3 {
-        font-size: 17px;
-    }
-
-    .avengers-team-page .member-position {
-        font-size: 10px;
-    }
-
-    .avengers-team-page .member-info p {
-        padding-bottom: 20px;
-
-        font-size: 11px;
-
-        line-height: 1.5;
-    }
-
-    .avengers-team-page .member-detail-btn {
-        right: 13px;
-
-        bottom: 11px;
-
-        font-size: 9px;
-    }
-
-
-    /* --------------------------------------------------------
-       MODAL
-       -------------------------------------------------------- */
-
-    .member-modal {
-        padding: 15px;
-    }
-
-    .member-modal-content {
-        display: flex;
-
-        flex-direction: column;
-
-        max-height: 90vh;
-
-        border-radius: 18px;
-    }
-
-    .member-modal .modal-photo {
-        width: 100%;
-
-        height: 230px;
-
-        min-height: 230px;
-
-        flex-shrink: 0;
-    }
-
-    .member-modal .modal-info {
-        padding: 25px 22px 30px;
-    }
-
-    .member-modal .modal-info h2 {
-        font-size: 22px;
-    }
-
-    .member-modal .modal-description {
-        font-size: 12px;
-
-        line-height: 1.7;
-    }
-
-
-    /* --------------------------------------------------------
-       WAKIL PIALANG
-       -------------------------------------------------------- */
-
-    .wakil-pialang-container {
-        gap: 20px;
-    }
-
-    .wakil-pialang-card {
-        flex: 1 1 100%;
-
-        max-width: 100%;
-
-        min-width: 0;
-    }
-}
-
-
-/* ============================================================
-   BAGIAN 05
-   WAKIL PIALANG
-   ============================================================ */
+/* ============================================================ 07  WAKIL PIALANG   ============================================================ */
 
 .wakil-pialang-container {
     width: 100%;
@@ -1885,9 +1501,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   CARD WAKIL PIALANG
-   ============================================================ */
+/* ============================================================   CARD WAKIL PIALANG   ============================================================ */
 
 .wakil-pialang-card {
     position: relative;
@@ -1933,9 +1547,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   ANIMASI BERURUTAN
-   ============================================================ */
+/* ============================================================   ANIMASI BERURUTAN   ============================================================ */
 
 .wakil-pialang-card:nth-child(1) {
     animation-delay: 0.1s;
@@ -1950,9 +1562,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   HOVER CARD
-   ============================================================ */
+/* ============================================================   HOVER CARD   ============================================================ */
 
 .wakil-pialang-card:hover {
     transform: translateY(-10px);
@@ -1964,9 +1574,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   AKSEN GARIS ATAS
-   ============================================================ */
+/* ============================================================   AKSEN GARIS ATAS   ============================================================ */
 
 .wakil-pialang-card::before {
     content: "";
@@ -1990,9 +1598,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   EFEK SHINE
-   ============================================================ */
+/* ============================================================   EFEK SHINE   ============================================================ */
 
 .wakil-pialang-card::after {
     content: "";
@@ -2021,9 +1627,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   FOTO WAKIL PIALANG
-   ============================================================ */
+/* ============================================================   FOTO WAKIL PIALANG   ============================================================ */
 
 .wakil-pialang-photo {
     position: relative;
@@ -2063,9 +1667,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   INFORMASI WAKIL PIALANG
-   ============================================================ */
+/* ============================================================   INFORMASI WAKIL PIALANG   ============================================================ */
 
 .wakil-pialang-info {
     width: 100%;
@@ -2096,9 +1698,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   JABATAN
-   ============================================================ */
+/* ============================================================   JABATAN   ============================================================ */
 
 .wakil-pialang-jabatan {
     display: inline-block;
@@ -2120,9 +1720,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   DETAIL
-   ============================================================ */
+/* ============================================================   DETAIL   ============================================================ */
 
 .wakil-pialang-detail {
     width: 100%;
@@ -2219,9 +1817,7 @@ body.modal-open {
 }
 
 
-/* ============================================================
-   ANIMASI MASUK WAKIL PIALANG
-   ============================================================ */
+/* ============================================================   ANIMASI WAKIL PIALANG   ============================================================ */
 
 @keyframes wakilPialangMasuk {
 
@@ -2241,9 +1837,7 @@ body.modal-open {
 
 }
 
-/* ============================================================
-   EMAIL ACTION
-   ============================================================ */
+/* ============================================================   EMAIL ACTION   ============================================================ */
 
 .email-action {
     display: flex;
@@ -2301,10 +1895,650 @@ body.modal-open {
     transform: scale(0.92);
 }
 
+/* ============================================================   RESPONSIVE — AVENGERS TEAM   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .legalitas-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* HISTORY */
+
+    .avengers-team-page .history-box {
+        width: calc(100% - 30px);
+
+        grid-template-columns: 2fr 3fr;
+
+        min-height: 300px;
+    }
+
+    .avengers-team-page .history-photo {
+        min-height: 300px;
+    }
+
+    .avengers-team-page .history-content {
+        padding: 30px;
+    }
+
+    .avengers-team-page .history-content h3 {
+        font-size: 22px;
+    }
+
+    .avengers-team-page .history-content p {
+        font-size: 12.5px;
+
+        line-height: 1.7;
+    }
+
+
+    /* VIDEO + MEMBER */
+
+    .avengers-team-page .video-box,
+    .avengers-team-page .member-list {
+        width: calc(100% - 30px);
+    }
+
+
+    /* MODAL */
+
+    .member-modal-content {
+        max-width: 700px;
+
+        grid-template-columns: 230px 1fr;
+    }
+
+    .member-modal .modal-info {
+        padding: 35px;
+    }
+
+
+    /* WAKIL PIALANG */
+
+    .wakil-pialang-card {
+        flex: 1 1 300px;
+    }
+}
+
+
+/* ============================================================   MOBILE   ============================================================ */
+
+@media (max-width: 600px) {
+
+    /* --------------------------------------------------------       PROFIL       -------------------------------------------------------- */
+
+    .profile-content {
+        padding: 22px;
+    }
+
+    .section-title h2 {
+        font-size: 23px;
+    }
+
+    .section-title p {
+        font-size: 13px;
+    }
+
+
+    /* --------------------------------------------------------       SERTIFIKAT       -------------------------------------------------------- */
+
+    .certificate-card {
+        flex-basis: 220px;
+    }
+
+    .certificate-image {
+        height: 235px;
+    }
+
+
+    /* --------------------------------------------------------       AVENGERS TITLE       -------------------------------------------------------- */
+
+    .avengers-team-page .team-section-title {
+        width: calc(100% - 20px);
+
+        margin-bottom: 16px;
+    }
+
+    .avengers-team-page .team-section-title h2 {
+        font-size: 20px;
+    }
+
+
+    /* --------------------------------------------------------      THE BEGINNING       -------------------------------------------------------- */
+
+    .avengers-team-page .history-box {
+        display: flex;
+
+        flex-direction: column;
+
+        width: calc(100% - 20px);
+
+        min-height: 0;
+
+        border-radius: 18px;
+    }
+
+    .avengers-team-page .history-photo {
+        width: 100%;
+
+        height: 220px;
+
+        min-height: 220px;
+    }
+
+    .avengers-team-page .history-content {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 25px 22px;
+    }
+
+    .avengers-team-page .history-icon {
+        width: 44px;
+        height: 44px;
+
+        margin-bottom: 11px;
+
+        border-radius: 11px;
+
+        font-size: 18px;
+    }
+
+    .avengers-team-page .history-label {
+        font-size: 9px;
+    }
+
+    .avengers-team-page .history-content h3 {
+        font-size: 20px;
+    }
+
+    .avengers-team-page .history-divider {
+        width: 42px;
+        height: 2px;
+
+        margin: 13px 0;
+    }
+
+    .avengers-team-page .history-content p {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+
+    /* --------------------------------------------------------       VIDEO       -------------------------------------------------------- */
+
+    .avengers-team-page .video-box {
+        width: calc(100% - 20px);
+
+        border-radius: 18px;
+    }
+
+
+    /* --------------------------------------------------------       MEMBER       -------------------------------------------------------- */
+
+    .avengers-team-page .member-list {
+        width: calc(100% - 20px);
+    }
+
+    .avengers-team-page .member-item {
+        min-height: 125px;
+
+        padding: 12px;
+    }
+
+    .avengers-team-page .member-photo {
+        width: 90px;
+        height: 90px;
+
+        border-radius: 12px;
+    }
+
+    .avengers-team-page .member-info {
+        padding: 0 12px;
+    }
+
+    .avengers-team-page .member-info h3 {
+        font-size: 17px;
+    }
+
+    .avengers-team-page .member-position {
+        font-size: 10px;
+    }
+
+    .avengers-team-page .member-info p {
+        padding-bottom: 20px;
+
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+
+    .avengers-team-page .member-detail-btn {
+        right: 13px;
+
+        bottom: 11px;
+
+        font-size: 9px;
+    }
+
+
+    /* --------------------------------------------------------      MODAL       -------------------------------------------------------- */
+
+    .member-modal {
+        padding: 15px;
+    }
+
+    .member-modal-content {
+        display: flex;
+
+        flex-direction: column;
+
+        max-height: 90vh;
+
+        border-radius: 18px;
+    }
+
+    .member-modal .modal-photo {
+        width: 100%;
+
+        height: 230px;
+
+        min-height: 230px;
+
+        flex-shrink: 0;
+    }
+
+    .member-modal .modal-info {
+        padding: 25px 22px 30px;
+    }
+
+    .member-modal .modal-info h2 {
+        font-size: 22px;
+    }
+
+    .member-modal .modal-description {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+
+    /* --------------------------------------------------------       WAKIL PIALANG       -------------------------------------------------------- */
+
+    .wakil-pialang-container {
+        gap: 20px;
+    }
+
+    .wakil-pialang-card {
+        flex: 1 1 100%;
+
+        max-width: 100%;
+
+        min-width: 0;
+    }
+}
+
 
 /* ============================================================
-   END — TENTANG KAMI
-   ============================================================ */
+   ✨ ENHANCEMENT — TENTANG KAMI   Membuat tampilan lebih hidup tanpa menambah library   ============================================================ */
+
+
+.section-title {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.section-title::after {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 3px;
+
+    margin: 12px auto 0;
+
+    border-radius: 10px;
+
+    background: #c62828;
+}
+
+
+
+.profile-content {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+
+.profile-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 70px;
+    height: 4px;
+
+    border-radius: 0 0 8px 0;
+
+    background: #c62828;
+}
+
+.profile-content:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.07);
+}
+
+
+
+.legalitas-item {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+
+
+.legalitas-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 0;
+
+    background: #c62828;
+
+    border-radius: 0 5px 5px 0;
+
+    transition:
+        height 0.3s ease;
+}
+
+.legalitas-item:hover::before {
+    height: 100%;
+}
+
+.legalitas-item:hover {
+    transform: translateY(-3px);
+
+    border-color: #e5e7eb;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+
+
+.legalitas-item span {
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.legalitas-item:hover span {
+    background: #c62828;
+
+    color: #ffffff;
+
+    transform: scale(1.05);
+}
+
+
+.certificate-scroll {
+    scroll-padding-left: 5px;
+}
+
+
+
+.certificate-card {
+    position: relative;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+
+.certificate-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 20px;
+    right: 20px;
+
+    height: 3px;
+
+    border-radius: 0 0 8px 8px;
+
+    background: #c62828;
+
+    transform: scaleX(0);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.certificate-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+
+.avengers-team-page .history-box {
+    position: relative;
+}
+
+
+
+.avengers-team-page .history-content {
+    position: relative;
+}
+
+
+
+.avengers-team-page .history-content::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 35px;
+    bottom: 35px;
+
+    width: 3px;
+
+    border-radius: 10px;
+
+    background: #c62828;
+}
+
+
+
+.avengers-team-page .video-box {
+    position: relative;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.10);
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.avengers-team-page .video-box:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.14);
+}
+
+
+
+.avengers-team-page .member-item {
+    position: relative;
+
+    border: 1px solid transparent;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+
+
+.avengers-team-page .member-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+
+    width: 3px;
+
+    border-radius: 0 6px 6px 0;
+
+    background: #c62828;
+
+    transform: scaleY(0.35);
+
+    transform-origin: center;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.avengers-team-page .member-item:hover::before {
+    transform: scaleY(1);
+}
+
+.avengers-team-page .member-item:hover {
+    transform: translateY(-3px);
+
+    border-color: #f0d6d6;
+
+    box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+
+
+.avengers-team-page .member-photo {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.avengers-team-page .member-item:hover .member-photo {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+
+.wakil-pialang-card {
+    border-color: #e5e7eb;
+}
+
+
+
+.wakil-pialang-info {
+    position: relative;
+}
+
+.wakil-pialang-info h3::after {
+    content: "";
+
+    display: block;
+
+    width: 30px;
+    height: 2px;
+
+    margin: 8px auto 0;
+
+    border-radius: 10px;
+
+    background: #c62828;
+
+    transition:
+        width 0.3s ease;
+}
+
+.wakil-pialang-card:hover .wakil-pialang-info h3::after {
+    width: 50px;
+}
+
+
+
+.email-action {
+    border-radius: 8px;
+}
+
+.email-link {
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.email-link:hover {
+    transform: translateX(2px);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .profile-content,
+    .legalitas-item,
+    .certificate-card,
+    .video-box,
+    .member-item,
+    .member-photo,
+    .wakil-pialang-card,
+    .email-link {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+
+/* ============================================================   END — TENTANG KAMI   ============================================================ */
+
+
 
 /* ============================================================
    LOGOUT

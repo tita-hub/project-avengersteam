@@ -189,7 +189,7 @@
         [
             'id' => 5,
             'nomor' => '05',
-            'kategori' => 'RISIKO',
+            'kategori' => 'MEKANISME',
             'icon' => 'bi-shield-exclamation',
             'judul' => 'Cara Kerja Trading',
             'ringkasan' => 'Memahami perbandingan transaksi fisik dan kontrak gulir harian dalam perdagangan berjangka.',
@@ -226,7 +226,7 @@
                     <strong>1,5%</strong>.
                 </p>
 
-                <h4>Transaksi Online RF BJ (GJ)</h4>
+                <h4>Transaksi Online RFB (LGD)</h4>
 
                 <p>
                     Pada transaksi perdagangan berjangka, nasabah dapat mengambil
@@ -326,83 +326,6 @@
                 <p>
                     Manajemen risiko dalam transaksi emas dapat dibagi menjadi
                     dua tahap, yaitu sebelum transaksi dan setelah transaksi.
-                </p>
-
-
-                <h4>Sebelum Transaksi</h4>
-
-                <p>
-                    Sebelum melakukan transaksi, perencanaan trading dapat
-                    memperhatikan beberapa hal berikut:
-                </p>
-
-                <ul>
-                    <li>
-                        <strong>Modal Proporsional</strong> — menyesuaikan modal
-                        dengan kemampuan dan rencana transaksi.
-                    </li>
-
-                    <li>
-                        <strong>Target Pencapaian</strong> — menentukan target
-                        transaksi yang ingin dicapai.
-                    </li>
-
-                    <li>
-                        <strong>Peluang Market</strong> — melihat peluang yang
-                        tersedia berdasarkan kondisi pasar.
-                    </li>
-
-                    <li>
-                        <strong>Metode Transaksi</strong> — menentukan metode
-                        yang akan digunakan dalam melakukan transaksi.
-                    </li>
-
-                    <li>
-                        <strong>Planning Trading</strong> — menyusun perencanaan
-                        transaksi sebelum mengambil posisi.
-                    </li>
-                </ul>
-
-
-                <h4>Setelah Transaksi</h4>
-
-                <p>
-                    Setelah transaksi dilakukan, pengelolaan posisi dapat
-                    disesuaikan dengan perkembangan kondisi pasar. Beberapa
-                    tindakan yang dapat dipertimbangkan antara lain:
-                </p>
-
-                <ul>
-                    <li>
-                        <strong>Average (Rata-rata)</strong> — melakukan
-                        penyesuaian posisi berdasarkan strategi dan kondisi
-                        transaksi.
-                    </li>
-
-                    <li>
-                        <strong>Locking (Posisi Kunci)</strong> — melakukan
-                        pengelolaan posisi dengan mengunci posisi tertentu
-                        sesuai kondisi pasar.
-                    </li>
-
-                    <li>
-                        <strong>Switching (Balik Arah)</strong> — mengubah
-                        arah posisi apabila analisis menunjukkan perubahan
-                        kondisi pasar.
-                    </li>
-
-                    <li>
-                        <strong>Hold (Menunggu/Tahan)</strong> — mempertahankan
-                        posisi sambil menunggu perkembangan kondisi pasar.
-                    </li>
-                </ul>
-
-
-                <p>
-                    Dengan memahami aspek psikologi, analisis, manajemen kapital,
-                    strategi trading, serta pengelolaan posisi, nasabah dapat
-                    melakukan transaksi dengan perencanaan dan pengelolaan risiko
-                    yang lebih baik.
                 </p>
 
             ',
@@ -1077,34 +1000,58 @@
 }
 
 .edu-modal-close {
-    position: absolute;
-
-    top: 17px;
-    right: 17px;
+    position: sticky;
+    top: 18px;
+    margin-left: auto;
 
     width: 38px;
     height: 38px;
 
-    border-radius: 50%;
-
-    border: 1px solid var(--line);
-
-    background: #ffffff;
-
-    color: #68716c;
-
-    cursor: pointer;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
+
+    padding: 0;
+    border: 1px solid #e2e7e3;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #777;
+
+    font-size: 16px;
+    line-height: 1;
+
+    cursor: pointer;
+    z-index: 100;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .edu-modal-close:hover {
-    background: var(--red-soft);
+    background: #f5f7f6;
+    color: #176b4d;
+    border-color: #176b4d;
 
-    color: var(--red);
+    transform: rotate(90deg);
+
+    box-shadow: 0 5px 14px rgba(23, 107, 77, 0.15);
+}
+
+.edu-modal-close:active {
+    transform: rotate(90deg) scale(0.94);
+}
+
+.edu-modal-close i {
+    display: block;
+    font-size: 16px;
 }
 
 .edu-modal-category {
