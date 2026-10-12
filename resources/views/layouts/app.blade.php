@@ -27,7 +27,6 @@
 <body class="app-body">
 
 
-
     <!-- =====================================================
          APP SHELL
     ====================================================== -->
@@ -111,6 +110,28 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- MENU ANALISIS -->
+                    <div class="top-nav-dropdown" id="analisisContainer">
+                        <button type="button"
+                            id="analisisBtn"
+                            class="nav-item nav-dropdown-btn {{ request()->routeIs('news.*') ? 'active' : '' }}"
+                            aria-expanded="false">
+                            <span>Analisis</span>
+                            <i id="analisisArrow" class="bi bi-chevron-down dropdown-arrow"></i>
+                        </button>
+
+                        <div id="submenuAnalisis" class="top-submenu">
+                            <a href="{{ route('news.index') }}"
+                                class="analisis-submenu-item {{ request()->routeIs('news.*') ? 'active' : '' }}">
+                                <span>Berita</span>
+                            </a>
+                            <a href="{{ route('analisis.kalender-ekonomi') }}" class="analisis-submenu-item {{ request()->routeIs('analisis.kalender-ekonomi') ? 'active' : '' }}"><span>Kalender Ekonomi</span></a>
+                            <a href="{{ route('analisis.data-historis') }}" class="analisis-submenu-item {{ request()->routeIs('analisis.data-historis') ? 'active' : '' }}"><span>Data Historis</span></a>
+                            <a href="{{ route('analisis.pivot-fibonacci') }}" class="analisis-submenu-item {{ request()->routeIs('analisis.pivot-fibonacci') ? 'active' : '' }}"><span>Pivot &amp; Fibonacci</span></a>
+                        </div>
+                    </div>
+                    <!-- END MENU ANALISIS -->
 
                     <div class="top-nav-dropdown" id="edukasiContainer">
                         <button type="button"
@@ -199,6 +220,30 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- MENU ANALISIS MOBILE -->
+                    <div class="mobile-nav-dropdown">
+                        <button type="button"
+                            id="mobileAnalisisBtn"
+                            class="mobile-nav-item mobile-dropdown-btn {{ request()->routeIs('news.*') ? 'active' : '' }}"
+                            aria-expanded="false">
+                            <span>Analisis</span>
+                            <i id="mobileAnalisisArrow" class="bi bi-chevron-down"></i>
+                        </button>
+                        <div id="mobileSubmenuAnalisis" class="mobile-submenu">
+                            <a href="{{ route('news.index') }}"
+                                class="analisis-submenu-item {{ request()->routeIs('news.*') ? 'active' : '' }}">
+                                <span>Berita</span>
+                            </a>
+                            <a href="{{ route('analisis.kalender-ekonomi') }}" class="analisis-submenu-item {{ request()->routeIs('analisis.kalender-ekonomi') ? 'active' : '' }}">
+                                <span>Kalender Ekonomi</span></a>
+                            <a href="{{ route('analisis.data-historis') }}" class="analisis-submenu-item {{ request()->routeIs('analisis.data-historis') ? 'active' : '' }}">
+                                <span>Data Historis</span></a>
+                            <a href="{{ route('analisis.pivot-fibonacci') }}" class="analisis-submenu-item {{ request()->routeIs('analisis.pivot-fibonacci') ? 'active' : '' }}">
+                                <span>Pivot &amp; Fibonacci</span></a>
+                        </div>
+                    </div>
+                    <!-- END MENU ANALISIS MOBILE -->
 
                     <div class="mobile-nav-dropdown">
                         <button type="button"
@@ -481,6 +526,11 @@
                     arrow: document.getElementById('prosedurArrow')
                 },
                 {
+                    button: document.getElementById('analisisBtn'),
+                    submenu: document.getElementById('submenuAnalisis'),
+                    arrow: document.getElementById('analisisArrow')
+                },
+                {
                     button: document.getElementById('edukasiBtn'),
                     submenu: document.getElementById('submenuEdukasi'),
                     arrow: document.getElementById('edukasiArrow')
@@ -564,6 +614,11 @@
                     arrow: document.getElementById('mobileProsedurArrow')
                 },
                 {
+                    button: document.getElementById('mobileAnalisisBtn'),
+                    submenu: document.getElementById('mobileSubmenuAnalisis'),
+                    arrow: document.getElementById('mobileAnalisisArrow')
+                },
+                {
                     button: document.getElementById('mobileEdukasiBtn'),
                     submenu: document.getElementById('mobileSubmenuEdukasi'),
                     arrow: document.getElementById('mobileEdukasiArrow')
@@ -614,16 +669,6 @@
 
         });
     </script>
-
-    <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/6285128040216"
-       class="floating-whatsapp"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Hubungi kami melalui WhatsApp">
-        <i class="bi bi-whatsapp"></i>
-    </a>
-    <!-- END FLOATING WHATSAPP -->
 
 </body>
 

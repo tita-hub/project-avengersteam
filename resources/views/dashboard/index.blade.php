@@ -1092,9 +1092,9 @@
 
                 <a
                     href="{{ route('produk.index') }}"
-                    class="hero-btn hero-btn-primary"
+                    class="hero-btn hero-btn-secondary"
                 >
-                    Lihat Produk
+                    Demo Registration
                     <i class="bi bi-arrow-right"></i>
                 </a>
 
@@ -1102,7 +1102,23 @@
                     href="{{ route('edukasi.umum') }}"
                     class="hero-btn hero-btn-secondary"
                 >
-                    Pelajari Lebih Lanjut
+                    Demo Account
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a
+                    href="{{ route('produk.index') }}"
+                    class="hero-btn hero-btn-secondary"
+                >
+                    Register Online
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a
+                    href="{{ route('edukasi.umum') }}"
+                    class="hero-btn hero-btn-primary"
+                >
+                    Real Account
                     <i class="bi bi-arrow-up-right"></i>
                 </a>
 

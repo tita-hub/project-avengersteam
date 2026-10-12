@@ -21450,3 +21450,43 @@ body.literasi-modal-open {
         bottom: 20px;
     }
 }
+
+
+
+/* ============================================================
+   SUBMENU ANALISIS
+   ============================================================ */
+
+.top-nav .top-submenu .analisis-submenu-item,
+.mobile-nav .mobile-submenu .analisis-submenu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 40px;
+    padding: 9px 12px;
+
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    background: transparent;
+
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.top-nav .top-submenu .analisis-submenu-item:hover,
+.mobile-nav .mobile-submenu .analisis-submenu-item:hover {
+    color: #8d2634;
+    background: #f8eef0;
+}
+
+.top-nav .top-submenu .analisis-submenu-item.active,
+.mobile-nav .mobile-submenu .analisis-submenu-item.active {
+    color: #8d2634;
+    background: #f8eef0;
+    font-weight: 600;
+}
+

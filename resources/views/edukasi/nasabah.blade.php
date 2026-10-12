@@ -281,7 +281,7 @@
             'kategori' => 'RISIKO',
             'icon' => 'bi-shield-exclamation',
             'judul' => 'Management Risiko',
-            'ringkasan' => 'Memahami pengelolaan risiko sebelum dan setelah melakukan transaksi.',
+            'ringkasan' => 'Memahami pengelolaan risiko dan faktor penting sebelum melakukan transaksi.',
             'isi' => '
 
                 <h4>Segitiga Keberhasilan Transaksi</h4>

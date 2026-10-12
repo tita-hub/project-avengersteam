@@ -34,8 +34,7 @@
     <section class="withdrawal-hero">
 
         <div class="hero-orbit"></div>
-        <div class="hero-dot"></div>
-
+        
         <div class="withdrawal-hero-content">
 
             <div class="withdrawal-label">

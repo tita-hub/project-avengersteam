@@ -80,3 +80,10 @@ Route::controller(EdukasiController::class)->group(function () {
         ])->name('internship-reviews.store');
 
 });
+
+Route::prefix('analisis')->name('analisis.')->group(function () {
+    Route::view('/berita', 'analisis.berita')->name('berita');
+    Route::view('/kalender-ekonomi', 'analisis.kalender-ekonomi')->name('kalender-ekonomi');
+    Route::view('/data-historis', 'analisis.data-historis')->name('data-historis');
+    Route::view('/pivot-fibonacci', 'analisis.pivot-fibonacci')->name('pivot-fibonacci');
+});

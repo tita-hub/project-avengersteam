@@ -218,19 +218,14 @@
 
             <div class="online-step-card">
 
-                <h3>Setoran Dana Margin ke Rekening Segregasi</h3>
+                <h3>Setoran Dana Margin ke Rekening Terpisah</h3>
 
                 <p>
-                    Setelah proses verifikasi, Nasabah melakukan
-                    setoran dana margin ke rekening segregasi yang
-                    telah ditentukan oleh PT Rifan Financindo Berjangka.
-                </p>
-
-                <p>
-                    Informasi rekening bank tujuan tersedia pada bagian
+                    Setelah proses verifikasi, Nasabah melakukan setoran 
+                    dana margin awal dengan <strong>minimal sebesar Rp100.000.000 (seratus juta rupiah)</strong>
+                    ke rekening terpisah yang telah ditentukan oleh PT Rifan Financindo Berjangka. Informasi rekening bank tujuan tersedia pada bagian
                     <strong>Rekening Terpisah</strong> di bawah halaman ini.
                 </p>
-
             </div>
 
         </div>
@@ -326,8 +321,13 @@
             Rekening tujuan untuk melakukan transfer dana.
         </p>
 
-    </div>
+         <div class="online-status">
+                <span class="online-status-icon"></span>
+                Rekening khusus yang terpisah dari rekening operasional perusahaan, 
+                yang digunakan untuk menyimpan dana margin Nasabah sesuai dengan ketentuan yang berlaku.
+            </div>
 
+    </div>
 
     <div class="online-bank-grid">
 
