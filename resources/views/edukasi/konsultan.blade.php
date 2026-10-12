@@ -40,24 +40,26 @@
     }
 
 
-    /* =====================================================
-       HERO
+/* =====================================================
+    HERO EDUKASI KONSULTAN
     ===================================================== */
 
-    .edu-hero {
+    .edu-page .edu-hero {
         position: relative;
-
-        overflow: hidden;
+        display: flex;
+        align-items: center;
 
         width: 100%;
+        min-height: 230px;
+        height: auto;
+        max-height: none;
 
-        height: 175px !important;
-        min-height: 175px !important;
-        max-height: 175px !important;
-
-        padding: 0 !important;
-
+        padding: 30px 25px !important;
         margin-bottom: 28px;
+
+        box-sizing: border-box;
+        overflow: hidden;
+        isolation: isolate;
 
         border-radius: 20px;
 
@@ -68,176 +70,175 @@
             #23805d 100%
         );
 
-        color: #fff;
-
-        box-shadow:
-            0 9px 22px rgba(23,107,77,.11);
+        color: #ffffff;
+        box-shadow: 0 9px 22px rgba(23, 107, 77, 0.11);
     }
 
-
-    /* =====================================================
-       LINGKARAN KANAN ATAS
-    ===================================================== */
-
-    .edu-hero::before {
+    .edu-page .edu-hero::before {
         content: "";
-
         position: absolute;
+        z-index: -1;
 
         width: 180px;
         height: 180px;
 
-        border: 34px solid rgba(255,255,255,.055);
-
+        border: 34px solid rgba(255, 255, 255, 0.055);
         border-radius: 50%;
 
         right: -50px;
         top: -75px;
+        pointer-events: none;
     }
 
-
-    /* =====================================================
-       LINGKARAN KANAN BAWAH
-    ===================================================== */
-
-    .edu-hero::after {
+    .edu-page .edu-hero::after {
         content: "";
-
         position: absolute;
+        z-index: -1;
 
         width: 110px;
         height: 110px;
 
-        border: 21px solid rgba(141,38,52,.16);
-
+        border: 21px solid rgba(141, 38, 52, 0.16);
         border-radius: 50%;
 
         right: 120px;
         bottom: -72px;
+        pointer-events: none;
     }
 
-
-    /* =====================================================
-       ISI HERO
-    ===================================================== */
-
-    .hero-content {
+    .edu-page .edu-hero .hero-content {
         position: relative;
-
-        z-index: 2;
-
-        width: 100%;
-        height: 100%;
+        z-index: 1;
 
         display: flex;
+        align-items: center;
 
-        align-items: flex-start;
-        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+        min-height: 170px;
 
         padding: 0 !important;
+        margin: 0 !important;
+
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+        justify-content: flex-start !important;
+    }
+
+    .edu-page .edu-hero .hero-text {
+        position: relative;
+        z-index: 2;
+
+        display: block;
+        width: 100%;
+        max-width: 900px;
 
         margin: 0 !important;
+        padding: 0 !important;
+
+        visibility: visible;
+        opacity: 1;
+
+        padding-left: 0 !important;
+        margin-left: 0 !important;
     }
 
-
-    .hero-text {
-        max-width: 900px;
-
-        margin-left: 50px !important;
-
-        padding-top: 22px !important;
-    }
-
-
-    /* =====================================================
-       LABEL HERO
-    ===================================================== */
-
-    .hero-label {
+    .edu-page .edu-hero .hero-label {
         display: inline-flex;
-
         align-items: center;
-        justify-content: center;
+        gap: 6px;
 
-        gap: 5px;
+        margin-bottom: 10px;
+        padding: 5px 12px;
 
-        padding: 4px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 20px;
 
-        margin-bottom: 6px;
+        background: rgba(255, 255, 255, 0.09);
 
-        border-radius: 50px;
-
-        background: rgba(255,255,255,.12);
-
-        border: 1px solid rgba(255,255,255,.17);
-
-        color: #fff;
-
-        font-size: 9px;
-
-        font-weight: 700;
-
-        line-height: 1.2;
-
-        letter-spacing: .3px;
-    }
-
-
-    .hero-label i {
-        color: #fff;
-
-        font-size: 10px;
-    }
-
-
-    /* =====================================================
-       JUDUL HERO
-    ===================================================== */
-
-    .hero-title {
-        margin: 0 0 5px;
-
-        padding: 0;
-
-        color: #fff !important;
-
-        font-family: 'Arial',sans-serif !important;
-
-        font-size: 36px;
-
-        line-height: 1.05;
-
-        font-weight: 800;
-
-        letter-spacing: -.7px;
-    }
-
-
-    /* =====================================================
-       DESKRIPSI HERO
-    ===================================================== */
-
-    .hero-description {
-        max-width: 900px;
-
-        margin: 0;
-
-        padding: 0;
-
-        color: rgba(255,255,255,.84) !important;
-
+        color: #ffffff !important;
         font-size: 12px;
-
-        line-height: 1.45;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0.3px;
     }
 
+    .edu-page .edu-hero .hero-label i {
+        color: #ffffff !important;
+        font-size: 13px;
+    }
 
-    /* =====================================================
-       ICON HERO TIDAK DIGUNAKAN
-    ===================================================== */
+    .edu-page .edu-hero .hero-title {
+        display: block;
 
-    .hero-icon {
-        display: none !important;
+        margin: 0 0 8px !important;
+        padding: 0 !important;
+
+        color: #ffffff !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.7px;
+
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .edu-page .edu-hero .hero-description {
+        display: block;
+        max-width: 850px;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        color: rgba(255, 255, 255, 0.94) !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 14px;
+        line-height: 1.6;
+
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Tampilan tablet dan HP */
+    @media (max-width: 768px) {
+        .edu-page .edu-hero {
+            min-height: 220px;
+            padding: 28px 25px !important;
+            border-radius: 18px;
+        }
+
+        .edu-page .edu-hero .hero-content {
+            min-height: 160px;
+        }
+
+        .edu-page .edu-hero .hero-title {
+            font-size: 30px;
+        }
+
+        .edu-page .edu-hero .hero-description {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .edu-page .edu-hero {
+            min-height: 230px;
+            padding: 25px 20px !important;
+        }
+
+        .edu-page .edu-hero .hero-title {
+            font-size: 26px;
+        }
+
+        .edu-page .edu-hero .hero-description {
+            font-size: 12px;
+        }
     }
 
 
@@ -615,6 +616,30 @@
         }
 
     }
+
+
+    /* Geser konten banner lebih ke kiri */
+        .edu-page .edu-hero .hero-content {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            justify-content: flex-start !important;
+        }
+
+        .edu-page .edu-hero .hero-text {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Jarak konten dari tepi kiri banner */
+        .edu-page .edu-hero {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+        
 </style>
 
 
