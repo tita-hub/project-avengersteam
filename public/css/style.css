@@ -4317,7 +4317,9 @@ body.modal-open {
 
 .top-nav .top-submenu .tentang-submenu-item,
 .top-nav .top-submenu .prosedur-submenu-item,
-.top-nav .top-submenu .edukasi-submenu-item {
+.top-nav .top-submenu .edukasi-submenu-item 
+.top-nav .top-submenu .analsis-submenu-item {
+
     position: relative;
     display: flex;
     align-items: center;
@@ -4337,7 +4339,8 @@ body.modal-open {
 
 .top-nav .top-submenu .tentang-submenu-item i,
 .top-nav .top-submenu .prosedur-submenu-item i,
-.top-nav .top-submenu .edukasi-submenu-item i {
+.top-nav .top-submenu .edukasi-submenu-item i ,
+.top-nav .top-submenu .analisis-submenu-item i {
     width: 20px;
     text-align: center;
     color: #8d2634;
@@ -4346,7 +4349,8 @@ body.modal-open {
 
 .top-nav .top-submenu .tentang-submenu-item:hover,
 .top-nav .top-submenu .prosedur-submenu-item:hover,
-.top-nav .top-submenu .edukasi-submenu-item:hover {
+.top-nav .top-submenu .edukasi-submenu-item:hover ,
+.top-nav .top-submenu .analisis-submenu-item:hover {
     background: #f8eef0;
     color: #8d2634;
     padding-left: 11px;
@@ -4487,20 +4491,23 @@ body.nav-dark-mode .top-nav .top-submenu::before {
 
 body.nav-dark-mode .top-nav .top-submenu .tentang-submenu-item,
 body.nav-dark-mode .top-nav .top-submenu .prosedur-submenu-item,
-body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item {
+body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item ,
+body.nav-dark-mode .top-nav .top-submenu .analisis-submenu-item {
     color: #e7eaed;
 }
 
 body.nav-dark-mode .top-nav .top-submenu .tentang-submenu-item:hover,
 body.nav-dark-mode .top-nav .top-submenu .prosedur-submenu-item:hover,
-body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item:hover {
+body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item:hover ,
+body.nav-dark-mode .top-nav .top-submenu .analisis-submenu-item:hover {
     background: #35282c;
     color: #efb9c1;
 }
 
 body.nav-dark-mode .top-nav .top-submenu .tentang-submenu-item i,
 body.nav-dark-mode .top-nav .top-submenu .prosedur-submenu-item i,
-body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item i {
+body.nav-dark-mode .top-nav .top-submenu .edukasi-submenu-item i ,
+body.nav-dark-mode .top-nav .top-submenu .analisis-submenu-item i {
     color: #e4a3ad;
 }
 
@@ -8372,7 +8379,8 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
 .top-nav .top-submenu .tentang-submenu-item,
 .top-nav .top-submenu .prosedur-submenu-item,
-.top-nav .top-submenu .edukasi-submenu-item {
+.top-nav .top-submenu .edukasi-submenu-item ,
+.top-nav .top-submenu .analisis-submenu-item {
     display: flex;
     align-items: center;
 
@@ -8406,7 +8414,9 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
 .top-nav .top-submenu .tentang-submenu-item:hover,
 .top-nav .top-submenu .prosedur-submenu-item:hover,
-.top-nav .top-submenu .edukasi-submenu-item:hover {
+.top-nav .top-submenu .edukasi-submenu-item:hover,
+.top-nav .top-submenu .analisis-submenu-item:hover{
+
     background: #f8eef0;
 
     color: #8d2634 !important;
@@ -18865,6 +18875,28 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
         font-weight: 800;
     }
 
+    /* Geser konten banner lebih ke kiri */
+        .edu-page .edu-hero .hero-content {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            justify-content: flex-start !important;
+        }
+
+        .edu-page .edu-hero .hero-text {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Jarak konten dari tepi kiri banner */
+        .edu-page .edu-hero {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
 
     /* =========================================================
        HEADING
@@ -21453,40 +21485,31 @@ body.literasi-modal-open {
 
 
 
-/* ============================================================
-   SUBMENU ANALISIS
-   ============================================================ */
-
-.top-nav .top-submenu .analisis-submenu-item,
-.mobile-nav .mobile-submenu .analisis-submenu-item {
-    display: flex;
-    align-items: center;
+/* Gambar di dalam card Edukasi Umum */
+.edukasi-card-image {
     width: 100%;
-    box-sizing: border-box;
-    min-height: 40px;
-    padding: 9px 12px;
-
-    color: #333;
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 6px;
-    background: transparent;
-
-    transition: color 0.2s ease, background 0.2s ease;
+    height: 180px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #e9efeb;
 }
 
-.top-nav .top-submenu .analisis-submenu-item:hover,
-.mobile-nav .mobile-submenu .analisis-submenu-item:hover {
-    color: #8d2634;
-    background: #f8eef0;
+.edukasi-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
 }
 
-.top-nav .top-submenu .analisis-submenu-item.active,
-.mobile-nav .mobile-submenu .analisis-submenu-item.active {
-    color: #8d2634;
-    background: #f8eef0;
-    font-weight: 600;
+.edukasi-card:hover .edukasi-card-image img {
+    transform: scale(1.04);
 }
 
+@media (max-width: 480px) {
+    .edukasi-card-image {
+        height: 160px;
+    }
+}

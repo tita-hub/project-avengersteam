@@ -1340,6 +1340,29 @@ body.edu-modal-open {
 
 }
 
+
+/* Geser konten banner lebih ke kiri */
+        .edu-page .edu-hero .hero-content {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            justify-content: flex-start !important;
+        }
+
+        .edu-page .edu-hero .hero-text {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Jarak konten dari tepi kiri banner */
+        .edu-page .edu-hero {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
 </style>
 
 
