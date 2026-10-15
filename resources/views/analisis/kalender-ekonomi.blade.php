@@ -25,7 +25,7 @@
     }
 
     .economic-calendar-header {
-        padding: 38px 20px;
+        padding: 30px 20px;
         text-align: center;
         background: #f8fafc;
         border-bottom: 1px solid #e2e8f0;
@@ -114,6 +114,24 @@
         background: #ffffff;
     }
 
+    .economic-calendar-source {
+        margin-top: 16px;
+        text-align: center;
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .economic-calendar-source a {
+        color: #059669;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .economic-calendar-source a:hover {
+        text-decoration: underline;
+    }
+
     @media (max-width: 992px) {
         .economic-calendar-page {
             padding: 30px 16px 45px;
@@ -172,35 +190,81 @@
             width: 100%;
         }
 
+        .economic-calendar-frame {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .economic-calendar-frame iframe {
-            height: 1100px;
+            width: 100%;
             min-width: 320px;
+            height: 1100px;
         }
     }
 
     @media print {
+        @page {
+            size: A4 landscape;
+            margin: 10mm;
+        }
+
+        body * {
+            visibility: hidden !important;
+        }
+
+        .economic-calendar-page,
+        .economic-calendar-page * {
+            visibility: visible !important;
+        }
+
         .economic-calendar-download {
             display: none !important;
         }
 
         .economic-calendar-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             padding: 0;
         }
 
         .economic-calendar-card {
             max-width: none;
             border: 0;
+            border-radius: 0;
             box-shadow: none;
+        }
+
+        .economic-calendar-header {
+            padding: 12px;
+        }
+
+        .economic-calendar-header h1 {
+            font-size: 24px;
         }
 
         .economic-calendar-content {
             padding: 10px;
+            background: #ffffff;
+        }
+
+        .economic-calendar-frame {
+            overflow: visible;
+            border: none;
+        }
+
+        .economic-calendar-frame iframe {
+            height: 1100px;
+        }
+
+        .economic-calendar-source {
+            margin-top: 8px;
         }
     }
 </style>
 
 <div class="economic-calendar-page">
-
     <section class="economic-calendar-card">
 
         {{-- HEADER KALENDER EKONOMI --}}
@@ -217,7 +281,6 @@
 
             {{-- TOOLBAR KALENDER --}}
             <div class="economic-calendar-toolbar">
-
                 <div class="economic-calendar-description">
                     <h2>Jadwal Rilis Data Ekonomi</h2>
 
@@ -246,31 +309,36 @@
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                         <path d="m7 10 5 5 5-5"/>
                         <path d="M12 15V3"/>
-
                     </svg>
 
                     Download PDF
                 </button>
-
             </div>
 
-            {{-- TABEL KALENDER EKONOMI NEWSMAKER --}}
+            {{-- KALENDER RF BERJANGKA --}}
             <div class="economic-calendar-frame">
-
                 <iframe
-                    id="newsMakerEconomicCalendar"
+                    id="rfEconomicCalendar"
                     src="https://www.rf-berjangka.com/analisis/economic-calendar"
-                    title="Kalender Ekonomi NewsMaker"
+                    title="Kalender Ekonomi RF Berjangka"
                     loading="lazy"
                     referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
+            </div>
 
+            {{-- SUMBER DATA --}}
+            <div class="economic-calendar-source">
+                Sumber data:
+                <a
+                    href="https://www.rf-berjangka.com/analisis/economic-calendar"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    RF Berjangka
+                </a>
             </div>
 
         </div>
-
     </section>
-
 </div>
 
 <script>
@@ -280,4 +348,3 @@
 </script>
 
 @endsection
-```

@@ -41,7 +41,6 @@
 
 
 
-    /* =====================================================
     HERO EDUKASI KONSULTAN
     ===================================================== */
 
@@ -171,6 +170,77 @@
     .edu-page .edu-hero .hero-label i {
         color: #ffffff !important;
         font-size: 13px;
+
+    }
+
+    .edu-page .edu-hero .hero-title {
+        display: block;
+
+        margin: 0 0 8px !important;
+        padding: 0 !important;
+
+        color: #ffffff !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.7px;
+
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .edu-page .edu-hero .hero-description {
+        display: block;
+        max-width: 850px;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        color: rgba(255, 255, 255, 0.94) !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 14px;
+        line-height: 1.6;
+
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Tampilan tablet dan HP */
+    @media (max-width: 768px) {
+        .edu-page .edu-hero {
+            min-height: 220px;
+            padding: 28px 25px !important;
+            border-radius: 18px;
+        }
+
+        .edu-page .edu-hero .hero-content {
+            min-height: 160px;
+        }
+
+        .edu-page .edu-hero .hero-title {
+            font-size: 30px;
+        }
+
+        .edu-page .edu-hero .hero-description {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .edu-page .edu-hero {
+            min-height: 230px;
+            padding: 25px 20px !important;
+        }
+
+        .edu-page .edu-hero .hero-title {
+            font-size: 26px;
+        }
+
+        .edu-page .edu-hero .hero-description {
+            font-size: 12px;
+        }
+
     }
 
     .edu-page .edu-hero .hero-title {
@@ -619,8 +689,7 @@
 
     }
 
-    
-        /* Geser konten banner lebih ke kiri */
+
         .edu-page .edu-hero .hero-content {
             width: 100% !important;
             max-width: none !important;

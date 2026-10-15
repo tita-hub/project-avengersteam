@@ -317,9 +317,6 @@
 
         </div>
 
-        <p>
-            Rekening tujuan untuk melakukan transfer dana.
-        </p>
 
          <div class="online-status">
                 <span class="online-status-icon"></span>
