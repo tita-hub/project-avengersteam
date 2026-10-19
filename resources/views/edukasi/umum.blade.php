@@ -41,6 +41,7 @@
     </section>
 
 
+    
     {{-- =====================================================
         3 MATERI UTAMA
     ====================================================== --}}
@@ -48,18 +49,15 @@
         class="materi-section"
         id="materiUtama"
     >
-
         <div class="edu-container">
 
             <div class="materi-grid">
 
-                
-                {{-- MAGANG --}}
+                {{-- PROGRAM MAGANG --}}
                 <div
                     class="materi-card"
                     onclick="bukaMateri('magang')"
                 >
-                    {{-- GAMBAR COVER --}}
                     <div class="edukasi-card-image">
                         <img
                             src="{{ asset('images/cover-program-magang.jpg') }}"
@@ -68,29 +66,27 @@
                         >
                     </div>
 
-                    {{-- KONTEN CARD --}}
                     <div class="materi-content">
                         <h2>Program Magang</h2>
 
                         <p>
                             Mengenal pengalaman magang, jurusan yang relevan,
-                            serta gambaran kegiatan pembelajaran di lingkungan profesional.
+                            serta gambaran kegiatan pembelajaran di lingkungan
+                            profesional.
                         </p>
                     </div>
 
-                    {{-- TOMBOL PANAH --}}
                     <span class="materi-arrow">
                         <i class="bi bi-arrow-right"></i>
                     </span>
                 </div>
 
-                
+
                 {{-- KEGIATAN SOSIAL --}}
                 <div
                     class="materi-card"
-                    onclick="bukaMateri('sosial')"
+                    onclick="bukaMateri('kegiatan')"
                 >
-                    {{-- GAMBAR COVER --}}
                     <div class="edukasi-card-image">
                         <img
                             src="{{ asset('images/cover-kegiatan-sosial.jpg') }}"
@@ -99,30 +95,26 @@
                         >
                     </div>
 
-                    {{-- KONTEN CARD --}}
                     <div class="materi-content">
                         <h2>Kegiatan Sosial</h2>
 
                         <p>
-                            Berkontribusi kepada masyarakat melalui kegiatan sosial,
-                            kepedulian lingkungan, dan aksi berbagi.
+                            Berkontribusi kepada masyarakat melalui kegiatan
+                            sosial, kepedulian lingkungan, dan aksi berbagi.
                         </p>
                     </div>
 
-                    {{-- TOMBOL PANAH --}}
                     <span class="materi-arrow">
                         <i class="bi bi-arrow-right"></i>
                     </span>
                 </div>
 
 
-                
                 {{-- KEGIATAN LITERASI --}}
                 <div
                     class="materi-card"
                     onclick="bukaMateri('literasi')"
                 >
-                    {{-- GAMBAR COVER --}}
                     <div class="edukasi-card-image">
                         <img
                             src="{{ asset('images/cover-kegiatan-literasi.jpg') }}"
@@ -131,28 +123,25 @@
                         >
                     </div>
 
-                    {{-- KONTEN CARD --}}
                     <div class="materi-content">
                         <h2>Kegiatan Literasi</h2>
 
                         <p>
                             Menambah wawasan melalui edukasi keuangan,
-                            kunjungan industri, dan kegiatan pembelajaran.
+                            sosialisasi ke sekolah dan kampus, serta
+                            kunjungan industri.
                         </p>
                     </div>
 
-                    {{-- TOMBOL PANAH --}}
                     <span class="materi-arrow">
                         <i class="bi bi-arrow-right"></i>
                     </span>
                 </div>
 
-
-                </div>
-
             </div>
 
-        </section>
+        </div>
+    </section>
 
 
 
@@ -217,157 +206,69 @@
                         SOSIALISASI SEKOLAH / KAMPUS
                     ================================================== --}}
 
-                    <article class="literasi-card">
-
-                        <div class="literasi-card-number">
-                            01
+                    <article
+                        class="literasi-card"
+                        onclick="bukaLiterasiDetail('sosialisasi')"
+                        role="button"
+                        tabindex="0"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); bukaLiterasiDetail('sosialisasi'); }"
+                    >
+                        <div class="literasi-card-image">
+                            <img
+                                src="{{ asset('images/literasi-sekolah.jpg') }}"
+                                alt="Sosialisasi ke Sekolah dan Kampus"
+                                loading="lazy"
+                            >
                         </div>
 
-
                         <div class="literasi-card-content">
-
-                            <div class="literasi-card-icon">
-
-                                <i class="bi bi-mortarboard-fill"></i>
-
-                            </div>
-
-
                             <span class="literasi-card-category">
-
                                 SOSIALISASI
-
                             </span>
 
-
-                            <h3>
-
-                                Sosialisasi ke Sekolah & Kampus
-
-                            </h3>
-
+                            <h3>Sosialisasi ke Sekolah & Kampus</h3>
 
                             <p>
-
                                 Kegiatan berbagi wawasan kepada siswa dan mahasiswa
                                 mengenai dunia kerja, pengenalan industri, serta
                                 pengetahuan dasar perdagangan berjangka.
-
                             </p>
-
-
-                            <div class="literasi-card-info">
-
-                                <span>
-
-                                    <i class="bi bi-people-fill"></i>
-
-                                    Edukasi langsung
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-building"></i>
-
-                                    Sekolah / Kampus
-
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="literasi-card-link"
-                                onclick="bukaLiterasiDetail('sosialisasi')"
-                            >
-                                Lihat kegiatan
-                                <i class="bi bi-arrow-right"></i>
-                            </button>
-
                         </div>
-
                     </article>
-
 
 
                     {{-- =================================================
                         KUNJUNGAN INDUSTRI
                     ================================================== --}}
 
-                    <article class="literasi-card">
-
-                        <div class="literasi-card-number">
-                            02
+                    <article
+                        class="literasi-card"
+                        onclick="bukaLiterasiDetail('industri')"
+                        role="button"
+                        tabindex="0"
+                        onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); bukaLiterasiDetail('industri'); }"
+                    >
+                        <div class="literasi-card-image">
+                            <img
+                                src="{{ asset('images/kunjungan-industri.jpg') }}"
+                                alt="Kunjungan Industri"
+                                loading="lazy"
+                            >
                         </div>
 
-
                         <div class="literasi-card-content">
-
-                            <div class="literasi-card-icon">
-
-                                <i class="bi bi-buildings-fill"></i>
-
-                            </div>
-
-
                             <span class="literasi-card-category">
-
                                 KUNJUNGAN INDUSTRI
-
                             </span>
 
-
-                            <h3>
-
-                                Kunjungan Industri
-
-                            </h3>
-
+                            <h3>Kunjungan Industri</h3>
 
                             <p>
-
                                 Kegiatan kunjungan untuk mengenalkan secara langsung
                                 lingkungan kerja, aktivitas profesional, serta gambaran
                                 dunia industri kepada peserta.
-
                             </p>
-
-
-                            <div class="literasi-card-info">
-
-                                <span>
-
-                                    <i class="bi bi-people-fill"></i>
-
-                                    Edukasi langsung
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-briefcase-fill"></i>
-
-                                    Dunia industri
-
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="literasi-card-link"
-                                onclick="bukaLiterasiDetail('industri')"
-                            >
-                                Lihat kegiatan
-                                <i class="bi bi-arrow-right"></i>
-                            </button>
                         </div>
-
                     </article>
 
 
@@ -1736,97 +1637,96 @@
 
 
             {{-- ============================================================
-                JAVASCRIPT
-            ============================================================ --}}
+     JAVASCRIPT
+============================================================ --}}
 
-            <script>
+<script>
 
-            /* ============================================================
-            BUKA DETAIL VIDEO / FOTO
-            ============================================================ */
+/* ============================================================
+   BUKA DETAIL VIDEO / FOTO
+============================================================ */
 
-            function bukaDetailKegiatan(jenis) {
+function bukaDetailKegiatan(jenis) {
 
-                const intro =
-                document.getElementById('kegiatanIntro');
+    const intro =
+    document.getElementById('kegiatanIntro');
 
-                const listPage =
-                    document.getElementById('kegiatanListPage');
+    const listPage =
+        document.getElementById('kegiatanListPage');
 
-                const videoPage =
-                    document.getElementById('kegiatanVideoPage');
+    const videoPage =
+        document.getElementById('kegiatanVideoPage');
 
-                /* Sembunyikan daftar */
+    /* Sembunyikan daftar */
 
-                listPage.style.display = 'none';
-
-
-                /* Sembunyikan semua detail */
-
-                videoPage.classList.remove('active');
-
-                /* ========================================================
-                DETAIL VIDEO
-                ======================================================== */
-
-                if (jenis === 'video') {
-
-                    videoPage.classList.add('active');
-
-                }
+    listPage.style.display = 'none';
 
 
-                /* Scroll ke atas section */
+    /* Sembunyikan semua detail */
 
-                document
-                    .getElementById('detail-kegiatan')
-                    .scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+    videoPage.classList.remove('active');
 
-            }
+    /* ========================================================
+       DETAIL VIDEO
+    ======================================================== */
 
+    if (jenis === 'video') {
 
-            /* ============================================================
-            KEMBALI KE LIST KEGIATAN
-            ============================================================ */
+        videoPage.classList.add('active');
 
-            function kembaliKeKegiatan() {
-
-                const intro =
-                document.getElementById('kegiatanIntro');
-
-                const listPage =
-                    document.getElementById('kegiatanListPage');
-
-                const videoPage =
-                    document.getElementById('kegiatanVideoPage');
-
-                /* Tampilkan card */
-
-                listPage.style.display = 'block';
-
-                intro.style.display = 'block';
+    }
 
 
-                /* Sembunyikan detail */
+    /* Scroll ke atas section */
 
-                videoPage.classList.remove('active');
+    document
+        .getElementById('detail-kegiatan')
+        .scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
 
-                /* Scroll kembali */
-
-                document
-                    .getElementById('detail-kegiatan')
-                    .scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
-            }
+}
 
 
-    </script>
+/* ============================================================
+   KEMBALI KE LIST KEGIATAN
+============================================================ */
+
+function kembaliKeKegiatan() {
+
+    const intro =
+    document.getElementById('kegiatanIntro');
+
+    const listPage =
+        document.getElementById('kegiatanListPage');
+
+    const videoPage =
+        document.getElementById('kegiatanVideoPage');
+
+    /* Tampilkan card */
+
+    listPage.style.display = 'block';
+
+    intro.style.display = 'block';
+
+
+    /* Sembunyikan detail */
+
+    videoPage.classList.remove('active');
+
+    /* Scroll kembali */
+
+    document
+        .getElementById('detail-kegiatan')
+        .scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+}
+
+</script>
 
     {{-- =====================================================
          DETAIL TEORI
