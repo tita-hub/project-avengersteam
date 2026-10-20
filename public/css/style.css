@@ -21761,3 +21761,338 @@ body::before {
         background-attachment: scroll;
     }
 }
+
+
+
+/* =========================================
+   DETAIL MODAL KEGIATAN LITERASI
+========================================= */
+
+.edu-page #literasiModal .literasi-modal-box {
+    width: min(1100px, 94vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.edu-page #literasiModal .literasi-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 26px;
+    padding: 24px;
+    align-items: start;
+}
+
+.edu-page #literasiModal .literasi-detail-media,
+.edu-page #literasiModal .literasi-modal-content {
+    min-width: 0;
+}
+
+.edu-page #literasiModal .literasi-modal-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #eef2ef;
+}
+
+.edu-page #literasiModal #literasiModalImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edu-page #literasiModal .literasi-detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 9px;
+}
+
+.edu-page #literasiModal .literasi-detail-gallery img {
+    display: block;
+    width: 100%;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+.edu-page #literasiModal .literasi-detail-gallery img:hover {
+    opacity: .75;
+}
+
+.edu-page #literasiModal .literasi-modal-content {
+    padding: 0;
+}
+
+.edu-page #literasiModal .literasi-modal-content h3 {
+    margin: 8px 0 12px;
+    color: #176b4d;
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+.edu-page #literasiModal .literasi-detail-meta {
+    display: grid;
+    gap: 7px;
+    margin: 12px 0 20px;
+    color: #68716c;
+    font-size: 12px;
+}
+
+.edu-page #literasiModal .literasi-detail-meta div {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.edu-page #literasiModal .literasi-detail-meta i {
+    color: #176b4d;
+}
+
+.edu-page #literasiModal .literasi-modal-content h4 {
+    margin: 15px 0 5px;
+    color: #176b4d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.edu-page #literasiModal .literasi-modal-content p,
+.edu-page #literasiModal .literasi-detail-points {
+    color: #68716c;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.edu-page #literasiModal .literasi-detail-points ul {
+    margin: 4px 0 10px;
+    padding-left: 18px;
+}
+
+.edu-page #literasiModal .literasi-detail-points li::marker {
+    color: #176b4d;
+}
+
+/* RESPONSIVE TABLET DAN HP */
+@media (max-width: 700px) {
+    .edu-page #literasiModal .literasi-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 18px;
+    }
+
+    .edu-page #literasiModal .literasi-modal-image-wrap {
+        height: 240px;
+    }
+
+    .edu-page #literasiModal .literasi-detail-gallery img {
+        height: 72px;
+    }
+
+    .edu-page #literasiModal .literasi-modal-content h3 {
+        font-size: 20px;
+    }
+}
+
+
+
+/* POP-UP FOTO GALERI LITERASI */
+.literasi-foto-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.88);
+    justify-content: center;
+    align-items: center;
+    padding: 60px 24px 30px;
+    box-sizing: border-box;
+}
+
+.literasi-foto-popup.active {
+    display: flex;
+}
+
+.literasi-foto-popup-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.literasi-foto-popup-content img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100% - 35px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
+    transform-origin: center center;
+}
+
+.literasi-foto-popup-content img.zoomed {
+    transform: scale(2);
+    cursor: zoom-out;
+}
+
+.literasi-foto-popup-content p {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+}
+
+.literasi-foto-popup-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.literasi-foto-popup-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+    .literasi-foto-popup {
+        padding: 60px 12px 20px;
+    }
+
+    .literasi-foto-popup-close {
+        top: 10px;
+        right: 12px;
+    }
+
+    .literasi-foto-popup-content img.zoomed {
+        transform: scale(1.5);
+    }
+}
+
+
+
+
+/* =========================================
+   BACKGROUND INTRO KEGIATAN SOSIAL
+========================================= */
+
+#kegiatanIntro {
+    position: relative;
+    isolation: isolate;
+
+    /* Full lebar layar desktop */
+    width: 100vw;
+    max-width: none;
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+    margin-bottom: 35px;
+
+    /* Tinggi background */
+    min-height: 420px;
+    padding: 90px 24px;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+#kegiatanIntro::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    z-index: -2;
+
+    background-image: url("../images/bg-kegiatan-sosial.jpg");
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+
+    filter: blur(2px);
+    transform: scale(1.03);
+}
+
+#kegiatanIntro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.48);
+    pointer-events: none;
+}
+
+#kegiatanIntro .kegiatan-intro-label,
+#kegiatanIntro .kegiatan-intro-title,
+#kegiatanIntro .kegiatan-intro-description {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+#kegiatanIntro .kegiatan-intro-title {
+    max-width: 900px;
+    font-size: clamp(28px, 4vw, 54px);
+}
+
+#kegiatanIntro .kegiatan-intro-description {
+    max-width: 700px;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   BACKGROUND INTRO KEGIATAN LITERASI
+========================================= */
+
+.literasi-header {
+    position: relative;
+    isolation: isolate;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+    margin-bottom: 35px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   RESPONSIVE TABLET DAN HP
+========================================= */
+
+@media (max-width: 600px) {
+    #kegiatanIntro {
+        min-height: 320px;
+        padding: 55px 20px;
+    }
+
+    #kegiatanIntro::before {
+        background-position: center center;
+    }
+}

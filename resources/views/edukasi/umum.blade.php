@@ -156,18 +156,7 @@
 
         <div class="edu-container">
 
-            <button
-                type="button"
-                class="back-materi"
-                onclick="tutupMateri()"
-            >
-
-                <i class="bi bi-arrow-left"></i>
-
-                Kembali ke Materi
-
-            </button>
-
+            
 
             {{-- =================================================
                 HEADER
@@ -305,101 +294,125 @@
                             <i class="bi bi-x-lg"></i>
                         </button>
 
-                        <div class="literasi-modal-image-wrap">
+                        
+            {{-- LAYOUT DETAIL: FOTO KIRI, INFORMASI KANAN --}}
+            <div class="literasi-detail-layout">
 
-                            <img
-                                id="literasiModalImage"
-                                src=""
-                                alt="Dokumentasi kegiatan literasi"
-                                onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
-                            >
+                {{-- KOLOM KIRI: FOTO UTAMA DAN GALERI --}}
+                <div class="literasi-detail-media">
 
-                            <div class="literasi-modal-image-fallback">
-                                <i class="bi bi-camera-fill"></i>
-                                <span>Dokumentasi kegiatan</span>
-                            </div>
+                    <div class="literasi-modal-image-wrap">
+                        <img
+                            id="literasiModalImage"
+                            src="{{ asset('images/literasi-industri-utama.jpg') }}"
+                            alt="Dokumentasi kegiatan literasi"
+                            onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+                        >
 
-                            <div class="literasi-modal-image-overlay"></div>
+                        <div class="literasi-modal-image-fallback">
+                            <i class="bi bi-camera-fill"></i>
+                            <span>Dokumentasi kegiatan</span>
+                        </div>
+                    </div>
 
-                            <div class="literasi-modal-image-caption">
-                                <span id="literasiModalLabel">KEGIATAN LITERASI</span>
-                                <strong id="literasiModalTitleImage">Kegiatan Literasi</strong>
-                            </div>
+                    
+                    <div class="literasi-detail-gallery" id="literasiDetailGallery">
+                       
+                    </div>
 
+    
+
+                </div>
+
+                {{-- KOLOM KANAN: INFORMASI KEGIATAN --}}
+                <div class="literasi-modal-content">
+
+                    <span class="literasi-modal-label" id="literasiModalLabelText">
+                        KUNJUNGAN INDUSTRI
+                    </span>
+
+                    <h3 id="literasiModalTitle">Kunjungan Industri</h3>
+
+                    {{-- TANGGAL DAN LOKASI --}}
+                    <div class="literasi-detail-meta">
+                        <div>
+                            <i class="bi bi-calendar-event"></i>
+                            <span id="literasiModalDate">15 Mei 2025</span>
                         </div>
 
-                        <div class="literasi-modal-content">
-
-                            <span
-                                class="literasi-modal-label"
-                                id="literasiModalLabelText"
-                            >
-                                KEGIATAN LITERASI
+                        <div>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span id="literasiModalLocation">
+                                PT. Nusantara Industri, Semarang
                             </span>
-
-                            <h3 id="literasiModalTitle">Kegiatan Literasi</h3>
-
-                            <p id="literasiModalDescription"></p>
-
-                            <div
-                                class="literasi-modal-meta"
-                                id="literasiModalMeta"
-                            ></div>
-
-                            <div class="literasi-modal-columns">
-
-                                <div class="literasi-modal-section">
-                                    <div class="literasi-modal-section-title">
-                                        <span class="literasi-modal-section-icon">
-                                            <i class="bi bi-stars"></i>
-                                        </span>
-                                        <div>
-                                            <small>GAMBARAN KEGIATAN</small>
-                                            <strong id="literasiModalConceptTitle">Kegiatan</strong>
-                                        </div>
-                                    </div>
-
-                                    <p id="literasiModalConcept"></p>
-                                </div>
-
-                                <div class="literasi-modal-section">
-                                    <div class="literasi-modal-section-title">
-                                        <span class="literasi-modal-section-icon">
-                                            <i class="bi bi-bullseye"></i>
-                                        </span>
-                                        <div>
-                                            <small>TUJUAN</small>
-                                            <strong>Nilai yang Dibawa</strong>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="literasi-modal-points"
-                                        id="literasiModalPoints"
-                                    ></div>
-                                </div>
-
-                            </div>
-
-                            <div class="literasi-modal-highlight">
-                                <div class="literasi-modal-highlight-icon">
-                                    <i class="bi bi-lightbulb-fill"></i>
-                                </div>
-                                <div>
-                                    <span>INTI KEGIATAN</span>
-                                    <strong id="literasiModalHighlight"></strong>
-                                </div>
-                            </div>
-
                         </div>
+                    </div>
 
+                    {{-- DESKRIPSI KEGIATAN --}}
+                    <h4>Deskripsi Kegiatan</h4>
+                    <p id="literasiModalDescription">
+                        Kegiatan kunjungan industri memberikan kesempatan kepada
+                        peserta untuk mengenal lingkungan kerja, proses produksi,
+                        manajemen, dan aktivitas profesional secara langsung.
+                    </p>
+
+                    {{-- TUJUAN --}}
+                    <h4>Tujuan</h4>
+                    <div id="literasiModalPoints" class="literasi-detail-points">
+                        <ul>
+                            <li>Memberikan gambaran nyata tentang dunia industri.</li>
+                            <li>Menambah wawasan dan pengetahuan peserta.</li>
+                            <li>Meningkatkan motivasi untuk terus belajar.</li>
+                        </ul>
+                    </div>
+
+                    {{-- HASIL KEGIATAN --}}
+                    <h4>Hasil Kegiatan</h4>
+                    <p id="literasiModalHighlight">
+                        Peserta memperoleh wawasan baru dan pengalaman langsung
+                        yang dapat mendukung proses pembelajaran.
+                    </p>
+
+                    {{-- JUDUL KETERANGAN YANG DIPERTAHANKAN UNTUK KOMPATIBILITAS --}}
+                    <div hidden>
+                        <span id="literasiModalLabel">KEGIATAN LITERASI</span>
+                        <strong id="literasiModalTitleImage">Kegiatan Literasi</strong>
+                        <strong id="literasiModalConceptTitle">Deskripsi Kegiatan</strong>
+                        <p id="literasiModalConcept"></p>
+                        <div class="literasi-modal-meta" id="literasiModalMeta"></div>
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
+            
+            {{-- POP-UP FOTO GALERI LITERASI --}}
+            <div id="literasiFotoPopup"
+                class="literasi-foto-popup"
+                onclick="tutupFotoLiterasi()">
+
+                <button type="button"
+                        class="literasi-foto-popup-close"
+                        onclick="tutupFotoLiterasi()"
+                        aria-label="Tutup foto">
+                    &times;
+                </button>
+
+                <div class="literasi-foto-popup-content"
+                    onclick="event.stopPropagation()">
+
+                    <img id="literasiFotoPopupImage"
+                        src=""
+                        alt="Dokumentasi kegiatan"
+                        onclick="zoomFotoLiterasi()">
+
+                    <p id="literasiFotoPopupHint">
+                        Klik foto untuk memperbesar
+                    </p>
+
+                </div>
+            </div>
 
     </section>
 
@@ -2321,6 +2334,34 @@ function bukaLiterasiDetail(jenis) {
         image.alt = data.title;
     }
 
+    
+    const gallery = document.getElementById('literasiDetailGallery');
+
+    if (gallery) {
+        gallery.innerHTML = '';
+
+        const namaFoto = jenis === 'sosialisasi'
+            ? 'literasi-sekolah'
+            : 'literasi-industri';
+
+        const folderFoto = "{{ asset('images') }}/";
+
+        for (let i = 1; i <= 6; i++) {
+            const foto = document.createElement('img');
+
+            foto.src = `${folderFoto}${namaFoto}-${i}.jpg`;
+            foto.alt = `Dokumentasi ${data.title} ${i}`;
+            foto.onerror = function () {
+                this.style.display = 'none';
+            };
+            foto.onclick = function () {
+                bukaFotoLiterasi(this);
+            };
+            gallery.appendChild(foto);
+        }
+    }
+
+
     if (label) label.textContent = data.label;
     if (imageTitle) imageTitle.textContent = data.title;
     if (labelText) labelText.textContent = data.label;
@@ -2368,6 +2409,17 @@ function tutupLiterasiModal() {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('literasi-modal-open');
+}
+
+
+
+function gantiFotoLiterasi(foto) {
+    const fotoUtama = document.getElementById('literasiModalImage');
+
+    if (!fotoUtama || !foto) return;
+
+    fotoUtama.src = foto.src;
+    fotoUtama.alt = foto.alt;
 }
 
 
