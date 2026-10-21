@@ -427,15 +427,7 @@
 
         <div class="edu-container">
 
-            <button
-                type="button"
-                class="back-materi"
-                onclick="tutupMateri()"
-            >
-                <i class="bi bi-arrow-left"></i>
-                Kembali ke Materi
-            </button>
-
+            
 
             <div class="magang-hero">
 
@@ -1391,18 +1383,7 @@
              TOMBOL KEMBALI KE MATERI
         ===================================================== --}}
 
-        <button
-            type="button"
-            class="back-materi"
-            onclick="tutupMateri()"
-        >
-
-            <i class="bi bi-arrow-left"></i>
-
-            Kembali ke Materi
-
-        </button>
-
+        
         <div class="kegiatan-wrapper">
 
             {{-- ==================================================
@@ -1751,15 +1732,7 @@ function kembaliKeKegiatan() {
 
         <div class="edu-container">
 
-            <button
-                type="button"
-                class="back-materi"
-                onclick="tutupMateri()"
-            >
-                <i class="bi bi-arrow-left"></i>
-                Kembali ke Materi
-            </button>
-
+            
 
             <div class="section-heading">
 

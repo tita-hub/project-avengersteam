@@ -8,6 +8,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProsedurController;
 use App\Http\Controllers\EdukasiController;
 use App\Http\Controllers\InternshipReviewController;
+use App\Http\Controllers\EconomicCalendarController;
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
@@ -87,3 +88,8 @@ Route::prefix('analisis')->name('analisis.')->group(function () {
     Route::view('/data-historis', 'analisis.data-historis')->name('data-historis');
     Route::view('/pivot-fibonacci', 'analisis.pivot-fibonacci')->name('pivot-fibonacci');
 });
+
+Route::get('/api/economic-calendar', [
+    EconomicCalendarController::class,
+    'index'
+]);
