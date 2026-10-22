@@ -286,29 +286,33 @@
 
             </div>
 
+
+        </div>
+
+        <div class="profile-section lembaga-section">
+
             <div style="display: flex; gap: 30px; justify-content: center; margin-top: 50px;">
 
                 <div>
                     <img src="{{ asset('images/1.png') }}" alt="Foto 1"
-                        style="width: 70px; height: 70px; object-fit: contain; border-radius: 5px;">
+                        style="width: 80px; height: 80px; object-fit: contain; border-radius: 5px;">
                 </div>
 
                 <div>
                     <img src="{{ asset('images/2.png') }}" alt="Foto 2"
-                        style="width: 70px; height: 70px; object-fit: contain; border-radius: 5px;">
+                        style="width: 80px; height: 80px; object-fit: contain; border-radius: 5px;">
                 </div>
 
                 <div>
                     <img src="{{ asset('images/3.png') }}" alt="Foto 3"
-                        style="width: 70px; height: 70px; object-fit: contain; border-radius: 5px;">
+                        style="width: 80px; height: 80px; object-fit: contain; border-radius: 5px;">
                 </div>
 
                 <div>
                     <img src="{{ asset('images/4.png') }}" alt="Foto 4"
-                        style="width: 50px; height: 50px; object-fit: contain; border-radius: 5px;">
+                        style="width: 60px; height: 60px; object-fit: contain; border-radius: 5px;">
                 </div>
 
             </div>
-
         </div>
     @endsection
