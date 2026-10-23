@@ -711,6 +711,61 @@
             padding-right: 30px !important;
         }
 
+
+        
+        /* =====================================================
+        PERBESAR CARD AKSES KONSULTAN
+        ===================================================== */
+
+        .edu-page {
+            padding-bottom: 30px;
+        }
+
+        .edu-page .access-grid {
+            margin-bottom: 20px;
+        }
+
+        .edu-page .access-card {
+            min-height: 210px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .edu-page .access-icon {
+            width: 150px;
+            height: 110px;
+            flex: 0 0 150px;
+        }
+
+        /* RESPONSIVE TABLET DAN HP */
+        @media (max-width: 600px) {
+            .edu-page .access-card {
+                min-height: 180px;
+                padding: 22px;
+                gap: 15px;
+            }
+
+            .edu-page .access-icon {
+                width: 100px;
+                height: 80px;
+                flex: 0 0 100px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .edu-page .access-card {
+                padding: 16px;
+                gap: 12px;
+            }
+
+            .edu-page .access-icon {
+                width: 80px;
+                height: 65px;
+                flex: 0 0 80px;
+            }
+        }
+
+
 </style>
 
 

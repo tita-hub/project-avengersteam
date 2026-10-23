@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/literasi-modal.css') }}">
+
 
 
 
@@ -343,7 +343,7 @@
                         <div>
                             <i class="bi bi-geo-alt-fill"></i>
                             <span id="literasiModalLocation">
-                                PT. Nusantara Industri, Semarang
+                                PT. Rifan Financindo Berjangka Semarang
                             </span>
                         </div>
                     </div>
@@ -2397,6 +2397,51 @@ function gantiFotoLiterasi(foto) {
 
 
 /* =========================================================
+   POPUP FOTO DOKUMENTASI LITERASI
+========================================================= */
+function bukaFotoLiterasi(foto) {
+    const popup = document.getElementById('literasiFotoPopup');
+    const popupImage = document.getElementById('literasiFotoPopupImage');
+    const hint = document.getElementById('literasiFotoPopupHint');
+
+    if (!popup || !popupImage || !foto || !foto.src) return;
+
+    popupImage.src = foto.src;
+    popupImage.alt = foto.alt || 'Dokumentasi kegiatan';
+    popupImage.classList.remove('zoomed');
+    if (hint) hint.textContent = 'Klik foto untuk memperbesar';
+
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function zoomFotoLiterasi() {
+    const popupImage = document.getElementById('literasiFotoPopupImage');
+    const hint = document.getElementById('literasiFotoPopupHint');
+    if (!popupImage) return;
+
+    const zoomed = popupImage.classList.toggle('zoomed');
+    if (hint) hint.textContent = zoomed ? 'Klik foto untuk memperkecil' : 'Klik foto untuk memperbesar';
+}
+
+function tutupFotoLiterasi() {
+    const popup = document.getElementById('literasiFotoPopup');
+    const popupImage = document.getElementById('literasiFotoPopupImage');
+    const hint = document.getElementById('literasiFotoPopupHint');
+    if (!popup) return;
+
+    popup.classList.remove('active');
+    popup.setAttribute('aria-hidden', 'true');
+    if (popupImage) {
+        popupImage.classList.remove('zoomed');
+        popupImage.src = '';
+    }
+    if (hint) hint.textContent = 'Klik foto untuk memperbesar';
+    document.body.style.overflow = '';
+}
+
+/* =========================================================
    TUTUP MODAL DENGAN ESCAPE
 ========================================================= */
 
@@ -2412,6 +2457,7 @@ document.addEventListener(
 
         tutupPengalaman();
         tutupLiterasiModal();
+        tutupFotoLiterasi();
     }
 );
 

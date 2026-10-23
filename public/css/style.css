@@ -21661,3 +21661,128 @@ body {
     font-size: clamp(14px, 1.5vw, 18px);
     line-height: 1.7;
 }
+
+
+/* ============================================================
+   PENYESUAIAN SPACING HALAMAN EDUKASI UMUM
+   HANYA MENGATUR JARAK ANTARBAGIAN DAN RUANG KOSONG.
+   Ukuran card, isi, gambar, fungsi, dan interaksi tidak diubah.
+============================================================ */
+
+.edu-page {
+    padding-bottom: 20px;
+}
+
+/* Jarak banner ke 3 card utama */
+.edu-page .edu-hero {
+    margin-bottom: 22px;
+}
+
+/* Ruang atas dan bawah section 3 card utama.
+   Ukuran dan isi card tetap mengikuti CSS yang sudah ada. */
+.edu-page .materi-section {
+    padding-top: 10px;
+    padding-bottom: 35px;
+}
+
+/* Kurangi ruang kosong pada halaman detail tanpa mengubah fungsinya */
+.edu-page .materi-detail {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/* Jarak antarbagian pada detail Program Magang */
+.edu-page .magang-hero {
+    margin-bottom: 35px;
+}
+
+.edu-page .magang-section {
+    margin-bottom: 42px;
+}
+
+.edu-page .magang-section-title {
+    margin-bottom: 20px;
+}
+
+.edu-page .magang-cta-content {
+    margin-top: 25px;
+}
+
+/* Jarak heading dan isi bagian Teori Umum */
+.edu-page .section-heading {
+    margin-bottom: 20px;
+}
+
+.edu-page .teori-list {
+    gap: 14px;
+}
+
+/* Jarak bagian Kegiatan Sosial */
+.edu-page .kegiatan-wrapper {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.edu-page .kegiatan-intro {
+    margin-bottom: 28px;
+}
+
+/* Jarak bagian Kegiatan Literasi */
+.edu-page .literasi-section {
+    margin-top: 25px;
+    padding-bottom: 25px;
+}
+
+.edu-page .literasi-header {
+    margin-bottom: 25px;
+}
+
+/* Penyesuaian spacing untuk layar kecil; ukuran card tidak disentuh */
+@media (max-width: 600px) {
+    .edu-page {
+        padding-bottom: 15px;
+    }
+
+    .edu-page .edu-hero {
+        margin-bottom: 16px;
+    }
+
+    .edu-page .materi-section {
+        padding-top: 8px;
+        padding-bottom: 22px;
+    }
+
+    .edu-page .materi-detail {
+        padding-top: 14px;
+        padding-bottom: 20px;
+    }
+
+    .edu-page .magang-section {
+        margin-bottom: 28px;
+    }
+
+    .edu-page .magang-hero {
+        margin-bottom: 25px;
+    }
+
+    .edu-page .magang-cta-content {
+        margin-top: 20px;
+    }
+
+    .edu-page .kegiatan-wrapper {
+        padding-bottom: 15px;
+    }
+
+    .edu-page .kegiatan-intro {
+        margin-bottom: 22px;
+    }
+
+    .edu-page .literasi-section {
+        margin-top: 20px;
+        padding-bottom: 18px;
+    }
+
+    .edu-page .literasi-header {
+        margin-bottom: 20px;
+    }
+}

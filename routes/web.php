@@ -9,6 +9,7 @@ use App\Http\Controllers\ProsedurController;
 use App\Http\Controllers\EdukasiController;
 use App\Http\Controllers\InternshipReviewController;
 use App\Http\Controllers\EconomicCalendarController;
+use App\Http\Controllers\DataHistorisController;
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
@@ -93,3 +94,9 @@ Route::get('/api/economic-calendar', [
     EconomicCalendarController::class,
     'index'
 ]);
+
+
+Route::get(
+    '/analisis/data-historis',
+    [DataHistorisController::class, 'index']
+)->name('analisis.data-historis');
