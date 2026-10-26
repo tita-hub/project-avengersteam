@@ -2678,7 +2678,7 @@ body.edu-modal-open {
 .zoomable-materi-image { cursor: zoom-in !important; }
 .image-zoom-overlay { position: fixed !important; inset: 0 !important; z-index: 2147483647 !important; display:flex; align-items:center; justify-content:center; padding:60px 24px 24px; background:rgba(0,0,0,.88); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s ease,visibility .2s ease; }
 .image-zoom-overlay.active { opacity:1; visibility:visible; pointer-events:auto; }
-.image-zoom-overlay img { display:block; max-width:95vw; max-height:88vh; width:auto; height:auto; object-fit:contain; cursor:default; border-radius:8px; }
+.image-zoom-overlay img { display:block; max-width:98vw; max-height:94vh; width:auto; height:auto; object-fit:contain; cursor:default; border-radius:8px; }
 .image-zoom-close { position:absolute; top:14px; right:20px; z-index:2; width:44px; height:44px; border:0; border-radius:50%; background:#fff; color:#222; font-size:30px; line-height:1; cursor:pointer; }
 body.image-zoom-open { overflow:hidden !important; }
 
@@ -2721,12 +2721,12 @@ body.image-zoom-open { overflow:hidden !important; }
 
 #imageZoomTarget {
     display: block !important;
-    width: auto;
-    height: auto;
-    max-width: 1000%;
-    max-height: 1000%;
-    object-fit: contain;
-    cursor: zoom-in;
+    width:  95vw !important;
+    height: auto !important;
+    max-width: 95vw !important;
+    max-height: 90vh !important;
+    object-fit:  contain !important;
+    transform: none;
     transition: transform 0.2s ease;
 }
 
@@ -2735,9 +2735,10 @@ transform: scale(1.5);
 cursor: zoom-out;
 }
 .image-zoom-overlay.active #imageZoomTarget.zoomed {
+    width: 95vw !important;
     max-width: none !important;
     max-height: none !important;
-    transform: scale(2);
+    transform: scale(1.1) !important;
     cursor: zoom-out;
 }
 
@@ -3001,8 +3002,6 @@ cursor: zoom-out;
                             >
 
                                 Baca materi
-
-                                <i class="bi bi-arrow-right"></i>
 
                             </button>
 

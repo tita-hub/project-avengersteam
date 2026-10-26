@@ -766,6 +766,41 @@
         }
 
 
+
+
+        /* AKSEN WARNA STATIS DI BAGIAN ATAS DAN BAWAH KARTU */
+        .edu-page .access-card {
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top: 3px solid #00b879;
+            border-bottom: 3px solid #75dcae;
+            box-shadow: 0 7px 22px rgba(0, 150, 95, 0.08);
+        }
+
+        .edu-page .access-card:nth-child(2) {
+            border-top-color: #20b9d2;
+            border-bottom-color: #8be8f0;
+            box-shadow: 0 7px 22px rgba(32, 185, 210, 0.08);
+        }
+
+        .edu-page .access-card:nth-child(3) {
+            border-top-color: #e8b900;
+            border-bottom-color: #ffe58a;
+            box-shadow: 0 7px 22px rgba(232, 185, 0, 0.08);
+        }
+
+        .edu-page .access-card:hover {
+            border-left-color: transparent;
+            border-right-color: transparent;
+            box-shadow: 0 12px 28px rgba(0, 150, 95, 0.13);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .edu-page .access-card {
+                transition: none !important;
+            }
+        }
+
 </style>
 
 

@@ -76,9 +76,6 @@
                         </p>
                     </div>
 
-                    <span class="materi-arrow">
-                        <i class="bi bi-arrow-right"></i>
-                    </span>
                 </div>
 
 
@@ -1906,52 +1903,6 @@ function kembaliKeKegiatan() {
             top: 0,
             behavior: 'smooth'
         });
-    }
-
-
-    /* =========================================================
-       BUKA DETAIL JURUSAN
-    ========================================================= */
-
-    function bukaJurusan(id) {
-
-        const semuaDetail =
-            document.querySelectorAll('.jurusan-detail');
-
-        semuaDetail.forEach(function(detail) {
-            detail.classList.remove('active');
-        });
-
-        const target =
-            document.getElementById('detail-' + id);
-
-        if (!target) {
-            return;
-        }
-
-        target.classList.add('active');
-
-        setTimeout(function() {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        }, 50);
-    }
-
-
-    /* =========================================================
-       TUTUP DETAIL JURUSAN
-    ========================================================= */
-
-    function tutupJurusan(id) {
-
-        const target =
-            document.getElementById('detail-' + id);
-
-        if (target) {
-            target.classList.remove('active');
-        }
     }
 
 
