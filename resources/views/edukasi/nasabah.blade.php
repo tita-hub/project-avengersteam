@@ -945,21 +945,10 @@
 .edu-hero h1 {
 
     margin: 0 0 8px;
-
-
-
     font-size: 42px;
 
-
-
     line-height: 1.1;
-
-
-
-    font-weight: 700;
-
-
-
+    font-weight: 800;
     color: #ffffff;
 
 }
@@ -967,31 +956,16 @@
 
 
 .edu-hero p {
-
     margin: 0;
-
-
-
     font-size: 15px;
-
-
-
     line-height: 1.6;
-
-
-
     color: rgba(255,255,255,0.94);
 
 }
 
 
-
-
-
 /* ============================================================
-
    INTRO BOX
-
    ============================================================ */
 
 
@@ -999,25 +973,11 @@
 .edu-intro {
 
     margin-top: 31px;
-
-
-
     min-height: 106px;
-
-
-
     padding: 20px 26px;
 
-
-
     display: flex;
-
-
-
     align-items: center;
-
-
-
     gap: 20px;
 
 
