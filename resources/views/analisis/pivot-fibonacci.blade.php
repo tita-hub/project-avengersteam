@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Pivot & Fibonacci — Analisis Pasar')
@@ -25,7 +24,7 @@
         width: 100%;
         padding: 28px;
         background: #fff;
-        border: 1px solid #2563eb;
+        border: 3px solid #2563eb;
         border-radius: 12px;
     }
 
@@ -262,6 +261,248 @@
     font-weight: 700;
 }
 
+
+/* DATA OHLC TERBARU */
+.pf-ohlc {
+    margin-top: 32px;
+    padding-top: 26px;
+    border-top: 1px solid #dbeafe;
+}
+
+.pf-ohlc-title {
+    margin: 0 0 8px;
+    color: #0f172a;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.pf-ohlc-description {
+    margin: 0 0 20px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.pf-ohlc-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.pf-ohlc-select {
+    width: min(100%, 300px);
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #fff;
+    color: #334155;
+    font: inherit;
+    font-size: 14px;
+}
+
+.pf-ohlc-refresh {
+    min-height: 42px;
+    padding: 9px 16px;
+    border: 1px solid #2563eb;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pf-ohlc-refresh:hover {
+    background: #1d4ed8;
+}
+
+.pf-ohlc-refresh:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.pf-ohlc-info {
+    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.pf-ohlc-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+}
+
+.pf-ohlc-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.pf-ohlc-table th,
+.pf-ohlc-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: right;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.pf-ohlc-table thead th {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+.pf-ohlc-table th:first-child,
+.pf-ohlc-table td:first-child {
+    text-align: left;
+}
+
+.pf-ohlc-table tbody td {
+    color: #334155;
+}
+
+.pf-ohlc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pf-ohlc-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.pf-ohlc-message {
+    padding: 22px 12px;
+    color: #64748b;
+    text-align: center !important;
+}
+
+@media (max-width: 600px) {
+    .pf-ohlc-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pf-ohlc-select,
+    .pf-ohlc-refresh {
+        width: 100%;
+    }
+
+    .pf-ohlc-title {
+        font-size: 19px;
+    }
+}
+
+/* DATA OHLC TERBARU */
+.pf-ohlc {
+    margin-top: 32px;
+    padding-top: 26px;
+    border-top: 1px solid #dbeafe;
+}
+
+.pf-ohlc-title {
+    margin: 0 0 20px;
+    color: #64748b;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pf-ohlc-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.pf-ohlc-select {
+    width: 180px;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 1px solid #dbe3ef;
+    border-radius: 8px;
+    background: #fff;
+    color: #334155;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pf-ohlc-info {
+    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.pf-ohlc-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+}
+
+.pf-ohlc-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.pf-ohlc-table th,
+.pf-ohlc-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: right;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.pf-ohlc-table thead th {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 700;
+}
+
+.pf-ohlc-table th:first-child,
+.pf-ohlc-table td:first-child {
+    text-align: left;
+}
+
+.pf-ohlc-table tbody td {
+    color: #475569;
+}
+
+.pf-ohlc-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.pf-ohlc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pf-ohlc-message {
+    padding: 22px 12px;
+    color: #64748b;
+    text-align: center !important;
+}
+
+@media (max-width: 600px) {
+    .pf-ohlc-select {
+        width: 100%;
+    }
+
+    .pf-ohlc-table th,
+    .pf-ohlc-table td {
+        padding: 12px;
+    }
+}
+
+
 </style>
 
 <div class="pf-page">
@@ -300,6 +541,7 @@
 
         </div>
 
+        
         {{-- KONTEN PIVOT --}}
         <section
             class="pf-panel"
@@ -440,6 +682,48 @@
             <div class="pf-empty"></div>
 
         </section>
+
+{{-- DATA OHLC TERBARU --}}
+<section class="pf-ohlc" id="pf-ohlc-section">
+
+    <h2 class="pf-ohlc-title">DATA OHLC TERBARU</h2>
+
+    <div class="pf-ohlc-toolbar">
+        <select
+            class="pf-ohlc-select"
+            id="pf-ohlc-category"
+            aria-label="Pilih instrumen OHLC">
+            <option value="">Memuat instrumen...</option>
+        </select>
+    </div>
+
+    <div class="pf-ohlc-info" id="pf-ohlc-info">
+        Memuat data OHLC...
+    </div>
+
+    <div class="pf-ohlc-table-wrap">
+        <table class="pf-ohlc-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Close</th>
+                </tr>
+            </thead>
+
+            <tbody id="pf-ohlc-body">
+                <tr>
+                    <td colspan="5" class="pf-ohlc-message">
+                        Memuat data OHLC...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
 
     </main>
 
@@ -626,6 +910,166 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    
+    
+    // DATA OHLC TERBARU DARI NEWSMAKER
+    const ohlcCategory = page.querySelector('#pf-ohlc-category');
+    const ohlcBody = page.querySelector('#pf-ohlc-body');
+    const ohlcInfo = page.querySelector('#pf-ohlc-info');
+    
+    if (ohlcCategory && ohlcBody && ohlcInfo) {
+        let ohlcRows = [];
+
+        function getOhlcRows(payload) {
+            if (Array.isArray(payload)) return payload;
+
+            if (payload && typeof payload === 'object') {
+                for (const key of ['data', 'items', 'results', 'rows', 'records']) {
+                    if (Array.isArray(payload[key])) {
+                        return payload[key];
+                    }
+                }
+            }
+
+            return [];
+        }
+
+        function getCategory(row) {
+            return String(row.category || row.description || '').trim();
+        }
+
+        function getDate(row) {
+            return row.tanggal || row.date || row.datetime || '';
+        }
+
+        function formatOhlcPrice(value) {
+            if (value === null || value === undefined || value === '') {
+                return '—';
+            }
+
+            const number = Number(value);
+
+            return Number.isFinite(number)
+                ? new Intl.NumberFormat('id-ID', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(number)
+                : '—';
+        }
+
+        function renderOhlc() {
+            const selectedCategory = ohlcCategory.value;
+
+            const filteredRows = ohlcRows
+                .filter(function (row) {
+                    return getCategory(row) === selectedCategory;
+                })
+                .sort(function (a, b) {
+                    return String(getDate(b)).localeCompare(String(getDate(a)));
+                })
+                .slice(0, 10);
+
+            ohlcBody.innerHTML = '';
+
+            if (filteredRows.length === 0) {
+                ohlcBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="pf-ohlc-message">
+                            Tidak ada data untuk instrumen ini.
+                        </td>
+                    </tr>
+                `;
+
+                ohlcInfo.textContent = 'Tidak ada data OHLC yang tersedia.';
+                return;
+            }
+
+            filteredRows.forEach(function (row) {
+                const tr = document.createElement('tr');
+
+                [
+                    getDate(row),
+                    formatOhlcPrice(row.open),
+                    formatOhlcPrice(row.high),
+                    formatOhlcPrice(row.low),
+                    formatOhlcPrice(row.close)
+                ].forEach(function (value) {
+                    const td = document.createElement('td');
+                    td.textContent = value || '—';
+                    tr.appendChild(td);
+                });
+
+                ohlcBody.appendChild(tr);
+            });
+
+            ohlcInfo.textContent =
+                'Menampilkan ' + filteredRows.length +
+                ' data terbaru · Sumber: NewsMaker';
+        }
+
+        async function loadOhlc() {
+            ohlcInfo.textContent = 'Mengambil data dari NewsMaker...';
+
+            try {
+                const response = await fetch('/newsmaker-ohlc', {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil data OHLC.');
+                }
+
+                const payload = await response.json();
+                ohlcRows = getOhlcRows(payload);
+
+                if (ohlcRows.length === 0) {
+                    throw new Error('Format data OHLC tidak ditemukan.');
+                }
+
+                const categories = [...new Set(
+                    ohlcRows.map(getCategory).filter(Boolean)
+                )].sort();
+
+                ohlcCategory.innerHTML = '';
+
+                categories.forEach(function (category) {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = category;
+                    ohlcCategory.appendChild(option);
+                });
+
+                if (categories.length === 0) {
+                    throw new Error('Kategori instrumen tidak tersedia.');
+                }
+
+                renderOhlc();
+            } catch (error) {
+                console.error('Kesalahan Data OHLC:', error);
+
+                ohlcInfo.textContent = 'Data OHLC gagal dimuat.';
+                ohlcBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="pf-ohlc-message">
+                            Data belum bisa diambil dari NewsMaker.
+                            Coba perbarui kembali.
+                        </td>
+                    </tr>
+                `;
+            } finally {
+
+            }
+        }
+       
+        ohlcCategory.addEventListener('change', renderOhlc);
+
+        loadOhlc();
+    }
+    
+
 });
 </script>
 

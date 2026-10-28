@@ -21,6 +21,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
 </head>
 
 
@@ -612,7 +617,7 @@
                     button: document.getElementById('mobileProsedurBtn'),
                     submenu: document.getElementById('mobileSubmenuProsedur'),
                     arrow: document.getElementById('mobileProsedurArrow')
-                },
+                },  
                 {
                     button: document.getElementById('mobileAnalisisBtn'),
                     submenu: document.getElementById('mobileSubmenuAnalisis'),
@@ -669,6 +674,16 @@
 
         });
     </script>
+
+    <a
+        href="https://wa.me/6285128040216"
+        class="floating-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Hubungi kami melalui WhatsApp"
+    >
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 

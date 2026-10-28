@@ -10,6 +10,7 @@ use App\Http\Controllers\EdukasiController;
 use App\Http\Controllers\InternshipReviewController;
 use App\Http\Controllers\EconomicCalendarController;
 use App\Http\Controllers\DataHistorisController;
+use Illuminate\Support\Facades\Http;
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
@@ -100,3 +101,25 @@ Route::get(
     '/analisis/data-historis',
     [DataHistorisController::class, 'index']
 )->name('analisis.data-historis');
+
+
+
+Route::get('/newsmaker-ohlc', function () {
+    try {
+        $response = Http::timeout(15)
+            ->acceptJson()
+            ->get('https://www.newsmaker.id/api/historical-data');
+
+        if (!$response->successful()) {
+            return response()->json([
+                'message' => 'Data NewsMaker gagal diambil.'
+            ], 502);
+        }
+
+        return response()->json($response->json());
+    } catch (\Throwable $e) {
+        return response()->json([
+            'message' => 'Tidak dapat terhubung ke server NewsMaker.'
+        ], 502);
+    }
+});

@@ -1088,41 +1088,55 @@
             </p>
 
 
+            
             <div class="hero-actions">
 
+                {{-- DEMO REGISTRATION --}}
                 <a
-                    href="{{ route('produk.index') }}"
+                    href="https://regol.rifan-financindo-berjangka.co.id/"
                     class="hero-btn hero-btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Demo Registration
                     <i class="bi bi-arrow-right"></i>
                 </a>
 
+                {{-- DEMO ACCOUNT --}}
                 <a
-                    href="{{ route('edukasi.umum') }}"
+                    href="https://demo.rifanberjangka.com/login"
                     class="hero-btn hero-btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Demo Account
                     <i class="bi bi-arrow-up-right"></i>
                 </a>
 
+                {{-- REGISTER ONLINE --}}
                 <a
-                    href="{{ route('produk.index') }}"
+                    href="https://regol.rifan-financindo-berjangka.co.id/login"
                     class="hero-btn hero-btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Register Online
                     <i class="bi bi-arrow-right"></i>
                 </a>
 
+                {{-- REAL ACCOUNT --}}
                 <a
-                    href="{{ route('edukasi.umum') }}"
+                    href="https://etrade.rifanberjangka.com/login"
                     class="hero-btn hero-btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Real Account
                     <i class="bi bi-arrow-up-right"></i>
                 </a>
 
             </div>
+
 
 
             {{-- Small information points --}}
