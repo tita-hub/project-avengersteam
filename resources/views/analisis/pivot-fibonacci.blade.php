@@ -487,7 +487,7 @@
 
 .pf-ohlc-message {
     padding: 22px 12px;
-    color: #64748b;
+    color: #648b68;
     text-align: center !important;
 }
 
