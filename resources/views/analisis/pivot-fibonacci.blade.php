@@ -4,6 +4,7 @@
 
 @section('content')
 
+    {{---------------- CSS ---------------}}
 <style>
     .pf-page {
         padding: 30px 24px 48px;
@@ -24,7 +25,6 @@
         width: 100%;
         padding: 28px;
         background: #fff;
-        border: 3px solid #2563eb;
         border-radius: 12px;
     }
 
@@ -43,7 +43,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0;
         margin-bottom: 26px;
-        border-bottom: 2px solid #dbeafe;
+        border-bottom: 2px solid #bbf7d0;
     }
 
     .pf-tab {
@@ -60,12 +60,12 @@
     }
 
     .pf-tab:hover {
-        color: #2563eb;
-        background: #f8fbff;
+        color: #15803d;
+        background: #f0fdf4;
     }
 
     .pf-tab.active {
-        color: #2563eb;
+        color: #15803d;
     }
 
     .pf-tab.active::after {
@@ -74,7 +74,7 @@
         bottom: -2px;
         left: 0;
         height: 3px;
-        background: #2563eb;
+        background: #15803d;
         content: "";
     }
 
@@ -115,8 +115,8 @@
     }
 
     .pf-field input:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, .1);
+        border-color: #15803d;
+        box-shadow: 0 0 0 3px rgba(21, 128, 61, .1);
     }
 
     .pf-field input::placeholder {
@@ -131,9 +131,9 @@
         gap: 8px;
         height: 44px;
         padding: 0 20px;
-        border: 1px solid #2563eb;
+        border: 1px solid #15803d;
         border-radius: 7px;
-        background: #2563eb;
+        background: #15803d;
         color: #fff;
         font-family: inherit;
         font-size: 13px;
@@ -144,7 +144,7 @@
     }
 
     .pf-calculate:hover {
-        background: #1d4ed8;
+        background: #166534;
     }
 
     /* AREA KONTEN TAB */
@@ -202,778 +202,779 @@
         }
     }
 
-    
-/* Tabel Pivot */
-.pf-table-wrapper {
-    width: 100%;
-    margin-top: 24px;
-    overflow-x: auto;
-    border: 1px solid #dbeafe;
-    border-radius: 8px;
-}
-
-.pf-table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-    text-align: center;
-    background: #fff;
-}
-
-.pf-table th,
-.pf-table td {
-    padding: 13px 16px;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 14px;
-}
-
-.pf-table thead th {
-    background: #eff6ff;
-    color: #1d4ed8;
-    font-weight: 700;
-}
-
-.pf-table tbody th {
-    width: 90px;
-    background: #f8fafc;
-    color: #334155;
-    font-weight: 700;
-}
-
-.pf-table tbody td {
-    color: #64748b;
-}
-
-.pf-table tbody tr:last-child th,
-.pf-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.pf-table tbody tr:hover td,
-.pf-table tbody tr:hover th {
-    background: #f8fbff;
-}
-
-.pf-table .pf-pivot-row th,
-.pf-table .pf-pivot-row td {
-    background: #eff6ff;
-    color: #1d4ed8;
-    font-weight: 700;
-}
-
-
-/* DATA OHLC TERBARU */
-.pf-ohlc {
-    margin-top: 32px;
-    padding-top: 26px;
-    border-top: 1px solid #dbeafe;
-}
-
-.pf-ohlc-title {
-    margin: 0 0 8px;
-    color: #0f172a;
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.pf-ohlc-description {
-    margin: 0 0 20px;
-    color: #64748b;
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.pf-ohlc-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
-}
-
-.pf-ohlc-select {
-    width: min(100%, 300px);
-    min-height: 42px;
-    padding: 9px 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 7px;
-    background: #fff;
-    color: #334155;
-    font: inherit;
-    font-size: 14px;
-}
-
-.pf-ohlc-refresh {
-    min-height: 42px;
-    padding: 9px 16px;
-    border: 1px solid #2563eb;
-    border-radius: 7px;
-    background: #2563eb;
-    color: #fff;
-    font: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.pf-ohlc-refresh:hover {
-    background: #1d4ed8;
-}
-
-.pf-ohlc-refresh:disabled {
-    opacity: .6;
-    cursor: wait;
-}
-
-.pf-ohlc-info {
-    margin-bottom: 12px;
-    color: #64748b;
-    font-size: 12px;
-}
-
-.pf-ohlc-table-wrap {
-    width: 100%;
-    overflow-x: auto;
-    border: 1px solid #dbeafe;
-    border-radius: 8px;
-}
-
-.pf-ohlc-table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-    background: #fff;
-}
-
-.pf-ohlc-table th,
-.pf-ohlc-table td {
-    padding: 13px 16px;
-    border-bottom: 1px solid #e2e8f0;
-    text-align: right;
-    white-space: nowrap;
-    font-size: 13px;
-}
-
-.pf-ohlc-table thead th {
-    background: #eff6ff;
-    color: #1d4ed8;
-    font-weight: 700;
-}
-
-.pf-ohlc-table th:first-child,
-.pf-ohlc-table td:first-child {
-    text-align: left;
-}
-
-.pf-ohlc-table tbody td {
-    color: #334155;
-}
-
-.pf-ohlc-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.pf-ohlc-table tbody tr:hover {
-    background: #f8fbff;
-}
-
-.pf-ohlc-message {
-    padding: 22px 12px;
-    color: #64748b;
-    text-align: center !important;
-}
-
-@media (max-width: 600px) {
-    .pf-ohlc-toolbar {
-        align-items: stretch;
-        flex-direction: column;
+    /* TABEL PIVOT */
+    .pf-table-wrapper {
+        width: 100%;
+        margin-top: 24px;
+        overflow-x: auto;
+        border: 1px solid #bbf7d0;
+        border-radius: 8px;
     }
 
-    .pf-ohlc-select,
-    .pf-ohlc-refresh {
+    .pf-table {
         width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+        text-align: center;
+        background: #fff;
+    }
+
+    .pf-table th,
+    .pf-table td {
+        padding: 13px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 14px;
+    }
+
+    .pf-table thead th {
+        background: #f0fdf4;
+        color: #166534;
+        font-weight: 700;
+    }
+
+    .pf-table tbody th {
+        width: 90px;
+        background: #f8fafc;
+        color: #334155;
+        font-weight: 700;
+    }
+
+    .pf-table tbody td {
+        color: #64748b;
+    }
+
+    .pf-table tbody tr:last-child th,
+    .pf-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .pf-table tbody tr:hover td,
+    .pf-table tbody tr:hover th {
+        background: #f0fdf4;
+    }
+
+    .pf-table .pf-pivot-row th,
+    .pf-table .pf-pivot-row td {
+        background: #f0fdf4;
+        color: #166534;
+        font-weight: 700;
+    }
+
+    /* DATA OHLC TERBARU */
+    .pf-ohlc {
+        margin-top: 32px;
+        padding-top: 26px;
+        border-top: 1px solid #bbf7d0;
     }
 
     .pf-ohlc-title {
-        font-size: 19px;
+        margin: 0 0 20px;
+        color: #64748b;
+        font-size: 15px;
+        font-weight: 700;
     }
-}
 
-/* DATA OHLC TERBARU */
-.pf-ohlc {
-    margin-top: 32px;
-    padding-top: 26px;
-    border-top: 1px solid #dbeafe;
-}
+    .pf-ohlc-description {
+        margin: 0 0 20px;
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.7;
+    }
 
-.pf-ohlc-title {
-    margin: 0 0 20px;
-    color: #64748b;
-    font-size: 15px;
-    font-weight: 700;
-}
+    .pf-ohlc-toolbar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 16px;
+    }
 
-.pf-ohlc-toolbar {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 16px;
-}
-
-.pf-ohlc-select {
-    width: 180px;
-    min-height: 42px;
-    padding: 9px 12px;
-    border: 1px solid #dbe3ef;
-    border-radius: 8px;
-    background: #fff;
-    color: #334155;
-    font: inherit;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.pf-ohlc-info {
-    margin-bottom: 12px;
-    color: #64748b;
-    font-size: 12px;
-}
-
-.pf-ohlc-table-wrap {
-    width: 100%;
-    overflow-x: auto;
-    border: 1px solid #dbeafe;
-    border-radius: 8px;
-}
-
-.pf-ohlc-table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-    background: #fff;
-}
-
-.pf-ohlc-table th,
-.pf-ohlc-table td {
-    padding: 16px 20px;
-    border-bottom: 1px solid #e2e8f0;
-    text-align: right;
-    white-space: nowrap;
-    font-size: 14px;
-}
-
-.pf-ohlc-table thead th {
-    background: #f8fafc;
-    color: #334155;
-    font-weight: 700;
-}
-
-.pf-ohlc-table th:first-child,
-.pf-ohlc-table td:first-child {
-    text-align: left;
-}
-
-.pf-ohlc-table tbody td {
-    color: #475569;
-}
-
-.pf-ohlc-table tbody tr:hover {
-    background: #f8fbff;
-}
-
-.pf-ohlc-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.pf-ohlc-message {
-    padding: 22px 12px;
-    color: #648b68;
-    text-align: center !important;
-}
-
-@media (max-width: 600px) {
     .pf-ohlc-select {
+        width: 180px;
+        min-height: 42px;
+        padding: 9px 12px;
+        border: 1px solid #dbe3ef;
+        border-radius: 8px;
+        background: #fff;
+        color: #334155;
+        font: inherit;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .pf-ohlc-refresh {
+        min-height: 42px;
+        padding: 9px 16px;
+        border: 1px solid #15803d;
+        border-radius: 7px;
+        background: #15803d;
+        color: #fff;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .pf-ohlc-refresh:hover {
+        background: #166534;
+    }
+
+    .pf-ohlc-refresh:disabled {
+        opacity: .6;
+        cursor: wait;
+    }
+
+    .pf-ohlc-info {
+        margin-bottom: 12px;
+        color: #64748b;
+        font-size: 12px;
+    }
+
+    .pf-ohlc-table-wrap {
         width: 100%;
+        overflow-x: auto;
+        border: 1px solid #bbf7d0;
+        border-radius: 8px;
+    }
+
+    .pf-ohlc-table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+        background: #fff;
     }
 
     .pf-ohlc-table th,
     .pf-ohlc-table td {
-        padding: 12px;
+        padding: 16px 20px;
+        border-bottom: 1px solid #e2e8f0;
+        text-align: right;
+        white-space: nowrap;
+        font-size: 14px;
     }
-}
 
+    .pf-ohlc-table thead th {
+        background: #f0fdf4;
+        color: #166534;
+        font-weight: 700;
+    }
 
+    .pf-ohlc-table th:first-child,
+    .pf-ohlc-table td:first-child {
+        text-align: left;
+    }
+
+    .pf-ohlc-table tbody td {
+        color: #475569;
+    }
+
+    .pf-ohlc-table tbody tr:hover {
+        background: #f0fdf4;
+    }
+
+    .pf-ohlc-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .pf-ohlc-message {
+        padding: 22px 12px;
+        color: #166534;
+        text-align: center !important;
+    }
+
+    @media (max-width: 600px) {
+        .pf-ohlc-toolbar {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .pf-ohlc-select,
+        .pf-ohlc-refresh {
+            width: 100%;
+        }
+
+        .pf-ohlc-title {
+            font-size: 19px;
+        }
+
+        .pf-ohlc-table th,
+        .pf-ohlc-table td {
+            padding: 12px;
+        }
+    }
+
+    /* FIBONACCI RETRACEMENT */
+    .pf-fib-card {
+        padding: 22px;
+        border: 1px solid #bbf7d0;
+        border-radius: 10px;
+        background: #fff;
+    }
+
+    .pf-fib-heading {
+        margin: 0 0 8px;
+        color: #0f172a;
+        font-size: 22px;
+        font-weight: 800;
+    }
+
+    .pf-fib-description {
+        margin: 0 0 22px;
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .pf-fib-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+        align-items: end;
+        gap: 16px;
+    }
+
+    .pf-fib-table-wrapper {
+        margin-top: 26px;
+    }
+
+    .pf-fib-table tbody tr:nth-child(even) {
+        background: #f0fdf4;
+    }
+
+    .pf-fib-table tbody tr:hover {
+        background: #dcfce7;
+    }
+
+    .pf-fib-note {
+        margin: 16px 0 0;
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+        .pf-fib-card {
+            padding: 16px;
+        }
+
+        .pf-fib-form {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .pf-fib-form .pf-calculate {
+            width: 100%;
+        }
+
+        .pf-fib-heading {
+            font-size: 20px;
+        }
+    }
 </style>
 
-<div class="pf-page">
+    {{---------------- HTML ---------------}}
 
-    <main class="pf-container">
+    <div class="pf-page">
 
-        {{-- JUDUL UTAMA --}}
-        <h1 class="pf-title">Pivot & Fibonacci</h1>
+        <main class="pf-container">
 
-        {{-- TAB --}}
-        <div class="pf-tabs" role="tablist"
-             aria-label="Pilih alat analisis">
+            {{-- JUDUL UTAMA --}}
+            <h1 class="pf-title">Pivot & Fibonacci</h1>
 
-            <button
-                type="button"
-                class="pf-tab active"
-                id="pf-tab-pivot"
-                role="tab"
-                aria-selected="true"
-                aria-controls="pf-panel-pivot"
-                data-target="pivot">
-                Pivot
-            </button>
+            {{-- TAB --}}
+            <div class="pf-tabs" role="tablist" aria-label="Pilih alat analisis">
 
-            <button
-                type="button"
-                class="pf-tab"
-                id="pf-tab-fibonacci"
-                role="tab"
-                aria-selected="false"
-                aria-controls="pf-panel-fibonacci"
-                data-target="fibonacci"
-                tabindex="-1">
-                Fibonacci
-            </button>
+                <button type="button" class="pf-tab active" id="pf-tab-pivot" role="tab" aria-selected="true"
+                    aria-controls="pf-panel-pivot" data-target="pivot">
+                    Pivot
+                </button>
 
-        </div>
+                <button type="button" class="pf-tab" id="pf-tab-fibonacci" role="tab" aria-selected="false"
+                    aria-controls="pf-panel-fibonacci" data-target="fibonacci" tabindex="-1">
+                    Fibonacci
+                </button>
 
-        
-        {{-- KONTEN PIVOT --}}
-        <section
-            class="pf-panel"
-            id="pf-panel-pivot"
-            role="tabpanel"
-            aria-labelledby="pf-tab-pivot">
+            </div>
 
-            <form class="pf-form" id="pf-pivot-form">
 
-                <div class="pf-field">
-                    <input
-                        type="number"
-                        id="pf-open"
-                        name="open"
-                        step="any"
-                        placeholder="Buka (Open)">
+            {{-- KONTEN PIVOT --}}
+            <section class="pf-panel" id="pf-panel-pivot" role="tabpanel" aria-labelledby="pf-tab-pivot">
+
+                <form class="pf-form" id="pf-pivot-form">
+
+                    <div class="pf-field">
+                        <input type="number" id="pf-open" name="open" step="any" placeholder="Buka (Open)">
+                    </div>
+
+                    <div class="pf-field">
+                        <input type="number" id="pf-high" name="high" step="any" placeholder="Tinggi (High)">
+                    </div>
+
+                    <div class="pf-field">
+                        <input type="number" id="pf-low" name="low" step="any" placeholder="Rendah (Low)">
+                    </div>
+
+                    <div class="pf-field">
+                        <input type="number" id="pf-close" name="close" step="any" placeholder="Tutup (Close)">
+                    </div>
+
+                    <button type="button" class="pf-calculate" id="pf-calculate">
+                        <i class="bi bi-calculator"></i> Kalkulasi
+                    </button>
+
+                </form>
+
+
+                <div class="pf-table-wrapper">
+                    <table class="pf-table">
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Klasik</th>
+                                <th>Woodie</th>
+                                <th>Camarilla</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <th>R4</th>
+                                <td id="classic-r4">0,00</td>
+                                <td id="woodie-r4">0,00</td>
+                                <td id="camarilla-r4">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>R3</th>
+                                <td id="classic-r3">0,00</td>
+                                <td id="woodie-r3">0,00</td>
+                                <td id="camarilla-r3">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>R2</th>
+                                <td id="classic-r2">0,00</td>
+                                <td id="woodie-r2">0,00</td>
+                                <td id="camarilla-r2">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>R1</th>
+                                <td id="classic-r1">0,00</td>
+                                <td id="woodie-r1">0,00</td>
+                                <td id="camarilla-r1">0,00</td>
+                            </tr>
+                            <tr class="pf-pivot-row">
+                                <th>Pivot</th>
+                                <td id="classic-pivot">0,00</td>
+                                <td id="woodie-pivot">0,00</td>
+                                <td id="camarilla-pivot">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>S1</th>
+                                <td id="classic-s1">0,00</td>
+                                <td id="woodie-s1">0,00</td>
+                                <td id="camarilla-s1">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>S2</th>
+                                <td id="classic-s2">0,00</td>
+                                <td id="woodie-s2">0,00</td>
+                                <td id="camarilla-s2">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>S3</th>
+                                <td id="classic-s3">0,00</td>
+                                <td id="woodie-s3">0,00</td>
+                                <td id="camarilla-s3">0,00</td>
+                            </tr>
+                            <tr>
+                                <th>S4</th>
+                                <td id="classic-s4">0,00</td>
+                                <td id="woodie-s4">0,00</td>
+                                <td id="camarilla-s4">0,00</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="pf-field">
-                    <input
-                        type="number"
-                        id="pf-high"
-                        name="high"
-                        step="any"
-                        placeholder="Tinggi (High)">
+
+            </section>
+
+            {{-- KONTEN FIBONACCI --}}
+            <section class="pf-panel" id="pf-panel-fibonacci" role="tabpanel" aria-labelledby="pf-tab-fibonacci" hidden>
+
+                {{-- Konten Fibonacci ditambahkan pada tahap berikutnya --}}
+
+                <div class="pf-fib-card">
+                    <h2 class="pf-fib-heading">Fibonacci Retracement</h2>
+
+                    <p class="pf-fib-description">
+                        Masukkan harga tertinggi dan terendah untuk
+                        menghitung level Fibonacci Retracement.
+                    </p>
+
+                    <form id="pf-fib-form" class="pf-fib-form">
+                        <div class="pf-field">
+                            <label for="pf-fib-high">Harga Tertinggi (High)</label>
+                            <input type="number" id="pf-fib-high" step="any" min="0" placeholder="Contoh: 2500"
+                                required>
+                        </div>
+
+                        <div class="pf-field">
+                            <label for="pf-fib-low">Harga Terendah (Low)</label>
+                            <input type="number" id="pf-fib-low" step="any" min="0"
+                                placeholder="Contoh: 2000" required>
+                        </div>
+
+                        <button type="submit" class="pf-calculate">
+                            <i class="bi bi-calculator"></i>
+                            Hitung Fibonacci
+                        </button>
+                    </form>
+
+                    <div class="pf-table-wrapper pf-fib-table-wrapper">
+                        <table class="pf-table pf-fib-table">
+                            <thead>
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Persentase</th>
+                                    <th>Harga</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="pf-fib-body">
+                                <tr>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>23,6%</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>38,2%</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>50%</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>61,8%</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>78,6%</td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>100%</td>
+                                    <td>—</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="pf-fib-note">
+                        Level dihitung berdasarkan rentang High dan Low
+                        yang Anda masukkan.
+                    </p>
                 </div>
 
-                <div class="pf-field">
-                    <input
-                        type="number"
-                        id="pf-low"
-                        name="low"
-                        step="any"
-                        placeholder="Rendah (Low)">
+            </section>
+
+            {{-- DATA OHLC TERBARU --}}
+            <section class="pf-ohlc" id="pf-ohlc-section">
+
+                <h2 class="pf-ohlc-title">DATA OHLC TERBARU</h2>
+
+                <div class="pf-ohlc-toolbar">
+                    <select class="pf-ohlc-select" id="pf-ohlc-category" aria-label="Pilih instrumen OHLC">
+                        <option value="">Memuat instrumen...</option>
+                    </select>
                 </div>
 
-                <div class="pf-field">
-                    <input
-                        type="number"
-                        id="pf-close"
-                        name="close"
-                        step="any"
-                        placeholder="Tutup (Close)">
+                <div class="pf-ohlc-info" id="pf-ohlc-info">
+                    Memuat data OHLC...
                 </div>
-                
-                  <button type="button" class="pf-calculate" id="pf-calculate">
-                    <i class="bi bi-calculator"></i> Kalkulasi
-                  </button>
 
-            </form>
+                <div class="pf-ohlc-table-wrap">
+                    <table class="pf-ohlc-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Open</th>
+                                <th>High</th>
+                                <th>Low</th>
+                                <th>Close</th>
+                            </tr>
+                        </thead>
 
-            
-<div class="pf-table-wrapper">
-    <table class="pf-table">
-        <thead>
-            <tr>
-                <th>Level</th>
-                <th>Klasik</th>
-                <th>Woodie</th>
-                <th>Camarilla</th>
-            </tr>
-        </thead>
+                        <tbody id="pf-ohlc-body">
+                            <tr>
+                                <td colspan="5" class="pf-ohlc-message">
+                                    Memuat data OHLC...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-        <tbody>
-            
-<tr>
-    <th>R4</th>
-    <td id="classic-r4">0,00</td>
-    <td id="woodie-r4">0,00</td>
-    <td id="camarilla-r4">0,00</td>
-</tr>
-<tr>
-    <th>R3</th>
-    <td id="classic-r3">0,00</td>
-    <td id="woodie-r3">0,00</td>
-    <td id="camarilla-r3">0,00</td>
-</tr>
-<tr>
-    <th>R2</th>
-    <td id="classic-r2">0,00</td>
-    <td id="woodie-r2">0,00</td>
-    <td id="camarilla-r2">0,00</td>
-</tr>
-<tr>
-    <th>R1</th>
-    <td id="classic-r1">0,00</td>
-    <td id="woodie-r1">0,00</td>
-    <td id="camarilla-r1">0,00</td>
-</tr>
-<tr class="pf-pivot-row">
-    <th>Pivot</th>
-    <td id="classic-pivot">0,00</td>
-    <td id="woodie-pivot">0,00</td>
-    <td id="camarilla-pivot">0,00</td>
-</tr>
-<tr>
-    <th>S1</th>
-    <td id="classic-s1">0,00</td>
-    <td id="woodie-s1">0,00</td>
-    <td id="camarilla-s1">0,00</td>
-</tr>
-<tr>
-    <th>S2</th>
-    <td id="classic-s2">0,00</td>
-    <td id="woodie-s2">0,00</td>
-    <td id="camarilla-s2">0,00</td>
-</tr>
-<tr>
-    <th>S3</th>
-    <td id="classic-s3">0,00</td>
-    <td id="woodie-s3">0,00</td>
-    <td id="camarilla-s3">0,00</td>
-</tr>
-<tr>
-    <th>S4</th>
-    <td id="classic-s4">0,00</td>
-    <td id="woodie-s4">0,00</td>
-    <td id="camarilla-s4">0,00</td>
-</tr>
+            </section>
 
-        </tbody>
-    </table>
-</div>
+        </main>
 
-
-        </section>
-
-        {{-- KONTEN FIBONACCI --}}
-        <section
-            class="pf-panel"
-            id="pf-panel-fibonacci"
-            role="tabpanel"
-            aria-labelledby="pf-tab-fibonacci"
-            hidden>
-
-            {{-- Konten Fibonacci ditambahkan pada tahap berikutnya --}}
-
-            <div class="pf-empty"></div>
-
-        </section>
-
-{{-- DATA OHLC TERBARU --}}
-<section class="pf-ohlc" id="pf-ohlc-section">
-
-    <h2 class="pf-ohlc-title">DATA OHLC TERBARU</h2>
-
-    <div class="pf-ohlc-toolbar">
-        <select
-            class="pf-ohlc-select"
-            id="pf-ohlc-category"
-            aria-label="Pilih instrumen OHLC">
-            <option value="">Memuat instrumen...</option>
-        </select>
     </div>
 
-    <div class="pf-ohlc-info" id="pf-ohlc-info">
-        Memuat data OHLC...
-    </div>
-
-    <div class="pf-ohlc-table-wrap">
-        <table class="pf-ohlc-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Open</th>
-                    <th>High</th>
-                    <th>Low</th>
-                    <th>Close</th>
-                </tr>
-            </thead>
-
-            <tbody id="pf-ohlc-body">
-                <tr>
-                    <td colspan="5" class="pf-ohlc-message">
-                        Memuat data OHLC...
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-</section>
-
-    </main>
-
-</div>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const page = document.querySelector('.pf-page');
-
-    if (!page) return;
-
-    const tabs = page.querySelectorAll('.pf-tab');
-    const panels = page.querySelectorAll('.pf-panel');
-
-    // Fungsi untuk mengganti tab Pivot dan Fibonacci
-    function activateTab(target) {
-        tabs.forEach(function (tab) {
-            const active = tab.dataset.target === target;
-
-            tab.classList.toggle('active', active);
-            tab.setAttribute('aria-selected', String(active));
-            tab.tabIndex = active ? 0 : -1;
-        });
-
-        panels.forEach(function (panel) {
-            panel.hidden = panel.id !== 'pf-panel-' + target;
-        });
-    }
-
-    // Event tab
-    tabs.forEach(function (tab, index) {
-        tab.addEventListener('click', function () {
-            activateTab(tab.dataset.target);
-        });
-
-        tab.addEventListener('keydown', function (event) {
-            if (
-                event.key === 'ArrowRight' ||
-                event.key === 'ArrowLeft'
-            ) {
-                event.preventDefault();
-
-                const direction =
-                    event.key === 'ArrowRight' ? 1 : -1;
-
-                const nextIndex =
-                    (index + direction + tabs.length) % tabs.length;
-
-                tabs[nextIndex].focus();
-                activateTab(tabs[nextIndex].dataset.target);
-            }
-        });
-    });
-
-    // Event tombol Kalkulasi
-    const calculateButton = page.querySelector('#pf-calculate');
-    const pivotForm = page.querySelector('#pf-pivot-form');
-
-    if (calculateButton && pivotForm) {
-        calculateButton.addEventListener('click', function () {
-            const openInput = pivotForm.elements['open'].value.trim();
-            const highInput = pivotForm.elements['high'].value.trim();
-            const lowInput = pivotForm.elements['low'].value.trim();
-            const closeInput = pivotForm.elements['close'].value.trim();
-
-            if (
-                openInput === '' ||
-                highInput === '' ||
-                lowInput === '' ||
-                closeInput === ''
-            ) {
-                alert('Silakan isi semua harga terlebih dahulu.');
-                return;
-            }
-
-            const open = Number(openInput);
-            const high = Number(highInput);
-            const low = Number(lowInput);
-            const close = Number(closeInput);
-
-            if (![open, high, low, close].every(Number.isFinite)) {
-                alert('Harga harus berupa angka yang valid.');
-                return;
-            }
-
-            if (
-                low <= 0 ||
-                high < low ||
-                open <= 0 ||
-                close <= 0 ||
-                open < low ||
-                open > high ||
-                close < low ||
-                close > high
-            ) {
-                alert(
-                    'Periksa kembali harga. Tinggi harus lebih besar atau sama dengan Rendah, dan harga Buka serta Tutup harus berada di antara keduanya.'
-                );
-                return;
-            }
-
-            const range = high - low;
-
-            // Metode Klasik
-            const classicP = (high + low + close) / 3;
-
-            const classic = {
-                pivot: classicP,
-                r1: (2 * classicP) - low,
-                r2: classicP + range,
-                r3: high + (2 * (classicP - low)),
-                r4: high + (3 * (classicP - low)),
-                s1: (2 * classicP) - high,
-                s2: classicP - range,
-                s3: low - (2 * (high - classicP)),
-                s4: low - (3 * (high - classicP))
-            };
-
-            // Metode Woodie
-            const woodieP = (high + low + (2 * close)) / 4;
-
-            const woodie = {
-                pivot: woodieP,
-                r1: (2 * woodieP) - low,
-                r2: woodieP + range,
-                r3: high + (2 * (woodieP - low)),
-                r4: high + (3 * (woodieP - low)),
-                s1: (2 * woodieP) - high,
-                s2: woodieP - range,
-                s3: low - (2 * (high - woodieP)),
-                s4: low - (3 * (high - woodieP))
-            };
-
-            // Metode Camarilla
-            const camarilla = {
-                pivot: close,
-                r1: close + (range * 1.1 / 12),
-                r2: close + (range * 1.1 / 6),
-                r3: close + (range * 1.1 / 4),
-                r4: close + (range * 1.1 / 2),
-                s1: close - (range * 1.1 / 12),
-                s2: close - (range * 1.1 / 6),
-                s3: close - (range * 1.1 / 4),
-                s4: close - (range * 1.1 / 2)
-            };
-
-            // Format angka Indonesia
-            const formatPrice = function (value) {
-                return new Intl.NumberFormat('id-ID', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }).format(value);
-            };
-
-            // Masukkan hasil ke tabel
-            const levels = [
-                'r4', 'r3', 'r2', 'r1', 'pivot',
-                's1', 's2', 's3', 's4'
-            ];
-
-            levels.forEach(function (level) {
-                const classicCell =
-                    page.querySelector('#classic-' + level);
-                const woodieCell =
-                    page.querySelector('#woodie-' + level);
-                const camarillaCell =
-                    page.querySelector('#camarilla-' + level);
-
-                if (classicCell) {
-                    classicCell.textContent =
-                        formatPrice(classic[level]);
-                }
-
-                if (woodieCell) {
-                    woodieCell.textContent =
-                        formatPrice(woodie[level]);
-                }
-
-                if (camarillaCell) {
-                    camarillaCell.textContent =
-                        formatPrice(camarilla[level]);
-                }
-            });
-        });
-    }
-
+    {{---------------- SCRIPT ---------------}}
     
-    
-    // DATA OHLC TERBARU DARI NEWSMAKER
-    const ohlcCategory = page.querySelector('#pf-ohlc-category');
-    const ohlcBody = page.querySelector('#pf-ohlc-body');
-    const ohlcInfo = page.querySelector('#pf-ohlc-info');
-    
-    if (ohlcCategory && ohlcBody && ohlcInfo) {
-        let ohlcRows = [];
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const page = document.querySelector('.pf-page');
 
-        function getOhlcRows(payload) {
-            if (Array.isArray(payload)) return payload;
+            if (!page) return;
 
-            if (payload && typeof payload === 'object') {
-                for (const key of ['data', 'items', 'results', 'rows', 'records']) {
-                    if (Array.isArray(payload[key])) {
-                        return payload[key];
+            const tabs = page.querySelectorAll('.pf-tab');
+            const panels = page.querySelectorAll('.pf-panel');
+
+            // Fungsi untuk mengganti tab Pivot dan Fibonacci
+            function activateTab(target) {
+                tabs.forEach(function(tab) {
+                    const active = tab.dataset.target === target;
+
+                    tab.classList.toggle('active', active);
+                    tab.setAttribute('aria-selected', String(active));
+                    tab.tabIndex = active ? 0 : -1;
+                });
+
+                panels.forEach(function(panel) {
+                    panel.hidden = panel.id !== 'pf-panel-' + target;
+                });
+            }
+
+            // Event tab
+            tabs.forEach(function(tab, index) {
+                tab.addEventListener('click', function() {
+                    activateTab(tab.dataset.target);
+                });
+
+                tab.addEventListener('keydown', function(event) {
+                    if (
+                        event.key === 'ArrowRight' ||
+                        event.key === 'ArrowLeft'
+                    ) {
+                        event.preventDefault();
+
+                        const direction =
+                            event.key === 'ArrowRight' ? 1 : -1;
+
+                        const nextIndex =
+                            (index + direction + tabs.length) % tabs.length;
+
+                        tabs[nextIndex].focus();
+                        activateTab(tabs[nextIndex].dataset.target);
                     }
+                });
+            });
+
+            // Event tombol Kalkulasi
+            const calculateButton = page.querySelector('#pf-calculate');
+            const pivotForm = page.querySelector('#pf-pivot-form');
+
+            if (calculateButton && pivotForm) {
+                calculateButton.addEventListener('click', function() {
+                    const openInput = pivotForm.elements['open'].value.trim();
+                    const highInput = pivotForm.elements['high'].value.trim();
+                    const lowInput = pivotForm.elements['low'].value.trim();
+                    const closeInput = pivotForm.elements['close'].value.trim();
+
+                    if (
+                        openInput === '' ||
+                        highInput === '' ||
+                        lowInput === '' ||
+                        closeInput === ''
+                    ) {
+                        alert('Silakan isi semua harga terlebih dahulu.');
+                        return;
+                    }
+
+                    const open = Number(openInput);
+                    const high = Number(highInput);
+                    const low = Number(lowInput);
+                    const close = Number(closeInput);
+
+                    if (![open, high, low, close].every(Number.isFinite)) {
+                        alert('Harga harus berupa angka yang valid.');
+                        return;
+                    }
+
+                    if (
+                        low <= 0 ||
+                        high < low ||
+                        open <= 0 ||
+                        close <= 0 ||
+                        open < low ||
+                        open > high ||
+                        close < low ||
+                        close > high
+                    ) {
+                        alert(
+                            'Periksa kembali harga. Tinggi harus lebih besar atau sama dengan Rendah, dan harga Buka serta Tutup harus berada di antara keduanya.'
+                        );
+                        return;
+                    }
+
+                    const range = high - low;
+
+                    // Metode Klasik
+                    const classicP = (high + low + close) / 3;
+
+                    const classic = {
+                        pivot: classicP,
+                        r1: (2 * classicP) - low,
+                        r2: classicP + range,
+                        r3: high + (2 * (classicP - low)),
+                        r4: high + (3 * (classicP - low)),
+                        s1: (2 * classicP) - high,
+                        s2: classicP - range,
+                        s3: low - (2 * (high - classicP)),
+                        s4: low - (3 * (high - classicP))
+                    };
+
+                    // Metode Woodie
+                    const woodieP = (high + low + (2 * close)) / 4;
+
+                    const woodie = {
+                        pivot: woodieP,
+                        r1: (2 * woodieP) - low,
+                        r2: woodieP + range,
+                        r3: high + (2 * (woodieP - low)),
+                        r4: high + (3 * (woodieP - low)),
+                        s1: (2 * woodieP) - high,
+                        s2: woodieP - range,
+                        s3: low - (2 * (high - woodieP)),
+                        s4: low - (3 * (high - woodieP))
+                    };
+
+                    // Metode Camarilla
+                    const camarilla = {
+                        pivot: close,
+                        r1: close + (range * 1.1 / 12),
+                        r2: close + (range * 1.1 / 6),
+                        r3: close + (range * 1.1 / 4),
+                        r4: close + (range * 1.1 / 2),
+                        s1: close - (range * 1.1 / 12),
+                        s2: close - (range * 1.1 / 6),
+                        s3: close - (range * 1.1 / 4),
+                        s4: close - (range * 1.1 / 2)
+                    };
+
+                    // Format angka Indonesia
+                    const formatPrice = function(value) {
+                        return new Intl.NumberFormat('id-ID', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }).format(value);
+                    };
+
+                    // Masukkan hasil ke tabel
+                    const levels = [
+                        'r4', 'r3', 'r2', 'r1', 'pivot',
+                        's1', 's2', 's3', 's4'
+                    ];
+
+                    levels.forEach(function(level) {
+                        const classicCell =
+                            page.querySelector('#classic-' + level);
+                        const woodieCell =
+                            page.querySelector('#woodie-' + level);
+                        const camarillaCell =
+                            page.querySelector('#camarilla-' + level);
+
+                        if (classicCell) {
+                            classicCell.textContent =
+                                formatPrice(classic[level]);
+                        }
+
+                        if (woodieCell) {
+                            woodieCell.textContent =
+                                formatPrice(woodie[level]);
+                        }
+
+                        if (camarillaCell) {
+                            camarillaCell.textContent =
+                                formatPrice(camarilla[level]);
+                        }
+                    });
+                });
+            }
+
+
+
+            // DATA OHLC TERBARU DARI NEWSMAKER
+            const ohlcCategory = page.querySelector('#pf-ohlc-category');
+            const ohlcBody = page.querySelector('#pf-ohlc-body');
+            const ohlcInfo = page.querySelector('#pf-ohlc-info');
+
+            if (ohlcCategory && ohlcBody && ohlcInfo) {
+                let ohlcRows = [];
+
+                function getOhlcRows(payload) {
+                    if (Array.isArray(payload)) return payload;
+
+                    if (payload && typeof payload === 'object') {
+                        for (const key of ['data', 'items', 'results', 'rows', 'records']) {
+                            if (Array.isArray(payload[key])) {
+                                return payload[key];
+                            }
+                        }
+                    }
+
+                    return [];
                 }
-            }
 
-            return [];
-        }
+                function getCategory(row) {
+                    return String(row.category || row.description || '').trim();
+                }
 
-        function getCategory(row) {
-            return String(row.category || row.description || '').trim();
-        }
+                function getDate(row) {
+                    return row.tanggal || row.date || row.datetime || '';
+                }
 
-        function getDate(row) {
-            return row.tanggal || row.date || row.datetime || '';
-        }
+                function formatOhlcPrice(value) {
+                    if (value === null || value === undefined || value === '') {
+                        return '—';
+                    }
 
-        function formatOhlcPrice(value) {
-            if (value === null || value === undefined || value === '') {
-                return '—';
-            }
+                    const number = Number(value);
 
-            const number = Number(value);
+                    return Number.isFinite(number) ?
+                        new Intl.NumberFormat('id-ID', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }).format(number) :
+                        '—';
+                }
 
-            return Number.isFinite(number)
-                ? new Intl.NumberFormat('id-ID', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }).format(number)
-                : '—';
-        }
+                function renderOhlc() {
+                    const selectedCategory = ohlcCategory.value;
 
-        function renderOhlc() {
-            const selectedCategory = ohlcCategory.value;
+                    const filteredRows = ohlcRows
+                        .filter(function(row) {
+                            return getCategory(row) === selectedCategory;
+                        })
+                        .sort(function(a, b) {
+                            return String(getDate(b)).localeCompare(String(getDate(a)));
+                        })
+                        .slice(0, 10);
 
-            const filteredRows = ohlcRows
-                .filter(function (row) {
-                    return getCategory(row) === selectedCategory;
-                })
-                .sort(function (a, b) {
-                    return String(getDate(b)).localeCompare(String(getDate(a)));
-                })
-                .slice(0, 10);
+                    ohlcBody.innerHTML = '';
 
-            ohlcBody.innerHTML = '';
-
-            if (filteredRows.length === 0) {
-                ohlcBody.innerHTML = `
+                    if (filteredRows.length === 0) {
+                        ohlcBody.innerHTML = `
                     <tr>
                         <td colspan="5" class="pf-ohlc-message">
                             Tidak ada data untuk instrumen ini.
@@ -981,77 +982,80 @@ document.addEventListener('DOMContentLoaded', function () {
                     </tr>
                 `;
 
-                ohlcInfo.textContent = 'Tidak ada data OHLC yang tersedia.';
-                return;
-            }
-
-            filteredRows.forEach(function (row) {
-                const tr = document.createElement('tr');
-
-                [
-                    getDate(row),
-                    formatOhlcPrice(row.open),
-                    formatOhlcPrice(row.high),
-                    formatOhlcPrice(row.low),
-                    formatOhlcPrice(row.close)
-                ].forEach(function (value) {
-                    const td = document.createElement('td');
-                    td.textContent = value || '—';
-                    tr.appendChild(td);
-                });
-
-                ohlcBody.appendChild(tr);
-            });
-
-            ohlcInfo.textContent =
-                'Menampilkan ' + filteredRows.length +
-                ' data terbaru · Sumber: NewsMaker';
-        }
-
-        async function loadOhlc() {
-            ohlcInfo.textContent = 'Mengambil data dari NewsMaker...';
-
-            try {
-                const response = await fetch('/newsmaker-ohlc', {
-                    headers: {
-                        'Accept': 'application/json'
+                        ohlcInfo.textContent = 'Tidak ada data OHLC yang tersedia.';
+                        return;
                     }
-                });
 
-                if (!response.ok) {
-                    throw new Error('Gagal mengambil data OHLC.');
+                    filteredRows.forEach(function(row) {
+                        const tr = document.createElement('tr');
+
+                        [
+                            getDate(row),
+                            formatOhlcPrice(row.open),
+                            formatOhlcPrice(row.high),
+                            formatOhlcPrice(row.low),
+                            formatOhlcPrice(row.close)
+                        ].forEach(function(value) {
+                            const td = document.createElement('td');
+                            td.textContent = value || '—';
+                            tr.appendChild(td);
+                        });
+
+                        ohlcBody.appendChild(tr);
+                    });
+
+                    ohlcInfo.textContent =
+                        'Menampilkan ' + filteredRows.length +
+                        ' data terbaru · Sumber: NewsMaker';
                 }
 
-                const payload = await response.json();
-                ohlcRows = getOhlcRows(payload);
+                async function loadOhlc() {
+                    ohlcInfo.textContent = 'Mengambil data dari NewsMaker...';
 
-                if (ohlcRows.length === 0) {
-                    throw new Error('Format data OHLC tidak ditemukan.');
-                }
+                    try {
+                        const response = await fetch('/newsmaker-ohlc', {
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
 
-                const categories = [...new Set(
-                    ohlcRows.map(getCategory).filter(Boolean)
-                )].sort();
+                        if (!response.ok) {
+                            throw new Error('Gagal mengambil data OHLC.');
+                        }
 
-                ohlcCategory.innerHTML = '';
+                        const payload = await response.json();
+                        ohlcRows = getOhlcRows(payload);
 
-                categories.forEach(function (category) {
-                    const option = document.createElement('option');
-                    option.value = category;
-                    option.textContent = category;
-                    ohlcCategory.appendChild(option);
-                });
+                        if (ohlcRows.length === 0) {
+                            throw new Error('Format data OHLC tidak ditemukan.');
+                        }
 
-                if (categories.length === 0) {
-                    throw new Error('Kategori instrumen tidak tersedia.');
-                }
+                        const categories = [...new Set(
+                            ohlcRows
+                            .map(getCategory)
+                            .filter(Boolean)
+                            .filter(category => category.toUpperCase() !== 'LSI')
+                        )].sort();
 
-                renderOhlc();
-            } catch (error) {
-                console.error('Kesalahan Data OHLC:', error);
+                        ohlcCategory.innerHTML = '';
 
-                ohlcInfo.textContent = 'Data OHLC gagal dimuat.';
-                ohlcBody.innerHTML = `
+                        categories.forEach(function(category) {
+                            const option = document.createElement('option');
+                            option.value = category;
+                            option.textContent = category;
+                            ohlcCategory.appendChild(option);
+                        });
+
+                        if (categories.length === 0) {
+                            throw new Error('Kategori instrumen tidak tersedia.');
+                        }
+
+                        renderOhlc();
+                    } catch (error) {
+                        console.error('Kesalahan Data OHLC:', error);
+
+                        ohlcInfo.textContent = 'Data OHLC gagal dimuat.';
+                        ohlcBody.innerHTML = `
                     <tr>
                         <td colspan="5" class="pf-ohlc-message">
                             Data belum bisa diambil dari NewsMaker.
@@ -1059,18 +1063,204 @@ document.addEventListener('DOMContentLoaded', function () {
                         </td>
                     </tr>
                 `;
-            } finally {
+                    } finally {
 
+                    }
+                }
+
+                // ============================================= FIBONACCI RETRACEMENT DARI DATA OHLC NEWSMAKER =============================================
+
+                const fibForm = page.querySelector('#pf-fib-form');
+                const fibHighInput = page.querySelector('#pf-fib-high');
+                const fibLowInput = page.querySelector('#pf-fib-low');
+                const fibBody = page.querySelector('#pf-fib-body');
+
+                if (fibForm && fibHighInput && fibLowInput && fibBody) {
+
+                    function calculateFibonacci() {
+                        const high = Number(fibHighInput.value);
+                        const low = Number(fibLowInput.value);
+
+                        if (
+                            !Number.isFinite(high) ||
+                            !Number.isFinite(low) ||
+                            high <= low ||
+                            low <= 0
+                        ) {
+                            fibBody.innerHTML = `
+                <tr>
+                    <td colspan="3">
+                        Data High dan Low tidak valid.
+                    </td>
+                </tr>
+            `;
+                            return;
+                        }
+
+                        const range = high - low;
+
+                        const levels = [{
+                                ratio: 0,
+                                label: '0.000 (0%)'
+                            },
+                            {
+                                ratio: 0.236,
+                                label: '0.236 (23.6%)'
+                            },
+                            {
+                                ratio: 0.382,
+                                label: '0.382 (38.2%)'
+                            },
+                            {
+                                ratio: 0.5,
+                                label: '0.500 (50%)'
+                            },
+                            {
+                                ratio: 0.618,
+                                label: '0.618 (61.8%)'
+                            },
+                            {
+                                ratio: 0.786,
+                                label: '0.786 (78.6%)'
+                            },
+                            {
+                                ratio: 1,
+                                label: '1.000 (100%)'
+                            }
+                        ];
+
+                        const formatPrice = (value) => {
+                            return new Intl.NumberFormat('id-ID', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 8
+                            }).format(value);
+                        };
+
+                        fibBody.replaceChildren();
+
+                        levels.forEach((level) => {
+                            const price = high - (range * level.ratio);
+                            const row = document.createElement('tr');
+
+                            const ratioCell = document.createElement('td');
+                            ratioCell.textContent = level.label;
+
+                            const priceCell = document.createElement('td');
+                            priceCell.textContent = formatPrice(price);
+
+                            const descriptionCell = document.createElement('td');
+
+                            if (level.ratio === 0) {
+                                descriptionCell.textContent = 'High';
+                            } else if (level.ratio === 1) {
+                                descriptionCell.textContent = 'Low';
+                            } else {
+                                descriptionCell.textContent = 'Level Retracement';
+                            }
+
+                            row.append(ratioCell, priceCell, descriptionCell);
+                            fibBody.appendChild(row);
+                        });
+                    }
+
+
+                    function updateFibonacciFromOhlc() {
+                        if (
+                            !ohlcCategory ||
+                            !Array.isArray(ohlcRows) ||
+                            ohlcRows.length === 0
+                        ) {
+                            return;
+                        }
+
+                        const selectedCategory = ohlcCategory.value;
+
+                        const latestRows = ohlcRows
+                            .filter((row) => {
+                                return getCategory(row) === selectedCategory;
+                            })
+                            .filter((row) => {
+                                return (
+                                    row.high !== null &&
+                                    row.high !== undefined &&
+                                    row.high !== '' &&
+                                    row.low !== null &&
+                                    row.low !== undefined &&
+                                    row.low !== ''
+                                );
+                            })
+                            .sort((a, b) => {
+                                return String(getDate(b)).localeCompare(
+                                    String(getDate(a))
+                                );
+                            });
+
+                        if (latestRows.length === 0) {
+                            console.warn(
+                                'Data OHLC tidak memiliki nilai High dan Low untuk kategori ini.'
+                            );
+                            return;
+                        }
+
+                        const latest = latestRows[0];
+
+
+                        function parsePrice(value) {
+                            if (typeof value === 'number') {
+                                return value;
+                            }
+
+                            let text = String(value).trim().replace(/\s/g, '');
+
+
+                            if (text.includes(',')) {
+                                text = text.replace(/\./g, '').replace(',', '.');
+                            }
+
+                            return Number(text);
+                        }
+
+                        const high = parsePrice(latest.high);
+                        const low = parsePrice(latest.low);
+
+                        if (
+                            !Number.isFinite(high) ||
+                            !Number.isFinite(low) ||
+                            high <= low ||
+                            low <= 0
+                        ) {
+                            console.warn('Nilai High dan Low OHLC tidak valid.', latest);
+                            return;
+                        }
+
+
+                        fibHighInput.value = high;
+                        fibLowInput.value = low;
+
+
+                        calculateFibonacci();
+                    }
+
+                    fibForm.addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        calculateFibonacci();
+                    });
+
+                    ohlcCategory.addEventListener('change', function() {
+                        updateFibonacciFromOhlc();
+                    });
+
+                }
+
+                ohlcCategory.addEventListener('change', renderOhlc);
+
+                loadOhlc();
+                renderOhlc();
+                updateFibonacciFromOhlc();
             }
-        }
-       
-        ohlcCategory.addEventListener('change', renderOhlc);
 
-        loadOhlc();
-    }
-    
 
-});
-</script>
+        });
+    </script>
 
 @endsection
