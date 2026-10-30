@@ -599,45 +599,4 @@
 
 </div>
 
-
-{{-- ============================================================
-     JAVASCRIPT ANIMASI SCROLL
-============================================================ --}}
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    const revealElements = document.querySelectorAll(
-        '.online-section-title,' +
-        '.online-step,' +
-        '.online-bank-section,' +
-        '.online-warning'
-    );
-
-    const revealObserver = new IntersectionObserver(
-        function (entries, observer) {
-
-            entries.forEach(function (entry) {
-
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12,
-            rootMargin: '0px 0px -60px 0px'
-        }
-    );
-
-    revealElements.forEach(function (element) {
-        revealObserver.observe(element);
-    });
-
-});
-</script>
-
 @endsection

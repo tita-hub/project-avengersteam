@@ -18061,8 +18061,178 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 
 }
 
+/*=========================================================
+   DIANA END
+   ========================================================= */
+\n\n/* ============================================================
+   PROSEDUR: MATIKAN ANIMASI MASUK / SCROLL REVEAL DI SEMUA HALAMAN
+   Konten langsung terlihat saat halaman dibuka. Efek hover tetap
+   mengikuti transition yang sudah ada.
+   ============================================================ */
+
+.online-page *,
+.withdrawal-page *,
+.transaction-page * {
+    animation: none !important;
+}
+
+/* Pembukaan rekening */
+.online-page .online-section-title,
+.online-page .online-step,
+.online-page .online-bank-section,
+.online-page .online-bank-card,
+.online-page .online-legal-section,
+.online-page .online-legal-card,
+.online-page .online-warning {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Penarikan dana */
+.withdrawal-page .withdrawal-hero,
+.withdrawal-page .withdrawal-hero-content,
+.withdrawal-page .withdrawal-info,
+.withdrawal-page .info-icon,
+.withdrawal-page .withdrawal-section-heading,
+.withdrawal-page .heading-icon,
+.withdrawal-page .withdrawal-process,
+.withdrawal-page .withdrawal-step,
+.withdrawal-page .withdrawal-card,
+.withdrawal-page .withdrawal-warning,
+.withdrawal-page .warning-icon,
+.withdrawal-page .legal-section,
+.withdrawal-page .legal-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Petunjuk transaksi */
+.transaction-page .transaction-header,
+.transaction-page .transaction-header-content,
+.transaction-page .transaction-header-label,
+.transaction-page .transaction-header h1,
+.transaction-page .transaction-header h1 span,
+.transaction-page .transaction-header p,
+.transaction-page .transaction-status,
+.transaction-page .demo-info,
+.transaction-page .demo-icon,
+.transaction-page .transaction-section-title,
+.transaction-page .transaction-step,
+.transaction-page .transaction-security,
+.transaction-page .transaction-legal-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+.transaction-page .transaction-timeline::after {
+    height: calc(100% - 62px) !important;
+}
+
+/*=========================================================
+   DIANA END
+   ========================================================= */
 
 
+/* ============================================================
+   PERBAIKAN FINAL — PROSEDUR PEMBUKAAN REKENING
+   Mempertahankan seluruh styling asli, hanya menonaktifkan
+   animasi kemunculan/scroll reveal.
+   ============================================================ */
+
+.online-page {
+    overflow-x: hidden !important;
+    box-sizing: border-box;
+}
+
+/* Semua elemen reveal langsung tampil sejak halaman dimuat */
+.online-back,
+.online-hero,
+.online-hero-content,
+.online-hero-line,
+.online-hero h1,
+.online-hero-description,
+.online-status,
+.online-section-title,
+.online-step,
+.online-bank-section,
+.online-bank-card,
+.online-warning {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition-delay: 0s !important;
+}
+
+/* Hilangkan animasi dekoratif hero tanpa menghapus dekorasinya */
+.online-hero::before,
+.online-hero::after,
+.online-hero-line,
+.online-status-icon,
+.online-document-item::before,
+.online-step-number::before,
+.online-step-number::after {
+    animation: none !important;
+}
+
+/* Pastikan judul, deskripsi, dan isi hero tidak tersembunyi */
+.online-hero-content,
+.online-hero h1,
+.online-hero-description,
+.online-status,
+.online-section-title,
+.online-section-title.show,
+.online-step,
+.online-step.show,
+.online-bank-section,
+.online-bank-section.show,
+.online-bank-card,
+.online-bank-section.show .online-bank-card,
+.online-warning,
+.online-warning.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+/* Kartu rekening langsung tampil; hover asli tetap bisa bekerja */
+.online-bank-card {
+    transition: box-shadow .25s ease, border-color .25s ease !important;
+}
+
+/* Ikon checklist dokumen lebih tegas dan profesional */
+.online-document-item::before {
+    width: 23px !important;
+    height: 23px !important;
+    min-width: 23px !important;
+    border-radius: 50% !important;
+    background: #e8f1ec !important;
+    color: #285743 !important;
+    font-size: 14px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    box-shadow: inset 0 0 0 1px rgba(40, 87, 67, .14);
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Mencegah elemen dekoratif melebar keluar viewport */
+.online-hero,
+.online-step-card,
+.online-bank-card,
+.online-warning {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+       DIANA END
+    ========================================================= */
 
 
 /* =========================================================
@@ -18858,8 +19028,10 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
 .experience-controls {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
-    margin-bottom: 15px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 
 .experience-control {
@@ -18896,73 +19068,177 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
     display: none;
 }
 
+/* CARD PENGALAMAN MAGANG */
 .experience-card {
-    flex: 0 0 calc(50% - 11px);
+    flex: 0 0 calc(33.333% - 15px);
     min-width: 0;
+    padding: 20px;
     overflow: hidden;
     scroll-snap-align: start;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: #fff;
+    border: 1px solid #71313d;
+    border-radius: 14px;
+    background: #681f30;
+    box-shadow: 0 5px 18px rgba(50, 10, 20, 0.12);
+}
+
+/* ============================================================
+   FOTO PROFIL
+============================================================ */
+
+.experience-card-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .experience-card-image {
-    width: 100%;
-    height: 270px;
+    flex: 0 0 90px !important;
+    width: 90px !important;
+    min-width: 90px !important;
+    height: 110px !important;
+    min-height: 110px !important;
+    max-height: 110px !important;
+    align-self: center;
     overflow: hidden;
-    background: #dfe7e2;
+    border-radius: 10px;
 }
 
 .experience-card-image img {
-    width: 100%;
-    height: 100%;
     display: block;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
-    transition: transform .4s ease;
+    object-position: center;
 }
 
-.experience-card:hover .experience-card-image img {
-    transform: scale(1.04);
+/* ============================================================
+   IDENTITAS PESERTA
+============================================================ */
+
+.experience-card-identity {
+    min-width: 0;
 }
 
-.experience-card-content {
-    padding: 28px;
-}
-
-.experience-card-content small {
+.experience-card-identity small {
     display: block;
-    margin-bottom: 9px;
-    color: var(--red);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.4px;
+    margin-bottom: 7px;
+    color: #f2b8c2;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.experience-card-content h3 {
-    margin: 0 0 12px;
-    color: var(--green-dark);
-    font-size: 24px;
-    line-height: 1.25;
+.experience-card-identity h3 {
+    margin: 0 0 7px;
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.experience-card-identity p {
+    margin: 0;
+    color: #f1dce0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.experience-card-identity .experience-institution {
+    color: #f1dce0 !important;
+    font-size: 12px;
+}
+
+/* ============================================================
+   ISI ULASAN
+============================================================ */
+
+.experience-card-content {
+    padding-top: 15px;
+    margin-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .experience-card-content p {
     margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.experience-quote {
-    margin-top: 18px;
-    padding: 14px 16px;
-    border-left: 3px solid var(--red);
-    border-radius: 0 5px 5px 0;
-    background: var(--red-soft);
-    color: #63323a;
+    color: #f8eaed;
     font-size: 13px;
     line-height: 1.7;
 }
+
+/* ============================================================
+   TOMBOL READ MORE
+============================================================ */
+
+.experience-read-more {
+    margin-top: 13px;
+    padding: 7px 13px;
+    border: 1px solid #e9b7c1;
+    border-radius: 6px;
+    background: #f5e5e8;
+    color: #681f30;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.experience-read-more:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   RESPONSIVE TABLET DAN DESKTOP KECIL
+============================================================ */
+
+@media (max-width: 992px) {
+    .experience-card {
+        flex: 0 0 calc(50% - 11px);
+    }
+
+    .experience-card-profile {
+        gap: 12px;
+    }
+
+    .experience-card-image {
+        flex: 0 0 80px !important;
+        width: 80px !important;
+        min-width: 80px !important;
+        height: 100px !important;
+        min-height: 100px !important;
+        max-height: 100px !important;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE HP
+============================================================ */
+
+@media (max-width: 576px) {
+    .experience-card {
+        flex: 0 0 100%;
+    }
+
+    .experience-card-image {
+        flex: 0 0 75px !important;
+        width: 75px !important;
+        min-width: 75px !important;
+        height: 90px !important;
+        min-height: 90px !important;
+        max-height: 90px !important;
+    }
+
+    .experience-card-identity h3 {
+        font-size: 16px;
+    }
+
+    .experience-card-identity p {
+        font-size: 11px;
+    }
+}
+
+
 
 
 /* =========================================================
@@ -21065,35 +21341,66 @@ body.literasi-modal-open {
     position: relative;
 }
 
+/* GAMBAR CARD */
 .edu-page .edukasi-card-image {
     width: 100%;
     height: 200px;
+    padding: 12px 12px 0;
+    box-sizing: border-box;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
 }
 
 .edu-page .edukasi-card-image img {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
 }
 
+/* KONTEN CARD */
 .edu-page .materi-content {
     padding: 22px 24px 65px;
 }
 
+/* TABLET */
 @media (max-width: 900px) {
     .edu-page .materi-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* HP */
 @media (max-width: 600px) {
     .edu-page .materi-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .edu-page .edukasi-card-image {
+        height: 150px;
+    }
+
+    .edu-page .materi-content {
+        padding: 14px 12px 45px;
     }
 }
 
+/* HP SANGAT KECIL */
+@media (max-width: 360px) {
+    .edu-page .materi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-page .edukasi-card-image {
+        height: 200px;
+    }
+}
 
 
 /* =====================================================
@@ -21998,6 +22305,162 @@ body {
         font-size: 12px;
     }
 }
+
+
+
+
+
+/* ============================================================
+   PERBAIKAN ISI DETAIL KEGIATAN SOSIAL
+   Jarak hanya berlaku untuk konten detail, bukan background atas
+============================================================ */
+
+#detail-kegiatan .kegiatan-detail-page.active {
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+/* Wadah informasi agar teks tidak terlihat mengambang */
+#detail-kegiatan .kegiatan-detail-body {
+    width: 100%;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e8ece9;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+/* Jarak video dan informasi tetap rapi */
+#detail-kegiatan .kegiatan-detail-video {
+    margin-bottom: 24px;
+}
+
+/* Penyesuaian untuk layar HP */
+@media (max-width: 600px) {
+    #detail-kegiatan .kegiatan-detail-page.active {
+        padding-top: 25px;
+    }
+
+    #detail-kegiatan .kegiatan-detail-body {
+        padding: 20px;
+        border-radius: 12px;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE CARD KEGIATAN SOSIAL
+========================================== */
+
+/* DESKTOP */
+#detail-kegiatan .kegiatan-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+}
+
+#detail-kegiatan .kegiatan-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#detail-kegiatan .kegiatan-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+#detail-kegiatan .kegiatan-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    #detail-kegiatan .kegiatan-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* HP */
+@media (max-width: 700px) {
+
+    #detail-kegiatan {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    #detail-kegiatan .kegiatan-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #detail-kegiatan .kegiatan-card {
+        min-width: 0;
+        border-radius: 14px;
+    }
+
+    #detail-kegiatan .kegiatan-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    #detail-kegiatan .kegiatan-body {
+        padding: 14px 12px;
+    }
+
+    #detail-kegiatan .kegiatan-title {
+        font-size: 16px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    #detail-kegiatan .kegiatan-description {
+        font-size: 12px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    #detail-kegiatan .kegiatan-info-item {
+        font-size: 11px;
+        line-height: 1.4;
+        min-width: 0;
+    }
+}
+
+/* HP SANGAT KECIL */
+@media (max-width: 360px) {
+
+    #detail-kegiatan .kegiatan-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #detail-kegiatan .kegiatan-body {
+        padding: 18px 16px;
+    }
+
+    #detail-kegiatan .kegiatan-title {
+        font-size: 19px;
+    }
+
+    #detail-kegiatan .kegiatan-description {
+        font-size: 13px;
+    }
+
+    #detail-kegiatan .kegiatan-info-item {
+        font-size: 12px;
+    }
+}
+
 
 
 

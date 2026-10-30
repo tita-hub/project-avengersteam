@@ -852,104 +852,96 @@
 
 
                 {{-- =================================================
-                    EXPERIENCE SLIDER
-                ================================================== --}}
+                        EXPERIENCE SLIDER
+                    ================================================== --}}
 
-                @if($pengalamanMagang->count() > 0)
+                    @if($pengalamanMagang->count() > 0)
 
-                    <div class="experience-slider">
+                        <div class="experience-slider">
 
-                        <div class="experience-controls">
-
-                            <button
-                                type="button"
-                                class="experience-control"
-                                onclick="geserPengalaman(-1)"
-                                aria-label="Pengalaman sebelumnya"
+                            {{-- DAFTAR CARD PENGALAMAN --}}
+                            <div
+                                class="experience-track"
+                                id="experienceTrack"
                             >
-                                <i class="bi bi-arrow-left"></i>
-                            </button>
 
-                            <button
-                                type="button"
-                                class="experience-control"
-                                onclick="geserPengalaman(1)"
-                                aria-label="Pengalaman berikutnya"
-                            >
-                                <i class="bi bi-arrow-right"></i>
-                            </button>
+                                @foreach($pengalamanMagang as $pengalaman)
+
+                                    <article class="experience-card">
+
+                                        <div class="experience-card-profile">
+
+                                            {{-- FOTO PESERTA --}}
+                                            <div class="experience-card-image">
+                                                <img
+                                                    src="{{ asset('storage/' . $pengalaman->photo) }}"
+                                                    alt="Foto {{ $pengalaman->name }}"
+                                                >
+                                            </div>
+
+                                            {{-- IDENTITAS PESERTA --}}
+                                            <div class="experience-card-identity">
+                                                <small>Pengalaman Peserta Magang</small>
+
+                                                <h3>{{ $pengalaman->name }}</h3>
+
+                                                <p class="experience-institution">
+                                                    {{ $pengalaman->institution }}
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                        {{-- ISI ULASAN --}}
+                                        <div class="experience-card-content">
+
+                                            <p>
+                                                {{ \Illuminate\Support\Str::limit($pengalaman->review, 180, '...') }}
+                                            </p>
+
+                                            <button
+                                                type="button"
+                                                class="experience-read-more"
+                                                onclick="bukaPengalaman({{ $pengalaman->id }})"
+                                            >
+                                                Read More...
+                                            </button>
+
+                                        </div>
+
+                                    </article>
+
+                                @endforeach
+
+                            </div>
+
+                            {{-- TOMBOL PANAH DI KANAN BAWAH --}}
+                            <div class="experience-controls">
+
+                                <button
+                                    type="button"
+                                    class="experience-control"
+                                    onclick="geserPengalaman(-1)"
+                                    aria-label="Pengalaman sebelumnya"
+                                >
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="experience-control"
+                                    onclick="geserPengalaman(1)"
+                                    aria-label="Pengalaman berikutnya"
+                                >
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+
+                            </div>
 
                         </div>
 
+                    @else
 
-                        <div
-                            class="experience-track"
-                            id="experienceTrack"
-                        >
-
-                            @foreach($pengalamanMagang as $pengalaman)
-
-                                <article class="experience-card">
-
-                                    <div class="experience-card-image">
-
-                                        <img
-                                            src="{{ asset('storage/' . $pengalaman->photo) }}"
-                                            alt="Foto {{ $pengalaman->name }}"
-                                        >
-
-                                    </div>
-
-
-                                    <div class="experience-card-content">
-
-                                        <small>
-                                            Pengalaman Peserta Magang
-                                        </small>
-
-
-                                        <h3>
-                                            {{ $pengalaman->name }}
-                                        </h3>
-
-
-                                        <p class="experience-institution">
-
-                                            {{ $pengalaman->institution }}
-
-                                        </p>
-
-
-                                        <p>
-
-                                            {{ \Illuminate\Support\Str::limit(
-                                                $pengalaman->review,
-                                                180,
-                                                '...'
-                                            ) }}
-
-                                        </p>
-
-
-                                        <button
-                                            type="button"
-                                            class="experience-read-more"
-                                            onclick="bukaPengalaman({{ $pengalaman->id }})"
-                                        >
-                                            Read More...
-                                        </button>
-
-                                    </div>
-
-                                </article>
-
-                            @endforeach
-
-                        </div>
-
-                    </div>
-
-                @else
 
                     {{-- =================================================
                         BELUM ADA PENGALAMAN
