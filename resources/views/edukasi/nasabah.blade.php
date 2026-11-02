@@ -2707,8 +2707,30 @@ cursor: zoom-out;
     top: 15px !important;
     right: 20px !important;
     z-index: 1000000 !important;
-    font-size: 36px !important;
-    color: white !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    color: #ffffff !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Pastikan tombol close tetap terlihat di atas gambar */
+.image-zoom-overlay.active .image-zoom-close {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 </style>

@@ -215,7 +215,7 @@
                 <div class="trading-platform">
 
                     <small>
-                        Platform Online Trading
+                        Platform Online Demo Trading
                     </small>
 
                     <a
@@ -223,7 +223,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Buka Platform Trading
+                        Buka Platform Demo Trading
                         <span>→</span>
                     </a>
 
@@ -391,127 +391,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         timelineObserver.observe(timeline);
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | CARD TILT HALUS
-    |--------------------------------------------------------------------------
-    */
-
-    const cards =
-        document.querySelectorAll(
-            '.transaction-card'
-        );
-
-
-    cards.forEach(function(card) {
-
-        card.addEventListener(
-            'mousemove',
-            function(e) {
-
-                if (window.innerWidth <= 700) {
-                    return;
-                }
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    e.clientX - rect.left;
-
-                const y =
-                    e.clientY - rect.top;
-
-                const centerX =
-                    rect.width / 2;
-
-                const centerY =
-                    rect.height / 2;
-
-                const rotateX =
-                    ((y - centerY) / centerY) * -1.2;
-
-                const rotateY =
-                    ((x - centerX) / centerX) * 1.2;
-
-
-                card.style.transform =
-                    `
-                    translateX(6px)
-                    translateY(-3px)
-                    perspective(900px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    `;
-            }
-        );
-
-
-        card.addEventListener(
-            'mouseleave',
-            function() {
-
-                card.style.transform = '';
-
-            }
-        );
-
-    });
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | SMOOTH BACK BUTTON
-    |--------------------------------------------------------------------------
-    */
-
-    const backButton =
-        document.querySelector(
-            '.transaction-back a'
-        );
-
-
-    if (backButton) {
-
-        backButton.addEventListener(
-            'mouseenter',
-            function() {
-
-                const arrow =
-                    this.querySelector(
-                        '.transaction-back-arrow'
-                    );
-
-                if (arrow) {
-
-                    arrow.style.transform =
-                        'translateX(-3px) scale(1.05)';
-                }
-
-            }
-        );
-
-
-        backButton.addEventListener(
-            'mouseleave',
-            function() {
-
-                const arrow =
-                    this.querySelector(
-                        '.transaction-back-arrow'
-                    );
-
-                if (arrow) {
-
-                    arrow.style.transform = '';
-                }
-
-            }
-        );
 
     }
 

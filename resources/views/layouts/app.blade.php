@@ -354,9 +354,7 @@
                 </h3>
 
 
-                <a href="#"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                <a href="{{ route('dashboard') }}">
 
                     <i class="bi bi-chevron-right"></i>
 
