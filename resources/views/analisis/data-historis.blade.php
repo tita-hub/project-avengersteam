@@ -451,7 +451,6 @@
                 <div class="hist-field">
                     <label for="historis-instrumen">Kategori</label>
                     <select id="historis-instrumen">
-                        <option value="">Semua kategori</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category }}">{{ $category }}</option>
                         @endforeach
@@ -936,19 +935,10 @@ document.addEventListener('DOMContentLoaded', function () {
         EUR: 'Euro',
         GBP: 'British Pound',
         JPY: 'Japanese Yen',
-        SGD: 'Singapore Dollar',
-        AUD: 'Australian Dollar',
-        CAD: 'Canadian Dollar',
-        CHF: 'Swiss Franc',
-        CNY: 'Chinese Yuan',
-        MYR: 'Malaysian Ringgit',
-        HKD: 'Hong Kong Dollar',
-        NZD: 'New Zealand Dollar',
-        KRW: 'South Korean Won',
-        THB: 'Thai Baht'
+        
     };
 
-    const availableCurrencies = Object.keys(rates).sort();
+    const availableCurrencies = ['USD', 'IDR', 'EUR', 'GBP', 'JPY'];
 
     function fillCurrencyOptions(select, preferred) {
         select.innerHTML = '';

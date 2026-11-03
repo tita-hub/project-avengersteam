@@ -10,10 +10,6 @@
 
 .produk-wrapper {
     font-family: 'Arial', sans-serif;
-
-    padding: 45px 45px 70px;
-    background: #f7f9fc;
-    min-height: calc(100vh - 70px);
 }
 
 
@@ -965,6 +961,11 @@
 /* ============================================================
    RISK BOX
    ============================================================ */
+
+/* JARAK ANTARA CATATAN DAN CATATAN RISIKO */
+.produk-detail-note + .risk-box {
+    margin-top: 18px !important;
+}
 
 .risk-box {
 
@@ -3125,7 +3126,7 @@ body.modal-open {
             </div>
 
 
-            <div class="risk-box">
+            <div class="risk-box produk-risk-modern">
 
                 <strong>⚠️ Catatan Risiko</strong>
 

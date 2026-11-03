@@ -497,7 +497,7 @@
         <div class="footer-bottom">
 
             <p>
-                © {{ date('Y') }} PT Rifan Financindo Berjangka.
+                © {{ date('Y') }} PT Rifan Financindo Berjangka Semarang.
                 All rights reserved.
             </p>
 
