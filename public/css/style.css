@@ -105,14 +105,7 @@
     pointer-events: none;
 }
 
-.top-logo img {
-    display: block;
 
-    width: 110px;
-    height: 54px;
-
-    object-fit: contain;
-}
 
 
 /* ============================================================
@@ -2986,21 +2979,17 @@ body.modal-open {
 }
 
 
+
 /* ============================================================
    FOOTER
    ============================================================ */
 
 .site-footer {
     width: 100%;
-
     margin-top: 60px;
-
     background: #ffffff;
-
     color: #111111;
-
     border-top: 1px solid #e5e7eb;
-
     box-sizing: border-box;
 }
 
@@ -3011,11 +3000,8 @@ body.modal-open {
 
 .footer-container {
     width: 100%;
-
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 48px 40px 35px;
 
     display: grid;
@@ -3024,7 +3010,6 @@ body.modal-open {
         1.15fr 0.95fr 1.2fr;
 
     gap: 70px;
-
     box-sizing: border-box;
 }
 
@@ -3035,11 +3020,8 @@ body.modal-open {
 
 .footer-warning {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     text-align: center;
 }
 
@@ -3048,11 +3030,8 @@ body.modal-open {
 
 .footer-warning-line {
     width: 100%;
-
     height: 6px;
-
     margin-bottom: 34px;
-
     background: #00a84f;
 }
 
@@ -3061,13 +3040,9 @@ body.modal-open {
 
 .footer-warning h3 {
     margin: 0 0 32px;
-
     color: #111111;
-
     font-size: 20px;
-
     font-weight: 800;
-
     letter-spacing: 0.3px;
 }
 
@@ -3076,20 +3051,96 @@ body.modal-open {
 
 .footer-warning p {
     width: 100%;
-
     max-width: 500px;
-
     margin: 0;
 
     color: #333333;
-
     font-size: 15px;
-
     font-weight: 400;
-
     line-height: 1.7;
-
     text-align: justify;
+}
+
+
+/* ============================================================
+   PEMBATAS MEDIA SOSIAL
+   ============================================================ */
+
+.footer-social-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 28px 0 20px;
+
+    background: #e5e7eb;
+}
+
+
+/* JUDUL MEDIA SOSIAL */
+
+.footer-social-title {
+    width: 100%;
+    margin: 0 0 17px;
+
+    color: #111111;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    text-align: left;
+}
+
+
+/* CONTAINER SOSIAL MEDIA */
+
+.footer-social {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 22px;
+}
+
+
+/* LINK SOSIAL MEDIA */
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #333333;
+    background: #f3f4f6;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* ICON SOSIAL MEDIA */
+
+.footer-social a i {
+    font-size: 18px;
+}
+
+
+/* HOVER SOSIAL MEDIA */
+
+.footer-social a:hover {
+    color: #ffffff;
+    background: #00a84f;
+    transform: translateY(-3px);
 }
 
 
@@ -3099,9 +3150,7 @@ body.modal-open {
 
 .footer-links {
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 }
 
@@ -3112,11 +3161,8 @@ body.modal-open {
     margin: 5px 0 25px;
 
     color: #111111;
-
     font-size: 17px;
-
     font-weight: 800;
-
     letter-spacing: 0.2px;
 }
 
@@ -3125,19 +3171,15 @@ body.modal-open {
 
 .footer-links a {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 
     margin-bottom: 19px;
 
     color: #333333;
-
     text-decoration: none;
 
     font-size: 15px;
-
     font-weight: 500;
 
     transition:
@@ -3150,7 +3192,6 @@ body.modal-open {
 
 .footer-links a i {
     font-size: 14px;
-
     color: #111111;
 
     transition:
@@ -3163,14 +3204,12 @@ body.modal-open {
 
 .footer-links a:hover {
     color: #00a84f;
-
     transform: translateX(3px);
 }
 
 
 .footer-links a:hover i {
     color: #00a84f;
-
     transform: translateX(2px);
 }
 
@@ -3181,9 +3220,7 @@ body.modal-open {
 
 .footer-company {
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 }
 
@@ -3194,11 +3231,8 @@ body.modal-open {
     margin: 5px 0 25px;
 
     color: #111111;
-
     font-size: 17px;
-
     font-weight: 800;
-
     letter-spacing: 0.2px;
 }
 
@@ -3207,16 +3241,12 @@ body.modal-open {
 
 .footer-company p {
     max-width: 520px;
-
-    margin: 0 0 20px;
+    margin: 0 0 10px;
 
     color: #333333;
-
     font-size: 15px;
-
     font-weight: 400;
-
-    line-height: 1.65;
+    line-height: 1.5;
 }
 
 
@@ -3224,39 +3254,68 @@ body.modal-open {
 
 .footer-company p strong {
     color: #111111;
-
     font-weight: 800;
 }
 
 
 /* ============================================================
-   LOGO FOOTER
+   LEGALITAS PERUSAHAAN
    ============================================================ */
 
-.footer-logos {
+.footer-legality {
     width: 100%;
 
     display: flex;
+    flex-direction: column;
 
-    align-items: center;
+    gap: 22px;
 
-    gap: 18px;
-
-    margin-top: 2px;
-
-    margin-bottom: 22px;
+    margin-top: 8px;
 }
 
 
-/* ============================================================
-   LINK LOGO
-   ============================================================ */
+/* KELOMPOK LEGALITAS */
 
-.footer-logos a {
+.footer-legality-group {
+    width: 100%;
+
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
+
+/* JUDUL LEGALITAS */
+
+.footer-legality-group h4 {
+    margin: 0 0 12px;
+
+    color: #333333;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* CONTAINER LOGO */
+
+.footer-legality-logos {
+    width: 100%;
+
+    display: flex;
     align-items: center;
 
+    gap: 15px;
+}
+
+
+/* LINK LOGO */
+
+.footer-legality-logos a {
+    display: flex;
+    align-items: center;
     justify-content: center;
 
     background: #ffffff;
@@ -3265,41 +3324,53 @@ body.modal-open {
 
     transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease;
+        opacity 0.25s ease;
 }
 
 
-.footer-logos a:hover {
-    transform: translateY(-3px);
+/* HOVER LOGO */
 
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.10);
+.footer-legality-logos a:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+
+/* GAMBAR LOGO */
+
+.footer-legality-logos img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
 }
 
 
 /* ============================================================
-   LOGO KOMDIGI
+   LOGO BAPPEBTI
    ============================================================ */
 
-.footer-logo-komdigi {
-    width: 155px;
-
-    height: 70px;
-
-    border-radius: 22px;
-
-    overflow: hidden;
+.footer-bappebti a {
+    width: 150px;
+    height: 65px;
 }
 
 
-.footer-logo-komdigi img {
-    width: 100%;
+/* ============================================================
+   LOGO JFX, KBI, ASPEBTINDO
+   ============================================================ */
 
-    height: 100%;
+.footer-members {
+    gap: 12px;
+}
 
-    object-fit: contain;
 
-    display: block;
+.footer-members a {
+    flex: 1;
+    min-width: 0;
+    height: 65px;
 }
 
 
@@ -3307,42 +3378,9 @@ body.modal-open {
    LOGO TSI KAN
    ============================================================ */
 
-.footer-logo-kan {
-    width: 200px;
-
-    height: 70px;
-
-    border-radius: 22px;
-
-    overflow: hidden;
-}
-
-
-.footer-logo-kan img {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
-    display: block;
-}
-
-
-/* ============================================================
-   KETERANGAN PENGAWASAN
-   ============================================================ */
-
-.footer-company .footer-supervision {
-    max-width: 500px;
-
-    margin: 0;
-
-    color: #333333;
-
-    font-size: 14px;
-
-    line-height: 1.65;
+.footer-tsi a {
+    width: 180px;
+    height: 65px;
 }
 
 
@@ -3367,9 +3405,7 @@ body.modal-open {
     margin: 0;
 
     color: #777777;
-
     font-size: 12px;
-
     line-height: 1.5;
 }
 
@@ -3381,9 +3417,7 @@ body.modal-open {
 @media (max-width: 1000px) {
 
     .footer-container {
-        grid-template-columns:
-            1fr 1fr;
-
+        grid-template-columns: 1fr 1fr;
         gap: 45px;
     }
 
@@ -3432,8 +3466,17 @@ body.modal-open {
 
     .footer-warning p {
         max-width: 100%;
-
         font-size: 14px;
+    }
+
+
+    .footer-social-divider {
+        margin: 24px 0 18px;
+    }
+
+
+    .footer-social {
+        gap: 18px;
     }
 
 
@@ -3443,13 +3486,13 @@ body.modal-open {
     }
 
 
-    .footer-logos {
-        flex-wrap: wrap;
+    .footer-legality {
+        gap: 20px;
     }
 
 
-    .footer-logo-kan {
-        max-width: 100%;
+    .footer-members {
+        gap: 10px;
     }
 
 
@@ -3468,25 +3511,49 @@ body.modal-open {
 
     .footer-container {
         padding-left: 18px;
-
         padding-right: 18px;
     }
 
 
-    .footer-logo-komdigi {
-        width: 110px;
-
-        height: 88px;
+    .footer-social {
+        gap: 16px;
     }
 
 
-    .footer-logo-kan {
-        width: 100%;
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+    }
 
-        height: 88px;
+
+    .footer-bappebti a {
+        width: 130px;
+        height: 60px;
+    }
+
+
+    .footer-members a {
+        height: 55px;
+    }
+
+
+    .footer-tsi a {
+        width: 150px;
+        height: 60px;
+    }
+
+
+    .footer-legality-group h4 {
+        font-size: 11px;
+    }
+
+
+    .footer-bottom {
+        padding: 16px 20px;
     }
 
 }
+
 
 /* ============================================================
    AVENGERSTEAM — TOP HEADER NAVIGATION REDESIGN
@@ -3529,27 +3596,129 @@ body.modal-open {
     display: none !important;
 }
 
-/* Logo kiri */
+/* ============================================================
+   BRANDING NAVBAR
+   ============================================================ */
+
 .top-logo {
     position: static !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
     flex: 0 0 auto;
-    width: 158px;
+
+    width: auto;
     height: 100%;
+
     margin: 0 !important;
+
     display: flex !important;
     align-items: center;
     justify-content: flex-start;
+
+    gap: -0px;
+
+    transform: none !important;
+
     pointer-events: none;
 }
 
-.top-logo img {
-    width: 148px !important;
-    height: 62px !important;
+/* LOGO PT RIFAN */
+/* LOGO PT RIFAN */
+.brand-rifan {
+    width: 70px !important;
+    height: 70px !important;
+
+    flex: 0 0 70px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible !important;
+}
+
+.brand-rifan img {
+    display: block !important;
+
+    width: 70px !important;
+    height: 70px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+
+/* LOGO AVENGERS */
+.brand-avengers {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.brand-avengers img {
+    width: 100%;
+    height: 100%;
+
     object-fit: contain;
-    display: block;
+}
+
+/* TEKS AVENGERS */
+.brand-avengers-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 4px;
+
+    white-space: nowrap;
+}
+
+/* TEKS AVENGERS */
+.brand-avengers-text span {
+    color: #bd041d;
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+}
+
+.brand-avengers-text small {
+    color: #000000;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 760px) {
+    .top-logo {
+        gap: 10px !important;
+    }
+
+    .brand-rifan {
+        width: 70px;
+        height: 70px;
+    }
+
+    .brand-avengers {
+        width: 38px;
+        height: 38px;
+    }
+
+    .brand-avengers-text span {
+        font-size: 13px;
+    }
+
+    .brand-avengers-text small {
+        font-size: 9px;
+    }
 }
 
 /* Navigasi desktop */
@@ -4500,6 +4669,8 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
     }
 }
 
+
+
 /* ============================================================
    DASHBOARD HERO - TAHAP 1
    Hanya digunakan pada dashboard/index.blade.php
@@ -4536,6 +4707,72 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
         0 18px 45px rgba(16, 32, 24, 0.08);
 
     isolation: isolate;
+}
+
+
+/* ============================================================
+   PERBAIKAN BRANDING ALTERNATIF B
+   ============================================================ */
+
+.top-logo.branding-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 8px !important;
+
+    width: auto !important;
+    flex: 0 0 auto !important;
+}
+
+/* LOGO RIFAN */
+.top-logo.branding-logo .brand-rifan {
+    position: relative !important;
+
+    width: 70px !important;
+    height: 70px !important;
+
+    flex: 0 0 70px !important;
+}
+
+/* LOGO AVENGERS */
+.top-logo.branding-logo .brand-avengers {
+    position: relative !important;
+
+    width: 140px !important;
+    height: 120px !important;
+
+    flex: 0 0 140px !important;
+}
+
+/* GAMBAR LOGO */
+.top-logo.branding-logo .brand-rifan img,
+.top-logo.branding-logo .brand-avengers img {
+    position: static !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+}
+
+/* TEKS AVENGERS */
+.top-logo.branding-logo .brand-avengers-text {
+    position: relative !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+    gap: 3px !important;
+
+    white-space: nowrap;
 }
 
 
@@ -7575,6 +7812,7 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
     transform: none !important;
 
     pointer-events: none;
+    gap: 18px;
 }
 
 .top-logo img {
@@ -8207,6 +8445,11 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
    ============================================================ */
 
 @media (max-width: 400px) {
+    
+    .top-logo {
+        gap: 6px !important;
+    }
+
 
     .top-header {
         padding: 0 12px;

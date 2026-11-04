@@ -1333,7 +1333,7 @@
                 </a>
 
                 <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=inititaa23@gmail.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=avengersteam.rfbsmg@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="magang-cta-btn email"

@@ -47,10 +47,21 @@
 
             <div class="top-header-inner">
 
-                <!-- LOGO AVENGERS -->
-                <div class="top-logo">
-                    <img src="{{ asset('images/avengersteam-header.png') }}"
-                        alt="Avengersteam">
+                <!-- BRANDING: LOGO RIFAN + TEKS AVENGERS -->
+                <div class="top-logo branding-text">
+
+                    <!-- TEMPAT LOGO PT RIFAN -->
+                    <div class="brand-rifan">
+                        <img src="{{ asset('images/logo-rifan-2.png') }}"
+                            alt="PT Rifan Financindo Berjangka">
+                    </div>
+
+                    <!-- NAMA TIM -->
+                    <div class="brand-avengers-text">
+                        <span>AVENGERS TEAM</span>
+                        <small>SEMARANG</small>
+                    </div>
+
                 </div>
 
                 <!-- DESKTOP NAVIGATION -->
@@ -306,26 +317,24 @@
     </div>
 
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+    
+    <!-- ============================================================
+        FOOTER
+    ============================================================ -->
 
     <footer class="site-footer">
 
         <div class="footer-container">
 
-
-            <!-- =================================================
-                 PERHATIAN
-            ================================================== -->
+            <!-- ====================================================
+                PERHATIAN + MEDIA SOSIAL
+            ===================================================== -->
 
             <div class="footer-warning">
 
                 <div class="footer-warning-line"></div>
 
-                <h3>
-                    PERHATIAN!
-                </h3>
+                <h3>PERHATIAN!</h3>
 
                 <p>
                     Manajemen PT Rifan Financindo Berjangka (PT RFB)
@@ -339,20 +348,64 @@
                     pribadi siapa pun.
                 </p>
 
+                <!-- GARIS PEMBATAS MEDIA SOSIAL -->
+
+                <div class="footer-social-divider"></div>
+
+                <h4 class="footer-social-title">IKUTI KAMI</h4>
+
+                <div class="footer-social">
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/avgsmgteam?xtok=Z2VtMXM1dTV1Z3Bw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram">
+
+                        <i class="bi bi-instagram"></i>
+
+                    </a>
+
+                    <!-- TIKTOK -->
+                    <a href="https://www.tiktok.com/@avengersteam_29?_r=1&_t=ZS-9B78lvcWi1J"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok">
+
+                        <i class="bi bi-tiktok"></i>
+
+                    </a>
+
+                    <!-- YOUTUBE -->
+                    <a href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube">
+
+                        <i class="bi bi-youtube"></i>
+
+                    </a>
+
+                    <!-- EMAIL -->
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=avengersteam.rfbsmg@gmail.com"
+                    aria-label="Email">
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                    </a>
+
+                </div>
+
             </div>
 
 
-
-            <!-- =================================================
-                 TAUTAN CEPAT
-            ================================================== -->
+            <!-- ====================================================
+                TAUTAN CEPAT
+            ===================================================== -->
 
             <div class="footer-links">
 
-                <h3>
-                    TAUTAN CEPAT
-                </h3>
-
+                <h3>TAUTAN CEPAT</h3>
 
                 <a href="{{ route('dashboard') }}">
 
@@ -362,137 +415,156 @@
 
                 </a>
 
-
-                <a href="https://www.rf-berjangka.com/produk/jfx"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="bi bi-chevron-right"></i>
-
-                    <span>Produk JFX</span>
-
-                </a>
-
-
-                <a href="https://www.rf-berjangka.com/produk/spa"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                <a href="{{ route('produk.index') }}">
 
                     <i class="bi bi-chevron-right"></i>
 
                     <span>Produk SPA</span>
 
                 </a>
-
-
-                <a href="#"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="bi bi-chevron-right"></i>
-
-                    <span>Kontak</span>
-
-                </a>
-
             </div>
 
 
-
-            <!-- =================================================
-                 INFORMASI PERUSAHAAN
-            ================================================== -->
+            <!-- ====================================================
+                INFORMASI PERUSAHAAN
+            ===================================================== -->
 
             <div class="footer-company">
 
-                <h3>
-                    PT RIFAN FINANCINDO BERJANGKA SEMARANG
-                </h3>
-
+                <h3>PT RIFAN FINANCINDO BERJANGKA SEMARANG</h3>
 
                 <p>
-                    Corner, Ruko Jl. Letnan Jenderal S. Parman 
-                    No.47A Unit 5-6, Gajahmungkur, 
-                    Kec. Gajahmungkur, Kota Semarang, 
+                    Corner, Ruko Jl. Letnan Jenderal S. Parman
+                    No.47A Unit 5-6, Gajahmungkur,
+                    Kec. Gajahmungkur, Kota Semarang,
                     Jawa Tengah 50231
                 </p>
 
-
                 <p>
                     <strong>Email:</strong>
-                    compliance.smg@rifan-financindo-berjangka.co.id
+                    avengersteam.rfbsmg@gmail.com
                 </p>
-
 
                 <p>
-                    <strong>Telepon:</strong>
+                    <strong>Telepon (Fax):</strong>
                     (024) 8508868
                 </p>
-
 
                 <p>
                     <strong>Fax (Ruko S.Parman):</strong>
                     (024) 850 8869
                 </p>
 
-
                 <p>
                     <strong>Layanan pengaduan:</strong>
-                    compliance.smg@rifan-financindo-berjangka.co.id
+                    avengersteam.rfbsmg@gmail.com
                 </p>
 
 
                 <!-- =================================================
-                     LOGO KOMDIGI
-                     LOGO INI BISA DIKLIK
+                    LEGALITAS PERUSAHAAN
                 ================================================== -->
 
-                <div class="footer-logos">
+                <div class="footer-legality">
+
+                    <!-- BAPPEBTI -->
+
+                    <div class="footer-legality-group">
+
+                        <h4>BERIZIN DAN DIAWASI OLEH</h4>
+
+                        <div class="footer-legality-logos footer-bappebti">
+
+                            <a href="https://bappebti.go.id/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="BAPPEBTI">
+
+                                <img src="{{ asset('images/legalitas/bappebti.png') }}"
+                                    alt="BAPPEBTI">
+
+                            </a>
+
+                        </div>
+
+                    </div>
 
 
-                    <!-- LOGO KOMDIGI -->
+                    <!-- ANGGOTA -->
 
-                    <a href="https://www.komdigi.go.id/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="footer-logo-komdigi"
-                        aria-label="Website Komdigi">
+                    <div class="footer-legality-group">
 
-                        <img src="{{ asset('images/logo-komdigi.png') }}"
-                            alt="Komdigi">
+                        <h4>ANGGOTA DARI</h4>
 
-                    </a>
+                        <div class="footer-legality-logos footer-members">
+
+                            <a href="https://jfx.co.id/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="JFX">
+
+                                <img src="{{ asset('images/legalitas/jfx.png') }}"
+                                    alt="JFX">
+
+                            </a>
+
+                            <a href="https://www.ptkbi.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="KBI">
+
+                                <img src="{{ asset('images/legalitas/kbi.png') }}"
+                                    alt="KBI">
+
+                            </a>
+
+                            <a href="https://www.aspebtindo.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="ASPEBTINDO">
+
+                                <img src="{{ asset('images/legalitas/aspebtindo.png') }}"
+                                    alt="ASPEBTINDO">
+
+                            </a>
+
+                        </div>
+
+                    </div>
 
 
-                    <!-- LOGO TSI / KAN -->
+                    <!-- SERTIFIKASI TSI KAN -->
 
-                    <a href="https://tsicertification.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="footer-logo-kan"
-                        aria-label="Website TSI KAN">
+                    <div class="footer-legality-group">
 
-                        <img src="{{ asset('images/logo-tsi-kan.png') }}"
-                            alt="TSI KAN">
+                        <h4>SERTIFIKASI</h4>
 
-                    </a>
+                        <div class="footer-legality-logos footer-tsi">
+
+                            <a href="https://tsicertification.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="TSI Certification">
+
+                                <img src="{{ asset('images/legalitas/tsi-kan.png') }}"
+                                    alt="TSI KAN">
+
+                            </a>
+
+                        </div>
+
+                    </div>
 
                 </div>
-
-
-                <p class="footer-supervision">
-                    Terdaftar dan diawasi oleh Kementerian Komunikasi
-                    dan Digital Republik Indonesia
-                </p>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             FOOTER BOTTOM
-        ================================================== -->
+        <!-- ========================================================
+            FOOTER BOTTOM
+        ========================================================= -->
 
         <div class="footer-bottom">
 
@@ -504,6 +576,7 @@
         </div>
 
     </footer>
+
 
 
     <!-- =====================================================
