@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 style="text-align: center;">Data Wakil Pialang Team Avangers</h1>
+        <h1 style="text-align: center;">Wakil Pialang Avangers Team</h1>
 
         <div class="wakil-pialang-container">
 

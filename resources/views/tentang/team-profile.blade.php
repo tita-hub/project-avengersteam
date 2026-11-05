@@ -26,7 +26,7 @@
                     <br><br>
 
                     Setelah tiga tahun berproses, tepatnya pada tahun 2017, Christin dipercaya untuk mengemban tanggung
-                    jawab sebagai Manager. Dari perjalanan panjang tersebut, muncul keinginan untuk membangun sebuah tim
+                    jawab sebagai Kepala Divisi. Dari perjalanan panjang tersebut, muncul keinginan untuk membangun sebuah tim
                     yang tidak hanya berorientasi pada pencapaian, tetapi juga memiliki semangat untuk tumbuh dan saling
                     membantu.
 
@@ -118,7 +118,7 @@
                 [
                     'name' => 'Anita Yuliatin',
                     'position' => 'Member Team',
-                    'image' => 'images/A5.jpeg',
+                    'image' => 'images/kaanita   .jpeg',
                     'description' => '
                     Anita bergabung sebagai konsultan pada tahun 2024 dan menjadi salah satu bagian dari proses
                     perkembangan Avengers.
