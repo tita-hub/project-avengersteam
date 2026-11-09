@@ -20,7 +20,6 @@
         margin: 0 auto;
         overflow: hidden;
         background: #fff;
-        border: 8px solid #ffb900;
         border-radius: 22px;
         box-shadow: 0 12px 35px rgba(0, 0, 0, .13);
     }
