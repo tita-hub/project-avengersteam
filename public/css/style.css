@@ -13135,10 +13135,6 @@ body.nav-dark-mode .top-nav .nav-item.active::after {
     height: calc(100% - 62px) !important;
 }
 
-/*=========================================================
-   DIANA END
-   ========================================================= */
-
 /* ============================================================
    PERBAIKAN FINAL — PROSEDUR PEMBUKAAN REKENING
    Mempertahankan seluruh styling asli, hanya menonaktifkan
@@ -16429,6 +16425,62 @@ body.literasi-modal-open {
         height: 200px;
     }
 }
+
+
+/* =====================================================
+   PERBAIKAN CARD UTAMA - EDUKASI UMUM
+===================================================== */
+
+/* Jarak section */
+.edu-page .materi-section {
+    padding-bottom: 45px;
+}
+
+/* Grid card */
+.edu-page .materi-grid {
+    align-items: stretch;
+}
+
+/* Card utama */
+.edu-page .materi-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+}
+
+/* Foto card */
+.edu-page .edukasi-card-image {
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+/* Konten card */
+.edu-page .materi-content {
+    flex: 1;
+    padding: 12px 24px 20px;
+}
+
+/* =====================================================
+   RESPONSIVE TABLET DAN HP
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .edu-page .materi-content {
+        padding: 10px 12px 16px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .edu-page .materi-content {
+        padding: 12px 15px 18px;
+    }
+
+}
+
 
 
 /* =====================================================

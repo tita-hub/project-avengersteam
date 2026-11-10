@@ -935,10 +935,21 @@ document.addEventListener('DOMContentLoaded', function () {
         EUR: 'Euro',
         GBP: 'British Pound',
         JPY: 'Japanese Yen',
+        AED: 'UAE Dirham',
+        SGD: 'Singapore Dollar',
+        AUD: 'Australian Dollar',
+        CAD: 'Canadian Dollar',
+        CHF: 'Swiss Franc',
+        CNY: 'Chinese Yuan',
+        MYR: 'Malaysian Ringgit',
+        HKD: 'Hong Kong Dollar',
+        NZD: 'New Zealand Dollar',
+        KRW: 'South Korean Won',
+        THB: 'Thai Baht'
         
     };
 
-    const availableCurrencies = ['USD', 'IDR', 'EUR', 'GBP', 'JPY'];
+    const availableCurrencies = ['USD', 'IDR', 'EUR', 'GBP', 'JPY', 'AED', 'SGD', 'AUD', 'CAD', 'CHF', 'CNY', 'MYR', 'HKD', 'NZD', 'KRW', 'THB'];
 
     function fillCurrencyOptions(select, preferred) {
         select.innerHTML = '';

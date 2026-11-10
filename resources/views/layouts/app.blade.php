@@ -52,8 +52,8 @@
 
                     <!-- TEMPAT LOGO PT RIFAN -->
                     <div class="brand-rifan">
-                        <img src="{{ asset('images/logo-rifan-2.png') }}"
-                            alt="PT Rifan Financindo Berjangka">
+                            <img src="{{ asset('images/logo-rifan-2.png') }}"
+                                alt="PT Rifan Financindo Berjangka">
                     </div>
 
                     <!-- NAMA TIM -->

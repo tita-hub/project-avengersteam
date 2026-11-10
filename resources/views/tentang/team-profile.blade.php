@@ -118,7 +118,7 @@
                 [
                     'name' => 'Anita Yuliatin',
                     'position' => 'Member Team',
-                    'image' => 'images/kaanita   .jpeg',
+                    'image' => 'images/kaanita.jpeg',
                     'description' => '
                     Anita bergabung sebagai konsultan pada tahun 2024 dan menjadi salah satu bagian dari proses
                     perkembangan Avengers.

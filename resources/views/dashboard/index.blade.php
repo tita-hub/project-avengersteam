@@ -2650,8 +2650,6 @@
     object-fit: cover !important;
     object-position: center center;
 
-    opacity: 0.65;
-
     z-index: 0;
 }
 
@@ -2823,76 +2821,106 @@
     }
 }
 
-/* ==========================================================
-   SLIDE 4 - OIL
-========================================================== */
 
-.dashboard-page .slide-oil {
-    background:
-        radial-gradient(
-            ellipse at 10% 85%,
-            rgba(160,170,180,.30),
-            transparent 42%
-        ),
-        radial-gradient(
-            ellipse at 90% 10%,
-            rgba(255,255,255,.13),
-            transparent 35%
-        ),
-        linear-gradient(
-            120deg,
-            #101317,
-            #3b4148 48%,
-            #111418
-        );
+/* =====================================================
+   SLIDE 4 - OIL TRADING BANNER
+===================================================== */
+
+.dashboard-page .rfb-slide.slide-oil {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    background: #f4f6f8 !important;
 }
 
-.dashboard-page .slide-oil .rfb-visual-glow {
-    background: #b8c1ca;
+/* Background Image */
+.dashboard-page .slide-oil .oil-bg-image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center;
+
+    opacity: 1;
+
+    z-index: 0;
+    display: block;
 }
 
-.dashboard-page .slide-oil h1 .highlight {
-    color: #d6dce2;
+/* Responsive Mobile */
+@media (max-width: 700px) {
+
+    .dashboard-page .slide-oil .oil-bg-image {
+        object-position: center center;
+    }
+
 }
 
-.dashboard-page .slide-oil .rfb-eyebrow span {
-    background: #c5cbd2;
+
+/* =====================================================
+   SLIDE 5 - NIKKEI TRADING BANNER
+===================================================== */
+
+.dashboard-page .rfb-slide.slide-nikkei {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    background: #0879ce !important;
 }
 
-/* ==========================================================
-   SLIDE 5 - NIKKEI
-========================================================== */
+/* Background Image */
+.dashboard-page .slide-nikkei .nikkei-bg-image {
+    position: absolute;
 
-.dashboard-page .slide-nikkei {
-    background:
-        radial-gradient(
-            ellipse at 10% 85%,
-            rgba(0,119,255,.38),
-            transparent 42%
-        ),
-        radial-gradient(
-            ellipse at 90% 10%,
-            rgba(30,180,255,.23),
-            transparent 40%
-        ),
-        linear-gradient(
-            120deg,
-            #06162e,
-            #103c69 50%,
-            #07172b
-        );
+    top: 0;
+    left: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center;
+
+    opacity: 1;
+
+    z-index: 0;
+    display: block;
 }
 
-.dashboard-page .slide-nikkei .rfb-visual-glow {
-    background: #168cff;
-}
+/* Responsive Mobile */
+@media (max-width: 700px) {
 
-.dashboard-page .slide-nikkei h1 .highlight {
-    color: #48baff;
-}
+    .dashboard-page .slide-nikkei .nikkei-bg-image {
+        object-position: center center;
+    }
 
-.dashboard-page .slide-nikkei .rfb-eyebrow span {
-    background: #48baff;
 }
 
 /* ==========================================================
@@ -4486,171 +4514,36 @@
         class="gold-bg-image"
     >
 
-    {{-- Overlay agar teks mudah dibaca --}}
-    <div class="gold-bg-overlay"></div>
+</article>
 
-    {{-- Konten Promosi --}}
-    <div class="rfb-slide-content gold-content">
+        
+{{-- ================= SLIDE 4: OIL ================= --}}
 
-        <div class="rfb-eyebrow gold-eyebrow">
-            <span></span>
-            PRECIOUS METAL · GOLD TRADING
-        </div>
+<article class="rfb-slide slide-oil">
 
-        <h1 class="gold-title">
-            Raih Peluang di Pasar
-            <span class="highlight">EMAS</span>
-        </h1>
-
-        <p class="rfb-slide-description gold-description">
-            Kenali dinamika pasar emas melalui instrumen
-            XUL10 dan bekali keputusan trading dengan
-            informasi serta perencanaan yang matang.
-        </p>
-
-        <div class="gold-tagline">
-            <i class="bi bi-stars"></i>
-
-            <span>
-                Jelajahi peluangnya, mulai langkah
-                trading emas bersama kami!
-            </span>
-        </div>
-
-        <div class="rfb-location-highlight gold-highlight">
-            <i class="bi bi-gem"></i>
-            GOLD · XUL10
-        </div>
-
-    </div>
+    {{-- Background Banner Oil --}}
+    <img
+        src="{{ asset('images/hero/slide-4.jpeg') }}"
+        alt="Trading Oil - Meraih Peluang di Pasar Global"
+        class="oil-bg-image"
+    >
 
 </article>
 
 
+{{-- ================= SLIDE 5: NIKKEI ================= --}}
 
-        {{-- ================= SLIDE 4: OIL ================= --}}
-        <article class="rfb-slide slide-oil">
+<article class="rfb-slide slide-nikkei">
 
-            <div class="rfb-chart-decoration">
-                <svg viewBox="0 0 900 500" preserveAspectRatio="none">
-                    <path class="trend"
-                          style="stroke:#c6cbd0"
-                          d="M0 350 C130 320 180 240 270 280 S420 130 510 210 S700 100 900 50"/>
-                </svg>
-            </div>
+    {{-- Background Banner Nikkei --}}
+    <img
+        src="{{ asset('images/hero/slide-5.jpeg') }}"
+        alt="Trading Nikkei - Tangkap Peluang di Raksasa Ekonomi Asia"
+        class="nikkei-bg-image"
+    >
 
-            <div class="rfb-slide-content">
+</article>
 
-                <div class="rfb-brand-pair">
-                    <img src="{{ asset('images/logo-rifan-2.png') }}" alt="Rifan">
-                    <span class="rfb-brand-divider"></span>
-                    <img class="rfb-avengers-logo"
-                         src="{{ asset('images/avengersteam-header.png') }}"
-                         alt="Avengers Team">
-                </div>
-
-                <div class="rfb-eyebrow">
-                    <span style="background:#c6cbd0"></span>
-                    ENERGY COMMODITY
-                </div>
-
-                <h1>
-                    Discover the
-                    <span class="highlight">OIL MARKET</span>
-                </h1>
-
-                <p class="rfb-slide-description">
-                    Ikuti perkembangan perdagangan komoditas minyak
-                    mentah dan pahami faktor-faktor yang memengaruhi
-                    dinamika pasar energi global.
-                </p>
-
-                <div class="rfb-location-highlight"
-                     style="background:rgba(200,205,210,.12);
-                     color:#e2e6ea;border-color:rgba(255,255,255,.2)">
-                    <i class="bi bi-fuel-pump-fill"></i>
-                    CRUDE OIL · BRENT
-                </div>
-
-            </div>
-
-            <div class="rfb-slide-visual">
-                <div class="rfb-visual-glow"></div>
-
-                <img class="rfb-product-image"
-                     src="{{ asset('images/produk/bco.png') }}"
-                     alt="Produk Oil">
-
-                <div class="rfb-visual-tag">
-                    <small>ENERGY COMMODITY</small>
-                    <strong>OIL MARKET</strong>
-                </div>
-            </div>
-
-        </article>
-
-
-        {{-- ================= SLIDE 5: NIKKEI ================= --}}
-        <article class="rfb-slide slide-nikkei">
-
-            <div class="rfb-chart-decoration">
-                <svg viewBox="0 0 900 500" preserveAspectRatio="none">
-                    <path class="trend"
-                          style="stroke:#55b8ff"
-                          d="M0 390 C110 340 170 350 260 260 S400 300 490 180 S650 140 900 30"/>
-                </svg>
-            </div>
-
-            <div class="rfb-slide-content">
-
-                <div class="rfb-brand-pair">
-                    <img src="{{ asset('images/logo-rifan-2.png') }}" alt="Rifan">
-                    <span class="rfb-brand-divider"></span>
-                    <img class="rfb-avengers-logo"
-                         src="{{ asset('images/avengersteam-header.png') }}"
-                         alt="Avengers Team">
-                </div>
-
-                <div class="rfb-eyebrow">
-                    <span style="background:#55b8ff"></span>
-                    ASIAN STOCK INDEX
-                </div>
-
-                <h1>
-                    Explore the
-                    <span class="highlight">NIKKEI 225</span>
-                </h1>
-
-                <p class="rfb-slide-description">
-                    Kenali pergerakan indeks saham Jepang dan dinamika
-                    pasar Asia melalui instrumen Nikkei.
-                    Ikuti perkembangan pasar dengan wawasan
-                    dan analisis yang tepat.
-                </p>
-
-                <div class="rfb-location-highlight"
-                     style="background:rgba(85,184,255,.12);
-                     color:#8bd0ff;border-color:rgba(85,184,255,.3)">
-                    <i class="bi bi-bar-chart-line-fill"></i>
-                    NIKKEI · JAPAN MARKET
-                </div>
-
-            </div>
-
-            <div class="rfb-slide-visual">
-                <div class="rfb-visual-glow"></div>
-
-                <img class="rfb-product-image"
-                     src="{{ asset('images/produk/nikkei.png') }}"
-                     alt="Produk Nikkei">
-
-                <div class="rfb-visual-tag">
-                    <small>ASIAN INDEX</small>
-                    <strong>NIKKEI MARKET</strong>
-                </div>
-            </div>
-
-        </article>
 
 
         {{-- ================= SLIDE 6: AUD ================= --}}
