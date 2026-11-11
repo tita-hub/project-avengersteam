@@ -450,10 +450,7 @@
                     (024) 8508868
                 </p>
 
-                <p>
-                    <strong>Fax (Ruko S.Parman):</strong>
-                    (024) 850 8869
-                </p>
+                
 
                 <p>
                     <strong>Layanan pengaduan:</strong>

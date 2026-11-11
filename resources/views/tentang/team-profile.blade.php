@@ -38,7 +38,7 @@
 
                 [
                     'name' => 'Dian Sri Rahmawati',
-                    'position' => 'Member Team',
+                    'position' => 'Anggota Team',
                     'image' => 'images/A2.jpeg',
                     'description' => '
                     Dian Sri Rahmawati menjadi salah satu sosok penting dalam perjalanan awal Christin Octavia.
@@ -67,7 +67,7 @@
 
                 [
                     'name' => 'Dhiana Rizky Wulandari',
-                    'position' => 'Member Team',
+                    'position' => 'Anggota Team',
                     'image' => 'images/A3.jpeg',
                     'description' => '
                     Perjalanan Dhiana Rizky Wulandari menjadi bagian dari Avengers juga tidak terlepas dari berbagai
@@ -89,7 +89,7 @@
 
                 [
                     'name' => 'Yustinus Mahendra Dwi Putra',
-                    'position' => 'Member Team',
+                    'position' => 'Anggota Team',
                     'image' => 'images/A4.jpeg',
                     'description' => '
                     Yustinus Mahendra bergabung sebagai konsultan pada tahun 2024 dan menjadi anggota keempat dalam
@@ -117,7 +117,7 @@
 
                 [
                     'name' => 'Anita Yuliatin',
-                    'position' => 'Member Team',
+                    'position' => 'Anggota Team',
                     'image' => 'images/kaanita.jpeg',
                     'description' => '
                     Anita bergabung sebagai konsultan pada tahun 2024 dan menjadi salah satu bagian dari proses
@@ -145,7 +145,7 @@
 
                 [
                     'name' => 'Compasion Abraham',
-                    'position' => 'Member Team',
+                    'position' => 'Anggota Team',
                     'image' => 'images/A6.jpeg',
                     'description' => '
                     Compasion merupakan salah satu anggota termuda dalam perjalanan Avengers. Ia bergabung sebagai konsultan
