@@ -2327,50 +2327,84 @@
    RIFAN FINANCINDO x AVENGERS TEAM
 ========================================================== */
 
-.dashboard-page .dashboard-hero,
+
+/* ==========================================================
+   HERO DASHBOARD - COMPACT FULL WIDTH
+========================================================== */
+
+.dashboard-page .dashboard-hero {
+    width: 100%;
+    max-width: none;
+
+    height: 350px;
+    min-height: 350px;
+
+    margin: 0 0 45px 0;
+    padding: 0;
+
+    border-radius: 0;
+    overflow: hidden;
+
+    position: relative;
+    background: #101820;
+
+    border: none;
+    isolation: isolate;
+    box-sizing: border-box;
+}
+
 .dashboard-page .rfb-slider {
     position: relative;
+
     width: 100%;
-    height: 560px;
-    min-height: 560px;
-    margin: 0;
-    padding: 0;
+    height: 395px;
+    min-height: 395px;
+
     overflow: hidden;
-    border-radius: 0;
-    box-sizing: border-box;
-    isolation: isolate;
 }
 
 .dashboard-page .rfb-slide {
     position: absolute;
     inset: 0;
+
     width: 100%;
-    height: 100%;
-    min-height: 0;
+    height: 395px;
+    min-height: 395px;
+
+    box-sizing: border-box;
+
+    padding: 25px 45px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
-    padding: 42px 8%;
-    box-sizing: border-box;
-    overflow: hidden;
+
+    gap: 25px;
+
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
-    transform: scale(1.025);
+
+    transform: scale(1.01);
+
     transition:
-        opacity .65s ease,
-        transform .85s ease,
-        visibility .65s;
+        opacity .8s ease,
+        transform 1s ease,
+        visibility .8s ease;
+
+    overflow: hidden;
 }
 
 .dashboard-page .rfb-slide.active {
+    position: relative;
+
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
+
     transform: scale(1);
+
     z-index: 2;
 }
+
 
 /* GRID DAN CAHAYA BACKGROUND */
 
@@ -4268,6 +4302,254 @@
     }
 }
 
+.dashboard-page .rfb-slide .welcome-bg-image,
+.dashboard-page .rfb-slide .gold-bg-image,
+.dashboard-page .rfb-slide .oil-bg-image,
+.dashboard-page .rfb-slide .nikkei-bg-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+
+/* =========================================================
+   FINAL FIX - FULL WIDTH DASHBOARD
+   NAVBAR > TOP NEWS > HERO
+========================================================= */
+
+/* WRAPPER DASHBOARD: LEPAS DARI BATAS CONTAINER */
+.dashboard-page {
+    position: relative !important;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    margin-top: -30px !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+/* TOP NEWS: FULL WIDTH */
+.dashboard-page .dashboard-topbar {
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+
+    box-sizing: border-box;
+}
+
+/* AREA BERITA */
+.dashboard-page .ticker-wrap {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+/* HERO: LANGSUNG DI BAWAH TOP NEWS */
+.dashboard-page .dashboard-hero {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1600 / 616;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+}
+
+/* SLIDER */
+.dashboard-page .rfb-slider {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+}
+
+/* SLIDE */
+.dashboard-page .rfb-slide {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    box-sizing: border-box;
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+
+    .dashboard-page {
+        margin-top: 0 !important;
+    }
+
+    .dashboard-page .dashboard-hero,
+    .dashboard-page .rfb-slider,
+    .dashboard-page .rfb-slide {
+        height: 760px !important;
+        min-height: 760px !important;
+    }
+}
+
+
+
+/* =====================================================
+   HERO - RAPIHKAN SLIDE 2 (AVENGERS) & SLIDE 6 (AUD)
+   Hanya menyentuh .slide-avengers dan .slide-aud.
+   Slide lain, navbar, top news, market, berita: tidak diubah.
+===================================================== */
+
+/* Dasar: gambar poster memenuhi slide, tanpa padding/dekorasi lama */
+.dashboard-page .rfb-slide.slide-avengers,
+.dashboard-page .rfb-slide.slide-aud {
+    display: block !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.dashboard-page .rfb-slide.slide-avengers { background: #dbe6f0 !important; }
+.dashboard-page .rfb-slide.slide-aud      { background: #eef2f4 !important; }
+
+/* Matikan grid & lingkaran dekoratif lama di dua slide ini */
+.dashboard-page .rfb-slide.slide-avengers::before,
+.dashboard-page .rfb-slide.slide-avengers::after,
+.dashboard-page .rfb-slide.slide-aud::before,
+.dashboard-page .rfb-slide.slide-aud::after {
+    content: none !important;
+}
+
+/* Desktop & tablet: gambar full, tanpa bar kosong di kiri/kanan */
+.dashboard-page .slide-avengers .avengers-bg-image,
+.dashboard-page .slide-aud .aud-bg-image {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center 40% !important;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Layar sangat lebar: jaga teks bawah tetap terlihat */
+@media (min-width: 1700px) {
+    .dashboard-page .slide-avengers .avengers-bg-image,
+    .dashboard-page .slide-aud .aud-bg-image {
+        object-position: center 45% !important;
+    }
+}
+
+/* Mobile: poster ditampilkan utuh (tidak terpotong),
+   area kosong diisi versi blur dari gambar yang sama */
+@media (max-width: 767px) {
+
+    .dashboard-page .rfb-slide.slide-avengers::before,
+    .dashboard-page .rfb-slide.slide-aud::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: -20px !important;
+        z-index: 0 !important;
+
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+
+        filter: blur(18px) brightness(.96);
+        opacity: 1 !important;
+
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        pointer-events: none;
+    }
+
+    .dashboard-page .rfb-slide.slide-avengers::before {
+        background-image: url("{{ asset('images/hero/slide-2.jpeg') }}") !important;
+    }
+
+    .dashboard-page .rfb-slide.slide-aud::before {
+        background-image: url("{{ asset('images/hero/slide-6.jpeg') }}") !important;
+    }
+
+    .dashboard-page .slide-avengers .avengers-bg-image,
+    .dashboard-page .slide-aud .aud-bg-image {
+        object-fit: contain !important;
+        object-position: center center !important;
+        filter: drop-shadow(0 10px 24px rgba(10, 25, 40, .18));
+    }
+}
+
+
+/* =====================================================
+   TOP NEWS MENEMPEL LANGSUNG DI BAWAH NAVBAR
+   Navbar fixed: 76px (desktop), 68px (<= 760px).
+   Konten dashboard dimulai tepat di bawah navbar,
+   tanpa celah dan tanpa bergantung pada margin negatif.
+===================================================== */
+
+.main-content:has(> .dashboard-page) {
+    padding-top: 0 !important;
+}
+
+.main-content > .dashboard-page {
+    margin-top: 0 !important;
+    padding-top: 76px !important;
+}
+
+.main-content > .dashboard-page > .dashboard-topbar {
+    margin-top: 0 !important;
+}
+
+@media (max-width: 760px) {
+    .main-content > .dashboard-page {
+        padding-top: 68px !important;
+    }
+}
+
+
+/* =====================================================
+   LEBAR BAGIAN BAWAH HERO DIKEMBALIKAN
+   Top News + hero tetap full width.
+   Avengers intro, market data, dan berita kembali
+   ke lebar container normal (maks. 1100px, di tengah).
+===================================================== */
+
+.dashboard-page > :not(.dashboard-topbar):not(.dashboard-hero) {
+    width: min(1100px, calc(100% - 76px)) !important;
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+    .dashboard-page > :not(.dashboard-topbar):not(.dashboard-hero) {
+        width: calc(100% - 30px) !important;
+    }
+}
 
 </style>
 
@@ -4431,272 +4713,54 @@
 
 </article>
 
+{{-- SLIDE 2: AVENGERS TEAM --}}
+<article class="rfb-slide slide-avengers">
+    <img
+        src="{{ asset('images/hero/slide-2.jpeg') }}"
+        alt="Avengers Team"
+        class="avengers-bg-image"
+    >
+</article>
 
-
-        {{-- ================= SLIDE 2: AVENGERS ================= --}}
-        <article class="rfb-slide slide-avengers">
-
-            <div class="rfb-chart-decoration">
-                <svg viewBox="0 0 900 500" preserveAspectRatio="none">
-                    <g stroke="#fff" stroke-width="1" opacity=".15">
-                        <path d="M0 100H900 M0 200H900 M0 300H900 M0 400H900"/>
-                    </g>
-                    <path class="trend"
-                        d="M0 350 C120 300 170 380 270 250 S420 300 510 180 S700 210 900 40"/>
-                </svg>
-            </div>
-
-            <div class="rfb-slide-content">
-
-                <div class="rfb-brand-pair">
-                    <img src="{{ asset('images/logo-rifan-2.png') }}" alt="Rifan">
-                    <span class="rfb-brand-divider"></span>
-                    <img class="rfb-avengers-logo"
-                         src="{{ asset('images/avengersteam-header.png') }}"
-                         alt="Avengers Team">
-                </div>
-
-                <div class="rfb-eyebrow">
-                    <span></span>
-                    ONE TEAM · MANY CHARACTERS
-                </div>
-
-                <h1>
-                    Beda Karakter,
-                    <span class="highlight">Satu Tujuan.</span>
-                    <br>
-                    Kosongin Dulu!
-                </h1>
-
-                <p class="rfb-slide-description">
-                    Kami percaya bahwa setiap orang punya warna,
-                    karakter, dan keunikannya masing-masing.
-                    Di Avengers Team, perbedaan bukan penghalang,
-                    melainkan kekuatan untuk saling melengkapi.
-                </p>
-
-                <p class="rfb-slide-description">
-                    Santai ketika bersama, seru dalam kebersamaan,
-                    tetapi tetap serius dan profesional ketika bekerja.
-                </p>
-
-                <div class="rfb-location-highlight"
-                     style="color:#fff;background:rgba(198,40,40,.2);
-                     border-color:rgba(255,255,255,.15)">
-                    <i class="bi bi-people-fill"></i>
-                    6 ANGGOTA · 1 AVENGERS TEAM
-                </div>
-
-            </div>
-
-            <div class="rfb-slide-visual">
-                <div class="rfb-visual-glow"></div>
-                <img class="rfb-product-image"
-                     src="{{ asset('images/avengersteam-header.png') }}"
-                     alt="Avengers Team">
-
-                <div class="rfb-visual-tag">
-                    <small>OUR SLOGAN</small>
-                    <strong>KOSONGIN DULU!</strong>
-                </div>
-            </div>
-
-        </article>
-        
-{{-- ================= SLIDE 3: GOLD ================= --}}
-
+{{-- SLIDE 3: GOLD --}}
 <article class="rfb-slide slide-gold">
-
-    {{-- Background Banner --}}
     <img
         src="{{ asset('images/hero/slide-3.jpeg') }}"
-        alt="Gold Trading - Avengers Team"
         class="gold-bg-image"
+        alt="Gold Trading"
     >
 
+    {{-- Konten Gold --}}
 </article>
 
-        
-{{-- ================= SLIDE 4: OIL ================= --}}
-
+{{-- SLIDE 4: OIL --}}
 <article class="rfb-slide slide-oil">
-
-    {{-- Background Banner Oil --}}
     <img
         src="{{ asset('images/hero/slide-4.jpeg') }}"
-        alt="Trading Oil - Meraih Peluang di Pasar Global"
         class="oil-bg-image"
+        alt="Oil Trading"
     >
 
+    {{-- Konten Oil --}}
 </article>
 
-
-{{-- ================= SLIDE 5: NIKKEI ================= --}}
-
+{{-- SLIDE 5: NIKKEI --}}
 <article class="rfb-slide slide-nikkei">
-
-    {{-- Background Banner Nikkei --}}
     <img
         src="{{ asset('images/hero/slide-5.jpeg') }}"
-        alt="Trading Nikkei - Tangkap Peluang di Raksasa Ekonomi Asia"
+        alt="Nikkei Trading"
         class="nikkei-bg-image"
     >
-
 </article>
 
-
-
-        {{-- ================= SLIDE 6: AUD ================= --}}
-        <article class="rfb-slide slide-aud">
-
-            <div class="rfb-chart-decoration">
-                <svg viewBox="0 0 900 500" preserveAspectRatio="none">
-                    <path class="trend"
-                          style="stroke:#4bd7a8"
-                          d="M0 320 C120 260 200 330 300 220 S450 250 540 140 S720 160 900 35"/>
-                </svg>
-            </div>
-
-            <div class="rfb-slide-content">
-
-                <div class="rfb-brand-pair">
-                    <img src="{{ asset('images/logo-rifan-2.png') }}" alt="Rifan">
-                    <span class="rfb-brand-divider"></span>
-                    <img class="rfb-avengers-logo"
-                         src="{{ asset('images/avengersteam-header.png') }}"
-                         alt="Avengers Team">
-                </div>
-
-                <div class="rfb-eyebrow">
-                    <span style="background:#4bd7a8"></span>
-                    FOREIGN EXCHANGE
-                </div>
-
-                <h1>
-                    Meet the
-                    <span class="highlight">AUSSIE DOLLAR</span>
-                </h1>
-
-                <p class="rfb-slide-description">
-                    Kenali pasangan mata uang Dolar Australia
-                    melalui instrumen AUDUSD. Pahami dinamika
-                    nilai tukar dan faktor ekonomi yang
-                    memengaruhi pergerakan mata uang.
-                </p>
-
-                <div class="rfb-location-highlight"
-                     style="background:rgba(75,215,168,.12);
-                     color:#70e4bd;border-color:rgba(75,215,168,.3)">
-                    <i class="bi bi-currency-dollar"></i>
-                    AUDUSD · AUSTRALIAN DOLLAR
-                </div>
-
-            </div>
-
-            <div class="rfb-slide-visual">
-                <div class="rfb-visual-glow"></div>
-
-                <div class="rfb-aud-visual">
-                    <div class="rfb-aud-symbol">A$</div>
-                    <div class="rfb-aud-subtitle">AUSTRALIAN DOLLAR</div>
-                </div>
-
-                <div class="rfb-visual-tag">
-                    <small>FOREIGN EXCHANGE</small>
-                    <strong>AUD / USD</strong>
-                </div>
-            </div>
-
-        </article>
-
-        
-{{-- ================= SLIDE 7: JOIN AVENGERS ================= --}}
-
-<article class="rfb-slide slide-avengers-final">
-
-    <div class="rfb-chart-decoration">
-        <svg viewBox="0 0 900 500" preserveAspectRatio="none">
-            <path class="trend"
-                  d="M0 380 C100 320 180 350 270 250 S420 280 520 170 S700 150 900 25"/>
-        </svg>
-    </div>
-
-    <div class="rfb-slide-content">
-
-        <div class="rfb-brand-pair">
-
-            <img src="{{ asset('images/logo-rifan-2.png') }}"
-                 alt="Rifan">
-
-            <span class="rfb-brand-divider"></span>
-
-            <img class="rfb-avengers-logo"
-                 src="{{ asset('images/avengersteam-header.png') }}"
-                 alt="Avengers Team">
-
-        </div>
-
-        <div class="rfb-eyebrow">
-            <span></span>
-            GROW TOGETHER WITH US
-        </div>
-
-        <h1>
-            Bukan Sekadar Tim,
-            <span class="highlight">Ini Keluarga Kami.</span>
-        </h1>
-
-        <p class="rfb-slide-description">
-            Setiap karakter memiliki warna, setiap perbedaan
-            memiliki cerita. Bersama Avengers Team, kami tumbuh,
-            belajar, dan melangkah menuju tujuan yang sama.
-        </p>
-
-        <div class="rfb-location-highlight"
-             style="color:#fff;background:rgba(0,184,90,.15);
-             border-color:rgba(0,184,90,.3)">
-
-            <i class="bi bi-people-fill"></i>
-
-            6 PEOPLE · ONE TEAM · ONE PURPOSE
-
-        </div>
-
-        <div class="rfb-final-action">
-
-            <a href="{{ route('team.profile') }}"
-               class="rfb-final-btn">
-
-                Kenali Anggota Kami
-
-                <i class="bi bi-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="rfb-slide-visual">
-
-        <div class="rfb-visual-glow"></div>
-
-        <img class="rfb-product-image"
-             src="{{ asset('images/avengersteam-header.png') }}"
-             alt="Avengers Team">
-
-        <div class="rfb-visual-tag">
-
-            <small>AVENGERS TEAM</small>
-
-            <strong>KOSONGIN DULU!</strong>
-
-        </div>
-
-    </div>
-
+{{-- SLIDE 6: AUD --}}
+<article class="rfb-slide slide-aud">
+    <img
+        src="{{ asset('images/hero/slide-6.jpeg') }}"
+        alt="AUD Trading"
+        class="aud-bg-image"
+    >
 </article>
-
 
         {{-- SLIDER NAVIGATION --}}
 
@@ -4710,7 +4774,7 @@
             </button>
 
             <div class="rfb-slider-dots">
-                @for($i = 0; $i < 7; $i++)
+                @for($i = 0; $i < 6; $i++)
                     <button type="button"
                             class="rfb-slider-dot {{ $i === 0 ? 'active' : '' }}"
                             data-slide="{{ $i }}"
@@ -5263,128 +5327,107 @@
     
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* =====================================
-       RFB HERO SLIDER
-    ===================================== */
+  
+/* =====================================
+   RFB HERO SLIDER
+===================================== */
+
+function initRfbHeroSlider() {
 
     const slider = document.getElementById('rfbSlider');
 
-    if (slider) {
+    if (!slider) return;
 
-        const slides = slider.querySelectorAll('.rfb-slide');
-        const dots = slider.querySelectorAll('.rfb-slider-dot');
+    const slides = slider.querySelectorAll('.rfb-slide');
+    const dots = slider.querySelectorAll('.rfb-slider-dot');
 
-        const prev = document.getElementById('rfbPrev');
-        const next = document.getElementById('rfbNext');
+    const prev = document.getElementById('rfbPrev');
+    const next = document.getElementById('rfbNext');
 
-        let current = 0;
-        let timer = null;
+    if (!slides.length) return;
 
-        const duration = 6000;
+    let current = 0;
+    let timer = null;
 
-        function showSlide(index) {
+    const duration = 6000;
 
-            current = (index + slides.length) % slides.length;
+    function showSlide(index) {
 
-            slides.forEach((slide, i) => {
+        current = (index + slides.length) % slides.length;
 
-                slide.classList.toggle('active', i === current);
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === current);
 
-                slide.setAttribute(
-                    'aria-hidden',
-                    i !== current ? 'true' : 'false'
-                );
-
-            });
-
-            dots.forEach((dot, i) => {
-
-                dot.classList.toggle('active', i === current);
-
-                dot.setAttribute(
-                    'aria-current',
-                    i === current ? 'true' : 'false'
-                );
-
-            });
-
-        }
-
-        function stopAutoSlide() {
-
-            if (timer) {
-                clearInterval(timer);
-                timer = null;
-            }
-
-        }
-
-        function startAutoSlide() {
-
-            stopAutoSlide();
-
-            timer = setInterval(() => {
-
-                showSlide(current + 1);
-
-            }, duration);
-
-        }
-
-        function moveSlide(index) {
-
-            showSlide(index);
-            startAutoSlide();
-
-        }
-
-        if (next) {
-
-            next.addEventListener('click', function (e) {
-
-                e.preventDefault();
-                e.stopPropagation();
-
-                moveSlide(current + 1);
-
-            });
-
-        }
-
-        if (prev) {
-
-            prev.addEventListener('click', function (e) {
-
-                e.preventDefault();
-                e.stopPropagation();
-
-                moveSlide(current - 1);
-
-            });
-
-        }
-
-        dots.forEach((dot, index) => {
-
-            dot.addEventListener('click', function (e) {
-
-                e.preventDefault();
-                e.stopPropagation();
-
-                moveSlide(index);
-
-            });
-
+            slide.setAttribute(
+                'aria-hidden',
+                i !== current ? 'true' : 'false'
+            );
         });
 
-        slider.addEventListener('mouseenter', stopAutoSlide);
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === current);
 
-        slider.addEventListener('mouseleave', startAutoSlide);
-
-        showSlide(0);
-        startAutoSlide();
-
+            dot.setAttribute(
+                'aria-current',
+                i === current ? 'true' : 'false'
+            );
+        });
     }
+
+    function stopAutoSlide() {
+        if (timer !== null) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function startAutoSlide() {
+        stopAutoSlide();
+
+        timer = setInterval(() => {
+            showSlide(current + 1);
+        }, duration);
+    }
+
+    function moveSlide(index) {
+        showSlide(index);
+        startAutoSlide();
+    }
+
+    if (next) {
+        next.addEventListener('click', function () {
+            moveSlide(current + 1);
+        });
+    }
+
+    if (prev) {
+        prev.addEventListener('click', function () {
+            moveSlide(current - 1);
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+            moveSlide(index);
+        });
+    });
+
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+
+    showSlide(0);
+    startAutoSlide();
+}
+
+/* Pastikan slider diinisialisasi */
+if (document.readyState === 'loading') {
+    document.addEventListener(
+        'DOMContentLoaded',
+        initRfbHeroSlider
+    );
+} else {
+    initRfbHeroSlider();
+}
 
 
     /* =====================================
@@ -5527,5 +5570,35 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 
 </div>
+
+
+{{-- Jaring pengaman: pastikan Top News menempel persis di bawah navbar --}}
+<script>
+(function () {
+    function closeTopNewsGap() {
+        var header = document.querySelector('.top-header');
+        var bar = document.querySelector('.dashboard-page .dashboard-topbar');
+        if (!header || !bar) return;
+
+        bar.style.setProperty('margin-top', '0px', 'important');
+
+        var headerBottom = header.getBoundingClientRect().bottom;
+        var barTop = bar.getBoundingClientRect().top + window.pageYOffset;
+        var gap = Math.round(barTop - headerBottom);
+
+        if (gap !== 0) {
+            bar.style.setProperty('margin-top', (-gap) + 'px', 'important');
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', closeTopNewsGap);
+    window.addEventListener('load', closeTopNewsGap);
+    window.addEventListener('resize', closeTopNewsGap);
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(closeTopNewsGap);
+    }
+    closeTopNewsGap();
+})();
+</script>
 
 @endsection
