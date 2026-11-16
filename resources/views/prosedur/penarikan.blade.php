@@ -112,10 +112,6 @@
 
         </div>
 
-        <div class="info-badge">
-            PENTING
-        </div>
-
     </section>
 
 
@@ -177,10 +173,6 @@
                         Ajukan Withdrawal
                     </h3>
 
-                    <span class="step-tag">
-                        Tahap 01
-                    </span>
-
                 </div>
 
 
@@ -222,10 +214,6 @@
                         Isi Formulir Online
                     </h3>
 
-                    <span class="step-tag">
-                        Tahap 02
-                    </span>
-
                 </div>
 
 
@@ -261,10 +249,6 @@
                     <h3>
                         Verifikasi Rekening
                     </h3>
-
-                    <span class="step-tag">
-                        Tahap 03
-                    </span>
 
                 </div>
 
@@ -306,10 +290,6 @@
                         Proses Validasi
                     </h3>
 
-                    <span class="step-tag">
-                        Tahap 04
-                    </span>
-
                 </div>
 
 
@@ -345,10 +325,6 @@
                     <h3>
                         Penyelesaian Transfer
                     </h3>
-
-                    <span class="step-tag">
-                        Tahap 05
-                    </span>
 
                 </div>
 
@@ -393,10 +369,6 @@
                     <h3>
                         Notifikasi Berhasil
                     </h3>
-
-                    <span class="step-tag">
-                        Tahap 06
-                    </span>
 
                 </div>
 

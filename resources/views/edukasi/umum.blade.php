@@ -332,10 +332,6 @@
 
                     {{-- TANGGAL DAN LOKASI --}}
                     <div class="literasi-detail-meta">
-                        <div>
-                            <i class="bi bi-calendar-event"></i>
-                            <span id="literasiModalDate">15 Mei 2025</span>
-                        </div>
 
                         <div>
                             <i class="bi bi-geo-alt-fill"></i>

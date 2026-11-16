@@ -4361,13 +4361,16 @@
 /* HERO: LANGSUNG DI BAWAH TOP NEWS */
 .dashboard-page .dashboard-hero {
     position: relative !important;
+
     width: 100% !important;
     max-width: none !important;
-    height: auto !important;
-    min-height: 0 !important;
-    aspect-ratio: 1600 / 616;
+
+    height: 450px !important;
+    min-height: 450px !important;
+
     margin: 0 !important;
     padding: 0 !important;
+
     border-radius: 0 !important;
     overflow: hidden !important;
     box-sizing: border-box;
@@ -4376,11 +4379,14 @@
 /* SLIDER */
 .dashboard-page .rfb-slider {
     position: relative !important;
+
     width: 100% !important;
-    height: 100% !important;
-    min-height: 0 !important;
+    height: 450px !important;
+    min-height: 450px !important;
+
     margin: 0 !important;
     padding: 0 !important;
+
     overflow: hidden !important;
     box-sizing: border-box;
 }
@@ -4388,8 +4394,9 @@
 /* SLIDE */
 .dashboard-page .rfb-slide {
     width: 100% !important;
-    height: 100% !important;
-    min-height: 0 !important;
+    height: 450px !important;
+    min-height: 450px !important;
+
     box-sizing: border-box;
 }
 
@@ -4551,6 +4558,94 @@
     }
 }
 
+
+/* =====================================================
+   FIX UTAMA: TOP NEWS MENUTUPI BAGIAN ATAS BANNER
+   Penyebab: style.css punya .dashboard-topbar { top: 64px }
+   (sisa dari versi position: fixed). Karena di halaman ini
+   topbar dibuat position: relative, nilai top itu menggeser
+   Top News turun 64px: muncul celah di bawah navbar, dan
+   Top News menimpa 64px bagian atas banner (logo terpotong).
+   Dengan top: 0, Top News menempel di navbar dan banner
+   dimulai tepat di bawah Top News.
+===================================================== */
+
+.dashboard-page .dashboard-topbar {
+    top: 0 !important;
+    bottom: auto !important;
+}
+
+/* =====================================================
+   SEMUA SLIDE: GAMBAR SELALU CENTER TOP
+   Bagian atas (logo Rifan + Avengers) selalu terlihat,
+   yang terpotong hanya bagian bawah gambar.
+===================================================== */
+
+.dashboard-page .rfb-slide .welcome-bg-image,
+.dashboard-page .rfb-slide .avengers-bg-image,
+.dashboard-page .rfb-slide .gold-bg-image,
+.dashboard-page .rfb-slide .oil-bg-image,
+.dashboard-page .rfb-slide .nikkei-bg-image,
+.dashboard-page .rfb-slide .aud-bg-image {
+    object-position: center top !important;
+}
+
+
+/* =====================================================
+   SLIDE 4 (OIL) & SLIDE 5 (NIKKEI)
+   Gambar 1600 x 719 lebih tinggi dari hero (rasio 1600 x 616),
+   jadi ada kelebihan tinggi sekitar 14% yang harus dipotong.
+   Dipotong sedikit di atas dan sisanya di bawah, supaya teks
+   bawah naik dan logo di kiri atas tetap terlihat.
+===================================================== */
+
+@media (min-width: 768px) {
+    .dashboard-page .rfb-slide .gold-bg-image {
+        object-position: center 60% !important;
+    }
+
+    /* Logo oil mepet di atas (8%), jadi geser sedikit saja */
+    .dashboard-page .rfb-slide .oil-bg-image {
+        object-position: center 90% !important;
+    }
+
+    /* Logo nikkei lebih turun (15%), jadi boleh digeser lebih banyak */
+    .dashboard-page .rfb-slide .nikkei-bg-image {
+        object-position: center 55% !important;
+    }
+
+    .dashboard-page .rfb-slide .aud-bg-image {
+        object-position: center 70% !important;
+    }
+}
+
+
+/* =====================================================
+   WELCOME: HILANGKAN GARIS BAWAH PADA TEKS JUDUL
+   Garis berasal dari aturan lama:
+   .dashboard-hero h1 span::after (garis gradasi merah-hijau)
+===================================================== */
+
+.dashboard-page .welcome-title span::after {
+    content: none !important;
+    display: none !important;
+}
+
+body:has(.dashboard-page) {
+    overflow-x: clip;
+}
+
+.dashboard-page .dashboard-topbar {
+    position: sticky !important;
+    top: 76px !important;
+    z-index: 190 !important;
+}
+
+@media (max-width: 760px) {
+    .dashboard-page .dashboard-topbar {
+        top: 68px !important;
+    }
+}
 </style>
 
 <div class="dashboard-page">
@@ -5412,6 +5507,41 @@ function initRfbHeroSlider() {
         });
     });
 
+        /* Geser slide dengan tombol keyboard ← dan → */
+    document.addEventListener('keydown', function (e) {
+
+        // Jangan ganggu saat mengetik di kolom isian
+        const target = e.target;
+        if (
+            target &&
+            (
+                target.tagName === 'INPUT' ||
+                target.tagName === 'TEXTAREA' ||
+                target.tagName === 'SELECT' ||
+                target.isContentEditable
+            )
+        ) {
+            return;
+        }
+
+        // Abaikan kombinasi seperti Alt + ← (kembali ke halaman sebelumnya)
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
+            return;
+        }
+
+        // Jangan geser saat popup selamat datang sedang terbuka
+        const popupEl = document.getElementById('rfbWelcomePopup');
+        if (popupEl && popupEl.classList.contains('show')) {
+            return;
+        }
+
+        if (e.key === 'ArrowRight') {
+            moveSlide(current + 1);
+        } else if (e.key === 'ArrowLeft') {
+            moveSlide(current - 1);
+        }
+    });
+
     slider.addEventListener('mouseenter', stopAutoSlide);
     slider.addEventListener('mouseleave', startAutoSlide);
 
@@ -5570,35 +5700,5 @@ if (document.readyState === 'loading') {
     </div>
 
 </div>
-
-
-{{-- Jaring pengaman: pastikan Top News menempel persis di bawah navbar --}}
-<script>
-(function () {
-    function closeTopNewsGap() {
-        var header = document.querySelector('.top-header');
-        var bar = document.querySelector('.dashboard-page .dashboard-topbar');
-        if (!header || !bar) return;
-
-        bar.style.setProperty('margin-top', '0px', 'important');
-
-        var headerBottom = header.getBoundingClientRect().bottom;
-        var barTop = bar.getBoundingClientRect().top + window.pageYOffset;
-        var gap = Math.round(barTop - headerBottom);
-
-        if (gap !== 0) {
-            bar.style.setProperty('margin-top', (-gap) + 'px', 'important');
-        }
-    }
-
-    window.addEventListener('DOMContentLoaded', closeTopNewsGap);
-    window.addEventListener('load', closeTopNewsGap);
-    window.addEventListener('resize', closeTopNewsGap);
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(closeTopNewsGap);
-    }
-    closeTopNewsGap();
-})();
-</script>
 
 @endsection
