@@ -330,16 +330,7 @@
 
                     <h3 id="literasiModalTitle">Kunjungan Industri</h3>
 
-                    {{-- TANGGAL DAN LOKASI --}}
-                    <div class="literasi-detail-meta">
-
-                        <div>
-                            <i class="bi bi-geo-alt-fill"></i>
-                            <span id="literasiModalLocation">
-                                PT. Rifan Financindo Berjangka Semarang
-                            </span>
-                        </div>
-                    </div>
+                    
 
                     {{-- DESKRIPSI KEGIATAN --}}
                     <h4>Deskripsi Kegiatan</h4>

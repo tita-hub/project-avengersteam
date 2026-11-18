@@ -156,16 +156,150 @@ class DataHistorisController extends Controller
                 'category' => 'BCO Daily',
             ]);
 
+                    // Ambil tanggal EUR/USD yang sudah tersedia dari NewsMaker.
+        $apiEurUsdDates = $data
+            ->filter(fn ($item) =>
+                strtoupper(trim($item['category'] ?? '')) === 'EUR/USD'
+            )
+            ->pluck('tanggal')
+            ->filter()
+            ->map(fn ($tanggal) => (string) $tanggal)
+            ->flip();
+
+        // Ambil data Excel EUR/USD yang tanggalnya belum tersedia di NewsMaker.
+        $excelEurUsd = DB::table('eur_usd_historical_data')
+            ->get()
+            ->filter(fn ($item) =>
+                !$apiEurUsdDates->has((string) $item->tanggal)
+            )
+            ->map(fn ($item) => [
+                'tanggal' => (string) $item->tanggal,
+                'open' => $item->open,
+                'high' => $item->high,
+                'low' => $item->low,
+                'close' => $item->close,
+                'category' => 'EUR/USD',
+            ]);
+
+
+            // Ambil tanggal GBP/USD yang sudah tersedia dari NewsMaker.
+            $apiGbpUsdDates = $data
+                ->filter(fn ($item) =>
+                    strtoupper(trim($item['category'] ?? '')) === 'GBP/USD'
+                )
+                ->pluck('tanggal')
+                ->filter()
+                ->map(fn ($tanggal) => (string) $tanggal)
+                ->flip();
+
+            // Ambil data Excel GBP/USD yang tanggalnya belum tersedia di NewsMaker.
+            $excelGbpUsd = DB::table('gbp_usd_historical_data')
+                ->get()
+                ->filter(fn ($item) =>
+                    !$apiGbpUsdDates->has((string) $item->tanggal)
+                )
+                ->map(fn ($item) => [
+                    'tanggal' => (string) $item->tanggal,
+                    'open' => $item->open,
+                    'high' => $item->high,
+                    'low' => $item->low,
+                    'close' => $item->close,
+                    'category' => 'GBP/USD',
+                ]);
+
+                // Ambil tanggal HSI Daily yang sudah tersedia dari NewsMaker.
+                $apiHsiDates = $data
+                    ->filter(fn ($item) =>
+                        strtoupper(trim($item['category'] ?? '')) === 'HSI DAILY'
+                    )
+                    ->pluck('tanggal')
+                    ->filter()
+                    ->map(fn ($tanggal) => (string) $tanggal)
+                    ->flip();
+
+                // Ambil data HSI Daily dari database yang belum tersedia di NewsMaker.
+                $excelHsi = DB::table('hsi_historical_data')
+                    ->get()
+                    ->filter(fn ($item) =>
+                        !$apiHsiDates->has((string) $item->tanggal)
+                    )
+                    ->map(fn ($item) => [
+                        'tanggal' => (string) $item->tanggal,
+                        'open' => $item->open,
+                        'high' => $item->high,
+                        'low' => $item->low,
+                        'close' => $item->close,
+                        'category' => 'HSI Daily',
+                    ]);
+
+                    // Ambil tanggal USD/CHF yang sudah tersedia dari NewsMaker.
+                    $apiUsdChfDates = $data
+                        ->filter(fn ($item) =>
+                            strtoupper(trim($item['category'] ?? '')) === 'USD/CHF'
+                        )
+                        ->pluck('tanggal')
+                        ->filter()
+                        ->map(fn ($tanggal) => (string) $tanggal)
+                        ->flip();
+
+                    // Ambil data USD/CHF dari database yang belum tersedia di NewsMaker.
+                    $excelUsdChf = DB::table('usd_chf_historical_data')
+                        ->get()
+                        ->filter(fn ($item) =>
+                            !$apiUsdChfDates->has((string) $item->tanggal)
+                        )
+                        ->map(fn ($item) => [
+                            'tanggal' => (string) $item->tanggal,
+                            'open' => $item->open,
+                            'high' => $item->high,
+                            'low' => $item->low,
+                            'close' => $item->close,
+                            'category' => 'USD/CHF',
+                        ]);
+
+                        // Ambil tanggal USD/JPY yang sudah tersedia dari NewsMaker.
+                        $apiUsdJpyDates = $data
+                            ->filter(fn ($item) =>
+                                strtoupper(trim($item['category'] ?? '')) === 'USD/JPY'
+                            )
+                            ->pluck('tanggal')
+                            ->filter()
+                            ->map(fn ($tanggal) => (string) $tanggal)
+                            ->flip();
+
+                        // Ambil data USD/JPY dari database yang belum tersedia di NewsMaker.
+                        $excelUsdJpy = DB::table('usd_jpy_historical_data')
+                            ->get()
+                            ->filter(fn ($item) =>
+                                !$apiUsdJpyDates->has((string) $item->tanggal)
+                            )
+                            ->map(fn ($item) => [
+                                'tanggal' => (string) $item->tanggal,
+                                'open' => $item->open,
+                                'high' => $item->high,
+                                'low' => $item->low,
+                                'close' => $item->close,
+                                'category' => 'USD/JPY',
+                            ]);
+
+
 
         // Gabungkan data NewsMaker dan Excel.
+        
         $data = $data
             ->concat($excelGold)
             ->concat($excelNikkei)
             ->concat($excelAudUsd)
             ->concat($excelBco)
+            ->concat($excelEurUsd)
+            ->concat($excelGbpUsd)
+            ->concat($excelHsi)
+            ->concat($excelUsdChf)
+            ->concat($excelUsdJpy)
             ->sortByDesc(fn ($item) => $item['tanggal'] ?? '')
             ->values()
             ->all();
+
 
         
 

@@ -210,25 +210,36 @@
                         karakter, pengalaman, dan perjalanan yang berbeda, namun memiliki satu semangat yang sama:
                         <strong>saling membantu dan tumbuh bersama</strong>.
 
-                        <br><br>
+                        <br>
+
+                        Avengers Team merupakan salah satu tim di PT Rifan Financindo Berjangka Semarang yang terdiri dari
+                        enam anggota tetap. Kami hadir sebagai tim yang fun, santai, dan penuh warna. Setiap anggota
+                        memiliki karakter dan kepribadian yang berbeda, dengan energi serta kreativitas generasi muda yang
+                        menjadi bagian dari dinamika tim.
+
+                        <br>
 
                         Nama Avengers bukan sekadar sebuah nama tim. Di dalamnya terdapat semangat untuk hadir bagi satu
                         sama lain, terutama dalam memberikan edukasi dan pendampingan kepada nasabah.
 
-                        <br><br>
+                        <br>
 
                         Perjalanan tim ini dimulai dari perjuangan yang sederhana, berkembang melalui berbagai tantangan,
-                        hingga akhirnya menjadi sebuah tim yang terus mengalami regenerasi. Setiap anggota membawa cerita
-                        dan pengalaman masing-masing, tetapi semuanya menjadi bagian dari satu perjalanan yang sama.
+                        serta regenerasi. Meski memiliki karakter dan latar belakang yang berbeda, setiap anggota tetap
+                        menjunjung tinggi tanggung jawab, keseriusan, dan profesionalisme dalam bekerja.
 
-                        <br><br>
+                        <br>
+
+                        Perbedaan justru menjadi kekuatan untuk saling melengkapi, membangun kerja sama, dan berkembang bersama.
+
+                        <br>
 
                         <strong>Berbeda karakter, satu tujuan.</strong><br>
                         <strong>Berbeda perjalanan, tetap saling menguatkan.</strong>
 
-                        <br><br>
+                        <br>
 
-                        Itulah semangat yang menjadi dasar perjalanan Avengers.
+                        Itulah semangat yang menjadi dasar perjalanan Avengers Team.
                     </p>
 
                 </div>
@@ -246,20 +257,19 @@
                 <h2>About Avengers Team</h2>
             </div>
 
-            <div class="video-box">    
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/Pj0YSE1fL4Y?si=phtzdZY522K2c3lO" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
+            <div class="video-box">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Pj0YSE1fL4Y?si=phtzdZY522K2c3lO"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
             </div>
         </section>
 
 
         {{-- ============================================================  03 — ANGGOTA AVENGERS TEAM ============================================================ --}}
 
-        
+
         <section class="team-members">
 
             <div class="team-section-title">

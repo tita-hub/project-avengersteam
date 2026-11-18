@@ -267,30 +267,6 @@
     color: #b52323;
 }
 
-.dashboard-page .dashboard-hero h1 span::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    bottom: -4px;
-
-    height: 4px;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #c62828 0%,
-            #00a84f 100%
-        );
-
-    opacity: 0.85;
-}
-
 
 /* ============================================================
    DESCRIPTION
@@ -4600,50 +4576,101 @@
 ===================================================== */
 
 @media (min-width: 768px) {
+    .dashboard-page .rfb-slide .avengers-bg-image {
+        object-position: center 80% !important;
+    }
     .dashboard-page .rfb-slide .gold-bg-image {
-        object-position: center 60% !important;
+        object-position: center 100% !important;
     }
 
-    /* Logo oil mepet di atas (8%), jadi geser sedikit saja */
-    .dashboard-page .rfb-slide .oil-bg-image {
-        object-position: center 90% !important;
+        /* Logo oil mepet di atas (8%), jadi geser sedikit saja */
+        .dashboard-page .rfb-slide .oil-bg-image {
+            object-position: center 100% !important;
     }
 
     /* Logo nikkei lebih turun (15%), jadi boleh digeser lebih banyak */
     .dashboard-page .rfb-slide .nikkei-bg-image {
-        object-position: center 55% !important;
+        object-position: center 180% !important;
     }
 
     .dashboard-page .rfb-slide .aud-bg-image {
-        object-position: center 70% !important;
+        object-position: center 100% !important;
     }
 }
 
-
 /* =====================================================
-   WELCOME: HILANGKAN GARIS BAWAH PADA TEKS JUDUL
-   Garis berasal dari aturan lama:
-   .dashboard-hero h1 span::after (garis gradasi merah-hijau)
+   SLIDE 2 - 6: TOMBOL DEMO REGISTRATION - REAL ACCOUNT
+   DI BAWAH BANNER, POSISI SAMA DENGAN SLIDE 1
+   Slide 1 tidak diubah (dikecualikan dengan :not).
 ===================================================== */
 
-.dashboard-page .welcome-title span::after {
-    content: none !important;
-    display: none !important;
+.dashboard-page .rfb-slide:not(.slide-welcome) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+
+    /* kiri sama dengan slide 1, bawah 47px */
+    padding: 0 clamp(54px, 7.5vw, 126px) 47px !important;
 }
 
-body:has(.dashboard-page) {
-    overflow-x: clip;
+.dashboard-page .rfb-slide:not(.slide-welcome) > .rfb-slide-content.welcome-content {
+    position: relative !important;
+    z-index: 5 !important;
+
+    order: 0 !important;
+    flex: 0 1 auto !important;
+
+    width: 72% !important;
+    max-width: 570px !important;
+
+    margin: 0 auto 0 0 !important;
 }
 
-.dashboard-page .dashboard-topbar {
-    position: sticky !important;
-    top: 76px !important;
-    z-index: 190 !important;
+/* Tablet */
+@media (max-width: 1000px) {
+    .dashboard-page .rfb-slide:not(.slide-welcome) > .rfb-slide-content.welcome-content {
+        width: 78% !important;
+    }
 }
 
-@media (max-width: 760px) {
-    .dashboard-page .dashboard-topbar {
-        top: 68px !important;
+/* HP */
+@media (max-width: 767px) {
+    .dashboard-page .rfb-slide:not(.slide-welcome) {
+        padding: 0 22px 64px !important;
+    }
+
+    .dashboard-page .rfb-slide:not(.slide-welcome) > .rfb-slide-content.welcome-content {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+/* =====================================================
+   SLIDE 3, 4, 5, 6 (GOLD, OIL, NIKKEI, AUD)
+   Ukuran tombol SAMA dengan slide 1 & 2, hanya posisi
+   dipindah ke kanan.
+===================================================== */
+
+@media (min-width: 768px) {
+
+    .dashboard-page .rfb-slide.slide-gold,
+    .dashboard-page .rfb-slide.slide-oil,
+    .dashboard-page .rfb-slide.slide-nikkei,
+    .dashboard-page .rfb-slide.slide-aud {
+        justify-content: flex-end !important;
+
+        /* kiri 0, kanan diberi jarak (aman dari WhatsApp & panah) */
+        padding: 0 clamp(90px, 8vw, 150px) 47px 0 !important;
+    }
+
+    /* kotak konten: lebar & max-width tetap seperti slide 2,
+       "auto" di kiri yang mendorongnya ke kanan */
+    .dashboard-page .rfb-slide.slide-gold > .rfb-slide-content.welcome-content,
+    .dashboard-page .rfb-slide.slide-oil > .rfb-slide-content.welcome-content,
+    .dashboard-page .rfb-slide.slide-nikkei > .rfb-slide-content.welcome-content,
+    .dashboard-page .rfb-slide.slide-aud > .rfb-slide-content.welcome-content {
+        margin: 0 0 0 auto !important;
     }
 }
 </style>
@@ -4815,6 +4842,71 @@ body:has(.dashboard-page) {
         alt="Avengers Team"
         class="avengers-bg-image"
     >
+    <div class="rfb-slide-content welcome-content">
+        <div class="rfb-hero-actions welcome-actions">
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-laptop"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Registration</strong>
+                    <small>Daftar akun demo</small>
+                </span>
+            </a>
+
+            <a href="https://demo.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Account</strong>
+                    <small>Masuk akun demo</small>  
+                </span>
+            </a>
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-plus-fill"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Register Online</strong>
+                    <small>Daftar akun real</small>
+                </span>
+            </a>
+
+            <a href="https://etrade.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn welcome-btn-real">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Real Account</strong>
+                    <small>Masuk akun real</small>
+                </span>
+            </a>
+
+        </div>
+    </div>
 </article>
 
 {{-- SLIDE 3: GOLD --}}
@@ -4825,6 +4917,71 @@ body:has(.dashboard-page) {
         alt="Gold Trading"
     >
 
+    <div class="rfb-slide-content welcome-content">
+        <div class="rfb-hero-actions welcome-actions">
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-laptop"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Registration</strong>
+                    <small>Daftar akun demo</small>
+                </span>
+            </a>
+
+            <a href="https://demo.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Account</strong>
+                    <small>Masuk akun demo</small>  
+                </span>
+            </a>
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-plus-fill"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Register Online</strong>
+                    <small>Daftar akun real</small>
+                </span>
+            </a>
+
+            <a href="https://etrade.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn welcome-btn-real">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Real Account</strong>
+                    <small>Masuk akun real</small>
+                </span>
+            </a>
+
+        </div>
+    </div>
     {{-- Konten Gold --}}
 </article>
 
@@ -4836,6 +4993,71 @@ body:has(.dashboard-page) {
         alt="Oil Trading"
     >
 
+    <div class="rfb-slide-content welcome-content">
+        <div class="rfb-hero-actions welcome-actions">
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-laptop"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Registration</strong>
+                    <small>Daftar akun demo</small>
+                </span>
+            </a>
+
+            <a href="https://demo.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Account</strong>
+                    <small>Masuk akun demo</small>  
+                </span>
+            </a>
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-plus-fill"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Register Online</strong>
+                    <small>Daftar akun real</small>
+                </span>
+            </a>
+
+            <a href="https://etrade.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn welcome-btn-real">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Real Account</strong>
+                    <small>Masuk akun real</small>
+                </span>
+            </a>
+
+        </div>
+    </div>
     {{-- Konten Oil --}}
 </article>
 
@@ -4846,6 +5068,72 @@ body:has(.dashboard-page) {
         alt="Nikkei Trading"
         class="nikkei-bg-image"
     >
+
+    <div class="rfb-slide-content welcome-content">
+        <div class="rfb-hero-actions welcome-actions">
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-laptop"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Registration</strong>
+                    <small>Daftar akun demo</small>
+                </span>
+            </a>
+
+            <a href="https://demo.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Account</strong>
+                    <small>Masuk akun demo</small>  
+                </span>
+            </a>
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-plus-fill"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Register Online</strong>
+                    <small>Daftar akun real</small>
+                </span>
+            </a>
+
+            <a href="https://etrade.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn welcome-btn-real">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Real Account</strong>
+                    <small>Masuk akun real</small>
+                </span>
+            </a>
+
+        </div>
+    </div>
 </article>
 
 {{-- SLIDE 6: AUD --}}
@@ -4855,6 +5143,74 @@ body:has(.dashboard-page) {
         alt="AUD Trading"
         class="aud-bg-image"
     >
+
+    <div class="rfb-slide-content welcome-content">
+        <div class="rfb-hero-actions welcome-actions">
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-laptop"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Registration</strong>
+                    <small>Daftar akun demo</small>
+                </span>
+            </a>
+
+            <a href="https://demo.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Demo Account</strong>
+                    <small>Masuk akun demo</small>  
+                </span>
+            </a>
+
+            <a href="https://regol.rifan-financindo-berjangka.co.id/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-person-plus-fill"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Register Online</strong>
+                    <small>Daftar akun real</small>
+                </span>
+            </a>
+
+            <a href="https://etrade.rifanberjangka.com/login"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="welcome-btn welcome-btn-real">
+
+                <span class="welcome-btn-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </span>
+
+                <span class="welcome-btn-text">
+                    <strong>Real Account</strong>
+                    <small>Masuk akun real</small>
+                </span>
+            </a>
+
+        </div>
+    </div>
+
+    
 </article>
 
         {{-- SLIDER NAVIGATION --}}
@@ -4901,141 +5257,10 @@ body:has(.dashboard-page) {
      AVENGERS TEAM INTRO - NEW DESIGN
 ===================================================== --}}
 
-<section class="avengers-intro">
+<br>
+<br>
+<br>
 
-    {{-- FRAME UTAMA --}}
-    <div class="avengers-frame">
-
-        <div class="avengers-frame-heading">
-
-            <div>
-                <span>GET TO KNOW US</span>
-
-                <h2>
-                    Meet the
-                    <strong>Avengers Team.</strong>
-                </h2>
-
-                <p>
-                    Six different personalities, one strong team.
-                </p>
-            </div>
-
-            <div class="avengers-heading-logo">
-                <img
-                    src="{{ asset('images/avengersteam-header.png') }}"
-                    alt="Avengers Team"
-                >
-            </div>
-
-        </div>
-
-
-        {{-- DUA CARD TERPISAH --}}
-        <div class="avengers-content-grid">
-
-            {{-- CARD FOTO --}}
-            <div class="avengers-photo-card">
-
-                <div class="avengers-photo-wrapper">
-
-                    <img
-                        src="{{ asset('images/A1.jpeg') }}"
-                        alt="Avengers Team Semarang"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="avengers-photo-caption">
-
-                    <span>OUR PEOPLE</span>
-
-                    <h3>One Team, Many Colors.</h3>
-
-                    <p>
-                        Enam anggota dengan karakter yang berbeda.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            {{-- CARD DESKRIPSI --}}
-            <div class="avengers-description-card">
-
-                <span class="avengers-label">
-                    MORE THAN JUST A TEAM
-                </span>
-
-                <h3>
-                    Kenapa Harus
-                    <span>Avengers Team?</span>
-                </h3>
-
-                <p>
-                    Avengers Team merupakan salah satu tim
-                    di PT Rifan Financindo Berjangka Semarang
-                    yang terdiri dari enam anggota tetap.
-                </p>
-
-                <p>
-                    Kami adalah tim yang fun, santai, dan
-                    penuh warna. Setiap anggota memiliki
-                    karakter dan kepribadian yang berbeda.
-                    Banyak di antara kami merupakan generasi
-                    muda yang membawa energi dan kreativitas.
-                </p>
-
-                <p>
-                    Meski santai dalam kebersamaan, kami
-                    tetap serius, bertanggung jawab, dan
-                    profesional ketika bekerja. Perbedaan
-                    justru membuat kami saling melengkapi
-                    dan berkembang bersama.
-                </p>
-
-                <div class="avengers-feature-list">
-
-                    <span>
-                        <i class="bi bi-emoji-smile-fill"></i>
-                        Fun Environment
-                    </span>
-
-                    <span>
-                        <i class="bi bi-people-fill"></i>
-                        Strong Teamwork
-                    </span>
-
-                    <span>
-                        <i class="bi bi-lightning-fill"></i>
-                        Young & Creative
-                    </span>
-
-                    <span>
-                        <i class="bi bi-award-fill"></i>
-                        Professional
-                    </span>
-
-                </div>
-
-                <a href="{{ route('team.profile') }}"
-                   class="avengers-profile-btn">
-
-                    Avengers Team Profile
-
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 
