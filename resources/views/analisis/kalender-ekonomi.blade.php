@@ -509,21 +509,23 @@ function renderEconomicCalendar(events) {
     }).join('');
 }
 
-async function loadEconomicCalendar() {
+async function loadEconomicCalendar(silent = false) {
     const tbody = document.getElementById('economicCalendarBody');
     const dateInput = document.getElementById('economicCalendarDate');
 
     if (!tbody || !dateInput) return;
 
-    tbody.innerHTML = `
-        <tr>
-            <td colspan="7">
-                <div class="economic-calendar-status">
-                    Memuat data kalender ekonomi...
-                </div>
-            </td>
-        </tr>
-    `;
+    if (!silent) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="7">
+                    <div class="economic-calendar-status">
+                        Memuat data kalender ekonomi...
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
 
     try {
         const url = new URL(
@@ -553,6 +555,8 @@ async function loadEconomicCalendar() {
         renderEconomicCalendar(result.data);
     } catch (error) {
         console.error('Kalender ekonomi:', error);
+
+        if (silent) return;
 
         tbody.innerHTML = `
             <tr>
@@ -585,6 +589,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadEconomicCalendar();
+
+    setInterval(() => loadEconomicCalendar(true), 60000);
 });
 
 

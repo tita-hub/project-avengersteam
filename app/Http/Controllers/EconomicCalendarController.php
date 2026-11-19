@@ -11,7 +11,8 @@ class EconomicCalendarController extends Controller
     public function index(Request $request): JsonResponse
     {
         try {
-            $response = Http::acceptJson()
+            $response = Http::withHeaders(['User-Agent' => 'Mozilla/5.0 (compatible; RifanSemarangNewsSync/1.0)'])
+    ->acceptJson()
                 ->timeout(25)
                 ->get('https://www.newsmaker.id/api/economic-calendar/this-week');
 
