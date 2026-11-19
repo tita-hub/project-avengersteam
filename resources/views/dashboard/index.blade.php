@@ -4548,24 +4548,24 @@
 
 @media (min-width: 768px) {
     .dashboard-page .rfb-slide .avengers-bg-image {
-        object-position: center 80% !important;
+        object-position: center 5% !important;
     }
     .dashboard-page .rfb-slide .gold-bg-image {
-        object-position: center 100% !important;
+        object-position: center 50% !important;
     }
 
         /* Logo oil mepet di atas (8%), jadi geser sedikit saja */
         .dashboard-page .rfb-slide .oil-bg-image {
-            object-position: center 100% !important;
+            object-position: center 40% !important;
     }
 
     /* Logo nikkei lebih turun (15%), jadi boleh digeser lebih banyak */
     .dashboard-page .rfb-slide .nikkei-bg-image {
-        object-position: center 180% !important;
+        object-position: center 15% !important;
     }
 
     .dashboard-page .rfb-slide .aud-bg-image {
-        object-position: center 100% !important;
+        object-position: center 70% !important;
     }
 }
 
