@@ -957,9 +957,6 @@
     gap: 25px;
     opacity: 0;
     visibility: hidden;
-    transform: scale(1.025);
-    transition: opacity .8s ease, transform 1s ease,
-                visibility .8s ease;
     overflow: hidden;
 }
 
@@ -2360,13 +2357,6 @@
     opacity: 0;
     visibility: hidden;
 
-    transform: scale(1.01);
-
-    transition:
-        opacity .8s ease,
-        transform 1s ease,
-        visibility .8s ease;
-
     overflow: hidden;
 }
 
@@ -3209,8 +3199,6 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateX(18px);
-    transition: opacity .55s ease, transform .65s ease, visibility .55s;
 }
 
 .dashboard-page .rfb-slide.active {
@@ -4745,6 +4733,139 @@ body:has(.dashboard-page) {
     width: 100% !important;
     z-index: 50;
 }
+
+/* =====================================================
+   ANIMASI HERO SLIDER (crossfade + zoom + stagger)
+===================================================== */
+
+/* 1. Pergantian slide: crossfade halus, tanpa geser */
+.dashboard-page .rfb-slide {
+    transition: opacity .9s ease, visibility .9s ease;
+}
+
+/* 3. Teks dan tombol muncul bergantian dari bawah */
+@keyframes rfbFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+}
+
+/* Teks slide 1 (label, judul, deskripsi) */
+.dashboard-page .rfb-slide.active .welcome-content > :not(.welcome-actions) {
+    animation: rfbFadeUp .8s cubic-bezier(.22, .7, .2, 1) backwards;
+}
+
+.dashboard-page .rfb-slide.active .welcome-content > :nth-child(1) { animation-delay: .30s; }
+.dashboard-page .rfb-slide.active .welcome-content > :nth-child(2) { animation-delay: .45s; }
+.dashboard-page .rfb-slide.active .welcome-content > :nth-child(3) { animation-delay: .60s; }
+.dashboard-page .rfb-slide.active .welcome-content > :nth-child(4) { animation-delay: .72s; }
+
+/* Tombol: muncul satu per satu */
+.dashboard-page .rfb-slide.active .welcome-btn {
+    animation: rfbFadeUp .7s cubic-bezier(.22, .7, .2, 1) backwards;
+}
+
+.dashboard-page .rfb-slide.active .welcome-btn:nth-child(1) { animation-delay: calc(var(--btn-base, .45s)); }
+.dashboard-page .rfb-slide.active .welcome-btn:nth-child(2) { animation-delay: calc(var(--btn-base, .45s) + .10s); }
+.dashboard-page .rfb-slide.active .welcome-btn:nth-child(3) { animation-delay: calc(var(--btn-base, .45s) + .20s); }
+.dashboard-page .rfb-slide.active .welcome-btn:nth-child(4) { animation-delay: calc(var(--btn-base, .45s) + .30s); }
+
+/* Slide 1 punya teks lebih banyak, jadi tombolnya muncul belakangan */
+.dashboard-page .rfb-slide.slide-welcome {
+    --btn-base: .95s;
+}
+
+/* 4. Pengguna yang mematikan animasi di sistemnya */
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-page .rfb-slide,
+    .dashboard-page .rfb-slide img {
+        transition: none !important;
+    }
+
+    .dashboard-page .rfb-slide.active .welcome-content > *,
+    .dashboard-page .rfb-slide.active .welcome-btn {
+        animation: none !important;
+    }
+}
+
+/* =====================================================
+   SLIDE 1 - TEKS JELAS (gradasi putih + font bersih)
+===================================================== */
+
+/* Gradasi putih dari kiri, di belakang teks */
+.dashboard-page .slide-welcome::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: auto;
+    transform: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, .94) 0%,
+        rgba(255, 255, 255, .86) 38%,
+        rgba(255, 255, 255, .45) 58%,
+        rgba(255, 255, 255, 0) 75%
+    );
+}
+
+/* Font modern, ukuran lebih ringkas supaya muat di hero */
+.dashboard-page .slide-welcome {
+
+    padding-bottom: 78px;   /* jarak aman dari titik slider */
+}
+
+.dashboard-page .slide-welcome .welcome-eyebrow {
+    margin-bottom: 14px;
+}
+
+.dashboard-page .slide-welcome .welcome-title {
+    gap: 2px;
+    margin-bottom: 14px;
+}
+
+.dashboard-page .slide-welcome .welcome-title .title-line-one {
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.dashboard-page .slide-welcome .welcome-title .title-line-two {
+    margin-top: 0;
+    font-size: clamp(36px, 3.6vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.dashboard-page .slide-welcome .welcome-title .title-line-three {
+    margin-top: 2px;
+    padding: 0;
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.dashboard-page .slide-welcome p.welcome-description {
+    max-width: 520px;
+    color: #3a4658;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.dashboard-page .slide-welcome .welcome-actions {
+    margin-top: 20px;
+}
+
 </style>
 
 <div class="dashboard-page">
@@ -4835,10 +4956,7 @@ body:has(.dashboard-page) {
         </h1>
 
         <p class="welcome-description">
-            Bersama Rifan Financindo Berjangka, jelajahi peluang pasar global melalui
-        </p>
-        <p>
-            layanan perdagangan berjangka yang profesional, transparan, dan terpercaya.
+            PT Rifan Financindo Berjangka adalah salah satu perusahaan pialang berjangka yang paling aktif di Indonesia. Kami menyediakan layanan trading berjangka untuk berbagai instrumen, termasuk komoditas, indeks saham, dan mata uang.
         </p>
 
         <div class="rfb-hero-actions welcome-actions">
@@ -5834,7 +5952,7 @@ body:has(.dashboard-page) {
         };
 
         const stop  = () => { clearInterval(timer); timer = null; };
-        const start = () => { stop(); timer = setInterval(() => show(current + 1), 6000); };
+        const start = () => { stop(); timer = setInterval(() => show(current + 1), 7000); };
         const move  = (i) => { show(i); start(); };
 
         next && next.addEventListener('click', () => move(current + 1));
