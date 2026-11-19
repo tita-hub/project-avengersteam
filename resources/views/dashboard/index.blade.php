@@ -4501,14 +4501,24 @@
     margin-top: 0 !important;
 }
 
-/* =====================================================
-   LEBAR BAGIAN BAWAH HERO DIKEMBALIKAN
-   Top News + hero tetap full width.
-   Avengers intro, market data, dan berita kembali
-   ke lebar container normal (maks. 1100px, di tengah).
-===================================================== */
+/* Wrapper: full width, tempat Top News menempel */
+.dashboard-page .dashboard-top-zone {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
 
-.dashboard-page > :not(.dashboard-topbar):not(.dashboard-hero) {
+/* Section lain (berita) tetap lebar container */
+.dashboard-page > :not(.dashboard-top-zone) {
+    width: min(1100px, calc(100% - 76px)) !important;
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+/* Isi wrapper selain Top News & hero (market data, dll) */
+.dashboard-page .dashboard-top-zone > :not(.dashboard-topbar):not(.dashboard-hero) {
     width: min(1100px, calc(100% - 76px)) !important;
     max-width: 1100px !important;
     margin-left: auto !important;
@@ -4517,7 +4527,8 @@
 }
 
 @media (max-width: 760px) {
-    .dashboard-page > :not(.dashboard-topbar):not(.dashboard-hero) {
+    .dashboard-page > :not(.dashboard-top-zone),
+    .dashboard-page .dashboard-top-zone > :not(.dashboard-topbar):not(.dashboard-hero) {
         width: calc(100% - 30px) !important;
     }
 }
@@ -4696,9 +4707,49 @@
 .rfb-welcome-button {
     gap: 10px;
 }
+
+/* Cegah geser kanan-kiri di halaman dashboard */
+html:has(.dashboard-page),
+body:has(.dashboard-page) {
+    overflow-x: clip;
+}
+
+.dashboard-page {
+    width: var(--rfb-vw, 100vw) !important;
+    margin-left: calc(50% - (var(--rfb-vw, 100vw) / 2)) !important;
+}
+
+/* Top News: diam di bawah navbar, ikut naik saat zona hero + market habis */
+.dashboard-page .dashboard-top-zone {
+    position: relative !important;
+}
+
+/* Saat bar dilepas dari alur, sisakan ruang supaya konten tidak loncat */
+.dashboard-page .dashboard-top-zone.bar-detached {
+    padding-top: var(--rfb-bar-h, 0px) !important;
+}
+
+.dashboard-page .dashboard-topbar.is-fixed {
+    position: fixed !important;
+    top: var(--rfb-nav-bottom, 0px) !important;
+    left: 0 !important;
+    width: var(--rfb-vw, 100%) !important;
+    z-index: 50;
+}
+
+.dashboard-page .dashboard-topbar.is-bottom {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 50;
+}
 </style>
 
 <div class="dashboard-page">
+
+    <div class="dashboard-top-zone">
 
     {{-- ==========================================
          TOP NEWS TICKER + JAM WIB
@@ -5298,110 +5349,33 @@
    {{-- ==========================================
      MARKET DATA
 ========================================== --}}
-<section class="dashboard-market-data">
+    <section class="dashboard-market-data">
 
-    {{-- =====================================================
-         MARKET CHART — FULL WIDTH
-    ====================================================== --}}
-    <div class="market-chart-card">
-
-        <div class="market-card-header">
-
-            <div>
-                <span class="market-card-label">
-                    MARKET CHART
-                </span>
-
-                <h2>
-                    GOLD / XUL10
-                </h2>
-            </div>
-
-            <span class="market-symbol-badge">
-                XAUUSD
-            </span>
-
-        </div>
-
-
-        <div class="market-chart-widget">
-
-            <div
-                class="tradingview-widget-container"
-                style="height:100%;width:100%"
-            >
-
-                <div
-                    class="tradingview-widget-container__widget"
-                    style="height:100%;width:100%"
-                ></div>
-
-                <script
-                    type="text/javascript"
-                    src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
-                    async
-                >
-                {
-                    "autosize": true,
-                    "width": "100%",
-                    "height": "100%",
-                    "symbol": "OANDA:XAUUSD",
-                    "interval": "5",
-                    "timezone": "Asia/Jakarta",
-                    "theme": "light",
-                    "style": "1",
-                    "locale": "en",
-                    "enable_publishing": false,
-                    "allow_symbol_change": true,
-                    "hide_top_toolbar": false,
-                    "hide_side_toolbar": false,
-                    "hide_legend": false,
-                    "save_image": false,
-                    "calendar": false,
-                    "hide_volume": false,
-                    "support_host": "https://www.tradingview.com"
-                }
-                </script>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    {{-- =====================================================
-         BOTTOM ROW — 70% / 30%
-    ====================================================== --}}
-    <div class="market-bottom-grid">
-
-
-        {{-- =================================================
-             HARGA PASAR — 70%
-        ================================================== --}}
-        <div class="market-instruments-card">
+        {{-- =====================================================
+            MARKET CHART — FULL WIDTH
+        ====================================================== --}}
+        <div class="market-chart-card">
 
             <div class="market-card-header">
 
                 <div>
                     <span class="market-card-label">
-                        INSTRUMEN
+                        MARKET CHART
                     </span>
 
                     <h2>
-                        Harga Pasar
+                        GOLD / XUL10
                     </h2>
                 </div>
 
-                <span class="market-live-badge">
-                    <span></span>
-                    Live Data
+                <span class="market-symbol-badge">
+                    XAUUSD
                 </span>
 
             </div>
 
 
-            <div class="market-quotes-widget">
+            <div class="market-chart-widget">
 
                 <div
                     class="tradingview-widget-container"
@@ -5415,72 +5389,28 @@
 
                     <script
                         type="text/javascript"
-                        src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
                         async
                     >
                     {
-                        "title": "",
+                        "autosize": true,
                         "width": "100%",
                         "height": "100%",
+                        "symbol": "OANDA:XAUUSD",
+                        "interval": "5",
+                        "timezone": "Asia/Jakarta",
+                        "theme": "light",
+                        "style": "1",
                         "locale": "en",
-                        "showSymbolLogo": false,
-                        "symbolsGroups": [
-                            {
-                                "name": "Instrumen",
-                                "symbols": [
-
-                                    {
-                                        "name": "TVC:GOLD",
-                                        "displayName": "XUL10 / GOLD"
-                                    },
-
-                                    {
-                                        "name": "TVC:UKOIL",
-                                        "displayName": "BC010_BBJ / BRENT"
-                                    },
-
-                                    {
-                                        "name": "INDEX:HSI",
-                                        "displayName": "HKK50_BBJ / HANG SENG"
-                                    },
-
-                                    {
-                                        "name": "INDEX:NKY",
-                                        "displayName": "JPK50_BBJ / NIKKEI"
-                                    },
-
-                                    {
-                                        "name": "FX:AUDUSD",
-                                        "displayName": "AU1010_BBJ / AUDUSD"
-                                    },
-
-                                    {
-                                        "name": "FX:EURUSD",
-                                        "displayName": "EU1010_BBJ / EURUSD"
-                                    },
-
-                                    {
-                                        "name": "FX:GBPUSD",
-                                        "displayName": "GU1010_BBJ / GBPUSD"
-                                    },
-
-                                    {
-                                        "name": "FX:USDCHF",
-                                        "displayName": "UC1010_BBJ / USDCHF"
-                                    },
-
-                                    {
-                                        "name": "FX:USDJPY",
-                                        "displayName": "UJ1010_BBJ / USDJPY"
-                                    }
-
-                                ]
-                            }
-                        ],
-
-                        "colorTheme": "light",
-                        "isTransparent": true,
-                        "showSymbolLogo": true
+                        "enable_publishing": false,
+                        "allow_symbol_change": true,
+                        "hide_top_toolbar": false,
+                        "hide_side_toolbar": false,
+                        "hide_legend": false,
+                        "save_image": false,
+                        "calendar": false,
+                        "hide_volume": false,
+                        "support_host": "https://www.tradingview.com"
                     }
                     </script>
 
@@ -5491,63 +5421,184 @@
         </div>
 
 
-        {{-- =================================================
-             TEKNIKAL — 30%
-        ================================================== --}}
-        <div class="market-technical-card">
+        {{-- =====================================================
+            BOTTOM ROW — 70% / 30%
+        ====================================================== --}}
+        <div class="market-bottom-grid">
 
-            <div class="market-card-header">
 
-                <div>
-                    <span class="market-card-label">
-                        TEKNIKAL
+            {{-- =================================================
+                HARGA PASAR — 70%
+            ================================================== --}}
+            <div class="market-instruments-card">
+
+                <div class="market-card-header">
+
+                    <div>
+                        <span class="market-card-label">
+                            INSTRUMEN
+                        </span>
+
+                        <h2>
+                            Harga Pasar
+                        </h2>
+                    </div>
+
+                    <span class="market-live-badge">
+                        <span></span>
+                        Live Data
                     </span>
 
-                    <h2>
-                        XAUUSD
-                    </h2>
                 </div>
 
-                <span class="technical-timeframe">
-                    1D
-                </span>
+
+                <div class="market-quotes-widget">
+
+                    <div
+                        class="tradingview-widget-container"
+                        style="height:100%;width:100%"
+                    >
+
+                        <div
+                            class="tradingview-widget-container__widget"
+                            style="height:100%;width:100%"
+                        ></div>
+
+                        <script
+                            type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+                            async
+                        >
+                        {
+                            "title": "",
+                            "width": "100%",
+                            "height": "100%",
+                            "locale": "en",
+                            "showSymbolLogo": false,
+                            "symbolsGroups": [
+                                {
+                                    "name": "Instrumen",
+                                    "symbols": [
+
+                                        {
+                                            "name": "TVC:GOLD",
+                                            "displayName": "XUL10 / GOLD"
+                                        },
+
+                                        {
+                                            "name": "TVC:UKOIL",
+                                            "displayName": "BC010_BBJ / BRENT"
+                                        },
+
+                                        {
+                                            "name": "INDEX:HSI",
+                                            "displayName": "HKK50_BBJ / HANG SENG"
+                                        },
+
+                                        {
+                                            "name": "INDEX:NKY",
+                                            "displayName": "JPK50_BBJ / NIKKEI"
+                                        },
+
+                                        {
+                                            "name": "FX:AUDUSD",
+                                            "displayName": "AU1010_BBJ / AUDUSD"
+                                        },
+
+                                        {
+                                            "name": "FX:EURUSD",
+                                            "displayName": "EU1010_BBJ / EURUSD"
+                                        },
+
+                                        {
+                                            "name": "FX:GBPUSD",
+                                            "displayName": "GU1010_BBJ / GBPUSD"
+                                        },
+
+                                        {
+                                            "name": "FX:USDCHF",
+                                            "displayName": "UC1010_BBJ / USDCHF"
+                                        },
+
+                                        {
+                                            "name": "FX:USDJPY",
+                                            "displayName": "UJ1010_BBJ / USDJPY"
+                                        }
+
+                                    ]
+                                }
+                            ],
+
+                            "colorTheme": "light",
+                            "isTransparent": true,
+                            "showSymbolLogo": true
+                        }
+                        </script>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <div class="technical-widget">
+            {{-- =================================================
+                TEKNIKAL — 30%
+            ================================================== --}}
+            <div class="market-technical-card">
 
-                <script
-                    type="module"
-                    src="https://widgets.tradingview-widget.com/w/en/tv-technical-analysis.js"
-                ></script>
+                <div class="market-card-header">
 
-                <tv-technical-analysis
-                    symbol="OANDA:XAUUSD"
-                    interval="1D"
-                ></tv-technical-analysis>
+                    <div>
+                        <span class="market-card-label">
+                            TEKNIKAL
+                        </span>
+
+                        <h2>
+                            XAUUSD
+                        </h2>
+                    </div>
+
+                    <span class="technical-timeframe">
+                        1D
+                    </span>
+
+                </div>
+
+
+                <div class="technical-widget">
+
+                    <script
+                        type="module"
+                        src="https://widgets.tradingview-widget.com/w/en/tv-technical-analysis.js"
+                    ></script>
+
+                    <tv-technical-analysis
+                        symbol="OANDA:XAUUSD"
+                        interval="1D"
+                    ></tv-technical-analysis>
+
+                </div>
 
             </div>
 
         </div>
 
+
+        {{-- =====================================================
+            DISCLAIMER
+        ====================================================== --}}
+        <div class="market-data-note">
+
+            <i class="bi bi-info-circle"></i>
+
+            Data pasar ditampilkan melalui widget TradingView.
+            Ketersediaan dan waktu data dapat berbeda sesuai sumber
+            pasar masing-masing instrumen.
+
+        </div>
+    </section>
     </div>
-
-
-    {{-- =====================================================
-         DISCLAIMER
-    ====================================================== --}}
-    <div class="market-data-note">
-
-        <i class="bi bi-info-circle"></i>
-
-        Data pasar ditampilkan melalui widget TradingView.
-        Ketersediaan dan waktu data dapat berbeda sesuai sumber
-        pasar masing-masing instrumen.
-
-    </div>
-
-</section>
 
     {{-- ==========================================
          BERITA TERBARU
@@ -5645,73 +5696,120 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---------- Jam WIB ---------- */
-    const dateEl = document.getElementById('clockDate');
-    const timeEl = document.getElementById('clockTime');
+        /* ---------- Jam WIB ---------- */
+        const dateEl = document.getElementById('clockDate');
+        const timeEl = document.getElementById('clockTime');
 
-    if (dateEl && timeEl) {
-        const tick = () => {
-            const now = new Date();
-            dateEl.textContent = now.toLocaleDateString('id-ID', {
-                timeZone: 'Asia/Jakarta', day: '2-digit', month: 'long', year: 'numeric'
+        if (dateEl && timeEl) {
+            const tick = () => {
+                const now = new Date();
+                dateEl.textContent = now.toLocaleDateString('id-ID', {
+                    timeZone: 'Asia/Jakarta', day: '2-digit', month: 'long', year: 'numeric'
+                });
+                timeEl.textContent = now.toLocaleTimeString('id-ID', {
+                    timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit',
+                    second: '2-digit', hour12: false
+                });
+            };
+            tick();
+            setInterval(tick, 1000);
+        }
+
+        /* ---------- Top News menempel tepat di bawah navbar ---------- */
+        const page = document.querySelector('.dashboard-page');
+
+        function alignWithNavbar() {
+        if (!page) return;
+
+        const first = page.querySelector('.dashboard-top-zone');
+        if (!first) return;
+
+        // 1. Reset dulu supaya pengukuran bersih
+        page.style.setProperty('padding-top', '0', 'important');
+        page.style.setProperty('margin-top', '0', 'important');
+
+        // 2. Cari bagian bawah navbar yang menempel di atas layar
+        let navBottom = 0;
+
+        document.querySelectorAll('header, nav, .navbar, .main-navbar, .site-header, .top-navbar')
+            .forEach(el => {
+                if (page.contains(el)) return;
+
+                const cs = getComputedStyle(el);
+                if (cs.position !== 'fixed' && cs.position !== 'sticky') return;
+
+                const r = el.getBoundingClientRect();
+                if (r.top <= 1 && r.width >= window.innerWidth * 0.6 && r.bottom > navBottom) {
+                    navBottom = r.bottom;
+                }
             });
-            timeEl.textContent = now.toLocaleTimeString('id-ID', {
-                timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit',
-                second: '2-digit', hour12: false
-            });
-        };
-        tick();
-        setInterval(tick, 1000);
+
+        if (!navBottom) return;
+
+        // 3. Selisih antara posisi Top News sekarang dan bawah navbar
+        const topNow = first.getBoundingClientRect().top + window.scrollY;
+        const delta  = Math.round(navBottom - topNow);
+
+        page.style.setProperty('--rfb-nav-bottom', Math.round(navBottom) + 'px');
+        // positif = geser turun, negatif = tarik naik (menutup celah)
+        page.style.setProperty('margin-top', delta + 'px', 'important');
     }
 
-    /* ---------- Top News menempel tepat di bawah navbar ---------- */
-    const page = document.querySelector('.dashboard-page');
+    function setRealViewportWidth() {
+        // clientWidth = lebar layar TANPA scrollbar
+        document.documentElement.style.setProperty(
+            '--rfb-vw',
+            document.documentElement.clientWidth + 'px'
+        );
+    }
 
-    function alignWithNavbar() {
-    if (!page) return;
-
-    const first = page.querySelector('.dashboard-topbar')
-               || page.querySelector('.dashboard-hero');
-    if (!first) return;
-
-    // 1. Reset dulu supaya pengukuran bersih
-    page.style.setProperty('padding-top', '0', 'important');
-    page.style.setProperty('margin-top', '0', 'important');
-
-    // 2. Cari bagian bawah navbar yang menempel di atas layar
-    let navBottom = 0;
-
-    document.querySelectorAll('header, nav, .navbar, .main-navbar, .site-header, .top-navbar')
-        .forEach(el => {
-            if (page.contains(el)) return;
-
-            const cs = getComputedStyle(el);
-            if (cs.position !== 'fixed' && cs.position !== 'sticky') return;
-
-            const r = el.getBoundingClientRect();
-            if (r.top <= 1 && r.width >= window.innerWidth * 0.6 && r.bottom > navBottom) {
-                navBottom = r.bottom;
-            }
-        });
-
-    if (!navBottom) return;
-
-    // 3. Selisih antara posisi Top News sekarang dan bawah navbar
-    const topNow = first.getBoundingClientRect().top + window.scrollY;
-    const delta  = Math.round(navBottom - topNow);
-
-    // positif = geser turun, negatif = tarik naik (menutup celah)
-    page.style.setProperty('margin-top', delta + 'px', 'important');
-}
+    setRealViewportWidth();
+    window.addEventListener('resize', setRealViewportWidth);
+    window.addEventListener('load', setRealViewportWidth);
 
     alignWithNavbar();
-window.addEventListener('load', alignWithNavbar);
-window.addEventListener('resize', alignWithNavbar);
-if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(alignWithNavbar);
-}
+    window.addEventListener('load', alignWithNavbar);
+    window.addEventListener('resize', alignWithNavbar);
+    const zone = page.querySelector('.dashboard-top-zone');
+    const bar  = page.querySelector('.dashboard-topbar');
+    let barH = 0;
+
+    function updateTopbar() {
+        if (!zone || !bar) return;
+
+        const navB = parseFloat(page.style.getPropertyValue('--rfb-nav-bottom')) || 0;
+        const z = zone.getBoundingClientRect();
+
+        let state = '';
+        if (z.top < navB) {
+            // Zona hero + market masih terlihat -> bar diam di bawah navbar.
+            // Zona hampir habis (mau masuk Berita) -> bar ikut naik.
+            state = (z.bottom - barH <= navB) ? 'bottom' : 'fixed';
+        }
+
+        bar.classList.toggle('is-fixed',  state === 'fixed');
+        bar.classList.toggle('is-bottom', state === 'bottom');
+        zone.classList.toggle('bar-detached', state !== '');
+    }
+
+    function measureBar() {
+        if (!zone || !bar) return;
+        bar.classList.remove('is-fixed', 'is-bottom');
+        zone.classList.remove('bar-detached');
+        barH = bar.offsetHeight;
+        zone.style.setProperty('--rfb-bar-h', barH + 'px');
+        updateTopbar();
+    }
+
+    measureBar();
+    window.addEventListener('scroll', updateTopbar, { passive: true });
+    window.addEventListener('resize', measureBar);
+    window.addEventListener('load', measureBar);
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(alignWithNavbar);
+    }
 
     /* ---------- Hero slider ---------- */
     const slider = document.getElementById('rfbSlider');
