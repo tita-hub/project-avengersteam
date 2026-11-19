@@ -116,7 +116,7 @@
     }
 
     .economic-calendar-table thead {
-        background: #172b4d;
+        background: #008f44;
         color: #fff;
     }
 
