@@ -4485,33 +4485,21 @@
     }
 }
 
-
-/* =====================================================
-   TOP NEWS MENEMPEL LANGSUNG DI BAWAH NAVBAR
-   Navbar fixed: 76px (desktop), 68px (<= 760px).
-   Konten dashboard dimulai tepat di bawah navbar,
-   tanpa celah dan tanpa bergantung pada margin negatif.
-===================================================== */
-
-.main-content:has(> .dashboard-page) {
+/* Top News menempel di navbar */
+.main-content:has(.dashboard-page) {
     padding-top: 0 !important;
 }
 
-.main-content > .dashboard-page {
+.dashboard-page {
     margin-top: 0 !important;
-    padding-top: 76px !important;
+    padding-top: var(--rfb-nav-h, 76px) !important; /* nilai asli diukur JS */
 }
 
-.main-content > .dashboard-page > .dashboard-topbar {
+.dashboard-page .dashboard-topbar {
+    top: 0 !important;
+    bottom: auto !important;
     margin-top: 0 !important;
 }
-
-@media (max-width: 760px) {
-    .main-content > .dashboard-page {
-        padding-top: 68px !important;
-    }
-}
-
 
 /* =====================================================
    LEBAR BAGIAN BAWAH HERO DIKEMBALIKAN
@@ -4532,23 +4520,6 @@
     .dashboard-page > :not(.dashboard-topbar):not(.dashboard-hero) {
         width: calc(100% - 30px) !important;
     }
-}
-
-
-/* =====================================================
-   FIX UTAMA: TOP NEWS MENUTUPI BAGIAN ATAS BANNER
-   Penyebab: style.css punya .dashboard-topbar { top: 64px }
-   (sisa dari versi position: fixed). Karena di halaman ini
-   topbar dibuat position: relative, nilai top itu menggeser
-   Top News turun 64px: muncul celah di bawah navbar, dan
-   Top News menimpa 64px bagian atas banner (logo terpotong).
-   Dengan top: 0, Top News menempel di navbar dan banner
-   dimulai tepat di bawah Top News.
-===================================================== */
-
-.dashboard-page .dashboard-topbar {
-    top: 0 !important;
-    bottom: auto !important;
 }
 
 /* =====================================================
@@ -4673,6 +4644,58 @@
         margin: 0 0 0 auto !important;
     }
 }
+
+/* Logo pojok kiri atas (slide 3-6) */
+.dashboard-page .hero-corner-logos {
+    position: absolute;
+    top: 18px;
+    left: clamp(84px, 7.5vw, 126px);
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 16px;
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+    backdrop-filter: blur(6px);
+}
+
+.dashboard-page .hero-corner-rifan    { height: 40px; width: auto; }
+.dashboard-page .hero-corner-avengers { height: 34px; width: auto; }
+
+.dashboard-page .hero-corner-divider {
+    width: 1px;
+    height: 28px;
+    background: #d5dbe0;
+}
+
+@media (max-width: 767px) {
+    .dashboard-page .hero-corner-logos {
+        top: 12px;
+        left: 52px;
+        gap: 9px;
+        padding: 6px 11px;
+    }
+    .dashboard-page .hero-corner-rifan    { height: 28px; }
+    .dashboard-page .hero-corner-avengers { height: 24px; }
+}
+
+.rfb-welcome-overlay,
+.rfb-welcome-overlay button {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+.rfb-welcome-card h2 {
+    margin: 0 0 26px;
+}
+
+.rfb-welcome-button {
+    gap: 10px;
+}
 </style>
 
 <div class="dashboard-page">
@@ -4727,7 +4750,7 @@
     {{-- ==========================================
      HERO DASHBOARD
     =========================================== --}}
-    
+
 <section class="dashboard-hero">
 
     <div class="rfb-slider" id="rfbSlider">
@@ -4761,7 +4784,7 @@
         </h1>
 
         <p class="welcome-description">
-            Bersama Rifan Financindo Berjangka, jelajahi peluang pasar global melalui 
+            Bersama Rifan Financindo Berjangka, jelajahi peluang pasar global melalui
         </p>
         <p>
             layanan perdagangan berjangka yang profesional, transparan, dan terpercaya.
@@ -4795,7 +4818,7 @@
 
                 <span class="welcome-btn-text">
                     <strong>Demo Account</strong>
-                    <small>Masuk akun demo</small>  
+                    <small>Masuk akun demo</small>
                 </span>
             </a>
 
@@ -4871,7 +4894,7 @@
 
                 <span class="welcome-btn-text">
                     <strong>Demo Account</strong>
-                    <small>Masuk akun demo</small>  
+                    <small>Masuk akun demo</small>
                 </span>
             </a>
 
@@ -4917,6 +4940,8 @@
         alt="Gold Trading"
     >
 
+    @include('partials.hero-corner-logos')
+
     <div class="rfb-slide-content welcome-content">
         <div class="rfb-hero-actions welcome-actions">
 
@@ -4946,7 +4971,7 @@
 
                 <span class="welcome-btn-text">
                     <strong>Demo Account</strong>
-                    <small>Masuk akun demo</small>  
+                    <small>Masuk akun demo</small>
                 </span>
             </a>
 
@@ -4993,6 +5018,8 @@
         alt="Oil Trading"
     >
 
+    @include('partials.hero-corner-logos')
+
     <div class="rfb-slide-content welcome-content">
         <div class="rfb-hero-actions welcome-actions">
 
@@ -5022,7 +5049,7 @@
 
                 <span class="welcome-btn-text">
                     <strong>Demo Account</strong>
-                    <small>Masuk akun demo</small>  
+                    <small>Masuk akun demo</small>
                 </span>
             </a>
 
@@ -5069,6 +5096,8 @@
         class="nikkei-bg-image"
     >
 
+    @include('partials.hero-corner-logos')
+
     <div class="rfb-slide-content welcome-content">
         <div class="rfb-hero-actions welcome-actions">
 
@@ -5098,7 +5127,7 @@
 
                 <span class="welcome-btn-text">
                     <strong>Demo Account</strong>
-                    <small>Masuk akun demo</small>  
+                    <small>Masuk akun demo</small>
                 </span>
             </a>
 
@@ -5144,6 +5173,8 @@
         class="aud-bg-image"
     >
 
+    @include('partials.hero-corner-logos')
+
     <div class="rfb-slide-content welcome-content">
         <div class="rfb-hero-actions welcome-actions">
 
@@ -5173,7 +5204,7 @@
 
                 <span class="welcome-btn-text">
                     <strong>Demo Account</strong>
-                    <small>Masuk akun demo</small>  
+                    <small>Masuk akun demo</small>
                 </span>
             </a>
 
@@ -5210,7 +5241,7 @@
         </div>
     </div>
 
-    
+
 </article>
 
         {{-- SLIDER NAVIGATION --}}
@@ -5613,243 +5644,141 @@
 
 </div>
 
-@if($tickerNews->isNotEmpty())
 <script>
-    (function () {
-        const dateEl = document.getElementById('clockDate');
-        const timeEl = document.getElementById('clockTime');
-
-        if (!dateEl || !timeEl) return;
-
-        function updateClock() {
-            const now = new Date();
-
-            dateEl.textContent = now.toLocaleDateString('id-ID', {
-                timeZone: 'Asia/Jakarta',
-                day: '2-digit',
-                month: 'long',
-                year: 'numeric',
-            });
-
-            timeEl.textContent = now.toLocaleTimeString('id-ID', {
-                timeZone: 'Asia/Jakarta',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-            });
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-    })();
-
-    
 document.addEventListener('DOMContentLoaded', function () {
 
-  
-/* =====================================
-   RFB HERO SLIDER
-===================================== */
+    /* ---------- Jam WIB ---------- */
+    const dateEl = document.getElementById('clockDate');
+    const timeEl = document.getElementById('clockTime');
 
-function initRfbHeroSlider() {
+    if (dateEl && timeEl) {
+        const tick = () => {
+            const now = new Date();
+            dateEl.textContent = now.toLocaleDateString('id-ID', {
+                timeZone: 'Asia/Jakarta', day: '2-digit', month: 'long', year: 'numeric'
+            });
+            timeEl.textContent = now.toLocaleTimeString('id-ID', {
+                timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit',
+                second: '2-digit', hour12: false
+            });
+        };
+        tick();
+        setInterval(tick, 1000);
+    }
 
+    /* ---------- Top News menempel tepat di bawah navbar ---------- */
+    const page = document.querySelector('.dashboard-page');
+
+    function alignWithNavbar() {
+    if (!page) return;
+
+    const first = page.querySelector('.dashboard-topbar')
+               || page.querySelector('.dashboard-hero');
+    if (!first) return;
+
+    // 1. Reset dulu supaya pengukuran bersih
+    page.style.setProperty('padding-top', '0', 'important');
+    page.style.setProperty('margin-top', '0', 'important');
+
+    // 2. Cari bagian bawah navbar yang menempel di atas layar
+    let navBottom = 0;
+
+    document.querySelectorAll('header, nav, .navbar, .main-navbar, .site-header, .top-navbar')
+        .forEach(el => {
+            if (page.contains(el)) return;
+
+            const cs = getComputedStyle(el);
+            if (cs.position !== 'fixed' && cs.position !== 'sticky') return;
+
+            const r = el.getBoundingClientRect();
+            if (r.top <= 1 && r.width >= window.innerWidth * 0.6 && r.bottom > navBottom) {
+                navBottom = r.bottom;
+            }
+        });
+
+    if (!navBottom) return;
+
+    // 3. Selisih antara posisi Top News sekarang dan bawah navbar
+    const topNow = first.getBoundingClientRect().top + window.scrollY;
+    const delta  = Math.round(navBottom - topNow);
+
+    // positif = geser turun, negatif = tarik naik (menutup celah)
+    page.style.setProperty('margin-top', delta + 'px', 'important');
+}
+
+    alignWithNavbar();
+window.addEventListener('load', alignWithNavbar);
+window.addEventListener('resize', alignWithNavbar);
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(alignWithNavbar);
+}
+
+    /* ---------- Hero slider ---------- */
     const slider = document.getElementById('rfbSlider');
 
-    if (!slider) return;
-
-    const slides = slider.querySelectorAll('.rfb-slide');
-    const dots = slider.querySelectorAll('.rfb-slider-dot');
-
-    const prev = document.getElementById('rfbPrev');
-    const next = document.getElementById('rfbNext');
-
-    if (!slides.length) return;
-
-    let current = 0;
-    let timer = null;
-
-    const duration = 6000;
-
-    function showSlide(index) {
-
-        current = (index + slides.length) % slides.length;
-
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === current);
-
-            slide.setAttribute(
-                'aria-hidden',
-                i !== current ? 'true' : 'false'
-            );
-        });
-
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === current);
-
-            dot.setAttribute(
-                'aria-current',
-                i === current ? 'true' : 'false'
-            );
-        });
-    }
-
-    function stopAutoSlide() {
-        if (timer !== null) {
-            clearInterval(timer);
-            timer = null;
-        }
-    }
-
-    function startAutoSlide() {
-        stopAutoSlide();
-
-        timer = setInterval(() => {
-            showSlide(current + 1);
-        }, duration);
-    }
-
-    function moveSlide(index) {
-        showSlide(index);
-        startAutoSlide();
-    }
-
-    if (next) {
-        next.addEventListener('click', function () {
-            moveSlide(current + 1);
-        });
-    }
-
-    if (prev) {
-        prev.addEventListener('click', function () {
-            moveSlide(current - 1);
-        });
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', function () {
-            moveSlide(index);
-        });
-    });
-
-        /* Geser slide dengan tombol keyboard ← dan → */
-    document.addEventListener('keydown', function (e) {
-
-        // Jangan ganggu saat mengetik di kolom isian
-        const target = e.target;
-        if (
-            target &&
-            (
-                target.tagName === 'INPUT' ||
-                target.tagName === 'TEXTAREA' ||
-                target.tagName === 'SELECT' ||
-                target.isContentEditable
-            )
-        ) {
-            return;
-        }
-
-        // Abaikan kombinasi seperti Alt + ← (kembali ke halaman sebelumnya)
-        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
-            return;
-        }
-
-        // Jangan geser saat popup selamat datang sedang terbuka
+    if (slider) {
+        const slides  = [...slider.querySelectorAll('.rfb-slide')];
+        const dots    = [...slider.querySelectorAll('.rfb-slider-dot')];
+        const prev    = document.getElementById('rfbPrev');
+        const next    = document.getElementById('rfbNext');
         const popupEl = document.getElementById('rfbWelcomePopup');
-        if (popupEl && popupEl.classList.contains('show')) {
-            return;
-        }
 
-        if (e.key === 'ArrowRight') {
-            moveSlide(current + 1);
-        } else if (e.key === 'ArrowLeft') {
-            moveSlide(current - 1);
-        }
-    });
+        let current = 0;
+        let timer = null;
 
-    slider.addEventListener('mouseenter', stopAutoSlide);
-    slider.addEventListener('mouseleave', startAutoSlide);
+        const show = (i) => {
+            current = (i + slides.length) % slides.length;
+            slides.forEach((s, k) => {
+                s.classList.toggle('active', k === current);
+                s.setAttribute('aria-hidden', k !== current);
+            });
+            dots.forEach((d, k) => d.classList.toggle('active', k === current));
+        };
 
-    showSlide(0);
-    startAutoSlide();
-}
+        const stop  = () => { clearInterval(timer); timer = null; };
+        const start = () => { stop(); timer = setInterval(() => show(current + 1), 6000); };
+        const move  = (i) => { show(i); start(); };
 
-/* Pastikan slider diinisialisasi */
-if (document.readyState === 'loading') {
-    document.addEventListener(
-        'DOMContentLoaded',
-        initRfbHeroSlider
-    );
-} else {
-    initRfbHeroSlider();
-}
+        next && next.addEventListener('click', () => move(current + 1));
+        prev && prev.addEventListener('click', () => move(current - 1));
+        dots.forEach((d, i) => d.addEventListener('click', () => move(i)));
 
+        document.addEventListener('keydown', (e) => {
+            const t = e.target;
+            if (t && (['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName) || t.isContentEditable)) return;
+            if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+            if (popupEl && popupEl.classList.contains('show')) return;
 
-    /* =====================================
-       WELCOME POPUP
-    ===================================== */
+            if (e.key === 'ArrowRight') move(current + 1);
+            if (e.key === 'ArrowLeft')  move(current - 1);
+        });
 
+        slider.addEventListener('mouseenter', stop);
+        slider.addEventListener('mouseleave', start);
+
+        show(0);
+        start();
+    }
+
+    /* ---------- Popup selamat datang: muncul tiap dashboard dibuka ---------- */
     const popup = document.getElementById('rfbWelcomePopup');
 
-    const close = document.getElementById('rfbWelcomeClose');
-
-    const skip = document.getElementById('rfbWelcomeSkip');
-
     if (popup) {
+        const closePopup = () => popup.classList.remove('show');
 
-        const popupKey = 'avengers_welcome_shown';
+        setTimeout(() => popup.classList.add('show'), 400);
 
-        function closePopup() {
+        document.getElementById('rfbWelcomeClose')?.addEventListener('click', closePopup);
+        document.getElementById('rfbWelcomeSkip')?.addEventListener('click', closePopup);
 
-            popup.classList.remove('show');
+        popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
 
-            sessionStorage.setItem(popupKey, '1');
-
-        }
-
-        if (!sessionStorage.getItem(popupKey)) {
-
-            setTimeout(() => {
-
-                popup.classList.add('show');
-
-            }, 500);
-
-        }
-
-        if (close) {
-            close.addEventListener('click', closePopup);
-        }
-
-        if (skip) {
-            skip.addEventListener('click', closePopup);
-        }
-
-        popup.addEventListener('click', function (e) {
-
-            if (e.target === popup) {
-                closePopup();
-            }
-
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('show')) closePopup();
         });
-
-        document.addEventListener('keydown', function (e) {
-
-            if (
-                e.key === 'Escape' &&
-                popup.classList.contains('show')
-            ) {
-                closePopup();
-            }
-
-        });
-
     }
-
 });
-
 </script>
-@endif
 
 
 {{-- ======================================================
@@ -5897,13 +5826,6 @@ if (document.readyState === 'loading') {
                 Avengers Team!
             </span>
         </h2>
-
-        <p>
-            Senang bisa menyambut Anda di website
-            PT Rifan Financindo Berjangka Semarang.
-            Kenali perusahaan kami, jelajahi produk perdagangan,
-            dan temukan keseruan bersama Avengers Team.
-        </p>
 
         <a href="{{ route('team.profile') }}"
            class="rfb-welcome-button">
