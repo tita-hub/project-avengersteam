@@ -1495,7 +1495,7 @@
                     <div class="kegiatan-detail-video">
 
                         <iframe
-                            src="https://www.youtube.com/embed/84boVMbwbVI"
+                            src="https://youtu.be/bVCO5ZaGtF4?si=deIw51d812hdfJv5"
                             title="Kegiatan Avengers Team di Baby Home Semarang"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen
