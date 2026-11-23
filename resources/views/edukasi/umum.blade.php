@@ -1310,7 +1310,7 @@
             <div class="magang-cta-buttons">
 
                 <a
-                    href="https://wa.me/082262226238"
+                    href="https://wa.me/085128040216"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="magang-cta-btn whatsapp"
