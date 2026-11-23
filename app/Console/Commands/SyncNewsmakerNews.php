@@ -42,13 +42,41 @@ class SyncNewsmakerNews extends Command
 
         $cards = [];
 
-        foreach ($xp->query('//a[@href]') as $a) {
-            $path = $this->articlePath($a->getAttribute('href'));
-            if (! $path) continue;
+        $links = $xp->query('//a[@href]');
+
+        if ($links === false) {
+            $this->error('Gagal membaca tautan berita.');
+            return self::FAILURE;
+        }
+
+        foreach ($links as $link) {
+
+            if (! $link instanceof \DOMElement) {
+                continue;
+            }
+
+            /** @var \DOMElement $a */
+            $a = $link;
+
+            $hrefNode = $a->attributes->getNamedItem('href');
+            $href = $hrefNode?->nodeValue;
+
+            if (! is_string($href)) {
+                continue;
+            }
+
+            $path = $this->articlePath($href);
+
+            if (! $path) {
+                continue;
+            }
 
             $scope = $this->cardScope($a, $xp);
             $card  = $this->extract($scope, $xp, $path, $a);
-            if (! $card) continue;
+
+            if (! $card) {
+                continue;
+            }
 
             // Satu artikel bisa muncul di beberapa tempat; simpan versi paling lengkap.
             $score = ($card['image'] ? 2 : 0) + ($card['has_date'] ? 1 : 0);
@@ -102,11 +130,28 @@ class SyncNewsmakerNews extends Command
     private function pathsIn(\DOMNode $node, \DOMXPath $xp): array
     {
         $paths = [];
-        foreach ($xp->query('.//a[@href]', $node) as $x) {
-            if ($p = $this->articlePath($x->getAttribute('href'))) {
-                $paths[$p] = true;
+
+        // Ambil atribut href secara langsung melalui XPath
+        $links = $xp->query('.//a/@href', $node);
+
+        if ($links === false) {
+            return [];
+        }
+
+        foreach ($links as $link) {
+            $href = $link->nodeValue;
+
+            if (! is_string($href)) {
+                continue;
+            }
+
+            $path = $this->articlePath($href);
+
+            if ($path !== null) {
+                $paths[$path] = true;
             }
         }
+
         return array_keys($paths);
     }
 
@@ -131,9 +176,17 @@ class SyncNewsmakerNews extends Command
         $text = fn (?\DOMNode $n) => $n ? trim(preg_replace('/\s+/u', ' ', $n->textContent)) : null;
 
         // Judul
-        $img   = $q('.//img[@src]')->item(0);
+        $img = $q('.//img[@src]')->item(0);
+
+        if (! $img instanceof \DOMElement) {
+            $img = null;
+        }
+
         $title = $text($q('.//p[contains(@class,"line-clamp")]')->item(0));
-        if (! $title && $img) $title = trim($img->getAttribute('alt'));
+
+        if (! $title && $img) {
+            $title = trim($img->getAttribute('alt'));
+        }
         if (! $title) $title = $text($q('.//h1|.//h2|.//h3')->item(0));
         if (! $title) $title = $text($a);
 
@@ -145,6 +198,10 @@ class SyncNewsmakerNews extends Command
         $image = $img ? $img->getAttribute('src') : null;
         if (! $image) {
             foreach ($q('.//*[@style]') as $el) {
+                if (! $el instanceof \DOMElement) {
+                    continue;
+                }
+
                 if (preg_match('/url\(\s*[\'"]?([^\'")]+)/', $el->getAttribute('style'), $m)) {
                     $image = $m[1];
                     break;
