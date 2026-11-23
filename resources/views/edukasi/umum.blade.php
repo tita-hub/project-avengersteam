@@ -41,7 +41,7 @@
     </section>
 
 
-    
+
     {{-- =====================================================
         3 MATERI UTAMA
     ====================================================== --}}
@@ -153,7 +153,7 @@
 
         <div class="edu-container">
 
-            
+
 
             {{-- =================================================
                 HEADER
@@ -291,7 +291,7 @@
                             <i class="bi bi-x-lg"></i>
                         </button>
 
-                        
+
             {{-- LAYOUT DETAIL: FOTO KIRI, INFORMASI KANAN --}}
             <div class="literasi-detail-layout">
 
@@ -312,12 +312,12 @@
                         </div>
                     </div>
 
-                    
+
                     <div class="literasi-detail-gallery" id="literasiDetailGallery">
-                       
+
                     </div>
 
-    
+
 
                 </div>
 
@@ -330,7 +330,7 @@
 
                     <h3 id="literasiModalTitle">Kunjungan Industri</h3>
 
-                    
+
 
                     {{-- DESKRIPSI KEGIATAN --}}
                     <h4>Deskripsi Kegiatan</h4>
@@ -370,7 +370,7 @@
 
             </div>
 
-            
+
             {{-- POP-UP FOTO GALERI LITERASI --}}
             <div id="literasiFotoPopup"
                 class="literasi-foto-popup"
@@ -411,7 +411,7 @@
 
         <div class="edu-container">
 
-            
+
 
             <div class="magang-hero">
 
@@ -454,7 +454,7 @@
 
                 <div class="magang-section-title">
 
-                
+
                     <h3>
                         Belajar Tidak Hanya dari Ruang Kelas
                     </h3>
@@ -1053,7 +1053,7 @@
                                 id="review_institution"
                                 name="institution"
                                 value="{{ old('institution') }}"
-                                placeholder="Contoh: Universitas Diponegoro"
+                                placeholder="Contoh: Politeknik Negeri Indramayu"
                                 maxlength="150"
                                 required
                             >
@@ -1096,7 +1096,7 @@
                                 placeholder="Ceritakan pengalaman kamu selama mengikuti magang..."
                                 required
                             >{{ old('review') }}</textarea>
-         
+
                         </div>
 
 
@@ -1361,7 +1361,7 @@
              TOMBOL KEMBALI KE MATERI
         ===================================================== --}}
 
-        
+
         <div class="kegiatan-wrapper">
 
             {{-- ==================================================
@@ -1710,7 +1710,7 @@ function kembaliKeKegiatan() {
 
         <div class="edu-container">
 
-            
+
 
             <div class="section-heading">
 
@@ -2239,7 +2239,7 @@ function bukaLiterasiDetail(jenis) {
         image.alt = data.title;
     }
 
-    
+
     const gallery = document.getElementById('literasiDetailGallery');
 
     if (gallery) {
