@@ -1310,7 +1310,7 @@
             <div class="magang-cta-buttons">
 
                 <a
-                    href="https://wa.me/085128040216"
+                    href="https://wa.me/6285128040216"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="magang-cta-btn whatsapp"
@@ -1493,10 +1493,10 @@
                     {{-- VIDEO --}}
 
                     <div class="kegiatan-detail-video">
-
+                        
                         <iframe
-                            src="https://youtu.be/bVCO5ZaGtF4?si=deIw51d812hdfJv5"
-                            title="Kegiatan Avengers Team di Baby Home Semarang"
+                            src="https://www.youtube.com/embed/bGy_eT6BQYE"
+                            title="Kunjungan Baby Home Semarang - Avengers Team"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen
                         ></iframe>
