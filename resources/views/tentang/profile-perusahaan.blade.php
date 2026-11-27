@@ -159,7 +159,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/01.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/01.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -173,7 +173,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/02.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/02.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -187,7 +187,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/03.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/03.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -201,7 +201,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/04.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/04.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -215,7 +215,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/05.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/05.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -229,7 +229,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/06.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/06.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -243,7 +243,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/07.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/07.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -257,7 +257,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/08.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/08.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -271,7 +271,7 @@
 
                     <div class="certificate-card">
                         <div class="certificate-image">
-                            <img src="{{ asset('images/09.png') }}">
+                            <img src="{{ asset('images/tentangkami/penghargaan/09.png') }}">
                         </div>
 
                         <div class="certificate-info">
@@ -294,22 +294,22 @@
             <div style="display: flex; gap: 30px; justify-content: center; margin-top: 50px;">
 
                 <div>
-                    <img src="{{ asset('images/1.png') }}" alt="Foto 1"
+                    <img src="{{ asset('images/tentangkami/1.png') }}" alt="Foto 1"
                         style="width: 80px; height: 80px; object-fit: contain; border-radius: 5px;">
                 </div>
 
                 <div>
-                    <img src="{{ asset('images/2.png') }}" alt="Foto 2"
+                    <img src="{{ asset('images/tentangkami/2.png') }}" alt="Foto 2"
                         style="width: 80px; height: 80px; object-fit: contain; border-radius: 5px;">
                 </div>
 
                 <div>
-                    <img src="{{ asset('images/3.png') }}" alt="Foto 3"
+                    <img src="{{ asset('images/tentangkami/3.png') }}" alt="Foto 3"
                         style="width: 80px; height: 80px; object-fit: contain; border-radius: 5px;">
                 </div>
 
                 <div>
-                    <img src="{{ asset('images/4.png') }}" alt="Foto 4"
+                    <img src="{{ asset('images/tentangkami/4.png') }}" alt="Foto 4"
                         style="width: 60px; height: 60px; object-fit: contain; border-radius: 5px;">
                 </div>
 

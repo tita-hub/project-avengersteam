@@ -9,7 +9,7 @@
                 [
                     'name' => 'Christin Octavia',
                     'position' => 'Avengers Team Lead',
-                    'image' => 'images/A1.jpeg',
+                    'image' => 'images/tentangkami/anggota/A1.jpeg',
                     'description' => '
                     Perjalanan Christin Octavia di dunia jasa keuangan dimulai pada tahun 2014.
                     Mengawali karier sebagai seorang konsultan, Christin harus melewati berbagai tantangan sejak awal
@@ -39,7 +39,7 @@
                 [
                     'name' => 'Dian Sri Rahmawati',
                     'position' => 'Anggota Team',
-                    'image' => 'images/A2.jpeg',
+                    'image' => 'images/tentangkami/anggota/A2.jpeg',
                     'description' => '
                     Dian Sri Rahmawati menjadi salah satu sosok penting dalam perjalanan awal Christin Octavia.
                     Bergabung sebagai konsultan, Dian menjadi teman pertama yang berjalan bersama Christin dalam
@@ -68,7 +68,7 @@
                 [
                     'name' => 'Dhiana Rizky Wulandari',
                     'position' => 'Anggota Team',
-                    'image' => 'images/A3.jpeg',
+                    'image' => 'images/tentangkami/anggota/A33.jpeg',
                     'description' => '
                     Perjalanan Dhiana Rizky Wulandari menjadi bagian dari Avengers juga tidak terlepas dari berbagai
                     tantangan. Bergabung sebagai anggota baru, Dhiana pernah berada dalam masa yang cukup sulit dalam
@@ -90,7 +90,7 @@
                 [
                     'name' => 'Yustinus Mahendra Dwi Putra',
                     'position' => 'Anggota Team',
-                    'image' => 'images/A4.jpeg',
+                    'image' => 'images/tentangkami/anggota/A4.jpeg',
                     'description' => '
                     Yustinus Mahendra bergabung sebagai konsultan pada tahun 2024 dan menjadi anggota keempat dalam
                     perjalanan Avengers setelah fondasi tim dibangun oleh tiga anggota sebelumnya.
@@ -118,7 +118,7 @@
                 [
                     'name' => 'Anita Yuliatin',
                     'position' => 'Anggota Team',
-                    'image' => 'images/kaanita.jpeg',
+                    'image' => 'images/tentangkami/anggota/A5.jpeg',
                     'description' => '
                     Anita bergabung sebagai konsultan pada tahun 2024 dan menjadi salah satu bagian dari proses
                     perkembangan Avengers.
@@ -146,7 +146,7 @@
                 [
                     'name' => 'Compasion Abraham',
                     'position' => 'Anggota Team',
-                    'image' => 'images/A6.jpeg',
+                    'image' => 'images/tentangkami/anggota/A6.jpeg',
                     'description' => '
                     Compasion merupakan salah satu anggota termuda dalam perjalanan Avengers. Ia bergabung sebagai konsultan
                     pada tahun 2026 dan berada di bawah bimbingan Yustinus Mahendra sebagai senior sekaligus mentor

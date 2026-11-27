@@ -11,7 +11,7 @@
 
 
                 <div class="wakil-pialang-photo">
-                    <img src="{{ asset('images/CI CHIRST 1.jpeg') }}" alt="Christin Octavia">
+                    <img src="{{ asset('images/tentangkami/anggota/A11.jpeg') }}" alt="Christin Octavia">
                 </div>
 
                 <div class="wakil-pialang-info">
@@ -65,7 +65,7 @@
             <div class="wakil-pialang-card">
 
                 <div class="wakil-pialang-photo">
-                    <img src="{{ asset('images/KA DHIANA.jpeg') }}" alt="Dhiana Rizky Wulandari">
+                    <img src="{{ asset('images/tentangkami/anggota/A33.jpeg') }}" alt="Dhiana Rizky Wulandari">
                 </div>
 
                 <div class="wakil-pialang-info">
@@ -119,7 +119,7 @@
             <div class="wakil-pialang-card">
 
                 <div class="wakil-pialang-photo">
-                    <img src="{{ asset('images/KA GEMPI 1.jpeg') }}" alt="Dian Sri Rahmawati">
+                    <img src="{{ asset('images/tentangkami/anggota/A2.jpeg') }}" alt="Dian Sri Rahmawati">
                 </div>
                 <div class="wakil-pialang-info">
                     <h3>Dian Sri Rahmawati</h3>

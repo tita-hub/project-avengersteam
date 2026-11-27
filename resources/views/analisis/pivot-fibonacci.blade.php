@@ -548,188 +548,298 @@
             
     {{---------------- SCRIPT ---------------}}
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const page = document.querySelector('.pf-page');
 
-            if (!page) return;
 
-            const tabs = page.querySelectorAll('.pf-tab');
-            const panels = page.querySelectorAll('.pf-panel');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const page = document.querySelector('.pf-page');
 
-            // Fungsi untuk mengganti tab Pivot dan Fibonacci
-            function activateTab(target) {
-                tabs.forEach(function(tab) {
-                    const active = tab.dataset.target === target;
+        if (!page) return;
 
-                    tab.classList.toggle('active', active);
-                    tab.setAttribute('aria-selected', String(active));
-                    tab.tabIndex = active ? 0 : -1;
-                });
+        const tabs = page.querySelectorAll('.pf-tab');
+        const panels = page.querySelectorAll('.pf-panel');
 
-                panels.forEach(function(panel) {
-                    panel.hidden = panel.id !== 'pf-panel-' + target;
-                });
-            }
+        // ============================================= TAB PIVOT DAN FIBONACCI =============================================
 
-            // Event tab
-            tabs.forEach(function(tab, index) {
-                tab.addEventListener('click', function() {
-                    activateTab(tab.dataset.target);
-                });
+        function activateTab(target) {
+            tabs.forEach(function(tab) {
+                const active = tab.dataset.target === target;
 
-                tab.addEventListener('keydown', function(event) {
-                    if (
-                        event.key === 'ArrowRight' ||
-                        event.key === 'ArrowLeft'
-                    ) {
-                        event.preventDefault();
-
-                        const direction =
-                            event.key === 'ArrowRight' ? 1 : -1;
-
-                        const nextIndex =
-                            (index + direction + tabs.length) % tabs.length;
-
-                        tabs[nextIndex].focus();
-                        activateTab(tabs[nextIndex].dataset.target);
-                    }
-                });
+                tab.classList.toggle('active', active);
+                tab.setAttribute('aria-selected', String(active));
+                tab.tabIndex = active ? 0 : -1;
             });
 
-            // Event tombol Kalkulasi
-            const calculateButton = page.querySelector('#pf-calculate');
-            const pivotForm = page.querySelector('#pf-pivot-form');
+            panels.forEach(function(panel) {
+                panel.hidden = panel.id !== 'pf-panel-' + target;
+            });
+        }
 
-            if (calculateButton && pivotForm) {
-                calculateButton.addEventListener('click', function() {
-                    const openInput = pivotForm.elements['open'].value.trim();
-                    const highInput = pivotForm.elements['high'].value.trim();
-                    const lowInput = pivotForm.elements['low'].value.trim();
-                    const closeInput = pivotForm.elements['close'].value.trim();
 
-                    if (
-                        openInput === '' ||
-                        highInput === '' ||
-                        lowInput === '' ||
-                        closeInput === ''
-                    ) {
-                        alert('Silakan isi semua harga terlebih dahulu.');
-                        return;
-                    }
+        tabs.forEach(function(tab, index) {
+            tab.addEventListener('click', function() {
+                activateTab(tab.dataset.target);
+            });
 
-                    const open = Number(openInput);
-                    const high = Number(highInput);
-                    const low = Number(lowInput);
-                    const close = Number(closeInput);
+            tab.addEventListener('keydown', function(event) {
+                if (
+                    event.key === 'ArrowRight' ||
+                    event.key === 'ArrowLeft'
+                ) {
+                    event.preventDefault();
 
-                    if (![open, high, low, close].every(Number.isFinite)) {
-                        alert('Harga harus berupa angka yang valid.');
-                        return;
-                    }
+                    const direction =
+                        event.key === 'ArrowRight' ? 1 : -1;
 
-                    if (
-                        low <= 0 ||
-                        high < low ||
-                        open <= 0 ||
-                        close <= 0 ||
-                        open < low ||
-                        open > high ||
-                        close < low ||
-                        close > high
-                    ) {
-                        alert(
-                            'Periksa kembali harga. Tinggi harus lebih besar atau sama dengan Rendah, dan harga Buka serta Tutup harus berada di antara keduanya.'
-                        );
-                        return;
-                    }
+                    const nextIndex =
+                        (index + direction + tabs.length) % tabs.length;
 
-                    const range = high - low;
-
-                    // Metode Klasik
-                    const classicP = (high + low + close) / 3;
-
-                    const classic = {
-                        pivot: classicP,
-                        r1: (2 * classicP) - low,
-                        r2: classicP + range,
-                        r3: high + (2 * (classicP - low)),
-                        r4: high + (3 * (classicP - low)),
-                        s1: (2 * classicP) - high,
-                        s2: classicP - range,
-                        s3: low - (2 * (high - classicP)),
-                        s4: low - (3 * (high - classicP))
-                    };
-
-                    // Metode Woodie
-                    const woodieP = (high + low + (2 * close)) / 4;
-
-                    const woodie = {
-                        pivot: woodieP,
-                        r1: (2 * woodieP) - low,
-                        r2: woodieP + range,
-                        r3: high + (2 * (woodieP - low)),
-                        r4: high + (3 * (woodieP - low)),
-                        s1: (2 * woodieP) - high,
-                        s2: woodieP - range,
-                        s3: low - (2 * (high - woodieP)),
-                        s4: low - (3 * (high - woodieP))
-                    };
-
-                    // Metode Camarilla
-                    const camarilla = {
-                        pivot: close,
-                        r1: close + (range * 1.1 / 12),
-                        r2: close + (range * 1.1 / 6),
-                        r3: close + (range * 1.1 / 4),
-                        r4: close + (range * 1.1 / 2),
-                        s1: close - (range * 1.1 / 12),
-                        s2: close - (range * 1.1 / 6),
-                        s3: close - (range * 1.1 / 4),
-                        s4: close - (range * 1.1 / 2)
-                    };
-
-                    // Format angka Indonesia
-                    const formatPrice = function(value) {
-                        return new Intl.NumberFormat('id-ID', {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2
-                        }).format(value);
-                    };
-
-                    // Masukkan hasil ke tabel
-                    const levels = [
-                        'r4', 'r3', 'r2', 'r1', 'pivot',
-                        's1', 's2', 's3', 's4'
-                    ];
-
-                    levels.forEach(function(level) {
-                        const classicCell =
-                            page.querySelector('#classic-' + level);
-                        const woodieCell =
-                            page.querySelector('#woodie-' + level);
-                        const camarillaCell =
-                            page.querySelector('#camarilla-' + level);
-
-                        if (classicCell) {
-                            classicCell.textContent =
-                                formatPrice(classic[level]);
-                        }
-
-                        if (woodieCell) {
-                            woodieCell.textContent =
-                                formatPrice(woodie[level]);
-                        }
-
-                        if (camarillaCell) {
-                            camarillaCell.textContent =
-                                formatPrice(camarilla[level]);
-                        }
-                    });
-                });
-            }
-
+                    tabs[nextIndex].focus();
+                    activateTab(tabs[nextIndex].dataset.target);
+                }
+            });
         });
-    </script>
+
+
+        // ============================================= PIVOT CALCULATION =============================================
+
+        const calculateButton = page.querySelector('#pf-calculate');
+        const pivotForm = page.querySelector('#pf-pivot-form');
+
+        if (calculateButton && pivotForm) {
+
+            calculateButton.addEventListener('click', function() {
+
+                const openInput = pivotForm.elements['open'].value.trim();
+                const highInput = pivotForm.elements['high'].value.trim();
+                const lowInput = pivotForm.elements['low'].value.trim();
+                const closeInput = pivotForm.elements['close'].value.trim();
+
+                if (
+                    openInput === '' ||
+                    highInput === '' ||
+                    lowInput === '' ||
+                    closeInput === ''
+                ) {
+                    alert('Silakan isi semua harga terlebih dahulu.');
+                    return;
+                }
+
+                const open = Number(openInput);
+                const high = Number(highInput);
+                const low = Number(lowInput);
+                const close = Number(closeInput);
+
+                if (![open, high, low, close].every(Number.isFinite)) {
+                    alert('Harga harus berupa angka yang valid.');
+                    return;
+                }
+
+                if (
+                    low <= 0 ||
+                    high < low ||
+                    open <= 0 ||
+                    close <= 0 ||
+                    open < low ||
+                    open > high ||
+                    close < low ||
+                    close > high
+                ) {
+                    alert(
+                        'Periksa kembali harga. Tinggi harus lebih besar atau sama dengan Rendah, dan harga Buka serta Tutup harus berada di antara keduanya.'
+                    );
+                    return;
+                }
+
+                const range = high - low;
+
+                // METODE KLASIK
+                const classicP = (high + low + close) / 3;
+
+                const classic = {
+                    pivot: classicP,
+                    r1: (2 * classicP) - low,
+                    r2: classicP + range,
+                    r3: high + (2 * (classicP - low)),
+                    r4: high + (3 * (classicP - low)),
+                    s1: (2 * classicP) - high,
+                    s2: classicP - range,
+                    s3: low - (2 * (high - classicP)),
+                    s4: low - (3 * (high - classicP))
+                };
+
+                // METODE WOODIE
+                const woodieP = (high + low + (2 * close)) / 4;
+
+                const woodie = {
+                    pivot: woodieP,
+                    r1: (2 * woodieP) - low,
+                    r2: woodieP + range,
+                    r3: high + (2 * (woodieP - low)),
+                    r4: high + (3 * (woodieP - low)),
+                    s1: (2 * woodieP) - high,
+                    s2: woodieP - range,
+                    s3: low - (2 * (high - woodieP)),
+                    s4: low - (3 * (high - woodieP))
+                };
+
+                // METODE CAMARILLA
+                const camarilla = {
+                    pivot: close,
+                    r1: close + (range * 1.1 / 12),
+                    r2: close + (range * 1.1 / 6),
+                    r3: close + (range * 1.1 / 4),
+                    r4: close + (range * 1.1 / 2),
+                    s1: close - (range * 1.1 / 12),
+                    s2: close - (range * 1.1 / 6),
+                    s3: close - (range * 1.1 / 4),
+                    s4: close - (range * 1.1 / 2)
+                };
+
+                // FORMAT ANGKA INDONESIA
+                const formatPrice = function(value) {
+                    return new Intl.NumberFormat('id-ID', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }).format(value);
+                };
+
+                // MASUKKAN HASIL KE TABEL PIVOT
+                const levels = [
+                    'r4', 'r3', 'r2', 'r1', 'pivot',
+                    's1', 's2', 's3', 's4'
+                ];
+
+                levels.forEach(function(level) {
+
+                    const classicCell =
+                        page.querySelector('#classic-' + level);
+
+                    const woodieCell =
+                        page.querySelector('#woodie-' + level);
+
+                    const camarillaCell =
+                        page.querySelector('#camarilla-' + level);
+
+                    if (classicCell) {
+                        classicCell.textContent =
+                            formatPrice(classic[level]);
+                    }
+
+                    if (woodieCell) {
+                        woodieCell.textContent =
+                            formatPrice(woodie[level]);
+                    }
+
+                    if (camarillaCell) {
+                        camarillaCell.textContent =
+                            formatPrice(camarilla[level]);
+                    }
+
+                });
+
+            });
+
+        }
+
+
+        // ============================================= FIBONACCI RETRACEMENT =============================================
+
+        const fibForm = page.querySelector('#pf-fib-form');
+        const fibHighInput = page.querySelector('#pf-fib-high');
+        const fibLowInput = page.querySelector('#pf-fib-low');
+        const fibBody = page.querySelector('#pf-fib-body');
+
+        if (fibForm && fibHighInput && fibLowInput && fibBody) {
+
+            fibForm.addEventListener('submit', function(event) {
+
+                event.preventDefault();
+
+                // AMBIL NILAI HIGH DAN LOW
+                const highValue = fibHighInput.value.trim();
+                const lowValue = fibLowInput.value.trim();
+
+                // VALIDASI INPUT KOSONG
+                if (highValue === '' || lowValue === '') {
+                    alert(
+                        'Silakan masukkan harga tertinggi dan terendah.'
+                    );
+                    return;
+                }
+
+                const high = Number(highValue);
+                const low = Number(lowValue);
+
+                // VALIDASI ANGKA
+                if (
+                    !Number.isFinite(high) ||
+                    !Number.isFinite(low) ||
+                    high <= 0 ||
+                    low <= 0 ||
+                    high <= low
+                ) {
+                    alert(
+                        'Harga High harus lebih besar daripada harga Low.'
+                    );
+                    return;
+                }
+
+                // HITUNG SELISIH HARGA
+                const range = high - low;
+
+                // LEVEL FIBONACCI
+                const fibLevels = [
+                    { level: 0, percentage: 0 },
+                    { level: 1, percentage: 0.236 },
+                    { level: 2, percentage: 0.382 },
+                    { level: 3, percentage: 0.500 },
+                    { level: 4, percentage: 0.618 },
+                    { level: 5, percentage: 0.786 },
+                    { level: 6, percentage: 1 }
+                ];
+
+                // FORMAT ANGKA INDONESIA
+                const formatPrice = function(value) {
+                    return new Intl.NumberFormat('id-ID', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }).format(value);
+                };
+
+                const formatPercentage = function(value) {
+                    return new Intl.NumberFormat('id-ID', {
+                        maximumFractionDigits: 1
+                    }).format(value * 100) + '%';
+                };
+
+                // BERSIHKAN TABEL SEBELUMNYA
+                fibBody.innerHTML = '';
+
+                // TAMPILKAN HASIL PERHITUNGAN
+                fibLevels.forEach(function(item) {
+
+                    // RUMUS FIBONACCI RETRACEMENT
+                    const price =
+                        high - (range * item.percentage);
+
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${item.level}</td>
+                        <td>${formatPercentage(item.percentage)}</td>
+                        <td>${formatPrice(price)}</td>
+                    `;
+
+                    fibBody.appendChild(row);
+
+                });
+
+            });
+
+        }
+
+    });
+</script>
 
 @endsection
